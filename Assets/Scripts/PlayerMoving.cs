@@ -83,7 +83,6 @@ public class PlayerMoving : MonoBehaviour
 
         await UniTask.Delay(TimeSpan.FromSeconds(2.7f), cancellationToken: _attackToken.Token);
 
-        _rb.AddForce(Vector3.down * 15f, ForceMode.Impulse);
         _isAttack = false;
     }
 
