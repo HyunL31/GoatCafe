@@ -1,8 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class SaveManager : BaseMonoManager<SaveManager>
 {
+    public Action OnSaveClear;
+
     private string GetPath(int slotIndex)
     {
         return Path.Combine(Application.persistentDataPath, $"GOAT{slotIndex}.json");
