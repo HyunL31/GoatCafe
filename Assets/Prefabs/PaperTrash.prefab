@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5378107478941836210}
   - component: {fileID: 6641705809701503167}
   - component: {fileID: 8977182772319014584}
-  - component: {fileID: 4826652647227299070}
+  - component: {fileID: 1937007505512428887}
   m_Layer: 5
   m_Name: PaperTrash
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4826652647227299070
+--- !u!114 &1937007505512428887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,3 +88,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71542cb25122d8c47b2c6eb575a41631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
+  trashType: 0

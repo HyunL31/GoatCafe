@@ -21,7 +21,7 @@ public class MiniGameManager : MonoBehaviour
             NightMiniGamePanel.SetActive(false);
         }
         */
-
+        GameStart();
     }
 
     // Update is called once per frame
