@@ -87,6 +87,8 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         _agent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
         _agent.speed = moveSpeed;
+
+        SetState(CustomerState.Walking);
     }
 
     public void SetInventory(List<ItemData> items)
@@ -111,15 +113,15 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
                 break;
             case CustomerState.Idle:
                 _agent.isStopped = true;
-                _anim.SetFloat(HashSpeed, 0f);
+                if (_anim != null) _anim.SetFloat(HashSpeed, 0f);
                 break;
             case CustomerState.Hit:
                 _agent.isStopped = true;
-                _anim.SetTrigger(HashHit);
+                if (_anim != null)  _anim.SetTrigger(HashHit);
                 break;
             case CustomerState.Detected:
                 _agent.isStopped = true;
-                _anim.SetTrigger(HashReact);
+                if (_anim != null)  _anim.SetTrigger(HashReact);
                 WaitAndReturnToWalkAsync(2f, CustomerState.Detected).Forget();
                 break;
         }
@@ -137,7 +139,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     {
         if (State != CustomerState.Walking) return;
 
-        _anim.SetFloat(HashSpeed, _agent.velocity.magnitude);
+        if (_anim != null)  _anim.SetFloat(HashSpeed, _agent.velocity.magnitude);
 
         if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
             IdleThenMoveAsync().Forget();
