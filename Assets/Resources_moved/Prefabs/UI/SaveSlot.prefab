@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1853645148126276155}
+  - component: {fileID: 2016742577497060697}
   m_Layer: 5
   m_Name: SaveSlot
   m_TagString: Untagged
@@ -37,6 +38,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 853.8, y: 213.212}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2016742577497060697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800006371181934840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca41342d2e221a34e9b99191e1da98f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSlot
 --- !u!1 &6269307107243255174
 GameObject:
   m_ObjectHideFlags: 0

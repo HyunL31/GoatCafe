@@ -11,55 +11,55 @@ public class SaveUI : BaseUI
 
     private HashSet<int> _slotID = new HashSet<int>();
 
-    //private void Awake()
-    //{
-    //    Button_Close.onClick.AddListener(OnClickClose);
+    private void Awake()
+    {
+        Button_Close.onClick.AddListener(OnClickClose);
 
-    //    SaveManager.Instance.OnSaveClear = ClearSaveSlot;
-    //}
+        SaveManager.Instance.OnSaveClear = ClearSaveSlot;
+    }
 
-    //private void OnEnable()
-    //{
-    //    foreach (Transform child in Transform_SlotParent)
-    //    {
-    //        Destroy(child.gameObject);
-    //    }
+    private void OnEnable()
+    {
+        foreach (Transform child in Transform_SlotParent)
+        {
+            Destroy(child.gameObject);
+        }
 
-    //    _slotID.Clear();
+        _slotID.Clear();
 
-    //    RefreshSlot().Forget();
-    //}
+        RefreshSlot().Forget();
+    }
 
-    //private async UniTask RefreshSlot()
-    //{
-    //    ClearSaveSlot();
+    private async UniTask RefreshSlot()
+    {
+        ClearSaveSlot();
 
-    //    foreach(int i in GameManager.Instance.SlotIndex)
-    //    {
-    //        if (_slotID.Contains(i))
-    //        {
-    //            continue;
-    //        }
+        foreach (int i in GameManager.Instance.SlotIndex)
+        {
+            if (_slotID.Contains(i))
+            {
+                continue;
+            }
 
-    //        GameObject prefab = await LoadUtil.Async.LoadPrefabAsync("Prefabs/UI/SaveSlot");
-    //        SaveSlot saveSlot = prefab.GetComponent<SaveSlot>();
-    //        saveSlot.InitSlot(i);
+            GameObject prefab = await LoadUtil.Async.LoadPrefabAsync("Prefabs/UI/SaveSlot");
+            SaveSlot saveSlot = prefab.GetComponent<SaveSlot>();
+            saveSlot.InitSlot(i);
 
-    //        _slotID.Add(i);
-    //    }
-    //}
+            _slotID.Add(i);
+        }
+    }
 
-    //private void ClearSaveSlot()
-    //{ 
-    //    if (GameManager.Instance.SlotIndex.Count == 0)
-    //    {
-    //        GameObject_InfoText.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        GameObject_InfoText.SetActive(false);
-    //    }
-    //}
+    private void ClearSaveSlot()
+    {
+        if (GameManager.Instance.SlotIndex.Count == 0)
+        {
+            GameObject_InfoText.SetActive(true);
+        }
+        else
+        {
+            GameObject_InfoText.SetActive(false);
+        }
+    }
 
     private void OnClickClose()
     {

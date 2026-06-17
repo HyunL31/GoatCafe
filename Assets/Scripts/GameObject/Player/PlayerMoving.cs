@@ -17,10 +17,17 @@ public class PlayerMoving : MonoBehaviour
     private bool _isAttack = false;
     private CancellationTokenSource _attackToken;
 
+    private int _stamina;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _stamina = GameManager.Instance.PlayerModel.Stamina;
     }
 
     private void Update()
@@ -28,8 +35,9 @@ public class PlayerMoving : MonoBehaviour
         _inputZ = Input.GetAxisRaw("Vertical");
         _inputX = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _stamina >= 10)
         {
+            _stamina -= 10;
             AttackRoutine().Forget();
         }
     }
@@ -93,6 +101,23 @@ public class PlayerMoving : MonoBehaviour
             _attackToken.Cancel();
             _attackToken?.Dispose();
             _attackToken = null;
+        }
+    }
+
+    private void AddGoatStamina(int value)
+    {
+        _stamina += value;
+    }
+
+    private void AddGoatSpeed(int value, bool isRun)
+    {
+        if (isRun)
+        {
+            _runSpeed += value;
+        }
+        else
+        {
+            _walkSpeed += value;
         }
     }
 }

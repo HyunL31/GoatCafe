@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -42,6 +41,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
 
         newPlayerData.Day = 1;
         newPlayerData.Gold = 0;
+        newPlayerData.Stamina = 100;
 
         return newPlayerData;
     }
