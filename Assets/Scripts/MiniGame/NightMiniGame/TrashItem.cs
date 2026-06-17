@@ -6,6 +6,7 @@ public enum TrashType
     Plastic
 }
 
+
 public class TrashItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 // IBeginDragHandler -> 드래그 시작 감지
 // IDragHandler -> 드래그 중 감지
@@ -14,8 +15,22 @@ public class TrashItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private RectTransform rectTransform;
     private Canvas canvas;
     private CanvasGroup canvasGroup;
-    [SerializeField] private TrashType trashType;
-    public ZoneType CurrentZone { get; set; }
+    [SerializeField] private TrashType trashtype;
+    public TrashType TrashType
+    {
+        get { return trashtype; }
+        set { trashtype = value; }
+    }
+
+
+    [SerializeField] private ZoneType currentzone;
+    public ZoneType CurrentZone
+    {
+        get { return currentzone; }
+        set { currentzone = value; }
+    }
+
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -40,7 +55,7 @@ public class TrashItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         transform.SetAsLastSibling();
         canvasGroup.blocksRaycasts = false;
 
-        Debug.Log($"{gameObject.name} 드래그 시작 / 타입: {trashType}");
+        Debug.Log($"{gameObject.name} 드래그 시작 / 타입: {TrashType}");
     }
 
     public void OnDrag(PointerEventData eventData)

@@ -9,10 +9,12 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] GameObject PlasticTrashPrefab;
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
+    [SerializeField] private TrashItem trashitem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        score = 0;
         /*
         isGame = false;
 
@@ -83,13 +85,25 @@ public class MiniGameManager : MonoBehaviour
 
     public void CheckResult()
     {
-        /*
-         * 정리 버튼에서 호출
-         * 모든 TrashItem을 검사
-         * 올바른 구역이면 +점수
-         * 틀린 구역이면 -점수
-         * StartZone에 남아있으면 -점수
-         */
+        /* 버튼 IF문 있어야함 */
+
+        for(int i = 0; i < trashParent.childCount; i++)
+        {
+            if (trashitem.TrashType == TrashType.Paper && trashitem.CurrentZone == ZoneType.Paper)
+            {
+                score += 10;
+            }
+
+            else if (trashitem.TrashType == TrashType.Plastic && trashitem.CurrentZone == ZoneType.Plastic)
+            {
+                score += 10;
+            }
+
+            else
+            {
+                return;
+            }
+        }
 
         Debug.Log("최종 점수: " + score);
         CloseMiniGame();
