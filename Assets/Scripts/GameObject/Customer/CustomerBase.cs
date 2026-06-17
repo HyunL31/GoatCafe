@@ -1,16 +1,203 @@
 ﻿using UnityEngine;
+using System;
+using System.Collections.Generic;
+using UnityEngine.AI;
+using Cysharp.Threading.Tasks;
 
-public class CustomerBase : MonoBehaviour
+
+public class CustomerHitEvent
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public CustomerBase Customer { get; private set; }
+    public CustomerType Type { get; private set; }
+    public int ScoreChange { get; private set; }
+
+    public CustomerHitEvent(CustomerBase customer, CustomerType type, int scoreChange)
     {
-        
+        Customer = customer;
+        Type = type;
+        ScoreChange = scoreChange;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static event Action<CustomerHitEvent> OnHitResolved;
+
+    public static void Invoke(CustomerHitEvent e)
     {
-        
+        if (OnHitResolved != null)
+        {
+            OnHitResolved(e);
+        }
     }
 }
+
+public class StealDetectedEvent
+{
+    public CustomerBase Detector { get; private set; }
+
+    public StealDetectedEvent(CustomerBase detector)
+    {
+        Detector = detector;
+    }
+
+
+    public static event Action<StealDetectedEvent> OnDetected;
+
+    public static void Invoke(StealDetectedEvent e)
+    {
+        if (OnDetected != null)
+        {
+            OnDetected(e);
+        }
+    }
+}
+
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Collider))]
+public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
+{
+    public CustomerType Type { get; private set; }
+    public CustomerRace Race { get; private set; }
+    public CustomerState State { get; private set; }
+
+    protected NavMeshAgent _agent;
+    protected List<Transform> _waypoints = new List<Transform>();
+    private int _waypointIndex;
+
+    private float _detectionRange;
+    private float _detectionAngle;
+
+    private List<ItemData> _inventory = new List<ItemData>();
+
+    protected Animator _anim;
+
+    private static readonly int HashSpeed = Animator.StringToHash("Speed");
+    private static readonly int HashHit = Animator.StringToHash("Hit");
+    private static readonly int HashReact = Animator.StringToHash("React");
+
+
+    public void Initialize(CustomerType type, CustomerRace race, float moveSpeed, float detectionRange, float detectionAngle, List<Transform> waypointList)
+    {
+        Type = type;
+        Race = race;
+
+        _detectionRange = detectionRange;
+        _detectionAngle = detectionAngle;
+        _waypoints = waypointList;
+
+        _agent = GetComponent<NavMeshAgent>();
+        _anim = GetComponent<Animator>();
+        _agent.speed = moveSpeed;
+    }
+
+    public void SetInventory(List<ItemData> items)
+    {
+        _inventory = new List<ItemData>(items);
+    }
+
+    protected void SetState(CustomerState newState)
+    {
+        if (State == newState) return;
+        State = newState;
+        OnStateChanged(newState);
+    }
+
+    protected virtual void OnStateChanged(CustomerState newState)
+    {
+        switch (newState)
+        {
+            case CustomerState.Walking:
+                _agent.isStopped = false;
+                MoveToNextWaypoint();
+                break;
+            case CustomerState.Idle:
+                _agent.isStopped = true;
+                _anim.SetFloat(HashSpeed, 0f);
+                break;
+            case CustomerState.Hit:
+                _agent.isStopped = true;
+                _anim.SetTrigger(HashHit);
+                break;
+            case CustomerState.Detected:
+                _agent.isStopped = true;
+                _anim.SetTrigger(HashReact);
+                WaitAndReturnToWalkAsync(2f, CustomerState.Detected).Forget();
+                break;
+        }
+    }
+
+    private void MoveToNextWaypoint()
+    {
+        if (_waypoints == null || _waypoints.Count == 0) return;
+
+        _waypointIndex = UnityEngine.Random.Range(0, _waypoints.Count);
+        _agent.SetDestination(_waypoints[_waypointIndex].position);
+    }
+
+    protected virtual void Update()
+    {
+        if (State != CustomerState.Walking) return;
+
+        _anim.SetFloat(HashSpeed, _agent.velocity.magnitude);
+
+        if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
+            IdleThenMoveAsync().Forget();
+    }
+
+    private async UniTaskVoid IdleThenMoveAsync()
+    {
+        SetState(CustomerState.Idle);
+        await UniTask.WaitForSeconds(UnityEngine.Random.Range(1f, 3f), cancellationToken: this.GetCancellationTokenOnDestroy());
+        if (State == CustomerState.Idle)
+            SetState(CustomerState.Walking);
+    }
+
+    private async UniTaskVoid WaitAndReturnToWalkAsync(float seconds, CustomerState waitingState)
+    {
+        await UniTask.WaitForSeconds(seconds, cancellationToken: this.GetCancellationTokenOnDestroy());
+        if (State == waitingState)
+            SetState(CustomerState.Walking);
+    }
+
+    //ihittable
+    public void OnHit() 
+    {
+        if (State == CustomerState.Hit) return;
+        SetState(CustomerState.Hit);
+    }
+
+    //istealable
+    public List<ItemData> GetStealableItems()
+    {
+        return new List<ItemData>(_inventory);
+    }
+
+    public void OnItemStolen(ItemData item)
+    {
+        _inventory.Remove(item);
+    }
+
+    //도둑질 부분 (감지)
+    public bool TryDetectGoat(Transform goat)
+    {
+        if (State == CustomerState.Hit) return false;
+
+        Vector3 dir = goat.position - transform.position;
+        if (dir.magnitude > _detectionRange) return false;
+
+        float angle = Vector3.Angle(transform.forward, dir);
+        if (angle > _detectionAngle * 0.5f) return false;
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up, dir.normalized, out hit, _detectionRange))
+        {
+            if (hit.transform != goat) return false;
+        }
+
+        SetState(CustomerState.Detected);
+        StealDetectedEvent.Invoke(new StealDetectedEvent(this));
+        return true;
+    }
+
+    protected abstract int GetScoreChange();
+}
+
