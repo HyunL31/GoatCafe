@@ -26,15 +26,15 @@ public partial class UIManager : BaseMonoManager<UIManager>
     [SerializeField] private Canvas FrontCanvas;
     [SerializeField] private Canvas ETCCanvas;
 
-    private Dictionary<UIType, BaseUI> m_uiDic = new();
+    private Dictionary<UIType, BaseUI> _uiDic = new();
 
-    private HashSet<UIType> m_activeUI = new();
-    private HashSet<UIRootType> m_activeCanvas = new();
+    private HashSet<UIType> _activeUI = new();
+    private HashSet<UIRootType> _activeCanvas = new();
 
 
     public T CreateUI<T>(UIType uiType) where T : BaseUI<T>
     {
-        if (m_uiDic.TryGetValue(uiType, out BaseUI baseUI))
+        if (_uiDic.TryGetValue(uiType, out BaseUI baseUI))
         {
             return baseUI as T;
         }
@@ -72,14 +72,14 @@ public partial class UIManager : BaseMonoManager<UIManager>
         }
 
         newBaseUI.ActiveFalse();
-        m_uiDic.Add(uiType, newBaseUI);
+        _uiDic.Add(uiType, newBaseUI);
         return newBaseUI;
     }
 
     public async UniTask<T> CreateUIAsync<T>(UIType uiType) where T : BaseUI<T>
     {
 
-        if (m_uiDic.TryGetValue(uiType, out BaseUI baseUI))
+        if (_uiDic.TryGetValue(uiType, out BaseUI baseUI))
         {
             return baseUI as T;
         }
@@ -117,27 +117,27 @@ public partial class UIManager : BaseMonoManager<UIManager>
         }
 
         newBaseUI.ActiveFalse();
-        m_uiDic.Add(uiType, newBaseUI);
+        _uiDic.Add(uiType, newBaseUI);
         return newBaseUI;
     }
 
     public void CloseUI(UIType uiType)
     {
-        if (m_activeUI.Contains(uiType) == false)
+        if (_activeUI.Contains(uiType) == false)
         {
             this.LogWarning($"{uiType}의 UI는 열려있지 않습니다!!");
             return;
         }
 
-        if (m_uiDic.TryGetValue(uiType, out BaseUI baseUI) == false)
+        if (_uiDic.TryGetValue(uiType, out BaseUI baseUI) == false)
         {
             this.LogError($"{uiType}의 UI를 찾을 수 없습니다!!");
             return;
         }
 
         baseUI.ActiveFalse();
-        m_activeUI.Remove(uiType);
-        m_activeCanvas.Remove(GetUIRootType(uiType));
+        _activeUI.Remove(uiType);
+        _activeCanvas.Remove(GetUIRootType(uiType));
     }
 
     private string GetAddress(UIType uiType)
