@@ -39,6 +39,11 @@ public static class LoadUtil
             return prefab;
         }
 
+        public static TextAsset LoadTextAsset(string address)
+        {
+            TextAsset textAsset = LoadGeneric<TextAsset>(address);
+            return textAsset;
+        }
 
         public static T LoadGeneric<T>(string address) where T : Object
         {
