@@ -17,6 +17,7 @@ public class JerkCustomer : CustomerBase
         if (newState == CustomerState.Reacting)
         {
             _agent.isStopped = true;
+            if (_anim != null) _anim.SetTrigger(HashReact);
             StartReacting();
             return;
         }

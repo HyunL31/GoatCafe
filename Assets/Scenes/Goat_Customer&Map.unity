@@ -193,6 +193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Customer_Prefab_Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 2039540486423942286, guid: b5657db179e151142bfeafdb9853eb8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2189059898498754190, guid: b5657db179e151142bfeafdb9853eb8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.27
@@ -289,6 +293,10 @@ PrefabInstance:
     - target: {fileID: 1852581026425598917, guid: 30094d6b3680b994c81d0e418392825c, type: 3}
       propertyPath: m_Name
       value: Customer_Prefab_Jerk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852581026425598917, guid: 30094d6b3680b994c81d0e418392825c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
