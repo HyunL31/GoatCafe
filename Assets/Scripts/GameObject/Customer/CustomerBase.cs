@@ -89,6 +89,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         _agent.speed = moveSpeed;
 
         SetState(CustomerState.Walking);
+        OnInitialized();
     }
 
     public void SetInventory(List<ItemData> items)
@@ -201,5 +202,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     }
 
     protected abstract int GetScoreChange();
+
+    protected virtual void OnInitialized() { }
 }
 
