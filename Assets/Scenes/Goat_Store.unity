@@ -703,6 +703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dea27d48e4b83740852a7005ef18ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoving
+  Rigidbody_Goat: {fileID: 0}
+  Animator_Goat: {fileID: 0}
 --- !u!65 &1289488147
 BoxCollider:
   m_ObjectHideFlags: 0

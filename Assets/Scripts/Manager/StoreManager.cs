@@ -13,6 +13,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [SerializeField] private TextMeshProUGUI _coinText;
     [SerializeField] private Transform _contentParent;
 
+
     private void OnEnable()
     {
         _exitButton.onClick.AddListener(OnClickExitBtn);
@@ -64,10 +65,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
         UpdateStorePopup();
 
-        if (itemData is PermanentItem data)  // 일단은 영구적인 효과의 아이템만 구현
+        if (itemData is PermanentItem permanentData)  // 일단은 영구적인 효과의 아이템만 구현
         {
             button.interactable = false;
-            switch (data.effectType)
+            switch (permanentData.effectType)
             {
                 case EffectType.UpgradeHealth:
                     Debug.Log("UpgradeHealth 구매됨");
@@ -79,6 +80,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     Debug.Log("MiniGamePointDouble 구매됨");
                     break;
             }
+        }
+        if(itemData is ConsumableItem consumabledata)
+        {
+
         }
 
     }
