@@ -13,12 +13,12 @@ public class MainUI : BaseUI<MainUI>
 
     private Dictionary<Transform, BaseButton> MenuButtons = new();
 
-    public void SetBackgroundData(Sprite sprite_background)
+    public void SetBackground(Sprite sprite_background)
     {
         Image_Background.sprite = sprite_background;
     }
 
-    public void SetButtonData(int index, GameObject buttonPrefab, Sprite buttonSprite, string buttonText, Action buttonAction)
+    public void SetAndCreateButton(int index, GameObject buttonPrefab, Sprite buttonSprite, string buttonText, TMP_FontAsset buttonFontAsset, Action buttonAction)
     {
         if (index < 0 || index >= Transform_Buttons.Count)
         {
@@ -37,7 +37,7 @@ public class MainUI : BaseUI<MainUI>
             return;
         }
 
-        if (buttonComponent.SetButtonData(buttonSprite, buttonText, buttonAction) == false)
+        if (buttonComponent.SetButtonData(buttonSprite, buttonText, buttonFontAsset,  buttonAction) == false)
         {
             Destroy(buttonComponent.gameObject);
             return;
@@ -46,7 +46,7 @@ public class MainUI : BaseUI<MainUI>
         MenuButtons.Add(Transform_Buttons[index], buttonComponent);
     }
 
-    public void SetImageData(int index, Sprite imageSprite)
+    public void SetImage(int index, Sprite imageSprite)
     {
         if(index < 0 || index >= Images.Count)
         {
