@@ -33,6 +33,14 @@ public class CameraController : MonoBehaviour
             }
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (CursorManager.Instance != null)
+            {
+                CursorManager.Instance.LockCursor();
+            }
+        }
+
         if (Cursor.lockState != CursorLockMode.Locked) return;
 
         float mouseX = Input.GetAxis("Mouse X");

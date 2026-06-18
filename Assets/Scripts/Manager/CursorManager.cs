@@ -3,31 +3,35 @@ using UnityEngine;
 
 public class CursorManager : BaseMonoManager<CursorManager>
 {
-    [SerializeField] private Transform Transform_CursorRoot;
-
     private RectTransform RectTransform_Cursor;
     private Animator Animator_Cursor;
 
     protected override void Awake()
     {
         base.Awake();
-        //CreateCursor().Forget();
+        Cursor.visible = false;
+        CreateCursor().Forget();
     }
 
-    //private async UniTaskVoid CreateCursor()
-    //{
-    //    GameObject prefab = await LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.CursorUI);
+    private async UniTaskVoid CreateCursor()
+    {
+        GameObject prefab = await LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.CursorUI);
+        if (prefab == null) return;
 
-    //    if (prefab == null) return;
-    //    if (Transform_CursorRoot == null) return;
+        GameObject cursorObj = Instantiate(prefab);
+        Animator_Cursor = cursorObj.GetComponentInChildren<Animator>();
 
-    //    GameObject cursorObj = Instantiate(prefab, Transform_CursorRoot);
-    //    RectTransform_Cursor = cursorObj.GetComponent<RectTransform>();
-    //    Animator_Cursor = cursorObj.GetComponent<Animator>();
-    //}
+        if (Animator_Cursor != null)
+        {
+            RectTransform_Cursor = Animator_Cursor.GetComponent<RectTransform>();
+        }
+    }
 
     private void Update()
     {
+        if (Cursor.visible == true)
+            Cursor.visible = false;
+
         if (RectTransform_Cursor == null) return;
         if (Cursor.lockState == CursorLockMode.Locked) return;
 
@@ -39,12 +43,18 @@ public class CursorManager : BaseMonoManager<CursorManager>
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (RectTransform_Cursor != null)
+            RectTransform_Cursor.gameObject.SetActive(false);
     }
 
     public void UnlockCursor()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+
+        if (RectTransform_Cursor != null)
+            RectTransform_Cursor.gameObject.SetActive(true);
     }
 
     private void MoveCursor()
