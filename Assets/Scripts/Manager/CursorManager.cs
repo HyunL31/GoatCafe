@@ -16,8 +16,8 @@ public class CursorManager : BaseMonoManager<CursorManager>
     private async UniTaskVoid CreateCursor()
     {
         GameObject prefab = await LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.CursorUI);
-        if (prefab == null) return;
 
+        if (prefab == null) return;
         GameObject cursorObj = Instantiate(prefab);
         Animator_Cursor = cursorObj.GetComponentInChildren<Animator>();
 
@@ -29,9 +29,6 @@ public class CursorManager : BaseMonoManager<CursorManager>
 
     private void Update()
     {
-        if (Cursor.visible == true)
-            Cursor.visible = false;
-
         if (RectTransform_Cursor == null) return;
         if (Cursor.lockState == CursorLockMode.Locked) return;
 
