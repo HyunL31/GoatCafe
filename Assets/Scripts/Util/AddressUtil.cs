@@ -6,6 +6,8 @@
         {
             public const string BaseButton = "Prefab/UI/BaseButton";
             public const string MainMenuUI = "Prefab/UI/MainMenuUI";
+            public const string CursorUI = "Prefab/UI/CursorUI";
+
         }
     }
 
