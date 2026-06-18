@@ -16,8 +16,10 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        // 다른곳에서 만들어지면 지울 예정
-        Cursor.lockState = CursorLockMode.Locked;
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.LockCursor();
+        }
     }
 
     private void Update()
@@ -25,8 +27,13 @@ public class CameraController : MonoBehaviour
         // ESC 누르면 커서 풀기 (테스트용)
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Cursor.lockState = CursorLockMode.None;
+            if (CursorManager.Instance != null)
+            {
+                CursorManager.Instance.UnlockCursor();
+            }
         }
+
+        if (Cursor.lockState != CursorLockMode.Locked) return;
 
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
