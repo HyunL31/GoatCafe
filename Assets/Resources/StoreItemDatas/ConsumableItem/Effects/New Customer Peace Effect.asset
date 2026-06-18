@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: NewPermanentItem 1
-  m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
-  Price: 2000
-  Name: 'Speed UP '
-  Iconpath: "\u3147\u3145\u3147\u3145\u3147"
-  effectType: 1
+  m_Script: {fileID: 11500000, guid: 911fa20d147f8a04893357c4c83300c0, type: 3}
+  m_Name: New Customer Peace Effect
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerPeaceEffect
+  duration: 0

@@ -31,6 +31,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
             slotObj.GetComponent<StoreItemSlot>().Setup(item);
         }
+        foreach (var item in ItemDataBase.Instance.ConsumableList)
+        {
+            GameObject slotObj = Instantiate(_storeItems, _contentParent);
+
+            slotObj.GetComponent<StoreItemSlot>().Setup(item);
+        }
     }
 
     public void OnClickExitBtn()
@@ -56,11 +62,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
             // 코인이 부족하다는 메시지 띄우기
             return;
         }
-
+        UpdateStorePopup();
 
         if (itemData is PermanentItem data)  // 일단은 영구적인 효과의 아이템만 구현
         {
-            UpdateStorePopup();
             button.interactable = false;
             switch (data.effectType)
             {

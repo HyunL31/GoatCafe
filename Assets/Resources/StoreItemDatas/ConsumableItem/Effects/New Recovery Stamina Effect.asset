@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: NewPermanentItem 2
-  m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
-  Price: 3000
-  Name: Mini Game Double Point
-  Iconpath: "\u3147\u3145\u3147\u3145\u3147\u3145\u3147"
-  effectType: 2
+  m_Script: {fileID: 11500000, guid: 702aaddf351d05741a3212d35d07a146, type: 3}
+  m_Name: New Recovery Stamina Effect
+  m_EditorClassIdentifier: Assembly-CSharp::RecoveryStaminaEffect
+  recoveryAmount: 0
