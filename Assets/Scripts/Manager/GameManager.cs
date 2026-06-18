@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -71,8 +71,6 @@ public class GameManager : BaseMonoManager<GameManager>
 
         ChangeGameState(GameState.Ready);
     }
-
-
 
     // Playing 상태로 전환
     public void StartGame()

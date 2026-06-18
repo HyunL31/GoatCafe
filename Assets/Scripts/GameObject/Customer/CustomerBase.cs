@@ -62,6 +62,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     protected NavMeshAgent _agent;
     protected List<Transform> _waypoints = new List<Transform>();
     private int _waypointIndex;
+    private bool _isWaiting = false;
 
     private float _detectionRange;
     private float _detectionAngle;
@@ -72,7 +73,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
 
     private static readonly int HashSpeed = Animator.StringToHash("Speed");
     private static readonly int HashHit = Animator.StringToHash("Hit");
-    private static readonly int HashReact = Animator.StringToHash("React");
+    protected static readonly int HashReact = Animator.StringToHash("React");
 
 
     public void Initialize(CustomerType type, CustomerRace race, float moveSpeed, float detectionRange, float detectionAngle, List<Transform> waypointList)
@@ -89,6 +90,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         _agent.speed = moveSpeed;
 
         SetState(CustomerState.Walking);
+        OnInitialized();
     }
 
     public void SetInventory(List<ItemData> items)
@@ -133,6 +135,8 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
 
         _waypointIndex = UnityEngine.Random.Range(0, _waypoints.Count);
         _agent.SetDestination(_waypoints[_waypointIndex].position);
+
+        MoveTimeoutAsync().Forget();
     }
 
     protected virtual void Update()
@@ -141,16 +145,18 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
 
         if (_anim != null)  _anim.SetFloat(HashSpeed, _agent.velocity.magnitude);
 
-        if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
+        if (!_isWaiting && !_agent.pathPending && _agent.remainingDistance <= 0.5f)
             IdleThenMoveAsync().Forget();
     }
 
     private async UniTaskVoid IdleThenMoveAsync()
     {
+        _isWaiting = true;
         SetState(CustomerState.Idle);
         await UniTask.WaitForSeconds(UnityEngine.Random.Range(1f, 3f), cancellationToken: this.GetCancellationTokenOnDestroy());
         if (State == CustomerState.Idle)
             SetState(CustomerState.Walking);
+        _isWaiting = false;
     }
 
     private async UniTaskVoid WaitAndReturnToWalkAsync(float seconds, CustomerState waitingState)
@@ -158,6 +164,16 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         await UniTask.WaitForSeconds(seconds, cancellationToken: this.GetCancellationTokenOnDestroy());
         if (State == waitingState)
             SetState(CustomerState.Walking);
+    }
+
+    private async UniTaskVoid MoveTimeoutAsync()
+    {
+        await UniTask.WaitForSeconds(10f, cancellationToken: this.GetCancellationTokenOnDestroy());
+
+        if (State == CustomerState.Walking && _isWaiting == false)
+        {
+            MoveToNextWaypoint();
+        }
     }
 
     //ihittable
@@ -201,5 +217,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     }
 
     protected abstract int GetScoreChange();
+
+    protected virtual void OnInitialized() { }
 }
 
