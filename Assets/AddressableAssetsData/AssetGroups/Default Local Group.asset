@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 800ba93b5a898a5429d531c467d05be4
   m_SerializeEntries:
+  - m_GUID: 52b40332cadf17848b6e2e0a119c7b01
+    m_Address: Sprite/UI/SaveSlotPopup/SaveButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5fab232f46c76c4aa63b13d92a86e92
     m_Address: Prefabs/UI/SaveSlot
     m_ReadOnly: 0

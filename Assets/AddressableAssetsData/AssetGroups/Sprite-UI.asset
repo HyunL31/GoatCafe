@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sprite-UI
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Sprite-UI
+  m_GUID: 8b09cce8c09fdf54ab966f3292733917
+  m_SerializeEntries:
+  - m_GUID: 1e923b5e93120cb41a0a1369667b51f9
+    m_Address: Sprite/UI/ButtonOrange
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2add31b07ea91fa43b97d538ce6562bb
+    m_Address: Sprite/UI/ButtonBlue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 809a7aadc4cfbdf4fab2f0409a01d508
+    m_Address: Sprite/UI/ButtonRed
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9c53ce43ec9c2346b0baeb62f5baab8
+    m_Address: Sprite/UI/MainMenu/Menu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 043a16965a214cf459ab6d857c449aec, type: 2}
+    - {fileID: 11400000, guid: 937ed58d0e561ff47b5ef0e48f0d4b04, type: 2}

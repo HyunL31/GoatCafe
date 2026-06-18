@@ -11,7 +11,7 @@ public class BaseButton : MonoBehaviour
 
     [SerializeField] private bool IsText;
 
-    private Action _buttonEvent;
+    public event Action OnButtonClicked;
 
     public bool SetButtonData(Sprite buttonSprite, string buttonText, TMP_FontAsset buttonFontAsset, Action buttonCallback)
     {
@@ -104,7 +104,7 @@ public class BaseButton : MonoBehaviour
     private void SetEvent(Action buttonCallback)
     {
 
-        _buttonEvent = buttonCallback;
+        OnButtonClicked = buttonCallback;
         BindButtonEvent();
     }
 
@@ -122,6 +122,6 @@ public class BaseButton : MonoBehaviour
 
     private void OnClick_Button()
     {
-        _buttonEvent?.Invoke();
+        OnButtonClicked?.Invoke();
     }
 }

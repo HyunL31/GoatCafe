@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum UIType : byte
 {
-    MainMenuUI
+    MainMenuUI,
+    SaveSlotPopup,
 }
 
 public enum UIRootType : byte
@@ -125,7 +126,7 @@ public partial class UIManager : BaseMonoManager<UIManager>
     {
         if (_activeUI.Contains(uiType) == false)
         {
-            this.LogWarning($"{uiType}의 UI는 열려있지 않습니다!!");
+            this.LogError($"{uiType}의 UI는 열려있지 않습니다!!");
             return;
         }
 

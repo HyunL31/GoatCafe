@@ -15,7 +15,7 @@ public static class DataUtil
 
             public static class Key
             {
-                public const string Main = "Main";
+                public const string Main = "MainMenu_01";
             }
         }
     }

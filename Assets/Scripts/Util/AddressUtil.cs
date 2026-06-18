@@ -13,10 +13,23 @@
     {
         public static class UI
         {
+            public const string ButtonRed = "Sprite/UI/ButtonRed";
+            public const string ButtonOrange = "Sprite/UI/ButtonOrange";
+            public const string ButtonBlue = "Sprite/UI/ButtonBlue";
+
             public static class MainMenu
             {
                 public const string Background = "Sprite/UI/MainMenu/Background";
-                public const string MenuButton = "Sprite/UI/MainMenu/MenuButton";
+                public const string StartButton = ButtonRed;
+                public const string GameOptionButton = ButtonOrange;
+                public const string ExitGameButton = ButtonBlue;
+            }
+
+            public static class SaveSlotPopup
+            {
+                public const string Background = "Sprite/UI/SaveSlotPopup/Background";
+                public const string TitleImage = "Sprite/UI/SaveSlotPopup/TitleImage";
+                public const string SaveButton = "Sprite/UI/SaveSlotPopup/SaveButton";
             }
         }
     }

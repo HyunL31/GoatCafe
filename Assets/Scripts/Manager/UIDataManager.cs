@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Icons;
 
 public class UIDataManager : BaseMonoManager<UIDataManager>
 {
@@ -37,7 +38,8 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
 
     private Dictionary<string, T> LoadData<T>(string path) where T : UIDataBase
     {
-        TextAsset textAsset = LoadUtil.Sync.LoadTextAsset(path);
+        string resourcePath = $"Json/{path}";
+        TextAsset textAsset = LoadUtil.Sync.LoadTextAsset(resourcePath);
 
         if (textAsset == null)
         {
@@ -52,7 +54,7 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
             SerializableWrapper<T> wrapper = JsonUtility.FromJson<SerializableWrapper<T>>(wrapperData);
             if (wrapper.m_data != null)
             {
-                Debug.Log($"{path}의 데이터가 {wrapper.m_data.Count}만큼 로드 되었습니다!!");
+                Debug.Log($"{resourcePath}의 데이터가 {wrapper.m_data.Count}만큼 로드 되었습니다!!");
                 Dictionary<string, T> newDictionary = new(wrapper.m_data.Count);
                 foreach (T data in wrapper.m_data)
                 {
@@ -62,7 +64,7 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
             }
             else
             {
-                this.LogError($"{path}의 데이터가 없습니다 다시 확인해주세요!!");
+                this.LogError($"{resourcePath}의 데이터가 없습니다 다시 확인해주세요!!");
                 return null;
             }
         }
