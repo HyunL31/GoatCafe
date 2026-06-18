@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
+    [SerializeField] private Rigidbody Rigidbody_Goat;
+    [SerializeField] private Animator Animator_Goat;
+
     private float _inputZ;
     private float _inputX;
-
-    private Rigidbody _rb;
-    private Animator _anim;
 
     private float _walkSpeed = 3f;
     private float _runSpeed = 5f;
@@ -17,18 +17,12 @@ public class PlayerMoving : MonoBehaviour
     private bool _isAttack = false;
     private CancellationTokenSource _attackToken;
 
-    private int _stamina;
+    private int _stamina = 100;
 
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody>();
-        _anim = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        _stamina = GameManager.Instance.PlayerModel.Stamina;
-    }
+    //private void Start()
+    //{
+    //    _stamina = GameManager.Instance.PlayerModel.Stamina;
+    //}
 
     private void Update()
     {
@@ -58,9 +52,9 @@ public class PlayerMoving : MonoBehaviour
 
         if (_inputZ == 0 && _inputX == 0)
         {
-            _rb.linearVelocity = Vector3.zero;
-            _anim.SetBool("Walk", false);
-            _anim.SetBool("Run", false);
+            Rigidbody_Goat.linearVelocity = Vector3.zero;
+            Animator_Goat.SetBool("Walk", false);
+            Animator_Goat.SetBool("Run", false);
 
             return;
         }
@@ -69,10 +63,10 @@ public class PlayerMoving : MonoBehaviour
         float moveSpeed = isRunning ? _runSpeed : _walkSpeed;
 
         Vector3 moveDirection = new Vector3(_inputX, 0, inputZ).normalized;
-        _rb.linearVelocity = moveDirection * moveSpeed;
+        Rigidbody_Goat.linearVelocity = moveDirection * moveSpeed;
 
-        _anim.SetBool("Walk", !isRunning);
-        _anim.SetBool("Run", isRunning);
+        Animator_Goat.SetBool("Walk", !isRunning);
+        Animator_Goat.SetBool("Run", isRunning);
     }
 
     private void RotateDirection()
@@ -87,7 +81,7 @@ public class PlayerMoving : MonoBehaviour
 
         _isAttack = true;
 
-        _anim.SetTrigger("Attack");
+        Animator_Goat.SetTrigger("Attack");
 
         await UniTask.Delay(TimeSpan.FromSeconds(2.7f), cancellationToken: _attackToken.Token);
 
