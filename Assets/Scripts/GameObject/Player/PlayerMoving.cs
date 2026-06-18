@@ -1,6 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using System;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
@@ -17,12 +19,15 @@ public class PlayerMoving : MonoBehaviour
     private bool _isAttack = false;
     private CancellationTokenSource _attackToken;
 
+    private Camera _camera;
+
     private int _stamina = 100;
 
-    //private void Start()
-    //{
-    //    _stamina = GameManager.Instance.PlayerModel.Stamina;
-    //}
+    private void Start()
+    {
+        _stamina = GameManager.Instance.PlayerModel.Stamina;
+        _camera = Camera.main;
+    }
 
     private void Update()
     {
@@ -71,7 +76,8 @@ public class PlayerMoving : MonoBehaviour
 
     private void RotateDirection()
     {
-        
+        float targetRotation = _camera.transform.eulerAngles.y;
+        transform.rotation = Quaternion.Euler(0, targetRotation, 0);
     }
 
     private async UniTask AttackRoutine()
