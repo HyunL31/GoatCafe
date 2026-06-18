@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 public static class LoadUtil
@@ -15,6 +16,12 @@ public static class LoadUtil
         {
             GameObject prefab = await LoadGenericAsync<GameObject>(address);
             return prefab;
+        }
+
+        public async static UniTask<TMP_FontAsset> LoadFontAssetAsync(string address)
+        {
+            TMP_FontAsset fontAsset = await LoadGenericAsync<TMP_FontAsset>(address);
+            return fontAsset;
         }
 
         public async static UniTask<T> LoadGenericAsync<T>(string address) where T : Object
