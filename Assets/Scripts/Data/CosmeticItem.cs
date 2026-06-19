@@ -4,5 +4,7 @@
 public class CosmeticItem : ItemBase
 {
 
-    // 치장 관련 변수 적기
+    public CosmeticType type;
+
+
 }
