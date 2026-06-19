@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_0"
+      name: Trash_0
       rect:
         serializedVersion: 2
-        x: 165
+        x: 166
         y: 533
-        width: 271
-        height: 311
+        width: 270
+        height: 306
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88a580bb29f9053439db0ab0c3319e7b
-      internalID: -807152239
+      spriteID: c01e5b6a8d8190144a34f01f242265af
+      internalID: -1423024174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_1"
+      name: Trash_1
       rect:
         serializedVersion: 2
         x: 655
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 608902783d62aad43997abbc31985aa8
-      internalID: 1887165681
+      spriteID: bb35537f3d77dd64796cb737694d3bcd
+      internalID: 947888825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_2"
+      name: Trash_2
       rect:
         serializedVersion: 2
         x: 1187
         y: 539
-        width: 310
-        height: 281
+        width: 306
+        height: 274
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f99887486dd58cc46af0ba2c07d09659
-      internalID: -1096221301
+      spriteID: a18addfe9a01ee646a29ba06bb1f3893
+      internalID: 179751422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_3"
+      name: Trash_3
       rect:
         serializedVersion: 2
-        x: 143
-        y: 106
-        width: 291
-        height: 320
+        x: 144
+        y: 105
+        width: 290
+        height: 321
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5bb4daf13050a74a80502ff597a57aa
-      internalID: -743793924
+      spriteID: cf3665e98556bb749b14898043ec3c4b
+      internalID: 1769477293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_4"
+      name: Trash_4
       rect:
         serializedVersion: 2
         x: 659
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d48c8f8db31798d4290067f67d7f9239
-      internalID: 1135860111
+      spriteID: ead09dc632c25c7499a2361e7b1e191e
+      internalID: 2045263359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_5"
+      name: Trash_5
       rect:
         serializedVersion: 2
         x: 1178
@@ -222,8 +222,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc20303fba6e9864aa73a1f086ac3365
-      internalID: 1723899090
+      spriteID: 04fbd0c395e41fe48a0b33bdbb91cc82
+      internalID: 41313970
       vertices: []
       indices: 
       edges: []
@@ -243,13 +243,15 @@ TextureImporter:
       entries:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: False
     nameFileIdTable:
-      "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_0": -807152239
-      "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_1": 1887165681
-      "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_2": -1096221301
-      "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_3": -743793924
-      "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_4": 1135860111
-      "ChatGPT Image 2026\uB144 6\uC6D4 16\uC77C \uC624\uD6C4 06_39_05-Photoroom_5": 1723899090
+      Trash_0: -1423024174
+      Trash_1: 947888825
+      Trash_2: 179751422
+      Trash_3: 1769477293
+      Trash_4: 2045263359
+      Trash_5: 41313970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

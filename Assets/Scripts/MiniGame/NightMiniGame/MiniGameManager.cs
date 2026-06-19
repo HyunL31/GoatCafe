@@ -11,7 +11,6 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] GameObject PlasticTrashPrefab;
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
-    [SerializeField] private GameObject Button;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1750735121375256814
+--- !u!1 &1823467761795072791
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3391436162711658948}
-  - component: {fileID: 7689977022083632370}
-  - component: {fileID: 1542042249610536360}
-  - component: {fileID: 5816210590438586923}
-  m_Layer: 5
-  m_Name: PlasticTrash
+  - component: {fileID: 3078343995445121991}
+  - component: {fileID: 3693434379960074043}
+  - component: {fileID: 1414488659354555624}
+  - component: {fileID: 4714481206709946716}
+  m_Layer: 0
+  m_Name: NightMiniGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3391436162711658948
+--- !u!224 &3078343995445121991
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750735121375256814}
+  m_GameObject: {fileID: 1823467761795072791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 6.40468}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35,29 +35,29 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 889.3307, y: 536.2793}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7689977022083632370
+--- !u!222 &3693434379960074043
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750735121375256814}
+  m_GameObject: {fileID: 1823467761795072791}
   m_CullTransparentMesh: 1
---- !u!114 &1542042249610536360
+--- !u!114 &1414488659354555624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750735121375256814}
+  m_GameObject: {fileID: 1823467761795072791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -66,27 +66,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2045263359, guid: da7083752c454674380b5894a80bad26, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &5816210590438586923
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &4714481206709946716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750735121375256814}
+  m_GameObject: {fileID: 1823467761795072791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524b02870af5c754daaeec55e91ca79d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c18acb772ce4dc42819aa52f5b3dc15, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  trashtype: 1
-  currentzone: 0
+  m_EditorClassIdentifier: Assembly-CSharp::MiniGameManager
+  isGame: 0
+  isUseItem: 0
+  NightMiniGamePanel: {fileID: 0}
+  PaperTrashPrefab: {fileID: 1682002471692281522, guid: d9b69627d386c4d449eda2d10cfac7bc, type: 3}
+  PlasticTrashPrefab: {fileID: 1750735121375256814, guid: 928b5ed36cebf144ba6da1ff01e4fac3, type: 3}
+  SpawnZone: {fileID: 0}
+  trashParent: {fileID: 0}
+  Button: {fileID: 0}
