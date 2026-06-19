@@ -15,8 +15,48 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 800ba93b5a898a5429d531c467d05be4
   m_SerializeEntries:
+  - m_GUID: 3207aaad7b78fdb42a9f86d2ddaf0c65
+    m_Address: SFX_UI_Hover_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3234e7fef244d404c93a89daa22dfed2
+    m_Address: SFX_UI_Click_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 644a193e0e6aed8439b1cd1a8984884c
+    m_Address: SFX_UI_Click_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 885a5a35b0f81de4f85098e1864dd2ad
+    m_Address: SFX_UI_Click_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e9d293b1a0a6104a8c5ee4ca0ad982a
+    m_Address: SFX_UI_Hover_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eb5696d380db884bbe058d38cda1d52
+    m_Address: SFX_UI_Click_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1873193855347347822924e0da430b1
+    m_Address: SFX_UI_Click_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5fab232f46c76c4aa63b13d92a86e92
     m_Address: Prefabs/UI/SaveSlot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff235e2ea1a052e49a6c12588e263382
+    m_Address: Prefab/UI/CursorUI
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
