@@ -13,17 +13,25 @@ public class BaseButton : MonoBehaviour
 
     private Action _buttonEvent;
 
-    public void SetButtonData(Sprite buttonSprite, string buttonText, Action buttonCallback)
+    public bool SetButtonData(Sprite buttonSprite, string buttonText, TMP_FontAsset buttonFontAsset, Action buttonCallback)
     {
-        if (ComponentCheck() == false) return;
-        if (DataCheck(buttonSprite, buttonText, buttonCallback) == false) return;
+        if (ComponentCheck() == false)
+        {
+            return false;
+        }
+
+        if (DataCheck(buttonSprite, buttonText, buttonCallback) == false)
+        {
+            return false;
+        }
 
         SetSprite(buttonSprite);
         SetEvent(buttonCallback);
 
-        if (IsText) SetText(buttonText);
+        if (IsText) SetText(buttonText, buttonFontAsset);
 
         this.ActiveTrue();
+        return true;
     }
 
     private bool ComponentCheck()
@@ -100,9 +108,10 @@ public class BaseButton : MonoBehaviour
         BindButtonEvent();
     }
 
-    private void SetText(string buttonText)
+    private void SetText(string buttonText, TMP_FontAsset buttonFontAsset)
     {
         Text_Button.text = buttonText;
+        Text_Button.font = buttonFontAsset;
     }
 
     private void BindButtonEvent()
