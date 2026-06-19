@@ -161,6 +161,14 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 case EffectType.MiniGamePointDouble:
                     Debug.Log("MiniGamePointDouble 구매됨");
                     break;
+                case EffectType.BonusDayDuration:
+                    Debug.Log("BonusDayDuration 구매됨");
+                    GameManager.Instance.BonusDayDurationItemPurchased(permanentData.value);
+                    break;
+                case EffectType.PointDouble:
+                    Debug.Log("PointDouble 구매됨");
+                    GameManager.Instance.PointDoubleItemPurchased();
+                    break;
             }
         }
 
