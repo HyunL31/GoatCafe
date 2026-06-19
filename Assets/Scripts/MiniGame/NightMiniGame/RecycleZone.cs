@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public enum ZoneType
 {
+    Start,
     Paper,
     Plastic
 }
@@ -13,10 +14,13 @@ public class RecycleZone : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("OnDrop 실행됨");
+
         GameObject droppedObject = eventData.pointerDrag;
 
         if (droppedObject == null)
         {
+            Debug.Log("pointerDrag가 null임");
             return;
         }
 
@@ -24,11 +28,12 @@ public class RecycleZone : MonoBehaviour, IDropHandler
 
         if (trashItem == null)
         {
+            Debug.Log("TrashItem 컴포넌트 못 찾음");
             return;
         }
 
         trashItem.CurrentZone = zoneType;
 
-        Debug.Log($"{droppedObject.name}이 {zoneType}에 드롭됨");
+        Debug.Log("CurrentZone 변경됨: " + trashItem.CurrentZone);
     }
 }

@@ -4,12 +4,14 @@ public class MiniGameManager : MonoBehaviour
 {
     private int score;
     public bool isGame;
+    public bool isUseItem;
+
     [SerializeField] GameObject NightMiniGamePanel;
     [SerializeField] GameObject PaperTrashPrefab;
     [SerializeField] GameObject PlasticTrashPrefab;
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
-    [SerializeField] private TrashItem trashitem;
+    [SerializeField] private GameObject Button;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,7 +59,7 @@ public class MiniGameManager : MonoBehaviour
         {
             GameObject Papertrash = Instantiate(PaperTrashPrefab, trashParent);
 
-
+            
             RectTransform trashRect = Papertrash.GetComponent<RectTransform>();
 
 
@@ -85,23 +87,29 @@ public class MiniGameManager : MonoBehaviour
 
     public void CheckResult()
     {
-        /* 버튼 IF문 있어야함 */
+        score = 0;
 
-        for(int i = 0; i < trashParent.childCount; i++)
+        for (int i = 0; i < trashParent.childCount; i++)
         {
+            Transform child = trashParent.GetChild(i);
+            TrashItem trashitem = child.GetComponent<TrashItem>();
+
+            if (trashitem == null)
+            {
+                continue;
+            }
+
             if (trashitem.TrashType == TrashType.Paper && trashitem.CurrentZone == ZoneType.Paper)
             {
                 score += 10;
             }
-
             else if (trashitem.TrashType == TrashType.Plastic && trashitem.CurrentZone == ZoneType.Plastic)
             {
                 score += 10;
             }
-
             else
             {
-                return;
+                score -= 5;
             }
         }
 

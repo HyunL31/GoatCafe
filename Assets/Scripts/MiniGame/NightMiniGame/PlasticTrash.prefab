@@ -88,4 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524b02870af5c754daaeec55e91ca79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  trashType: 1
+  trashtype: 1
+  currentzone: 0
