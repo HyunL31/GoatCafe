@@ -30,13 +30,6 @@ public class JerkCustomer : CustomerBase
         await UniTask.WaitForSeconds(waitTime, cancellationToken: this.GetCancellationTokenOnDestroy());
         if (State == CustomerState.Hit) return;
         SetState(CustomerState.Reacting);
-
-        await UniTask.WaitForSeconds(3f, cancellationToken: this.GetCancellationTokenOnDestroy());
-        if (State == CustomerState.Reacting)
-        {
-            SetState(CustomerState.Walking);
-            WaitAndStartReactingAsync().Forget();
-        }
     }
 
     private void StartReacting()
