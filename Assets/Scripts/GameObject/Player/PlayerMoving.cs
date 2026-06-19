@@ -1,14 +1,12 @@
 ﻿using Cysharp.Threading.Tasks;
-using Cysharp.Threading.Tasks.Triggers;
 using System;
 using System.Threading;
-using TMPro;
 using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
-    [SerializeField] private Rigidbody Rigidbody_Goat;
     [SerializeField] private Animator Animator_Goat;
+    [SerializeField] private GameObject Goat_Humanoid;
 
     private float _inputZ;
     private float _inputX;
@@ -25,7 +23,7 @@ public class PlayerMoving : MonoBehaviour
 
     private void Start()
     {
-        _stamina = GameManager.Instance.PlayerModel.Stamina;
+        //_stamina = GameManager.Instance.PlayerModel.Stamina;
         _camera = Camera.main;
     }
 
@@ -53,22 +51,31 @@ public class PlayerMoving : MonoBehaviour
 
     private void MoveToward(float inputZ, float inputX)
     {
+        if (Goat_Humanoid.activeSelf)
+        {
+            return;
+        }
+
         RotateDirection();
 
         if (_inputZ == 0 && _inputX == 0)
         {
-            Rigidbody_Goat.linearVelocity = Vector3.zero;
             Animator_Goat.SetBool("Walk", false);
             Animator_Goat.SetBool("Run", false);
 
             return;
         }
 
+        Vector3 forward = _camera.transform.forward;
+        Vector3 right = _camera.transform.right;
+
+        Vector3 moveDirection = (forward * inputZ + right * inputX).normalized;
+
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
         float moveSpeed = isRunning ? _runSpeed : _walkSpeed;
 
-        Vector3 moveDirection = new Vector3(_inputX, 0, inputZ).normalized;
-        Rigidbody_Goat.linearVelocity = moveDirection * moveSpeed;
+        Vector3 moveVelocity = moveDirection * moveSpeed;
+        transform.position += new Vector3(moveVelocity.x, 0, moveVelocity.z) * Time.fixedDeltaTime;
 
         Animator_Goat.SetBool("Walk", !isRunning);
         Animator_Goat.SetBool("Run", isRunning);
