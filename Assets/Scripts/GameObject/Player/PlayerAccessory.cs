@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerAccessory : MonoBehaviour
 {
@@ -57,10 +58,7 @@ public class PlayerAccessory : MonoBehaviour
     {
         if (PlayerMoving.EquippedItems.Contains(item))
         {
-            if (_usedSlot.TryGetValue(item.Slot, out GameObject obj))
-            {
-                obj.SetActive(false);
-            }
+            _usedSlot[item.Slot].SetActive(false);
 
             _usedSlot.Remove(item.Slot);
             PlayerMoving.EquippedItems.Remove(item);
@@ -68,11 +66,7 @@ public class PlayerAccessory : MonoBehaviour
             return;
         }
 
-        if (_usedSlot.TryGetValue(item.Slot, out GameObject prevItem))
-        {
-            prevItem.SetActive(false);
-            _usedSlot.Remove(item.Slot);
-        }
+        ClearSlot(item);
 
         if (_existItems.TryGetValue(item.name, out GameObject existingItem))
         {
@@ -90,6 +84,25 @@ public class PlayerAccessory : MonoBehaviour
         if (!PlayerMoving.EquippedItems.Contains(item))
         {
             PlayerMoving.EquippedItems.Add(item);
+        }
+    }
+
+    private void ClearSlot(CosmeticItem item)
+    {
+        for (int i = PlayerMoving.EquippedItems.Count - 1; i >= 0; i--)
+        {
+            CosmeticItem equippedItem = PlayerMoving.EquippedItems[i];
+
+            if (equippedItem.Slot == item.Slot)
+            {
+                if (_usedSlot.TryGetValue(equippedItem.Slot, out GameObject prevItem))
+                {
+                    prevItem.SetActive(false);
+                }
+
+                _usedSlot.Remove(equippedItem.Slot);
+                PlayerMoving.EquippedItems.RemoveAt(i);
+            }
         }
     }
 

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoving
   Animator_Goat: {fileID: 1863424895115095546}
-  Goat_Humanoid: {fileID: 0}
+  Goat_Humanoid: {fileID: 1071487251253352915}
 --- !u!114 &4770409014285501764
 MonoBehaviour:
   m_ObjectHideFlags: 0

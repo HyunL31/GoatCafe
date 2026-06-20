@@ -1,5 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -22,7 +21,7 @@ public class PlayerMoving : MonoBehaviour
     private Camera _camera;
 
     // 나중에 SaveManager? GameManager로 이식
-    public HashSet<CosmeticItem> EquippedItems { get; set; } = new HashSet<CosmeticItem>();
+    public List<CosmeticItem> EquippedItems { get; set; } = new List<CosmeticItem>();
 
     private void Start()
     {
