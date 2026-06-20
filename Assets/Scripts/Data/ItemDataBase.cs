@@ -51,13 +51,3 @@ public class ItemDataBase  // 소모템, 치장템은 아직 추가 안했음
         Debug.Log($"[ItemDatabase] ConsumableItem 로드 완료, 총 {ConsumableList.Count} 개 ");
     }
 }
-
-
-
-
-
-
-
-
-
-

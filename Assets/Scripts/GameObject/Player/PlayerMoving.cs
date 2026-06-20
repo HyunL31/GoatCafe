@@ -1,5 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
@@ -13,13 +15,14 @@ public class PlayerMoving : MonoBehaviour
 
     private float _walkSpeed = 3f;
     private float _runSpeed = 5f;
-
     private bool _isAttack = false;
-    private CancellationTokenSource _attackToken;
+    private int _stamina = 100;
 
+    private CancellationTokenSource _attackToken;
     private Camera _camera;
 
-    private int _stamina = 100;
+    // 나중에 SaveManager? GameManager로 이식
+    public HashSet<CosmeticItem> EquippedItems { get; set; } = new HashSet<CosmeticItem>();
 
     private void Start()
     {
