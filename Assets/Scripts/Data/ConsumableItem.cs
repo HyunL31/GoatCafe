@@ -13,4 +13,5 @@ public class ConsumableItem : ItemBase
         }
         else Debug.LogError("[ConsumableItem] effect = null");
     }
+
 }

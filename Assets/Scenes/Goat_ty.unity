@@ -403,7 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2637728b021ed4c86fe212bdb625c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CursorManager
-  Transform_CursorRoot: {fileID: 3852624979433871765, guid: ff235e2ea1a052e49a6c12588e263382, type: 3}
 --- !u!1 &1289488142 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 185330, guid: 9629c42775e22c042a1712c23b891b7c, type: 3}
@@ -421,6 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dea27d48e4b83740852a7005ef18ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoving
+  Rigidbody_Goat: {fileID: 1289488148}
+  Animator_Goat: {fileID: 1289488149}
 --- !u!65 &1289488147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -469,6 +470,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!95 &1289488149 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9542968, guid: 9629c42775e22c042a1712c23b891b7c, type: 3}
+  m_PrefabInstance: {fileID: 523904607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5858948606123679835
 PrefabInstance:
   m_ObjectHideFlags: 0

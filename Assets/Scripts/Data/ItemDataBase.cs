@@ -7,6 +7,11 @@ public enum EffectType
     UpgradeHealth, SpeedUp, MiniGamePointDouble
 }
 
+public enum CosmeticType
+{
+    Crown
+}
+
 public abstract class ItemBase : ScriptableObject
 {
     [SerializeField] public int Price;
@@ -15,12 +20,14 @@ public abstract class ItemBase : ScriptableObject
 
     public virtual bool Buy()
     {
-        if (StoreManager.Instance._coins >= Price)
+        StoreManager store = StoreManager.Instance;
+
+        if (store._coins >= Price)
         {
-            StoreManager.Instance.SpendCoins(Price);
+            store.SpendCoins(Price);
             return true;
         }
-        return false;
+        else return false;
     }
 }
 
@@ -30,6 +37,7 @@ public class ItemDataBase  // 소모템, 치장템은 아직 추가 안했음
 
     public List<PermanentItem> PermanentList = new List<PermanentItem>();
     public List<ConsumableItem> ConsumableList = new List<ConsumableItem>();
+    public List<CosmeticItem> CosmeticList = new List<CosmeticItem>();
 
     public void LoadAllItems()  
     {
@@ -47,7 +55,15 @@ public class ItemDataBase  // 소모템, 치장템은 아직 추가 안했음
             ConsumableList.Add(item);
         }
 
+        CosmeticItem[] loadedCosmeticItems = Resources.LoadAll<CosmeticItem>("StoreItemDatas/CosmeticItem");
+
+        foreach (CosmeticItem item in loadedCosmeticItems)
+        {
+            CosmeticList.Add(item);
+        }
+
         Debug.Log($"[ItemDatabase] PermanentItem 로드 완료, 총 {PermanentList.Count} 개 ");
         Debug.Log($"[ItemDatabase] ConsumableItem 로드 완료, 총 {ConsumableList.Count} 개 ");
+        Debug.Log($"[ItemDatabase] CosmeticItem 로드 완료, 총 {CosmeticList.Count} 개 ");
     }
 }
