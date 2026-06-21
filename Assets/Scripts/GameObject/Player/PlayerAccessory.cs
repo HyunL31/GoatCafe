@@ -1,12 +1,12 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerAccessory : MonoBehaviour
 {
     [SerializeField] private Transform Transform_Head;
     [SerializeField] private Transform Transform_Eye;
+    [SerializeField] private PlayerAccessory OtherAccessory;
 
     // 추후 PlayerModel에서 가져올 예정
     [SerializeField] private List<CosmeticItem> PlayerItem = new List<CosmeticItem>();
@@ -50,7 +50,7 @@ public class PlayerAccessory : MonoBehaviour
     {
         foreach (CosmeticItem item in PlayerMoving.EquippedItems)
         {
-            UseItem(item).Forget();
+            ApplyItemVisual(item).Forget();
         }
     }
 
@@ -58,16 +58,31 @@ public class PlayerAccessory : MonoBehaviour
     {
         if (PlayerMoving.EquippedItems.Contains(item))
         {
-            _usedSlot[item.Slot].SetActive(false);
+            if (_usedSlot.TryGetValue(item.Slot, out GameObject obj))
+            {
+                obj.SetActive(false);
+            }
 
             _usedSlot.Remove(item.Slot);
             PlayerMoving.EquippedItems.Remove(item);
 
+            OtherAccessory?.RemoveItemVisual(item);
             return;
         }
 
         ClearSlot(item);
+        await ApplyItemVisual(item);
 
+        if (!PlayerMoving.EquippedItems.Contains(item))
+        {
+            PlayerMoving.EquippedItems.Add(item);
+        }
+
+        OtherAccessory?.ApplyItemVisual(item).Forget();
+    }
+
+    private async UniTask ApplyItemVisual(CosmeticItem item)
+    {
         if (_existItems.TryGetValue(item.name, out GameObject existingItem))
         {
             existingItem.SetActive(true);
@@ -80,11 +95,16 @@ public class PlayerAccessory : MonoBehaviour
             _usedSlot[item.Slot] = newItem;
             _existItems[item.name] = newItem;
         }
+    }
 
-        if (!PlayerMoving.EquippedItems.Contains(item))
+    public void RemoveItemVisual(CosmeticItem item)
+    {
+        if (_usedSlot.TryGetValue(item.Slot, out GameObject obj))
         {
-            PlayerMoving.EquippedItems.Add(item);
+            obj.SetActive(false);
         }
+
+        _usedSlot.Remove(item.Slot);
     }
 
     private void ClearSlot(CosmeticItem item)
@@ -102,6 +122,8 @@ public class PlayerAccessory : MonoBehaviour
 
                 _usedSlot.Remove(equippedItem.Slot);
                 PlayerMoving.EquippedItems.RemoveAt(i);
+
+                OtherAccessory?.RemoveItemVisual(equippedItem);
             }
         }
     }
@@ -114,6 +136,17 @@ public class PlayerAccessory : MonoBehaviour
         }
 
         PlayerMoving.EquippedItems.Clear();
+
+        OtherAccessory?.ClearVisualOnly();
+    }
+
+    public void ClearVisualOnly()
+    {
+        foreach (GameObject obj in _usedSlot.Values)
+        {
+            obj.SetActive(false);
+        }
+        _usedSlot.Clear();
     }
 
     private Transform SetSlot(CosmeticItem item)

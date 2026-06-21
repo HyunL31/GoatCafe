@@ -16,9 +16,11 @@ public class PlayerMoving : MonoBehaviour
     private float _walkSpeed = 3f;
     private float _runSpeed = 5f;
     private bool _isAttack = false;
+    private bool _isAlive = true;
     private int _stamina = 100;
 
     private CancellationTokenSource _attackToken;
+    private CancellationTokenSource _dieToken;
     private Camera _camera;
 
     // 나중에 SaveManager? GameManager로 이식
@@ -35,9 +37,8 @@ public class PlayerMoving : MonoBehaviour
         _inputZ = Input.GetAxisRaw("Vertical");
         _inputX = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && _stamina >= 10)
+        if (Input.GetKeyDown(KeyCode.Space) && _stamina >= 10 && !_isAttack)
         {
-            _stamina -= 10;
             AttackRoutine().Forget();
         }
     }
@@ -54,7 +55,7 @@ public class PlayerMoving : MonoBehaviour
 
     private void MoveToward(float inputZ, float inputX)
     {
-        if (Goat_Humanoid.activeSelf)
+        if (Goat_Humanoid.activeSelf || !_isAlive)
         {
             return;
         }
@@ -96,8 +97,8 @@ public class PlayerMoving : MonoBehaviour
         _attackToken = new CancellationTokenSource();
 
         _isAttack = true;
-        _stamina -= 5;
-
+        _stamina -= 10;
+        Debug.Log(_stamina);
         Animator_Goat.SetTrigger("Attack");
 
         await UniTask.Delay(TimeSpan.FromSeconds(2.5f), cancellationToken: _attackToken.Token);
@@ -107,6 +108,23 @@ public class PlayerMoving : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _attackToken.Token);
 
         _isAttack = false;
+
+        if (_stamina <= 0)
+        {
+            Die().Forget();
+        }
+    }
+
+    private async UniTask Die()
+    {
+        CancelDie();
+        _dieToken = new CancellationTokenSource();
+
+        _isAlive = false;
+
+        Animator_Goat.SetTrigger("Die");
+
+        await UniTask.Delay(TimeSpan.FromSeconds(2f), cancellationToken: _dieToken.Token);
     }
 
     private void CancelAttack()
@@ -117,6 +135,21 @@ public class PlayerMoving : MonoBehaviour
             _attackToken?.Dispose();
             _attackToken = null;
         }
+    }
+
+    private void CancelDie()
+    {
+        if (_dieToken != null)
+        {
+            _dieToken.Cancel();
+            _dieToken?.Dispose();
+            _dieToken = null;
+        }
+    }
+
+    public bool IsAlive()
+    {
+        return _isAlive;
     }
 
     private void AddGoatStamina(int value)

@@ -16,6 +16,7 @@ public class PlayerEmote : MonoBehaviour
     [SerializeField] private GameObject Goat_Basic;
     [SerializeField] private GameObject Goat_Humanoid;
     [SerializeField] private Animator Animator_Humanoid;
+    [SerializeField] private PlayerMoving PlayerMoving;
 
     private CancellationTokenSource _danceCancel;
     private Camera _main;
@@ -70,6 +71,11 @@ public class PlayerEmote : MonoBehaviour
 
     private async UniTask PlayDanceAnimation(DanceType dance)
     {
+        if (!PlayerMoving.IsAlive())
+        {
+            return;
+        }
+
         Goat_Basic.SetActive(false);
         Goat_Humanoid.SetActive(true);
 
