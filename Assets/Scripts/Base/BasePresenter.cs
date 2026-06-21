@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public abstract class BasePresenter<TPresenter, TUI> : MonoBehaviour where TPresenter : BasePresenter<TPresenter, TUI> where TUI : BaseUI<TUI>
+public abstract class BasePresenter<TPresenter, TUI> where TPresenter : BasePresenter<TPresenter, TUI> where TUI : BaseUI<TUI>
 {
     public abstract UIType UIType_This { get; }
 
@@ -13,6 +13,8 @@ public abstract class BasePresenter<TPresenter, TUI> : MonoBehaviour where TPres
     protected abstract UniTask LoadAssetAsync();
 
     protected abstract void LoadData();
+
+    protected abstract void SetUIData();
 
     protected void Log(string text)
     {
