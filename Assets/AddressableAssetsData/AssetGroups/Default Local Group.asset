@@ -21,11 +21,6 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3234e7fef244d404c93a89daa22dfed2
-    m_Address: SFX_UI_Click_5
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 644a193e0e6aed8439b1cd1a8984884c
     m_Address: SFX_UI_Click_4
     m_ReadOnly: 0
     m_SerializedLabels: []
@@ -47,6 +42,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1873193855347347822924e0da430b1
     m_Address: SFX_UI_Click_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8a2033e2680d9743b3539f892cfcaf7
+    m_Address: Assets/Audio/BGM/OZTeamProject#2.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

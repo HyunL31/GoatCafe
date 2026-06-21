@@ -5,6 +5,7 @@ public class SoundManager : BaseMonoManager<SoundManager>
 {
     [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private AudioSource _bgmSource;
+    [SerializeField] private AudioLowPassFilter _bgmLowPassFilter;
 
     [SerializeField] private float _sfxVolume = 0.5f;
     [SerializeField] private float _bgmVolume = 0.5f;
@@ -27,14 +28,13 @@ public class SoundManager : BaseMonoManager<SoundManager>
         _sfxSource.PlayOneShot(clip, _sfxVolume * volumeScale);
     }
 
-    public void PlayRandomSFX(string[] addresses, float volumeScale = 1f)
+    public void StopSFX()
     {
-        if (addresses == null || addresses.Length == 0) return;
-
-        int randomIndex = Random.Range(0, addresses.Length);
-        PlaySFX(addresses[randomIndex], volumeScale).Forget();
+        if (_sfxSource != null)
+        {
+            _sfxSource.Stop();
+        }
     }
-
     public async UniTaskVoid PlayBGM(string address)
     {
         AudioClip clip = await LoadUtil.Async.LoadGenericAsync<AudioClip>(address);
@@ -48,19 +48,23 @@ public class SoundManager : BaseMonoManager<SoundManager>
         _bgmSource.Play();
     }
 
+    public void EnableMuffle()
+    {
+        if (_bgmLowPassFilter == null) return;
+        _bgmLowPassFilter.cutoffFrequency = 1000f;
+    }
+
+    public void DisableMuffle()
+    {
+        if (_bgmLowPassFilter == null) return;
+        _bgmLowPassFilter.cutoffFrequency = 22000f;
+    }
+
     public void StopBGM()
     {
         if (_bgmSource != null)
         {
             _bgmSource.Stop();
-        }
-    }
-
-    public void StopSFX()
-    {
-        if (_sfxSource != null)
-        {
-            _sfxSource.Stop();
         }
     }
 
