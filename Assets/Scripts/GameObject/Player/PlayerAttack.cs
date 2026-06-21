@@ -5,6 +5,8 @@ public class PlayerAttack : MonoBehaviour
     private bool _isJerk = false;
     private bool _isNormal = false;
 
+    private CustomerBase _targetCustomer;
+
     public void Attack()
     {
         if (_isJerk)
@@ -24,10 +26,12 @@ public class PlayerAttack : MonoBehaviour
         if (other.CompareTag("Jerk"))
         {
             _isJerk = true;
+            _targetCustomer = other.GetComponent<CustomerBase>();
         }
         else if (other.CompareTag("Normal"))
         {
             _isNormal = true;
+            _targetCustomer = other.GetComponent<CustomerBase>();
         }
     }
 
@@ -41,5 +45,7 @@ public class PlayerAttack : MonoBehaviour
         {
             _isNormal = false;
         }
+
+        _targetCustomer = null;
     }
 }
