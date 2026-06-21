@@ -20,21 +20,21 @@ public class SaveDataButton : BaseButton
     private Action<int> OnButtonClicked;
     private int _index;
 
-    public bool SetButtonData(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string goldTitle, string staminaTitle, TMP_FontAsset buttonFont, int index, PlayerModel playerModel, Action<int> ButtonClickedCallback)
+    public bool SetButtonData(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string goldTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, int index, PlayerModel playerModel, Action<int> ButtonClickedCallback)
     {
         if (ComponentCheck() == false)
         {
             return false;
         }
 
-        if (DataCheck(backgroundSprite, buttonSprite, dayTitle, goldTitle, staminaTitle, buttonFont, playerModel, ButtonClickedCallback) == false)
+        if (DataCheck(backgroundSprite, buttonSprite, dayTitle, goldTitle, staminaTitle, startButton, buttonFont, playerModel, ButtonClickedCallback) == false)
         {
             return false;
         }
 
         SetSprite(backgroundSprite, buttonSprite);
         SetFont(buttonFont);
-        SetText(dayTitle, goldTitle, staminaTitle);
+        SetText(dayTitle, goldTitle, staminaTitle, startButton);
 
         SetSaveData(index, playerModel);
         SetButton(index, ButtonClickedCallback);
@@ -74,7 +74,7 @@ public class SaveDataButton : BaseButton
         return true;
     }
 
-    private bool DataCheck(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string goldTitle, string staminaTitle, TMP_FontAsset buttonFont, PlayerModel playerModel, Action<int> ButtonClickedCallback)
+    private bool DataCheck(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string goldTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, PlayerModel playerModel, Action<int> ButtonClickedCallback)
     {
         bool hasData = true;
 
@@ -105,6 +105,12 @@ public class SaveDataButton : BaseButton
         if(staminaTitle == null)
         {
             this.LogWarning("받아온 staminaTitle가 없습니다!!");
+            hasData = false;
+        }
+
+        if(startButton == null)
+        {
+            this.LogWarning("받아온 startButton가 없습니다!!");
             hasData = false;
         }
 
@@ -157,11 +163,13 @@ public class SaveDataButton : BaseButton
         Text_StaminaData.font = buttonFont;
     }
 
-    private void SetText(string dayTitle, string goldTitle, string staminaTitle)
+    private void SetText(string dayTitle, string goldTitle, string staminaTitle, string startButton)
     {
         Text_DayTitle.text = dayTitle;
         Text_GoldTitle.text = goldTitle;
         Text_StaminaTitle.text = staminaTitle;
+
+        Text_Button.text = startButton;
     }
 
     public void SetSaveData(int index, PlayerModel playerModel)
