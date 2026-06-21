@@ -76,6 +76,9 @@ public class PlayerEmote : MonoBehaviour
         Goat_Humanoid.transform.position = transform.position;
         Goat_Humanoid.transform.LookAt(_main.transform);
 
+        Vector3 currentRotation = Goat_Humanoid.transform.rotation.eulerAngles;
+        Goat_Humanoid.transform.rotation = Quaternion.Euler(0f, currentRotation.y, currentRotation.z);
+
         _danceCancel?.Cancel();
         _danceCancel = new CancellationTokenSource();
 
