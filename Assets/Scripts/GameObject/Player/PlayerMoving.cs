@@ -8,6 +8,7 @@ public class PlayerMoving : MonoBehaviour
 {
     [SerializeField] private Animator Animator_Goat;
     [SerializeField] private GameObject Goat_Humanoid;
+    [SerializeField] private PlayerAttack PlayerAttack;
 
     private float _inputZ;
     private float _inputX;
@@ -95,10 +96,15 @@ public class PlayerMoving : MonoBehaviour
         _attackToken = new CancellationTokenSource();
 
         _isAttack = true;
+        _stamina -= 5;
 
         Animator_Goat.SetTrigger("Attack");
 
-        await UniTask.Delay(TimeSpan.FromSeconds(2.7f), cancellationToken: _attackToken.Token);
+        await UniTask.Delay(TimeSpan.FromSeconds(2.5f), cancellationToken: _attackToken.Token);
+
+        PlayerAttack.Attack();
+
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _attackToken.Token);
 
         _isAttack = false;
     }
@@ -116,6 +122,11 @@ public class PlayerMoving : MonoBehaviour
     private void AddGoatStamina(int value)
     {
         _stamina += value;
+
+        if (_stamina > 100)
+        {
+            _stamina = 100;
+        }
     }
 
     private void AddGoatSpeed(int value, bool isRun)

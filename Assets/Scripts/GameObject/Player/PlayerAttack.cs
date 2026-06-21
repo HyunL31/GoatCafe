@@ -1,0 +1,45 @@
+﻿using UnityEngine;
+
+public class PlayerAttack : MonoBehaviour
+{
+    private bool _isJerk = false;
+    private bool _isNormal = false;
+
+    public void Attack()
+    {
+        if (_isJerk)
+        {
+            // 스코어
+            Debug.Log("진상 스코어");
+        }
+        else if (_isNormal)
+        {
+            // 패널티
+            Debug.Log("노멀 패널티");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Jerk"))
+        {
+            _isJerk = true;
+        }
+        else if (other.CompareTag("Normal"))
+        {
+            _isNormal = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Jerk"))
+        {
+            _isJerk = false;
+        }
+        else if (other.CompareTag("Normal"))
+        {
+            _isNormal = false;
+        }
+    }
+}
