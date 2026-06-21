@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sprite-UI-Button
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Sprite-UI-Button
+  m_GUID: 8c42365121c845c44baa3b605a62bfda
+  m_SerializeEntries:
+  - m_GUID: 0378eb801e69fc64aaca38b482b1d071
+    m_Address: Sprite/UI/ButtonBlue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 879e4da656f144844affd88fe42a003b
+    m_Address: Sprite/UI/ButtonRed
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9da7bfcf0c8206b41bbdd4eaaf209293
+    m_Address: Sprite/UI/ButtonOrange
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7a33c927551f414693b0c65ee5f9c68
+    m_Address: Sprite/UI/ButtonPurple
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abb22d9d7f45d274eac57092bde7ea21
+    m_Address: Sprite/UI/ButtonGreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b9f5f2120469086499d50f499fdcb1ba, type: 2}
+    - {fileID: 11400000, guid: be06ce84f6f170e409f4ce5e76b7de6d, type: 2}
