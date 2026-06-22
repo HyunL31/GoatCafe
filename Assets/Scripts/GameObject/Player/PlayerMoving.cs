@@ -24,8 +24,6 @@ public class PlayerMoving : MonoBehaviour
     private CancellationTokenSource _dieToken;
     private Camera _camera;
 
-    // 나중에 SaveManager? GameManager로 이식
-    public List<CosmeticItem> EquippedItems { get; set; } = new List<CosmeticItem>();
 
     private void Start()
     {

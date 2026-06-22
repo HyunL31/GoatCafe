@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class StoreItemSlot : MonoBehaviour
 {
     private ItemBase _itemdata;
-    [SerializeField] private Button _button;
-    [SerializeField] private Image _itemImage;
-    [SerializeField] private TextMeshProUGUI _itemNameText;
-    [SerializeField] private TextMeshProUGUI _itemPriceText;
+    [SerializeField] public Button _button;
+    [SerializeField] public Image _itemImage;
+    [SerializeField] public TextMeshProUGUI _itemNameText;
+    [SerializeField] public TextMeshProUGUI _itemPriceText;
 
 
 
