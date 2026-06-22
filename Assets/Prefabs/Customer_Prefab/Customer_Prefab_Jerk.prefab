@@ -1479,7 +1479,7 @@ GameObject:
   - component: {fileID: 5031180840833625644}
   m_Layer: 0
   m_Name: Customer_Prefab_Jerk
-  m_TagString: Untagged
+  m_TagString: Jerk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

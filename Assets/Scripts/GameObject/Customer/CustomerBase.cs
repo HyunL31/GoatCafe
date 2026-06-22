@@ -153,7 +153,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     {
         _isWaiting = true;
         SetState(CustomerState.Idle);
-        await UniTask.WaitForSeconds(UnityEngine.Random.Range(1f, 3f), cancellationToken: this.GetCancellationTokenOnDestroy());
+        await UniTask.WaitForSeconds(UnityEngine.Random.Range(5f, 8f), cancellationToken: this.GetCancellationTokenOnDestroy());
         if (State == CustomerState.Idle)
             SetState(CustomerState.Walking);
         _isWaiting = false;
