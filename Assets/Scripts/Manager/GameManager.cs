@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -44,6 +44,9 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
     public event Action<int> OnSaveSlotChanged;
+
+    public event Action<int> OnUseStaminaItem;
+    public event Action<int, int> OnUseSpeedItem;
 
     protected override void Awake()
     {

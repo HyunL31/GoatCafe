@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMoving : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class PlayerMoving : MonoBehaviour
     {
         //_stamina = GameManager.Instance.PlayerModel.Stamina;
         _camera = Camera.main;
+
+        GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
+        GameManager.Instance.OnUseSpeedItem += AddGoatSpeed;
     }
 
     private void Update()
@@ -162,15 +166,9 @@ public class PlayerMoving : MonoBehaviour
         }
     }
 
-    private void AddGoatSpeed(int value, bool isRun)
+    private void AddGoatSpeed(int walkValue, int runValue)
     {
-        if (isRun)
-        {
-            _runSpeed += value;
-        }
-        else
-        {
-            _walkSpeed += value;
-        }
+        _runSpeed += runValue;
+        _walkSpeed += walkValue;
     }
 }
