@@ -24,11 +24,10 @@ public class PlayerMoving : MonoBehaviour
     private CancellationTokenSource _dieToken;
     private Camera _camera;
 
-    public List<CosmeticItem> EquippedItems { get; set; } = new List<CosmeticItem>();
 
     private void Start()
     {
-        _stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
+        //_stamina = GameManager.Instance.PlayerModel.Stamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
