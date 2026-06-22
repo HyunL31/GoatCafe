@@ -5,4 +5,6 @@
 public class PermanentItem : ItemBase
 {
     public EffectType effectType;
+    public float value;
+
 }
