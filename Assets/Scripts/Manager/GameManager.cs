@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -44,6 +44,9 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
     public event Action<int> OnSaveSlotChanged;
+
+    public event Action<int> OnUseStaminaItem;
+    public event Action<int, int> OnUseSpeedItem;
 
     protected override void Awake()
     {
@@ -242,5 +245,33 @@ public class GameManager : BaseMonoManager<GameManager>
         }
 
         StartGame();
+    }
+
+    // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
+
+    private bool isPointDouble = false;   // true일때 보너스 점수 계산을 2배로
+
+    private float ex_dayDuration = 300f;  // 낮/밤 지속시간, 위에 구현되있는건 알지만 예시로 적어둔것
+
+    public void PointDoubleItemPurchased()  // StoreManager쪽에서 아이템 구매시 실행
+    {
+        isPointDouble = true;
+    }
+
+    public void BonusDayDurationItemPurchased(float bonus)  // StoreManager쪽에서 아이템 구매시 실행
+    {
+        ex_dayDuration = ex_dayDuration + bonus;
+    }
+
+    private int PointCalculate(int basePoint, int miniGamePoint)  // 점수계산 부분 예시로 만든겁니다
+    {
+        int result = basePoint + miniGamePoint;
+
+        if(isPointDouble) // DoublePoint 아이템이 구매되었으면, 보너스 점수 배율 적용
+        {
+            result = GameUtil.GetBonusScoreByRate(result, 2.0f);
+        }
+
+        return result;
     }
 }

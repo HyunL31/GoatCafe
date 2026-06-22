@@ -4,8 +4,8 @@ using Cysharp.Threading.Tasks;
 public class JerkCustomer : CustomerBase
 {
     [SerializeField] private int Int_ScoreValue = 100;
-    [SerializeField] private float Float_MinReactTime = 5f;
-    [SerializeField] private float Float_MaxReactTime = 10f;
+    [SerializeField] private float Float_MinReactTime = 10f;
+    [SerializeField] private float Float_MaxReactTime = 25f;
 
     protected override void OnInitialized()
     {
@@ -30,13 +30,6 @@ public class JerkCustomer : CustomerBase
         await UniTask.WaitForSeconds(waitTime, cancellationToken: this.GetCancellationTokenOnDestroy());
         if (State == CustomerState.Hit) return;
         SetState(CustomerState.Reacting);
-
-        await UniTask.WaitForSeconds(3f, cancellationToken: this.GetCancellationTokenOnDestroy());
-        if (State == CustomerState.Reacting)
-        {
-            SetState(CustomerState.Walking);
-            WaitAndStartReactingAsync().Forget();
-        }
     }
 
     private void StartReacting()

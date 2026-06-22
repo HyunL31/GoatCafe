@@ -15,38 +15,18 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 800ba93b5a898a5429d531c467d05be4
   m_SerializeEntries:
-  - m_GUID: 3207aaad7b78fdb42a9f86d2ddaf0c65
-    m_Address: SFX_UI_Hover_1
+  - m_GUID: 58173d798e8420d4f8ed7f1cf6038323
+    m_Address: Prefabs/CostumeItem/Santa
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3234e7fef244d404c93a89daa22dfed2
-    m_Address: SFX_UI_Click_4
+  - m_GUID: 66eff5546290a5046b4eeb682515561c
+    m_Address: Prefabs/CostumeItem/Crown
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 885a5a35b0f81de4f85098e1864dd2ad
-    m_Address: SFX_UI_Click_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9e9d293b1a0a6104a8c5ee4ca0ad982a
-    m_Address: SFX_UI_Hover_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9eb5696d380db884bbe058d38cda1d52
-    m_Address: SFX_UI_Click_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b1873193855347347822924e0da430b1
-    m_Address: SFX_UI_Click_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b8a2033e2680d9743b3539f892cfcaf7
-    m_Address: Assets/Audio/BGM/OZTeamProject#2.mp3
+  - m_GUID: e3206162a4eec2643b26184edbc87966
+    m_Address: Prefabs/CostumeItem/Heart
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
