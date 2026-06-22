@@ -815,6 +815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goat
       objectReference: {fileID: 0}
+    - target: {fileID: 3101344522634502195, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1
@@ -855,6 +859,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4889506916754943408, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: Rigidbody_BasicGoat
+      value: 
+      objectReference: {fileID: 1470859900}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -862,7 +870,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: d61df712a54c685468d99288a0748a3d, type: 3}
 --- !u!4 &1470859899 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1863424895105539810, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+  m_PrefabInstance: {fileID: 1470859898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1470859900 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3101344522634502195, guid: d61df712a54c685468d99288a0748a3d, type: 3}
   m_PrefabInstance: {fileID: 1470859898}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1902645716
