@@ -65,6 +65,7 @@ MonoBehaviour:
   Goat_Basic: {fileID: 1863424895105835824}
   Goat_Humanoid: {fileID: 1071487251253352915}
   Animator_Humanoid: {fileID: 1071487251260872473}
+  PlayerMoving: {fileID: 4889506916754943408}
 --- !u!1001 &1071487251253430817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAccessory
   Transform_Head: {fileID: 1071487251253576901}
   Transform_Eye: {fileID: 1071487251253653625}
+  OtherAccessory: {fileID: 4692921745255493499}
   PlayerItem:
   - {fileID: 11400000, guid: 8bd4ec391dde71b41a78227b7fbc86db, type: 2}
   - {fileID: 11400000, guid: d2043b88b8d5f744a9804e1e4a60b028, type: 2}
@@ -423,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAccessory
   Transform_Head: {fileID: 1863424895105613350}
   Transform_Eye: {fileID: 1863424895105534618}
+  OtherAccessory: {fileID: 5566058580626017130}
   PlayerItem:
   - {fileID: 11400000, guid: 8bd4ec391dde71b41a78227b7fbc86db, type: 2}
   - {fileID: 11400000, guid: d2043b88b8d5f744a9804e1e4a60b028, type: 2}
