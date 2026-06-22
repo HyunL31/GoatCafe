@@ -160,9 +160,10 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         _isWaiting = true;
         SetState(CustomerState.Idle);
         await UniTask.WaitForSeconds(UnityEngine.Random.Range(5f, 8f), cancellationToken: this.GetCancellationTokenOnDestroy());
+        _isWaiting = false;
+        if (_isExiting) return;
         if (State == CustomerState.Idle)
             SetState(CustomerState.Walking);
-        _isWaiting = false;
     }
 
     private async UniTaskVoid WaitAndReturnToWalkAsync(float seconds, CustomerState waitingState)
