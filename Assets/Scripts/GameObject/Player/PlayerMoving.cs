@@ -1,9 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMoving : MonoBehaviour
 {
@@ -24,10 +22,9 @@ public class PlayerMoving : MonoBehaviour
     private CancellationTokenSource _dieToken;
     private Camera _camera;
 
-
     private void Start()
     {
-        //_stamina = GameManager.Instance.PlayerModel.Stamina;
+        _stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
