@@ -350,30 +350,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4788864996537907527, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4788864996537907527, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 5258974091902059211, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.585
-      objectReference: {fileID: 0}
-    - target: {fileID: 5258974091902059211, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.598
-      objectReference: {fileID: 0}
-    - target: {fileID: 5803539185807354845, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 5803539185807354845, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.29
-      objectReference: {fileID: 0}
     - target: {fileID: 7497525334794565818, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_Name
       value: Map_PlayGround
