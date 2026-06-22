@@ -9,6 +9,10 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
+        if (_targetCustomer == null) return;
+
+        _targetCustomer.OnHit();
+
         if (_isJerk)
         {
             // 스코어
