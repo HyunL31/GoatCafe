@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ee74bd42997e5b4e9d35fa03bfac12d, type: 3}
-  m_Name: NewCosmeticItem
+  m_Name: Santa
   m_EditorClassIdentifier: Assembly-CSharp::CosmeticItem
-  Price: 1000
-  Name: Crown
-  Iconpath: dtdtd
-  type: 0
+  Price: 0
+  Name: Santa
+  Iconpath: 
+  ID: 
+  Description: 
+  PrefabPath: Prefabs/CostumeItem/Santa
+  Slot: Head
