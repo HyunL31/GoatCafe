@@ -27,27 +27,27 @@ public class SaveUI : BaseUI
 
         _slotID.Clear();
 
-        RefreshSlot().Forget();
+        //RefreshSlot().Forget();
     }
 
-    private async UniTask RefreshSlot()
-    {
-        ClearSaveSlot();
+    //private async UniTask RefreshSlot()
+    //{
+    //    ClearSaveSlot();
 
-        foreach (int i in GameManager.Instance.SlotIndex)
-        {
-            if (_slotID.Contains(i))
-            {
-                continue;
-            }
+    //    foreach (int i in GameManager.Instance.SlotIndex)
+    //    {
+    //        if (_slotID.Contains(i))
+    //        {
+    //            continue;
+    //        }
 
-            GameObject prefab = await LoadUtil.Async.LoadPrefabAsync("Prefabs/UI/SaveSlot");
-            SaveSlot saveSlot = prefab.GetComponent<SaveSlot>();
-            saveSlot.InitSlot(i);
+    //        GameObject prefab = await LoadUtil.Async.LoadPrefabAsync("Prefabs/UI/SaveSlot");
+    //        SaveSlot saveSlot = prefab.GetComponent<SaveSlot>();
+    //        saveSlot.InitSlot(i);
 
-            _slotID.Add(i);
-        }
-    }
+    //        _slotID.Add(i);
+    //    }
+    //}
 
     private void ClearSaveSlot()
     {

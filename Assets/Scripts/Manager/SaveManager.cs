@@ -6,18 +6,18 @@ public class SaveManager : BaseMonoManager<SaveManager>
 {
     public Action OnSaveClear;
 
-    private string GetPath(int slotIndex)
+    private string GetPath(string slotIndex)
     {
         return Path.Combine(Application.persistentDataPath, $"GOAT{slotIndex}.json");
     }
 
-    public void RequestSaveData(int slotIndex, PlayerModel data)
+    public void RequestSaveData(string slotIndex, PlayerModel data)
     {
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(GetPath(slotIndex), json);
     }
 
-    public PlayerModel RequestLoadData(int slotIndex)
+    public PlayerModel RequestLoadData(string slotIndex)
     {
         string path = GetPath(slotIndex);
 
@@ -46,7 +46,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
         return newPlayerData;
     }
 
-    public bool HasSaveFile(int slotIndex)
+    public bool HasSaveFile(string slotIndex)
     {
         return File.Exists(GetPath(slotIndex));
     }

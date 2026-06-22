@@ -6,7 +6,7 @@ public class SaveSlot : MonoBehaviour
 {
     [SerializeField] private Button Button_Discard;
 
-    private int _slotID;
+    private string _slotID;
     private PlayerModel _slotModel;
 
     private void Awake()
@@ -14,7 +14,7 @@ public class SaveSlot : MonoBehaviour
         Button_Discard.onClick.AddListener(OnClickDiscard);
     }
 
-    public void InitSlot(int slotID)
+    public void InitSlot(string slotID)
     {
         _slotID = slotID;
         _slotModel = SaveManager.Instance.RequestLoadData(slotID);
