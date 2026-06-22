@@ -121,6 +121,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
             case CustomerState.Hit:
                 _agent.isStopped = true;
                 if (_anim != null)  _anim.SetTrigger(HashHit);
+                GetComponent<Collider>().enabled = false;
                 break;
             case CustomerState.Detected:
                 _agent.isStopped = true;
