@@ -2412,8 +2412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JerkCustomer
   Int_ScoreValue: 100
-  Float_MinReactTime: 5
-  Float_MaxReactTime: 10
+  Float_MinReactTime: 10
+  Float_MaxReactTime: 25
 --- !u!114 &3173081387183664752
 MonoBehaviour:
   m_ObjectHideFlags: 0
