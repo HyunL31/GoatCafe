@@ -8,7 +8,6 @@ public class PlayerAccessory : MonoBehaviour
     [SerializeField] private Transform Transform_Eye;
     [SerializeField] private PlayerAccessory OtherAccessory;
 
-    // 추후 PlayerModel에서 가져올 예정
     [SerializeField] private List<CosmeticItem> PlayerItem = new List<CosmeticItem>();
     [SerializeField] private PlayerMoving PlayerMoving;
 

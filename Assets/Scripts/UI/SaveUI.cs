@@ -1,21 +1,18 @@
-﻿using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SaveUI : BaseUI
 {
     [SerializeField] private Button Button_Close;
     [SerializeField] private Transform Transform_SlotParent;
+    [SerializeField] private GameObject Prefab_SaveSlot;
     [SerializeField] private GameObject GameObject_InfoText;
-
-    private HashSet<int> _slotID = new HashSet<int>();
 
     private void Awake()
     {
         Button_Close.onClick.AddListener(OnClickClose);
 
-        SaveManager.Instance.OnSaveClear = ClearSaveSlot;
+        SaveManager.Instance.OnSaveClear += ClearSaveSlot;
     }
 
     private void OnEnable()
@@ -25,33 +22,24 @@ public class SaveUI : BaseUI
             Destroy(child.gameObject);
         }
 
-        _slotID.Clear();
-
-        //RefreshSlot().Forget();
+        RefreshSlot();
     }
 
-    //private async UniTask RefreshSlot()
-    //{
-    //    ClearSaveSlot();
+    private void RefreshSlot()
+    {
+        ClearSaveSlot();
 
-    //    foreach (int i in GameManager.Instance.SlotIndex)
-    //    {
-    //        if (_slotID.Contains(i))
-    //        {
-    //            continue;
-    //        }
-
-    //        GameObject prefab = await LoadUtil.Async.LoadPrefabAsync("Prefabs/UI/SaveSlot");
-    //        SaveSlot saveSlot = prefab.GetComponent<SaveSlot>();
-    //        saveSlot.InitSlot(i);
-
-    //        _slotID.Add(i);
-    //    }
-    //}
+        foreach (string slotName in SaveManager.Instance.SlotIndex)
+        {
+            GameObject prefab = Instantiate(Prefab_SaveSlot, Transform_SlotParent);
+            SaveSlot saveSlot = prefab.GetComponent<SaveSlot>();
+            saveSlot.InitSlot(slotName);
+        }
+    }
 
     private void ClearSaveSlot()
     {
-        if (GameManager.Instance.SlotIndex.Count == 0)
+        if (SaveManager.Instance.SlotIndex.Count == 0)
         {
             GameObject_InfoText.SetActive(true);
         }

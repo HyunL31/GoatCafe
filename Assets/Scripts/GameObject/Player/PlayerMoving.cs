@@ -24,12 +24,11 @@ public class PlayerMoving : MonoBehaviour
     private CancellationTokenSource _dieToken;
     private Camera _camera;
 
-    // 나중에 SaveManager? GameManager로 이식
     public List<CosmeticItem> EquippedItems { get; set; } = new List<CosmeticItem>();
 
     private void Start()
     {
-        //_stamina = GameManager.Instance.PlayerModel.Stamina;
+        _stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;

@@ -5,24 +5,24 @@ using UnityEngine.UI;
 public class SaveSlot : MonoBehaviour
 {
     [SerializeField] private Button Button_Discard;
+    [SerializeField] private Button Button_Confirm;
 
     private string _slotID;
-    private PlayerModel _slotModel;
 
     private void Awake()
     {
         Button_Discard.onClick.AddListener(OnClickDiscard);
+        Button_Confirm.onClick.AddListener(OnClickConfirm);
     }
 
     public void InitSlot(string slotID)
     {
         _slotID = slotID;
-        _slotModel = SaveManager.Instance.RequestLoadData(slotID);
     }
 
     private void OnClickConfirm()
     {
-        // 게임 시작
+        SaveManager.Instance.LoadOrCreatePlayerData(_slotID);
     }
 
     private void OnClickDiscard()
@@ -34,7 +34,7 @@ public class SaveSlot : MonoBehaviour
             File.Delete(path);
         }
 
-        GameManager.Instance.SlotIndex.Remove(_slotID);
+        SaveManager.Instance.SlotIndex.Remove(_slotID);
         SaveManager.Instance.OnSaveClear?.Invoke();
 
         Destroy(gameObject);
