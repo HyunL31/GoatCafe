@@ -1,22 +1,39 @@
 using UnityEngine;
+using static AddressUtil;
 
 public class MiniGameManager : MonoBehaviour
 {
     private int score;
     public bool isGame;
-    public bool isUseItem;
+    public bool isUseItem1; // 스코어 두배
+    public bool isUseItem2; // 난이도 감소
 
     [SerializeField] GameObject NightMiniGamePanel;
-    [SerializeField] GameObject PaperTrashPrefab;
-    [SerializeField] GameObject PlasticTrashPrefab;
+    [SerializeField] GameObject[] PaperTrashPrefab;
+    [SerializeField] GameObject[] PlasticTrashPrefab;
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         score = 0;
         /*
+        
+        타 코드에서 아이템 사용 확인하는 로직 필요함
+
+        스코어 두배 아이템 사용 -> isUseItem1;
+        난이도 감소 아이템 사용 -> isUseItem2;
+
+        변수 이름 마음대로 바꿔도 가능
+
+
+
+
+
+        여기부터 Update()의 각주내용은 필드와 미니게임 연결 관련
+
         isGame = false;
 
         if (NightMiniGamePanel != null)
@@ -47,6 +64,7 @@ public class MiniGameManager : MonoBehaviour
 
     public void GameStart()
     {
+
         isGame = true;
 
         score = 0;
@@ -54,12 +72,18 @@ public class MiniGameManager : MonoBehaviour
         int PaperTrashCount = Random.Range(1, 6);
         int PlasticTrashCount = Random.Range(1, 6);
 
+        if(isUseItem2 == true)
+        {
+            PaperTrashCount = Mathf.Max(1, PaperTrashCount / 2);
+            PlasticTrashCount = Mathf.Max(1, PlasticTrashCount / 2);
+        }
+
         for (int i = 0; i < PaperTrashCount; i++)
         {
-            GameObject Papertrash = Instantiate(PaperTrashPrefab, trashParent);
+            GameObject paperPrefab = PaperTrashPrefab[Random.Range(0, PaperTrashPrefab.Length)];
+            GameObject paperTrash = Instantiate(paperPrefab, trashParent);
 
-            
-            RectTransform trashRect = Papertrash.GetComponent<RectTransform>();
+            RectTransform trashRect = paperTrash.GetComponent<RectTransform>();
 
 
             float x = Random.Range(-SpawnZone.rect.width / 2f, SpawnZone.rect.width / 2f);
@@ -71,8 +95,8 @@ public class MiniGameManager : MonoBehaviour
 
         for (int j = 0; j < PlasticTrashCount; j++)
         {
-            GameObject PlasticTrash = Instantiate(PlasticTrashPrefab, trashParent);
-
+            GameObject PlasticPrefab = PlasticTrashPrefab[Random.Range(0, PlasticTrashPrefab.Length)];
+            GameObject PlasticTrash = Instantiate(PlasticPrefab, trashParent);
 
             RectTransform trashRect = PlasticTrash.GetComponent<RectTransform>();
 
@@ -112,6 +136,10 @@ public class MiniGameManager : MonoBehaviour
             }
         }
 
+        if (isUseItem1 == true)
+        {
+            score = score * 2;
+        }
         Debug.Log("최종 점수: " + score);
         CloseMiniGame();
     }
