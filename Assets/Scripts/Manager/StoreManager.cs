@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -19,44 +20,45 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [SerializeField] private TextMeshProUGUI _coinText;
     [SerializeField] private Transform _contentParent;
 
-    [Header("Cosmetic Object")]
-    [SerializeField] private GameObject _crown;
-    [SerializeField] private GameObject _humanoidCrown;
+    [Header("Main Player Accessory")]
+    [SerializeField] private PlayerAccessory _playerAccessory;
 
     private HashSet<ItemBase> purchasedItems = new HashSet<ItemBase>();  // 구매한 영구적/치장 아이템 보관
-    private HashSet<ItemBase> equippedItems = new HashSet<ItemBase>();  // 치장 아이템 보관
+    private HashSet<CosmeticItem> equippedItems = new HashSet<CosmeticItem>();  // 치장 아이템 보관
+    private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 프리팹 
+    private Dictionary<GameObject, string> _existItemsReverse = new Dictionary<GameObject, string>();  // 치장 아이템 프리팹 역방향 딕셔너리
+    private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
+    private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
+    public void AddItemPrefab(string name, GameObject prefab)
+    {
+        if(!_existItems.ContainsKey(name))
+        {
+            _existItems.Add(name, prefab);
+            _existItemsReverse.Add(prefab, name);
+        }
+    }
+    public bool TryGetItemPrefab(string name, out GameObject item)
+    {
+        return _existItems.TryGetValue(name, out item);
+    }
+    public string GetPrefabName(GameObject item)
+    {
+        if(_existItemsReverse.ContainsKey(item))
+        {
+            return _existItemsReverse[item];
+        }
+        return null;
+    }
 
     public bool IsPurchased(ItemBase itemData) => purchasedItems.Contains(itemData);
-    public void AddPurchased(ItemBase itemData)
-    {
-        if (!purchasedItems.Contains(itemData))
-        {
-            purchasedItems.Add(itemData);
-        }
-    }
-    public void RemovePurchased(ItemBase itemData)
-    {
-        if(purchasedItems.Contains(itemData))
-        {
-            purchasedItems.Remove(itemData);
-        }
-    }
-    public bool IsEquipped(ItemBase itemData) => equippedItems.Contains(itemData);
-    public void AddEquipped(ItemBase itemData)
-    {
-        if (!equippedItems.Contains(itemData))
-        {
-            equippedItems.Add(itemData);
-        }
-    }
-    public void RemoveEquipped(ItemBase itemData)
-    {
-        if (equippedItems.Contains(itemData))
-        {
-            equippedItems.Remove(itemData);
-        }
-    }
-    private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
+    public void AddPurchased(ItemBase itemData) => purchasedItems.Add(itemData);
+    public void RemovePurchased(ItemBase itemData) => purchasedItems.Remove(itemData);
+    public bool IsEquipped(CosmeticItem itemData) => equippedItems.Contains(itemData);
+    public void AddEquipped(CosmeticItem itemData) => equippedItems.Add(itemData);
+    public void RemoveEquipped(CosmeticItem itemData) => equippedItems.Remove(itemData);
+    public void ClearEquippedData() => equippedItems.Clear();
+
+
     public void AddInventory(ItemBase itemData)
     {
         if(inventoryDic.ContainsKey(itemData))
@@ -93,23 +95,30 @@ public class StoreManager : BaseMonoManager<StoreManager>
         foreach (Transform child in _contentParent)
             Destroy(child.gameObject);
 
+        StoreItemSlot tempslot;
         foreach (var item in ItemDataBase.Instance.PermanentList)
         {
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
-            slotObj.GetComponent<StoreItemSlot>().Setup(item);
+            tempslot = slotObj.GetComponent<StoreItemSlot>();
+            tempslot.Setup(item);
+            StoreSlotDic.Add(item, tempslot);
         }
         foreach (var item in ItemDataBase.Instance.ConsumableList)
         {
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
-            slotObj.GetComponent<StoreItemSlot>().Setup(item);
+            tempslot = slotObj.GetComponent<StoreItemSlot>();
+            tempslot.Setup(item);
+            StoreSlotDic.Add(item, tempslot);
         }
-        foreach (var item in ItemDataBase.Instance.CosmeticList)
+        foreach (var item in ItemDataBase.Instance.CosmeticDic)
         {
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
-            slotObj.GetComponent<StoreItemSlot>().Setup(item);
+            tempslot = slotObj.GetComponent<StoreItemSlot>();
+            tempslot.Setup(item.Value);
+            StoreSlotDic.Add(item.Value, tempslot);
         }
     }
 
@@ -188,32 +197,37 @@ public class StoreManager : BaseMonoManager<StoreManager>
         if(itemData is CosmeticItem cosmeticData)
         {
             button.transform.Find("Store_GoldIcon").gameObject.SetActive(false);
-            if (equippedItems.Contains(itemData))
+            if (equippedItems.Contains(cosmeticData))
             {
-                equippedItems.Remove(itemData);
-                SetCosmetic(cosmeticData.type, false);
-                button.GetComponentInChildren<TextMeshProUGUI>().text = "Equip";
+                _playerAccessory.UseItem(cosmeticData).Forget();
+                ChangeSlotButtonState(cosmeticData, true);
             }
             else
             {
-                equippedItems.Add(itemData);
-                SetCosmetic(cosmeticData.type, true);
-                button.GetComponentInChildren<TextMeshProUGUI>().text = "Unequip";
+                _playerAccessory.UseItem(cosmeticData).Forget();
+                ChangeSlotButtonState(cosmeticData, false);
             }
-
         }
     }
 
-    private void SetCosmetic(CosmeticType type, bool isActive)
+    public void ChangeSlotButtonState(ItemBase item, bool isEquipped)
     {
-        switch(type)
+        if(StoreSlotDic.TryGetValue(item, out StoreItemSlot slot))
         {
-            case CosmeticType.Crown:
-                _crown.SetActive(isActive);
-                _humanoidCrown.SetActive(isActive);
-                break;
+            Debug.Log($"{item} 찾았음");
+            if(isEquipped)
+            {
+                slot._itemPriceText.text = "Equip";
+            }
+            else
+            {
+                slot._itemPriceText.text = "UnEquip";
+            }
+            return;
         }
+        Debug.Log($"{item} 못찾았음");
     }
+
 
 
     ////// 아래는 임시로 만든 함수 or 변수 (다른곳에서 만들어지면 지울 예정)
