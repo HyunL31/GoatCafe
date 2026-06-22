@@ -45,6 +45,9 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<float> OnDayTimeChanged;
     public event Action<int> OnSaveSlotChanged;
 
+    public event Action<int> OnUseStaminaItem;
+    public event Action<int, int> OnUseSpeedItem;
+
     protected override void Awake()
     {
         base.Awake();
