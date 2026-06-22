@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 81502386603795889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.585, y: -1.92, z: 3.598}
+  m_LocalPosition: {x: -3.585, y: -1.92, z: 3.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -248,6 +248,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5092132793706606501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4311372544579466205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2602070370222842760}
+  m_Layer: 0
+  m_Name: Exitpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &2602070370222842760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311372544579466205}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.585, y: -1.92, z: -5.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5092132793706606501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4312164022893601147
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,37 +336,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.13, y: -1.98, z: -5.53}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5092132793706606501}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5908084048817670933
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8762012152720612543}
-  m_Layer: 0
-  m_Name: Waypoint_05
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &8762012152720612543
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5908084048817670933}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.06, y: -1.98, z: -5.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -501,7 +501,6 @@ Transform:
   - {fileID: 5803539185807354845}
   - {fileID: 4788864996537907527}
   - {fileID: 6282204022800521437}
-  - {fileID: 8762012152720612543}
   - {fileID: 7612695881224627377}
   - {fileID: 5183228280718841966}
   - {fileID: 2862208100829968411}
@@ -511,6 +510,7 @@ Transform:
   - {fileID: 6522466057644149597}
   - {fileID: 6301567056818964113}
   - {fileID: 5258974091902059211}
+  - {fileID: 2602070370222842760}
   m_Father: {fileID: 4142011108806439604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1838711461349006990
@@ -525,16 +525,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df71db618bbbd194b9994d75ba8d48f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSpawner
-  Prefab_NormalCustomer: {fileID: 2039540486423942286, guid: b5657db179e151142bfeafdb9853eb8f, type: 3}
-  Prefab_JerkCustomer: {fileID: 1852581026425598917, guid: 30094d6b3680b994c81d0e418392825c, type: 3}
+  Prefabs_NormalCustomers:
+  - {fileID: 2039540486423942286, guid: b5657db179e151142bfeafdb9853eb8f, type: 3}
+  - {fileID: 8751749917235322518, guid: 921013a00ec683047bdaa5a828bd5611, type: 3}
+  Prefabs_JerkCustomers:
+  - {fileID: 1852581026425598917, guid: 30094d6b3680b994c81d0e418392825c, type: 3}
+  - {fileID: 3199542464799439002, guid: 092e613d53511a04285672ce6c43643d, type: 3}
   Transform_SpawnPoints:
   - {fileID: 5258974091902059211}
+  Transform_ExitPoint: {fileID: 2602070370222842760}
   Transform_Waypoints:
   - {fileID: 3746083519739984386}
   - {fileID: 5803539185807354845}
   - {fileID: 4788864996537907527}
   - {fileID: 6282204022800521437}
-  - {fileID: 8762012152720612543}
   - {fileID: 7612695881224627377}
   - {fileID: 5183228280718841966}
   - {fileID: 2862208100829968411}
@@ -546,6 +550,7 @@ MonoBehaviour:
   Int_SpawnCount: 20
   Float_JerkChance: 0.3
   Float_SpawnInterval: 8
+  Float_ExitTime: 30
 --- !u!1001 &5408033198585275767
 PrefabInstance:
   m_ObjectHideFlags: 0

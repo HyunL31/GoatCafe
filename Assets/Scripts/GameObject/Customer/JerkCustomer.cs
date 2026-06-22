@@ -4,8 +4,8 @@ using Cysharp.Threading.Tasks;
 public class JerkCustomer : CustomerBase
 {
     [SerializeField] private int Int_ScoreValue = 100;
-    [SerializeField] private float Float_MinReactTime = 5f;
-    [SerializeField] private float Float_MaxReactTime = 10f;
+    [SerializeField] private float Float_MinReactTime = 10f;
+    [SerializeField] private float Float_MaxReactTime = 25f;
 
     protected override void OnInitialized()
     {
