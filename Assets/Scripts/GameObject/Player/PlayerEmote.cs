@@ -83,7 +83,7 @@ public class PlayerEmote : MonoBehaviour
         Goat_Basic.SetActive(false);
         Goat_Humanoid.SetActive(true);
 
-        Goat_Humanoid.transform.position = transform.position;
+        Goat_Humanoid.transform.position = Goat_Basic.transform.position;
         Goat_Humanoid.transform.LookAt(_main.transform);
 
         Vector3 currentRotation = Goat_Humanoid.transform.rotation.eulerAngles;
@@ -110,6 +110,5 @@ public class PlayerEmote : MonoBehaviour
         {
             isEmoteUnlocked = true;
         }
-
     }
 }
