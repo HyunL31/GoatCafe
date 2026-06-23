@@ -1,16 +1,10 @@
-﻿using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoreManager : BaseMonoManager<StoreManager>
 {
-
-    //임시 소유 코인
-    public int _coins = 999999;
-
     [Header("Prefab")]
     [SerializeField] private GameObject _storeItems;
 
@@ -23,6 +17,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [Header("Main Player Accessory")]
     [SerializeField] private PlayerAccessory _playerAccessory;
 
+    public int Coin { get; private set; } = 999999;
+
     private HashSet<ItemBase> purchasedItems = new HashSet<ItemBase>();  // 구매한 영구적/치장 아이템 보관
     private HashSet<CosmeticItem> equippedItems = new HashSet<CosmeticItem>();  // 치장 아이템 보관
     private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Goat)
@@ -32,6 +28,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
 
     public static event System.Action<PermanentItem> OnItemPurchased;
+
+    private void Start()
+    {
+        // Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
+    }
+
     public void AddItemObj(string name, GameObject prefab)
     {
         if(!_existItems.ContainsKey(name))
@@ -40,10 +42,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
             _existItemsReverse.Add(prefab, name);
         }
     }
+
     public bool TryGetItemObj(string name, out GameObject item)
     {
         return _existItems.TryGetValue(name, out item);
     }
+
     public string GetPrefabName(GameObject item)
     {
         if(_existItemsReverse.ContainsKey(item))
@@ -63,6 +67,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     {
         return _existHumanoidItems.TryGetValue(name, out item);
     }
+
     public bool IsPurchased(ItemBase itemData) => purchasedItems.Contains(itemData);
     public void AddPurchased(ItemBase itemData) => purchasedItems.Add(itemData);
     public void RemovePurchased(ItemBase itemData) => purchasedItems.Remove(itemData);
@@ -70,7 +75,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void AddEquipped(CosmeticItem itemData) => equippedItems.Add(itemData);
     public void RemoveEquipped(CosmeticItem itemData) => equippedItems.Remove(itemData);
     public void ClearEquippedData() => equippedItems.Clear();
-
 
     public void AddInventory(ItemBase itemData)
     {
@@ -167,6 +171,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 AddPurchased(itemData);
             }
         }
+
         UpdateStorePopup();
 
         if (itemData is PermanentItem permanentData)  // 일단은 영구적인 효과의 아이템만 구현
@@ -249,6 +254,62 @@ public class StoreManager : BaseMonoManager<StoreManager>
         Debug.Log($"{item} 못찾았음");
     }
 
+    public void LoadSaveStore()
+    {
+        PlayerModel playerModel = SaveManager.Instance.CurrentPlayerModel;
+
+        purchasedItems.Clear();
+        equippedItems.Clear();
+
+        foreach (string itemName in playerModel.PurchasedItemNames)
+        {
+            if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticData))
+            {
+                purchasedItems.Add(cosmeticData);
+            }
+        }
+
+        foreach (string itemName in playerModel.EquippedItemNames)
+        {
+            if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
+            {
+                equippedItems.Add(cosmeticItem);
+
+                if (_playerAccessory != null)
+                {
+                    _playerAccessory.UseItem(cosmeticItem);
+                }
+            }
+        }
+    }
+
+    public void SaveStoreData()
+    {
+        PlayerModel playerModel = SaveManager.Instance.CurrentPlayerModel;
+
+        playerModel.PurchasedItemNames.Clear();
+        playerModel.EquippedItemNames.Clear();
+
+        foreach (var item in purchasedItems)
+        {
+            if (item != null)
+            {
+                playerModel.PurchasedItemNames.Add(item.Name);
+            }
+        }
+
+        foreach (var item in equippedItems)
+        {
+            if (item != null)
+            {
+                playerModel.EquippedItemNames.Add(item.Name);
+            }
+        }
+
+        playerModel.Coin = this.Coin;
+
+        SaveManager.Instance.SaveData();
+    }
 
 
     ////// 아래는 임시로 만든 함수 or 변수 (다른곳에서 만들어지면 지울 예정)
@@ -257,9 +318,9 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void SpendCoins(int amount)
     {
-        if(_coins >= amount)
+        if(Coin >= amount)
         {
-            _coins -= amount;
+            Coin -= amount;
         }
     }
 
@@ -275,6 +336,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     //임시 팝업 UI 업데이트
     public void UpdateStorePopup()
     {
-        _coinText.text = _coins.ToString();
+        _coinText.text = Coin.ToString();
     }
 }
