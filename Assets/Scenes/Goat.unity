@@ -938,6 +938,18 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 3169154746340887150, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: m_Radius
+      value: 0.33498392
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169154746340887150, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: m_Center.y
+      value: 0.9269091
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169154746340887150, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: m_Center.z
+      value: 0.8439153
+      objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1
@@ -1425,6 +1437,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5242189429262902604, guid: 598b723daf7871845a6d1bbcc8c7b73d, type: 3}
+      propertyPath: Transform_Goat
+      value: 
+      objectReference: {fileID: 1470859899}
     - target: {fileID: 5359863022581005668, guid: 598b723daf7871845a6d1bbcc8c7b73d, type: 3}
       propertyPath: m_Name
       value: GoatMainEnvironment
