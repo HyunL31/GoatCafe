@@ -25,10 +25,6 @@ public class GameManager : BaseMonoManager<GameManager>
 
     private float _remainDayTime;
 
-    public PlayerModel PlayerModel { get; private set; } = new PlayerModel();
-    public int CurrentSlotIndex { get; private set; } = 0;
-    public HashSet<int> SlotIndex { get; private set; } = new HashSet<int>();
-
     public GameState CurrentState { get; private set; } = GameState.None;
     public DayPhase CurrentDayPhase { get; private set; } = DayPhase.None;
 
@@ -43,7 +39,6 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<GameState> OnGameStateChanged;
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
-    public event Action<int> OnSaveSlotChanged;
 
     public event Action<int> OnUseStaminaItem;
     public event Action<int, int> OnUseSpeedItem;
@@ -51,8 +46,6 @@ public class GameManager : BaseMonoManager<GameManager>
     protected override void Awake()
     {
         base.Awake();
-
-        InitSaveSlot();
     }
 
     private void Start()
@@ -179,72 +172,6 @@ public class GameManager : BaseMonoManager<GameManager>
         {
             ChangeDayPhase(DayPhase.Night);
         }
-    }
-
-
-    //// Save
-
-    public void SaveData()
-    {
-        SaveManager.Instance.RequestSaveData(CurrentSlotIndex, PlayerModel);
-        SlotIndex.Add(CurrentSlotIndex);
-    }
-
-    public void LoadData(int index)
-    {
-        PlayerModel = SaveManager.Instance.RequestLoadData(index);
-    }
-
-    public void LoadDefaultData()
-    {
-        PlayerModel = SaveManager.Instance.GetDefaultData();
-    }
-
-    public void SetCurrentSaveIndex(int index)
-    {
-        CurrentSlotIndex = index;
-        OnSaveSlotChanged?.Invoke(CurrentSlotIndex);
-    }
-
-    public int GetEmptySlotIndex()
-    {
-        for (int i = 0; i < 100; i++)
-        {
-            if (!SlotIndex.Contains(i))
-            {
-                return i;
-            }
-        }
-
-        return 0;
-    }
-
-    private void InitSaveSlot()
-    {
-        for (int i = 0; i < 100; i++)
-        {
-            if (SaveManager.Instance.HasSaveFile(i))
-            {
-                SlotIndex.Add(i);
-            }
-        }
-    }
-
-    public void LoadOrCreatePlayerData(int index)
-    {
-        SetCurrentSaveIndex(index);
-
-        if (SaveManager.Instance.HasSaveFile(index))
-        {
-            LoadData(index);
-        }
-        else
-        {
-            LoadDefaultData();
-            SaveData();
-        }
-
-        StartGame();
     }
 
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========

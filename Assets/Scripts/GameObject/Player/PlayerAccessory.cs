@@ -9,7 +9,6 @@ public class PlayerAccessory : MonoBehaviour
     [SerializeField] private Transform Transform_Eye;
     [SerializeField] private PlayerAccessory OtherAccessory;
 
-
     private Dictionary<string, Transform> _slots;
     private Dictionary<string, GameObject> _usedSlot = new Dictionary<string, GameObject>();
 
