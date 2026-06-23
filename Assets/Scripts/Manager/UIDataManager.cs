@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIDataManager : BaseMonoManager<UIDataManager>
 {
     public Dictionary<string, MainMenuUIData> MainMenuUIDataList {  get; private set; }
+    public Dictionary<string, InGamePopupData> InGamePopupDataList {  get; private set; }
 
     private void Start()
     {
@@ -22,11 +23,17 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
     private void LoadAllData()
     {
         LoadMainMenuUIData();
+        LoadInGamePopupData();
     }
 
     private void LoadMainMenuUIData()
     {
         MainMenuUIDataList = LoadData<MainMenuUIData>(DataUtil.UIData.MainMenuUI.File);
+    }
+
+    private void LoadInGamePopupData()
+    {
+        InGamePopupDataList = LoadData<InGamePopupData>(DataUtil.UIData.InGamePopup.File);
     }
 
     [Serializable]

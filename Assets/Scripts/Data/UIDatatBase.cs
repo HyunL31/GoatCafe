@@ -13,3 +13,11 @@ public class MainMenuUIData : UIDataBase
     public string GameOptionButton;
     public string ExitGameButton;
 }
+
+[Serializable]
+public class InGamePopupData : UIDataBase
+{
+    public string TutorialButton;
+    public string GameOptionButton;
+    public string ReturnMainMenuButton;
+}
