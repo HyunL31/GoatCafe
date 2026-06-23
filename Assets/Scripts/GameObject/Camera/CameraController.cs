@@ -24,11 +24,6 @@ public class CameraController : MonoBehaviour
         {
             this.LogError("Transform_Goat가 연결되지 않았습니다! 인스펙터를 확인해주세요.");
         }
-
-        if (CursorManager.Instance != null)
-        {
-            CursorManager.Instance.LockCursor();
-        }
     }
 
     private void Update()
@@ -56,20 +51,20 @@ public class CameraController : MonoBehaviour
 
     private void HandleCursor()
     {
-        // ESC 누르면 커서 풀기 (테스트용)
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (CursorManager.Instance != null)
-            {
-                CursorManager.Instance.UnlockCursor();
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0))
+        // UI 테스트용: F1 = 잠금, F2 = 풀기
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             if (CursorManager.Instance != null)
             {
                 CursorManager.Instance.LockCursor();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            if (CursorManager.Instance != null)
+            {
+                CursorManager.Instance.UnlockCursor();
             }
         }
     }
