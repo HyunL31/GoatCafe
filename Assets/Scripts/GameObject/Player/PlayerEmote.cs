@@ -78,7 +78,7 @@ public class PlayerEmote : MonoBehaviour
     private async UniTask PlayDanceAnimation(DanceType dance)
     {
         if (!PlayerMoving.IsAlive()) return;
-        //if (!isEmoteUnlocked) return;
+        if (!isEmoteUnlocked) return;
 
         Goat_Basic.SetActive(false);
         Goat_Humanoid.SetActive(true);
