@@ -1,16 +1,10 @@
-﻿using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoreManager : BaseMonoManager<StoreManager>
 {
-
-    //임시 소유 코인
-    public int _coins = 999999;
-
     [Header("Prefab")]
     [SerializeField] private GameObject _storeItems;
 
@@ -23,6 +17,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [Header("Main Player Accessory")]
     [SerializeField] private PlayerAccessory _playerAccessory;
 
+    public int Coin { get; private set; } = 9999999;
+
     private HashSet<ItemBase> purchasedItems = new HashSet<ItemBase>();  // 구매한 영구적/치장 아이템 보관
     private HashSet<CosmeticItem> equippedItems = new HashSet<CosmeticItem>();  // 치장 아이템 보관
     private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Goat)
@@ -30,6 +26,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private Dictionary<GameObject, string> _existItemsReverse = new Dictionary<GameObject, string>();  // 치장 아이템 프리팹 역방향 딕셔너리
     private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
+
+    private void Start()
+    {
+        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
+    }
+
     public void AddItemObj(string name, GameObject prefab)
     {
         if(!_existItems.ContainsKey(name))
@@ -240,6 +242,34 @@ public class StoreManager : BaseMonoManager<StoreManager>
         Debug.Log($"{item} 못찾았음");
     }
 
+    public void LoadSaveItemData()
+    {
+        PlayerModel model = SaveManager.Instance.CurrentPlayerModel;
+
+        purchasedItems.Clear();
+        equippedItems.Clear();
+
+        foreach (string itemName in model.PurchasedItemNames)
+        {
+            if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
+            {
+                purchasedItems.Add(cosmeticItem);
+            }
+        }
+
+        foreach (string itemName in model.EquippedItemNames)
+        {
+            if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
+            {
+                equippedItems.Add(cosmeticItem);
+
+                if (_playerAccessory != null)
+                {
+                    _playerAccessory.UseItem(cosmeticItem);
+                }
+            }
+        }
+    }
 
 
     ////// 아래는 임시로 만든 함수 or 변수 (다른곳에서 만들어지면 지울 예정)
@@ -248,9 +278,9 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void SpendCoins(int amount)
     {
-        if(_coins >= amount)
+        if(Coin >= amount)
         {
-            _coins -= amount;
+            Coin -= amount;
         }
     }
 
@@ -266,6 +296,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     //임시 팝업 UI 업데이트
     public void UpdateStorePopup()
     {
-        _coinText.text = _coins.ToString();
+        _coinText.text = Coin.ToString();
     }
 }
