@@ -15,6 +15,7 @@ MonoBehaviour:
   Price: 2000
   Name: Santa
   Iconpath: 
+  ItemDesc: qweqweqwe
   PrefabPath: Prefabs/CostumeItem/Santa
   Slot: Head
   type: 0

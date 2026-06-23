@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StoreManager : BaseMonoManager<StoreManager>
 {
+
     [Header("Prefab")]
     [SerializeField] private GameObject _storeItems;
 
@@ -143,7 +144,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     {
         _storePopup.SetActive(false);
 
-        SetCursorState(false);
+        CursorManager.Instance.LockCursor();
     }
 
     public void OpenStorePopup()
@@ -152,7 +153,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         _storePopup.SetActive(true);
 
-        SetCursorState(true);
+        CursorManager.Instance.UnlockCursor();
     }
 
     public void HandleButtonClick(ItemBase itemData, Button button)
@@ -324,18 +325,36 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
     }
 
-    //임시 마우스커서 활성화/비활성화 함수
-    public void SetCursorState(bool state)
-    {
-        Cursor.visible = state;
-
-        if (state) Cursor.lockState = CursorLockMode.None;
-        else Cursor.lockState = CursorLockMode.Locked;
-    } 
-
     //임시 팝업 UI 업데이트
     public void UpdateStorePopup()
     {
-        _coinText.text = Coin.ToString();
+        _coinText.text = _coins.ToString();
+    }
+
+
+
+    // 아이템 설명 팝업 관련 변수 / 함수들
+
+
+
+
+    public void UpdateBuffPopupPosition()
+    {
+        RectTransform popupTransform = ItemDescPopup.GetComponent<RectTransform>();
+        Vector3 mousePos = Input.mousePosition;
+
+
+        Vector3 targetPos = mousePos;
+
+        if (targetPos.x + buffTooltipWidth > UICanvasRect.rect.width)
+        {
+            targetPos.x = mousePos.x - buffTooltipWidth;
+        }
+
+   
+        //임시 팝업 UI 업데이트
+    public void UpdateStorePopup()
+    {
+        _coinText.text = _coins.ToString();
     }
 }

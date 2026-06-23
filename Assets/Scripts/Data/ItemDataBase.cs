@@ -17,6 +17,7 @@ public abstract class ItemBase : ScriptableObject
     [SerializeField] public int Price;
     [SerializeField] public string Name;
     [SerializeField] public string Iconpath;
+    [SerializeField] public string ItemDesc;
 
     public virtual bool Buy()
     {
