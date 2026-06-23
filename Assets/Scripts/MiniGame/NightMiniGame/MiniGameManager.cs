@@ -1,12 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
 using static AddressUtil;
 
-public class MiniGameManager : MonoBehaviour
+public class MiniGameManager : BaseMonoManager<MiniGameManager>
 {
     private int score;
     public bool isGame;
-    public bool isUseItem1; // 스코어 두배
-    public bool isUseItem2; // 난이도 감소
+    private bool isScoreDouble = false;  // 스코어 두배
+    private bool isMiniGameEasier = false;  // 난이도 감소
+
 
     [SerializeField] GameObject NightMiniGamePanel;
     [SerializeField] GameObject[] PaperTrashPrefab;
@@ -23,8 +24,8 @@ public class MiniGameManager : MonoBehaviour
         
         타 코드에서 아이템 사용 확인하는 로직 필요함
 
-        스코어 두배 아이템 사용 -> isUseItem1;
-        난이도 감소 아이템 사용 -> isUseItem2;
+        스코어 두배 아이템 사용 -> isScoreDouble;
+        난이도 감소 아이템 사용 -> isMiniGameEasier;
 
         변수 이름 마음대로 바꿔도 가능
 
@@ -72,7 +73,7 @@ public class MiniGameManager : MonoBehaviour
         int PaperTrashCount = Random.Range(1, 6);
         int PlasticTrashCount = Random.Range(1, 6);
 
-        if(isUseItem2 == true)
+        if(isMiniGameEasier == true)
         {
             PaperTrashCount = Mathf.Max(1, PaperTrashCount / 2);
             PlasticTrashCount = Mathf.Max(1, PlasticTrashCount / 2);
@@ -136,7 +137,7 @@ public class MiniGameManager : MonoBehaviour
             }
         }
 
-        if (isUseItem1 == true)
+        if (isScoreDouble == true)
         {
             score = score * 2;
         }
@@ -150,5 +151,15 @@ public class MiniGameManager : MonoBehaviour
         {
             NightMiniGamePanel.SetActive(false);
         }
+    }
+
+    public void SetMiniGameScoreDouble(bool isDouble)
+    {
+        isScoreDouble = isDouble;
+    }
+
+    public void SetMiniGameEasier(bool isEasier)
+    {
+        isMiniGameEasier = isEasier;
     }
 }

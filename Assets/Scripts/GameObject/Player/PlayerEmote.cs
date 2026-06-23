@@ -2,6 +2,7 @@
 using System;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum DanceType
 {
@@ -20,12 +21,17 @@ public class PlayerEmote : MonoBehaviour
 
     private CancellationTokenSource _danceCancel;
     private Camera _main;
+    private bool isEmoteUnlocked = false;
 
     private void Awake()
     {
         _main = Camera.main;
     }
 
+    private void OnEnable()
+    {
+        StoreManager.OnItemPurchased += HandleItemPurchased;
+    }
     private void Update()
     {
         if (Input.GetKey(KeyCode.Alpha1))
@@ -49,7 +55,7 @@ public class PlayerEmote : MonoBehaviour
 
     private void SetDance(DanceType dance)
     {
-        // 가게 매니저 관련 조건(구매했는지 안했는지) 추가 예정
+
         if (!Goat_Humanoid.activeSelf)
         {
             return;
@@ -71,10 +77,8 @@ public class PlayerEmote : MonoBehaviour
 
     private async UniTask PlayDanceAnimation(DanceType dance)
     {
-        if (!PlayerMoving.IsAlive())
-        {
-            return;
-        }
+        if (!PlayerMoving.IsAlive()) return;
+        if (!isEmoteUnlocked) return;
 
         Goat_Basic.SetActive(false);
         Goat_Humanoid.SetActive(true);
@@ -98,5 +102,14 @@ public class PlayerEmote : MonoBehaviour
 
         Goat_Basic.SetActive(true);
         Goat_Humanoid.SetActive(false);
+    }
+
+    private void HandleItemPurchased(PermanentItem item)
+    {
+        if(item.effectType == EffectType.UnlockEmote)
+        {
+            isEmoteUnlocked = true;
+        }
+
     }
 }
