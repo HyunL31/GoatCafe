@@ -50,6 +50,7 @@ MonoBehaviour:
   Animator_Goat: {fileID: 1863424895115095546}
   Goat_Humanoid: {fileID: 1071487251253352915}
   PlayerAttack: {fileID: 6573084493399772164}
+  Rigidbody_BasicGoat: {fileID: 3101344522634502195}
 --- !u!114 &4770409014285501764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAccessory
   Transform_Head: {fileID: 1071487251253576901}
   Transform_Eye: {fileID: 1071487251253653625}
-  OtherAccessory: {fileID: 0}
+  OtherAccessory: {fileID: 4692921745255493499}
 --- !u!4 &1071487251253576901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 413412, guid: 9629c42775e22c042a1712c23b891b7c, type: 3}
