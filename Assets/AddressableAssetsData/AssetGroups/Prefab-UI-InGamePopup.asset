@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Json-UI
+  m_Name: Prefab-UI-InGamePopup
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Json-UI
-  m_GUID: 2e9eb625ee394ae478e6880acb2c7a19
+  m_GroupName: Prefab-UI-InGamePopup
+  m_GUID: 2b1894d6353d4ee419fe8e309bdd4ebd
   m_SerializeEntries:
-  - m_GUID: 0c95ec98c18ea2843a133742985984d6
-    m_Address: Json/MainMenuUIData
+  - m_GUID: 0f533f2f90eb2274cb482fb3a8d2c7d7
+    m_Address: Prefab/UI/InGamePopup/PopupPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1b80b6d9d8db65d48b7935ce3b715c0e
-    m_Address: Json/InGamePopupData
+  - m_GUID: a6eed3e4eac30c1429d68d0ea868ca3e
+    m_Address: Prefab/UI/InGamePopup/MenuButton
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -29,5 +29,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: dd0e05dcfd44a004b88ee63bcef9330c, type: 2}
-    - {fileID: 11400000, guid: e63359ff902e7fd4b868b2fd75558174, type: 2}
+    - {fileID: 11400000, guid: 0b295d9d60a84dc489c2c03b4ec82892, type: 2}
+    - {fileID: 11400000, guid: e11019c02a69db642abca68a880c0b11, type: 2}

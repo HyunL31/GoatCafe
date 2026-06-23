@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Json-UI
+  m_Name: Prefab-InGameUI
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Json-UI
-  m_GUID: 2e9eb625ee394ae478e6880acb2c7a19
+  m_GroupName: Prefab-InGameUI
+  m_GUID: 204571c545c3740488a362da75aa12ac
   m_SerializeEntries:
-  - m_GUID: 0c95ec98c18ea2843a133742985984d6
-    m_Address: Json/MainMenuUIData
+  - m_GUID: 0f329d293110801439c244d70d95e767
+    m_Address: Prefab/UI/INGameUI/DayButton
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1b80b6d9d8db65d48b7935ce3b715c0e
-    m_Address: Json/InGamePopupData
+  - m_GUID: 772031261de1c054198eef76a5aa4987
+    m_Address: Prefab/UI/InGameUI/UIPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -29,5 +29,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: dd0e05dcfd44a004b88ee63bcef9330c, type: 2}
-    - {fileID: 11400000, guid: e63359ff902e7fd4b868b2fd75558174, type: 2}
+    - {fileID: 11400000, guid: 6375b5f271f29b34e8a56de515e30805, type: 2}
+    - {fileID: 11400000, guid: 67bfe8124fe8f4b4dba53414b169fbec, type: 2}

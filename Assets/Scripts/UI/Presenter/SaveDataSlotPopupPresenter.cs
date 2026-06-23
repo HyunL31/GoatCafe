@@ -141,7 +141,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
 
     protected override void SetUIData()
     {
-        _saveDataSlotPopup.ClearSaveDataSlot();
+        _saveDataSlotPopup.DestroyAllSaveDataSlot();
 
         _saveDataSlotPopup.SetBackgroundImage(_sprite_backgroundEdge, _sprite_background, _sprite_backgroundTitle);
         _saveDataSlotPopup.SetSaveSlotImage(_sprite_saveSlotEdge, _sprite_saveSlotBackground, _sprite_saveSlotTitle);
@@ -209,5 +209,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
         GameManager.Instance.LoadOrCreatePlayerData(index);
         UIManager.Instance.CloseUI(UIType_This);
         OnSaveDataSlotSelected?.Invoke();
+
+        UIManager.Instance.OpenInGameUI();
     }
 }
