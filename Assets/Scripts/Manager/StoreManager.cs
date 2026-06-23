@@ -1,10 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoreManager : BaseMonoManager<StoreManager>
 {
+
+    //임시 소유 코인
+    public int Coin { get; set; } = 9999999;
+
+    [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
+    [SerializeField] private int buffTooltipWidth = 500;
+    [SerializeField] private RectTransform UICanvasRect;
+    [SerializeField] private GameObject ItemDescPopup;
+    [SerializeField] public TextMeshProUGUI _itemDesctext;
+    [SerializeField] public TextMeshProUGUI _itemNametext;
 
     [Header("Prefab")]
     [SerializeField] private GameObject _storeItems;
@@ -18,8 +30,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [Header("Main Player Accessory")]
     [SerializeField] private PlayerAccessory _playerAccessory;
 
-    public int Coin { get; private set; } = 999999;
-
     private HashSet<ItemBase> purchasedItems = new HashSet<ItemBase>();  // 구매한 영구적/치장 아이템 보관
     private HashSet<CosmeticItem> equippedItems = new HashSet<CosmeticItem>();  // 치장 아이템 보관
     private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Goat)
@@ -32,26 +42,24 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     private void Start()
     {
-        // Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
+        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
     }
 
     public void AddItemObj(string name, GameObject prefab)
     {
-        if(!_existItems.ContainsKey(name))
+        if (!_existItems.ContainsKey(name))
         {
             _existItems.Add(name, prefab);
             _existItemsReverse.Add(prefab, name);
         }
     }
-
     public bool TryGetItemObj(string name, out GameObject item)
     {
         return _existItems.TryGetValue(name, out item);
     }
-
     public string GetPrefabName(GameObject item)
     {
-        if(_existItemsReverse.ContainsKey(item))
+        if (_existItemsReverse.ContainsKey(item))
         {
             return _existItemsReverse[item];
         }
@@ -59,7 +67,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     }
     public void AddHumanoidItemObj(string name, GameObject prefab)
     {
-        if(!_existHumanoidItems.ContainsKey(name))
+        if (!_existHumanoidItems.ContainsKey(name))
         {
             _existHumanoidItems.Add(name, prefab);
         }
@@ -68,7 +76,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     {
         return _existHumanoidItems.TryGetValue(name, out item);
     }
-
     public bool IsPurchased(ItemBase itemData) => purchasedItems.Contains(itemData);
     public void AddPurchased(ItemBase itemData) => purchasedItems.Add(itemData);
     public void RemovePurchased(ItemBase itemData) => purchasedItems.Remove(itemData);
@@ -77,9 +84,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void RemoveEquipped(CosmeticItem itemData) => equippedItems.Remove(itemData);
     public void ClearEquippedData() => equippedItems.Clear();
 
+
     public void AddInventory(ItemBase itemData)
     {
-        if(inventoryDic.ContainsKey(itemData))
+        if (inventoryDic.ContainsKey(itemData))
         {
             inventoryDic[itemData] += 1;
         }
@@ -91,7 +99,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void UseInventoryItem(ItemBase itemData)
     {
-        if(inventoryDic.ContainsKey(itemData))
+        if (inventoryDic.ContainsKey(itemData))
         {
             inventoryDic[itemData] -= 1;
         }
@@ -159,7 +167,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void HandleButtonClick(ItemBase itemData, Button button)
     {
         Debug.Log($"{itemData.Name}, {button.name}");
-        if (!purchasedItems.Contains(itemData)) 
+        if (!purchasedItems.Contains(itemData))
         {
             if (!itemData.Buy())
             {
@@ -172,7 +180,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 AddPurchased(itemData);
             }
         }
-
         UpdateStorePopup();
 
         if (itemData is PermanentItem permanentData)  // 일단은 영구적인 효과의 아이템만 구현
@@ -209,9 +216,9 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
 
 
-        if(itemData is ConsumableItem consumableData)
+        if (itemData is ConsumableItem consumableData)
         {
-            if(inventoryDic.ContainsKey(consumableData))
+            if (inventoryDic.ContainsKey(consumableData))
             {
                 inventoryDic[consumableData] += 1;
             }
@@ -221,7 +228,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             }
         }
 
-        if(itemData is CosmeticItem cosmeticData)
+        if (itemData is CosmeticItem cosmeticData)
         {
             button.transform.Find("Store_GoldIcon").gameObject.SetActive(false);
             if (equippedItems.Contains(cosmeticData))
@@ -239,10 +246,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void ChangeSlotButtonState(ItemBase item, bool isEquipped)
     {
-        if(StoreSlotDic.TryGetValue(item, out StoreItemSlot slot))
+        if (StoreSlotDic.TryGetValue(item, out StoreItemSlot slot))
         {
             Debug.Log($"{item} 찾았음");
-            if(isEquipped)
+            if (isEquipped)
             {
                 slot._itemPriceText.text = "Equip";
             }
@@ -313,13 +320,14 @@ public class StoreManager : BaseMonoManager<StoreManager>
     }
 
 
+
     ////// 아래는 임시로 만든 함수 or 변수 (다른곳에서 만들어지면 지울 예정)
-    
+
 
 
     public void SpendCoins(int amount)
     {
-        if(Coin >= amount)
+        if (Coin >= amount)
         {
             Coin -= amount;
         }
@@ -328,7 +336,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     //임시 팝업 UI 업데이트
     public void UpdateStorePopup()
     {
-        _coinText.text = _coins.ToString();
+        _coinText.text = Coin.ToString();
     }
 
 
@@ -351,10 +359,20 @@ public class StoreManager : BaseMonoManager<StoreManager>
             targetPos.x = mousePos.x - buffTooltipWidth;
         }
 
-   
-        //임시 팝업 UI 업데이트
-    public void UpdateStorePopup()
+        popupTransform.position = targetPos;
+    }
+    public void SetitemDescPopup(bool isactive, ItemBase item)
     {
-        _coinText.text = _coins.ToString();
+        if (isactive)
+        {
+            _itemDesctext.text = item.ItemDesc;
+            _itemNametext.text = item.Name;
+            ItemDescPopup.SetActive(isactive);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(ItemDescPopup.GetComponent<RectTransform>());
+        }
+        else
+        {
+            ItemDescPopup.SetActive(isactive);
+        }
     }
 }
