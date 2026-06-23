@@ -1477,6 +1477,7 @@ GameObject:
   - component: {fileID: 6394760317764031365}
   - component: {fileID: 2546320049327600972}
   - component: {fileID: 5031180840833625644}
+  - component: {fileID: -4242952295593143264}
   m_Layer: 21
   m_Name: Customer_Prefab_Jerk
   m_TagString: Jerk
@@ -1659,6 +1660,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
+--- !u!135 &-4242952295593143264
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852581026425598917}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.92
+  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!1 &2093901295983707339
 GameObject:
   m_ObjectHideFlags: 0

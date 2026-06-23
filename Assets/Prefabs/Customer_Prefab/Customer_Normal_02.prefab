@@ -9253,6 +9253,7 @@ GameObject:
   - component: {fileID: 4214977399774613934}
   - component: {fileID: 7409342944298365330}
   - component: {fileID: 837582442156654839}
+  - component: {fileID: 4754483938651382840}
   m_Layer: 21
   m_Name: Customer_Normal_02
   m_TagString: Normal
@@ -9438,6 +9439,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
+--- !u!135 &4754483938651382840
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751749917235322518}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.92
+  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!1 &8777493843052023177
 GameObject:
   m_ObjectHideFlags: 0

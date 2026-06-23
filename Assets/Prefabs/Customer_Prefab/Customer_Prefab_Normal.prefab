@@ -1643,6 +1643,7 @@ GameObject:
   - component: {fileID: 6419480290456734471}
   - component: {fileID: 7345147917519444344}
   - component: {fileID: 6592407204240792303}
+  - component: {fileID: -6272075645737832723}
   m_Layer: 21
   m_Name: Customer_Prefab_Normal
   m_TagString: Normal
@@ -1822,6 +1823,27 @@ CapsuleCollider:
   m_Radius: 0.24626768
   m_Height: 1.7894893
   m_Direction: 1
+  m_Center: {x: 0, y: 0.93, z: 0}
+--- !u!135 &-6272075645737832723
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039540486423942286}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.92
   m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!1 &2183808156768347546
 GameObject:
