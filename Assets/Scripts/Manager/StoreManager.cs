@@ -25,11 +25,14 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     private HashSet<ItemBase> purchasedItems = new HashSet<ItemBase>();  // 구매한 영구적/치장 아이템 보관
     private HashSet<CosmeticItem> equippedItems = new HashSet<CosmeticItem>();  // 치장 아이템 보관
-    private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 프리팹 
+    private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Goat)
+    private Dictionary<string, GameObject> _existHumanoidItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Humanoid)
     private Dictionary<GameObject, string> _existItemsReverse = new Dictionary<GameObject, string>();  // 치장 아이템 프리팹 역방향 딕셔너리
     private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
-    public void AddItemPrefab(string name, GameObject prefab)
+
+    public static event System.Action<PermanentItem> OnItemPurchased;
+    public void AddItemObj(string name, GameObject prefab)
     {
         if(!_existItems.ContainsKey(name))
         {
@@ -37,7 +40,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             _existItemsReverse.Add(prefab, name);
         }
     }
-    public bool TryGetItemPrefab(string name, out GameObject item)
+    public bool TryGetItemObj(string name, out GameObject item)
     {
         return _existItems.TryGetValue(name, out item);
     }
@@ -49,7 +52,17 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
         return null;
     }
-
+    public void AddHumanoidItemObj(string name, GameObject prefab)
+    {
+        if(!_existHumanoidItems.ContainsKey(name))
+        {
+            _existHumanoidItems.Add(name, prefab);
+        }
+    }
+    public bool TryGetHumanoidItemObj(string name, out GameObject item)
+    {
+        return _existHumanoidItems.TryGetValue(name, out item);
+    }
     public bool IsPurchased(ItemBase itemData) => purchasedItems.Contains(itemData);
     public void AddPurchased(ItemBase itemData) => purchasedItems.Add(itemData);
     public void RemovePurchased(ItemBase itemData) => purchasedItems.Remove(itemData);
@@ -140,6 +153,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void HandleButtonClick(ItemBase itemData, Button button)
     {
+        Debug.Log($"{itemData.Name}, {button.name}");
         if (!purchasedItems.Contains(itemData)) 
         {
             if (!itemData.Buy())
@@ -161,14 +175,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
             switch (permanentData.effectType)   // 영구적 아이템 효과 적용 부분
             {
-                case EffectType.UpgradeHealth:
-                    Debug.Log("UpgradeHealth 구매됨");
-                    break;
                 case EffectType.SpeedUp:
                     Debug.Log("SpeedUp 구매됨");
                     break;
                 case EffectType.MiniGamePointDouble:
                     Debug.Log("MiniGamePointDouble 구매됨");
+                    MiniGameManager.Instance.SetMiniGameEasier(true);
                     break;
                 case EffectType.BonusDayDuration:
                     Debug.Log("BonusDayDuration 구매됨");
@@ -178,6 +190,15 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     Debug.Log("PointDouble 구매됨");
                     GameManager.Instance.PointDoubleItemPurchased();
                     break;
+                case EffectType.MiniGameEasier:
+                    Debug.Log("MiniGameEasier 구매됨");
+                    MiniGameManager.Instance.SetMiniGameScoreDouble(true);
+                    break;
+                case EffectType.UnlockEmote:
+                    Debug.Log("UnlockEmote 구매됨");
+                    OnItemPurchased.Invoke(permanentData);
+                    break;
+
             }
         }
 
@@ -199,12 +220,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
             button.transform.Find("Store_GoldIcon").gameObject.SetActive(false);
             if (equippedItems.Contains(cosmeticData))
             {
-                _playerAccessory.UseItem(cosmeticData).Forget();
+                _playerAccessory.UseItem(cosmeticData);
                 ChangeSlotButtonState(cosmeticData, true);
             }
             else
             {
-                _playerAccessory.UseItem(cosmeticData).Forget();
+                _playerAccessory.UseItem(cosmeticData);
                 ChangeSlotButtonState(cosmeticData, false);
             }
         }

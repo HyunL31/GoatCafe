@@ -50,6 +50,7 @@ MonoBehaviour:
   Animator_Goat: {fileID: 1863424895115095546}
   Goat_Humanoid: {fileID: 1071487251253352915}
   PlayerAttack: {fileID: 6573084493399772164}
+  Rigidbody_BasicGoat: {fileID: 3101344522634502195}
 --- !u!114 &4770409014285501764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,11 +226,6 @@ MonoBehaviour:
   Transform_Head: {fileID: 1071487251253576901}
   Transform_Eye: {fileID: 1071487251253653625}
   OtherAccessory: {fileID: 4692921745255493499}
-  PlayerItem:
-  - {fileID: 11400000, guid: 8bd4ec391dde71b41a78227b7fbc86db, type: 2}
-  - {fileID: 11400000, guid: d2043b88b8d5f744a9804e1e4a60b028, type: 2}
-  - {fileID: 11400000, guid: 4298e4152d7ca1f4aa2b0ba8f284894e, type: 2}
-  PlayerMoving: {fileID: 4889506916754943408}
 --- !u!4 &1071487251253576901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 413412, guid: 9629c42775e22c042a1712c23b891b7c, type: 3}
@@ -426,11 +422,6 @@ MonoBehaviour:
   Transform_Head: {fileID: 1863424895105613350}
   Transform_Eye: {fileID: 1863424895105534618}
   OtherAccessory: {fileID: 5566058580626017130}
-  PlayerItem:
-  - {fileID: 11400000, guid: 8bd4ec391dde71b41a78227b7fbc86db, type: 2}
-  - {fileID: 11400000, guid: d2043b88b8d5f744a9804e1e4a60b028, type: 2}
-  - {fileID: 11400000, guid: 4298e4152d7ca1f4aa2b0ba8f284894e, type: 2}
-  PlayerMoving: {fileID: 4889506916754943408}
 --- !u!114 &6573084493399772164
 MonoBehaviour:
   m_ObjectHideFlags: 0
