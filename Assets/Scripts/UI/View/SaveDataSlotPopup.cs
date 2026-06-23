@@ -19,34 +19,34 @@ public class SaveDataSlotPopup : BaseUI<SaveDataSlotPopup>
     private bool _hasExitButton;
 
 
-    public void SetBackgroundImage(Sprite sprite_backgroundEdge, Sprite sprite_background, Sprite sprite_backgroundTitle = null)
+    public void SetBackgroundImage(Sprite backgroundEdgeSprite, Sprite backgroundSprite, Sprite backgroundTitleSprite = null)
     {
-        Image_BackgroundEdge.sprite = sprite_backgroundEdge;
-        Image_Background.sprite = sprite_background;
+        Image_BackgroundEdge.sprite = backgroundEdgeSprite;
+        Image_Background.sprite = backgroundSprite;
 
-        if (sprite_backgroundTitle == null)
+        if (backgroundTitleSprite == null)
         {
             Image_BackgroundTitle.ActiveFalse();
         }
         else
         { 
-            Image_BackgroundTitle.sprite = sprite_backgroundTitle;
+            Image_BackgroundTitle.sprite = backgroundTitleSprite;
             Image_BackgroundTitle.ActiveTrue();
         }
     }
 
-    public void SetSaveSlotImage(Sprite sprite_saveSlotEdge, Sprite sprite_saveSlotBackground, Sprite sprite_saveSlotTitle)
+    public void SetSaveSlotImage(Sprite saveSlotEdgeSprite, Sprite saveSlotBackgroundSprite, Sprite saveSlotTitleSprite)
     {
-        Image_SaveSlotEdge.sprite = sprite_saveSlotEdge;
-        Image_SaveSlotBackground.sprite = sprite_saveSlotBackground;
+        Image_SaveSlotEdge.sprite = saveSlotEdgeSprite;
+        Image_SaveSlotBackground.sprite = saveSlotBackgroundSprite;
 
-        if (sprite_saveSlotTitle == null)
+        if (saveSlotTitleSprite == null)
         {
             Image_SaveSlotTitle.ActiveFalse();
         }
         else
         {
-            Image_SaveSlotTitle.sprite = sprite_saveSlotTitle;
+            Image_SaveSlotTitle.sprite = saveSlotTitleSprite;
             Image_SaveSlotTitle.ActiveTrue();
         }
     }
@@ -96,7 +96,7 @@ public class SaveDataSlotPopup : BaseUI<SaveDataSlotPopup>
         _hasExitButton = true;
     }
 
-    public void ClearSaveDataSlot()
+    public void DestroyAllSaveDataSlot()
     {
         foreach (Transform saveDataSlotTransform in Transform_SaveDataSlot)
         {

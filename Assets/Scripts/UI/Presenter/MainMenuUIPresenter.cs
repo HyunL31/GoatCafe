@@ -1,7 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI>
 {
@@ -39,6 +38,7 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI
     {
         await LoadAssetAsync();
         LoadData();
+        SetUIData();
 
         _mainMenuUI.ActiveTrue();
     }
@@ -95,7 +95,6 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI
         _text_gameOptionButton = mainMenuUIData.GameOptionButton;
         _text_exitButton = mainMenuUIData.ExitGameButton;
 
-        SetUIData();
     }
 
     protected override void SetUIData()
@@ -120,7 +119,7 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI
 
     private void OnClick_GameOption()
     {
-        UIManager.Instance.OpenGameOptionPopup();
+        UIManager.Instance.OpenGameOptionUI();
     }
 
     private void OnClick_ExitGame()
