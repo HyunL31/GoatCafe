@@ -34,15 +34,15 @@ public class PlayerEmote : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             StartDance(DanceType.Hiphop);
         }
-        else if (Input.GetKey(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             StartDance(DanceType.Samba);
         }
-        else if (Input.GetKey(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             StartDance(DanceType.Shuffle);
         }
@@ -83,7 +83,7 @@ public class PlayerEmote : MonoBehaviour
         Goat_Basic.SetActive(false);
         Goat_Humanoid.SetActive(true);
 
-        Goat_Humanoid.transform.position = transform.position;
+        Goat_Humanoid.transform.position = Goat_Basic.transform.position;
         Goat_Humanoid.transform.LookAt(_main.transform);
 
         Vector3 currentRotation = Goat_Humanoid.transform.rotation.eulerAngles;

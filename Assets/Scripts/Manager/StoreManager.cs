@@ -139,7 +139,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     {
         _storePopup.SetActive(false);
 
-        SetCursorState(false);
+        CursorManager.Instance.LockCursor();
     }
 
     public void OpenStorePopup()
@@ -148,7 +148,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         _storePopup.SetActive(true);
 
-        SetCursorState(true);
+        CursorManager.Instance.UnlockCursor();
     }
 
     public void HandleButtonClick(ItemBase itemData, Button button)
@@ -262,15 +262,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
             _coins -= amount;
         }
     }
-
-    //임시 마우스커서 활성화/비활성화 함수
-    public void SetCursorState(bool state)
-    {
-        Cursor.visible = state;
-
-        if (state) Cursor.lockState = CursorLockMode.None;
-        else Cursor.lockState = CursorLockMode.Locked;
-    } 
 
     //임시 팝업 UI 업데이트
     public void UpdateStorePopup()
