@@ -15,5 +15,6 @@ MonoBehaviour:
   Price: 2000
   Name: Point Double Item
   Iconpath: dtdtd
+  ItemDesc: dtdtdt
   effectType: 2
   value: 0

@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAccessory
   Transform_Head: {fileID: 1071487251253576901}
   Transform_Eye: {fileID: 1071487251253653625}
-  OtherAccessory: {fileID: 4692921745255493499}
+  OtherAccessory: {fileID: 0}
 --- !u!4 &1071487251253576901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 413412, guid: 9629c42775e22c042a1712c23b891b7c, type: 3}

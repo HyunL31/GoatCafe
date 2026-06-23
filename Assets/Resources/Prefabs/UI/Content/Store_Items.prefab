@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 6345579262083603637}
   - component: {fileID: 7216393417513235489}
   - component: {fileID: 1921461864995860790}
+  - component: {fileID: 1153439996018993750}
   m_Layer: 5
   m_Name: Store_ItemIcon
   m_TagString: Untagged
@@ -224,6 +225,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1153439996018993750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969235517219453786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade7c9b500cc3b44abe390464334a958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemIconHover
 --- !u!1 &3534156851262476067
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acef0f66d25d3c043bdc403a52b34402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoreItemSlot
+  itemBaseData: {fileID: 0}
   _button: {fileID: 9036303674839280065}
   _itemImage: {fileID: 1921461864995860790}
   _itemNameText: {fileID: 4025193478917111247}
