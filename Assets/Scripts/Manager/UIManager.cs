@@ -6,6 +6,9 @@ public enum UIType : byte
 {
     MainMenuUI,
     SaveSlotPopup,
+    GameOptionUI,
+    InGameUI,
+    InGamePopup
 }
 
 public enum UIRootType : byte
@@ -109,7 +112,7 @@ public partial class UIManager : BaseMonoManager<UIManager>
         {
             return null;
         }
-        
+
         GameObject ui = Instantiate(prefab, canvas.transform);
 
 
@@ -157,6 +160,14 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.SaveSlotPopup.PopupPrefab;
                 }
+            case UIType.InGameUI:
+                {
+                    return AddressUtil.Prefab.UI.InGameUI.UIPrefab;
+                }
+            case UIType.InGamePopup:
+                {
+                    return AddressUtil.Prefab.UI.InGamePopup.PopupPrefab;
+                }
             default:
                 {
                     this.LogError($"{uiType}에 알맞는 Path가 없습니다!!");
@@ -174,6 +185,14 @@ public partial class UIManager : BaseMonoManager<UIManager>
                     return UIRootType.Main;
                 }
             case UIType.SaveSlotPopup:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.InGameUI:
+                {
+                    return UIRootType.Main;
+                }
+            case UIType.InGamePopup:
                 {
                     return UIRootType.Popup;
                 }

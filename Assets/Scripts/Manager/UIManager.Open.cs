@@ -1,9 +1,18 @@
 ﻿using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 public partial class UIManager
 {
     MainMenuUIPresenter _mainMenuUIPresenter;
+    SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
+    InGamePresenter _inGamePresenter;
+    InGamePopupPresenter _inGamePopupPresenter;
+
+    List<BasePresenter> _presenterList = new();
+
+    public void OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
+    {
+    }
 
     public void OpenMainMenuUI()
     {
@@ -13,12 +22,11 @@ public partial class UIManager
         }
 
         _activeUI.Add(_mainMenuUIPresenter.UIType_This);
+
         _mainMenuUIPresenter.InitUI(CreateUI<MainMenuUI>(_mainMenuUIPresenter.UIType_This));
     }
 
-    SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
-
-    public void OpenSaveSlotPopup(Action action)
+    public void OpenSaveSlotPopup(Action closeMainMenuCallback)
     {
         if(_saveDataSlotPopupPresenter == null)
         {
@@ -26,16 +34,42 @@ public partial class UIManager
         }
 
         _activeUI.Add(_saveDataSlotPopupPresenter.UIType_This);
+
         _saveDataSlotPopupPresenter.InitUI(CreateUI<SaveDataSlotPopup>(_saveDataSlotPopupPresenter.UIType_This));
-        _saveDataSlotPopupPresenter.SetAction(action);
+        _saveDataSlotPopupPresenter.SetAction(closeMainMenuCallback);
     }
 
     public void OpenInGameUI()
     {
+        if(_inGamePresenter == null)
+        {
+            _inGamePresenter = new InGamePresenter();
+        }
 
+        _activeUI.Add(_inGamePresenter.UIType_This);
+
+        _inGamePresenter.InitUI(CreateUI<InGameUI>(_inGamePresenter.UIType_This));
     }
 
-    public void OpenGameOptionPopup()
+    public void OpenInGamePopup(Action closeInGameUICallback)
     {
+        if(_inGamePopupPresenter == null)
+        {
+            _inGamePopupPresenter = new InGamePopupPresenter();
+        }
+
+        _activeUI.Add(_inGamePopupPresenter.UIType_This);
+
+        _inGamePopupPresenter.InitUI(CreateUI<InGamePopup>(_inGamePopupPresenter.UIType_This));
+        _inGamePopupPresenter.SubscribeEvent(closeInGameUICallback);
+    }
+
+    public void OpenGameOptionUI()
+    {
+    }
+
+    public void OpenTutorialPopup()
+    {
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine.Animations;
+using UnityEngine.Rendering.UI;
 
 public static class AddressUtil
 {
@@ -22,6 +23,18 @@ public static class AddressUtil
                 public const string NewDataButton = "Prefab/UI/SaveSlotPopup/NewDataButton";
                 public const string SaveDataButton = "Prefab/UI/SaveSlotPopup/SaveDataButton";
                 public const string ExitPopupButton = "Prefab/UI/SaveSlotPopup/ExitPopupButton";
+            }
+
+            public static class InGameUI
+            {
+                public const string UIPrefab = "Prefab/UI/InGameUI/UIPrefab";
+                public const string DayButton = "Prefab/UI/INGameUI/DayButton";
+            }
+
+            public static class InGamePopup
+            {
+                public const string PopupPrefab = "Prefab/UI/InGamePopup/PopupPrefab";
+                public const string MenuButton = "Prefab/UI/InGamePopup/MenuButton";
             }
         }
     }
@@ -69,8 +82,26 @@ public static class AddressUtil
                 public const string SaveButtonBlue = ButtonBlue;
                 public const string SaveButtonGreen = ButtonGreen;
                 public const string SaveButtonRed = ButtonRed;
-                    
+
                 public const string ExitPopupButton = "Sprite/UI/SaveSlotPopup/ExitPopupButton";
+            }
+
+            public static class InGameUI
+            {
+                public const string StaminaGaugeBackground = "Sprite/UI/InGameUI/StaminaGaugeBackground";
+                public const string StaminaGauge = "Sprite/UI/InGameUI/StaminaGauge";
+
+                public const string DayButtonBackground = "Sprite/UI/InGameUI/DayButtonBackground";
+                public const string DayButtonGaugeBackground = "Sprite/UI/InGameUI/DayButtonGaugeBackground";
+                public const string DayButtonGauge = "Sprite/UI/InGameUI/DayButtonGauge";
+            }
+
+            public static class InGamePopup
+            {
+                public const string Background = "Sprite/UI/InGamePopup/Background";
+                public const string TutorialButton = "Sprite/UI/InGamePopup/TutorialButton";
+                public const string GameOptionButton = "Sprite/UI/InGamePopup/GameOptionButton";
+                public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuButton";
             }
         }
     }

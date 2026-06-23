@@ -18,5 +18,15 @@ public static class DataUtil
                 public const string Main = "MainMenu_01";
             }
         }
+
+        public static class InGamePopup
+        {
+            public const string File = "InGamePopupData";
+
+            public static class Key
+            {
+                public const string Main = "InGamePopup_01";
+            }
+        }
     }
 }
