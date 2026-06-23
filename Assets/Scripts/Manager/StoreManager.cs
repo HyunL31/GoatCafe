@@ -1,10 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoreManager : BaseMonoManager<StoreManager>
 {
+
+    //임시 소유 코인
+    public int _coins = 999999;
+
     [Header("Prefab")]
     [SerializeField] private GameObject _storeItems;
 
@@ -17,8 +23,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [Header("Main Player Accessory")]
     [SerializeField] private PlayerAccessory _playerAccessory;
 
-    public int Coin { get; private set; } = 9999999;
-
     private HashSet<ItemBase> purchasedItems = new HashSet<ItemBase>();  // 구매한 영구적/치장 아이템 보관
     private HashSet<CosmeticItem> equippedItems = new HashSet<CosmeticItem>();  // 치장 아이템 보관
     private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Goat)
@@ -27,11 +31,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
 
-    private void Start()
-    {
-        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
-    }
-
+    public static event System.Action<PermanentItem> OnItemPurchased;
     public void AddItemObj(string name, GameObject prefab)
     {
         if(!_existItems.ContainsKey(name))
@@ -153,6 +153,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void HandleButtonClick(ItemBase itemData, Button button)
     {
+        Debug.Log($"{itemData.Name}, {button.name}");
         if (!purchasedItems.Contains(itemData)) 
         {
             if (!itemData.Buy())
@@ -179,6 +180,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.MiniGamePointDouble:
                     Debug.Log("MiniGamePointDouble 구매됨");
+                    MiniGameManager.Instance.SetMiniGameEasier(true);
                     break;
                 case EffectType.BonusDayDuration:
                     Debug.Log("BonusDayDuration 구매됨");
@@ -190,8 +192,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.MiniGameEasier:
                     Debug.Log("MiniGameEasier 구매됨");
-                    
+                    MiniGameManager.Instance.SetMiniGameScoreDouble(true);
                     break;
+                case EffectType.UnlockEmote:
+                    Debug.Log("UnlockEmote 구매됨");
+                    OnItemPurchased.Invoke(permanentData);
+                    break;
+
             }
         }
 
@@ -242,34 +249,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
         Debug.Log($"{item} 못찾았음");
     }
 
-    public void LoadSaveItemData()
-    {
-        PlayerModel model = SaveManager.Instance.CurrentPlayerModel;
-
-        purchasedItems.Clear();
-        equippedItems.Clear();
-
-        foreach (string itemName in model.PurchasedItemNames)
-        {
-            if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
-            {
-                purchasedItems.Add(cosmeticItem);
-            }
-        }
-
-        foreach (string itemName in model.EquippedItemNames)
-        {
-            if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
-            {
-                equippedItems.Add(cosmeticItem);
-
-                if (_playerAccessory != null)
-                {
-                    _playerAccessory.UseItem(cosmeticItem);
-                }
-            }
-        }
-    }
 
 
     ////// 아래는 임시로 만든 함수 or 변수 (다른곳에서 만들어지면 지울 예정)
@@ -278,9 +257,9 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void SpendCoins(int amount)
     {
-        if(Coin >= amount)
+        if(_coins >= amount)
         {
-            Coin -= amount;
+            _coins -= amount;
         }
     }
 
@@ -296,6 +275,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     //임시 팝업 UI 업데이트
     public void UpdateStorePopup()
     {
-        _coinText.text = Coin.ToString();
+        _coinText.text = _coins.ToString();
     }
 }
