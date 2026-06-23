@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -25,10 +25,6 @@ public class GameManager : BaseMonoManager<GameManager>
 
     private float _remainDayTime;
 
-    public PlayerModel PlayerModel { get; private set; } = new PlayerModel();
-    public int CurrentSlotIndex { get; private set; } = 0;
-    public HashSet<int> SlotIndex { get; private set; } = new HashSet<int>();
-
     public GameState CurrentState { get; private set; } = GameState.None;
     public DayPhase CurrentDayPhase { get; private set; } = DayPhase.None;
 
@@ -43,13 +39,13 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<GameState> OnGameStateChanged;
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
-    public event Action<int> OnSaveSlotChanged;
+
+    public event Action<int> OnUseStaminaItem;
+    public event Action<int, int> OnUseSpeedItem;
 
     protected override void Awake()
     {
         base.Awake();
-
-        InitSaveSlot();
     }
 
     private void Start()
@@ -178,69 +174,31 @@ public class GameManager : BaseMonoManager<GameManager>
         }
     }
 
+    // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
 
-    //// Save
+    private bool isPointDouble = false;   // true일때 보너스 점수 계산을 2배로
 
-    public void SaveData()
+    private float ex_dayDuration = 300f;  // 낮/밤 지속시간, 위에 구현되있는건 알지만 예시로 적어둔것
+
+    public void PointDoubleItemPurchased()  // StoreManager쪽에서 아이템 구매시 실행
     {
-        SaveManager.Instance.RequestSaveData(CurrentSlotIndex, PlayerModel);
-        SlotIndex.Add(CurrentSlotIndex);
+        isPointDouble = true;
     }
 
-    public void LoadData(int index)
+    public void BonusDayDurationItemPurchased(float bonus)  // StoreManager쪽에서 아이템 구매시 실행
     {
-        PlayerModel = SaveManager.Instance.RequestLoadData(index);
+        ex_dayDuration = ex_dayDuration + bonus;
     }
 
-    public void LoadDefaultData()
+    private int PointCalculate(int basePoint, int miniGamePoint)  // 점수계산 부분 예시로 만든겁니다
     {
-        PlayerModel = SaveManager.Instance.GetDefaultData();
-    }
+        int result = basePoint + miniGamePoint;
 
-    public void SetCurrentSaveIndex(int index)
-    {
-        CurrentSlotIndex = index;
-        OnSaveSlotChanged?.Invoke(CurrentSlotIndex);
-    }
-
-    public int GetEmptySlotIndex()
-    {
-        for (int i = 0; i < 100; i++)
+        if(isPointDouble) // DoublePoint 아이템이 구매되었으면, 보너스 점수 배율 적용
         {
-            if (!SlotIndex.Contains(i))
-            {
-                return i;
-            }
+            result = GameUtil.GetBonusScoreByRate(result, 2.0f);
         }
 
-        return 0;
-    }
-
-    private void InitSaveSlot()
-    {
-        for (int i = 0; i < 100; i++)
-        {
-            if (SaveManager.Instance.HasSaveFile(i))
-            {
-                SlotIndex.Add(i);
-            }
-        }
-    }
-
-    public void LoadOrCreatePlayerData(int index)
-    {
-        SetCurrentSaveIndex(index);
-
-        if (SaveManager.Instance.HasSaveFile(index))
-        {
-            LoadData(index);
-        }
-        else
-        {
-            LoadDefaultData();
-            SaveData();
-        }
-
-        StartGame();
+        return result;
     }
 }

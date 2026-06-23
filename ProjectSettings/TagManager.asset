@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Jerk
+  - Normal
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - 
@@ -26,7 +28,7 @@ TagManager:
   - 
   - 
   - Floor
-  - 
+  - Customer
   - 
   - 
   - 

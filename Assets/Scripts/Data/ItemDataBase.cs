@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EffectType
 {
-    UpgradeHealth, SpeedUp, MiniGamePointDouble
+    SpeedUp, MiniGamePointDouble, PointDouble, BonusDayDuration, MiniGameEasier, UnlockEmote
 }
 
 public enum CosmeticType
@@ -17,6 +17,7 @@ public abstract class ItemBase : ScriptableObject
     [SerializeField] public int Price;
     [SerializeField] public string Name;
     [SerializeField] public string Iconpath;
+    [SerializeField] public string ItemDesc;
 
     public virtual bool Buy()
     {
@@ -37,7 +38,7 @@ public class ItemDataBase  // 소모템, 치장템은 아직 추가 안했음
 
     public List<PermanentItem> PermanentList = new List<PermanentItem>();
     public List<ConsumableItem> ConsumableList = new List<ConsumableItem>();
-    public List<CosmeticItem> CosmeticList = new List<CosmeticItem>();
+    public Dictionary<string, CosmeticItem> CosmeticDic = new Dictionary<string, CosmeticItem>();
 
     public void LoadAllItems()  
     {
@@ -59,21 +60,11 @@ public class ItemDataBase  // 소모템, 치장템은 아직 추가 안했음
 
         foreach (CosmeticItem item in loadedCosmeticItems)
         {
-            CosmeticList.Add(item);
+            CosmeticDic.Add(item.Name, item);
         }
 
         Debug.Log($"[ItemDatabase] PermanentItem 로드 완료, 총 {PermanentList.Count} 개 ");
         Debug.Log($"[ItemDatabase] ConsumableItem 로드 완료, 총 {ConsumableList.Count} 개 ");
-        Debug.Log($"[ItemDatabase] CosmeticItem 로드 완료, 총 {CosmeticList.Count} 개 ");
+        Debug.Log($"[ItemDatabase] CosmeticItem 로드 완료, 총 {CosmeticDic.Count} 개 ");
     }
 }
-
-
-
-
-
-
-
-
-
-
