@@ -15,6 +15,7 @@ MonoBehaviour:
   Price: 2000
   Name: Crown
   Iconpath: 
+  ItemDesc: fefedfdfefd
   PrefabPath: Prefabs/CostumeItem/Crown
   Slot: Head
   type: 0

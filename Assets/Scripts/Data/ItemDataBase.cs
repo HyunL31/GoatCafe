@@ -17,12 +17,13 @@ public abstract class ItemBase : ScriptableObject
     [SerializeField] public int Price;
     [SerializeField] public string Name;
     [SerializeField] public string Iconpath;
+    [SerializeField] public string ItemDesc;
 
     public virtual bool Buy()
     {
         StoreManager store = StoreManager.Instance;
 
-        if (store._coins >= Price)
+        if (store.Coin >= Price)
         {
             store.SpendCoins(Price);
             return true;
