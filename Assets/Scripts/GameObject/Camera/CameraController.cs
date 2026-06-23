@@ -28,7 +28,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        HandleCursor();
 
         if (Cursor.lockState != CursorLockMode.Locked) return;
 
@@ -47,26 +46,6 @@ public class CameraController : MonoBehaviour
 
         transform.position = targetPosition;
         transform.LookAt(Transform_Goat.position);
-    }
-
-    private void HandleCursor()
-    {
-        // UI 테스트용: F1 = 잠금, F2 = 풀기
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            if (CursorManager.Instance != null)
-            {
-                CursorManager.Instance.LockCursor();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            if (CursorManager.Instance != null)
-            {
-                CursorManager.Instance.UnlockCursor();
-            }
-        }
     }
 
     private void RotateCamera()
