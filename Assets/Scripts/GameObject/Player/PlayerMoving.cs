@@ -27,7 +27,7 @@ public class PlayerMoving : MonoBehaviour
 
     private void Start()
     {
-        _stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
+        Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
