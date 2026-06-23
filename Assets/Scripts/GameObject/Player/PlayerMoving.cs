@@ -1,6 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
@@ -11,6 +10,10 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private PlayerAttack PlayerAttack;
     [SerializeField] private Rigidbody Rigidbody_BasicGoat;
 
+    public event Action OnChangedStamina;
+
+    public int Stamina { get; private set; } = 100;
+
     private float _inputZ;
     private float _inputX;
 
@@ -18,16 +21,14 @@ public class PlayerMoving : MonoBehaviour
     private float _runSpeed = 5f;
     private bool _isAttack = false;
     private bool _isAlive = true;
-    private int _stamina = 100;
 
     private CancellationTokenSource _attackToken;
     private CancellationTokenSource _dieToken;
     private Camera _camera;
 
-
     private void Start()
     {
-        //_stamina = GameManager.Instance.PlayerModel.Stamina;
+        Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
@@ -39,7 +40,7 @@ public class PlayerMoving : MonoBehaviour
         _inputZ = Input.GetAxisRaw("Vertical");
         _inputX = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && _stamina >= 10 && !_isAttack)
+        if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
         {
             AttackRoutine().Forget();
         }
@@ -107,8 +108,11 @@ public class PlayerMoving : MonoBehaviour
         _attackToken = new CancellationTokenSource();
 
         _isAttack = true;
-        _stamina -= 10;
-        Debug.Log(_stamina);
+
+        Stamina -= 10;
+        OnChangedStamina?.Invoke();
+        Debug.Log(Stamina);
+
         Animator_Goat.SetTrigger("Attack");
 
         await UniTask.Delay(TimeSpan.FromSeconds(2.5f), cancellationToken: _attackToken.Token);
@@ -119,7 +123,7 @@ public class PlayerMoving : MonoBehaviour
 
         _isAttack = false;
 
-        if (_stamina <= 0)
+        if (Stamina <= 0)
         {
             Die().Forget();
         }
@@ -164,12 +168,14 @@ public class PlayerMoving : MonoBehaviour
 
     private void AddGoatStamina(int value)
     {
-        _stamina += value;
+        Stamina += value;
 
-        if (_stamina > 100)
+        if (Stamina > 100)
         {
-            _stamina = 100;
+            Stamina = 100;
         }
+
+        OnChangedStamina?.Invoke();
     }
 
     private void AddGoatSpeed(int walkValue, int runValue)
