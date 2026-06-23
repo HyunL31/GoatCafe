@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee74bd42997e5b4e9d35fa03bfac12d, type: 3}
   m_Name: Heart
   m_EditorClassIdentifier: Assembly-CSharp::CosmeticItem
-  Price: 0
+  Price: 1000
   Name: Heart
   Iconpath: 
-  ID: 
-  Description: 
   PrefabPath: Prefabs/CostumeItem/Heart
   Slot: Eye
+  type: 0
