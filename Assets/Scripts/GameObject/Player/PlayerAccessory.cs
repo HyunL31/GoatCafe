@@ -13,14 +13,25 @@ public class PlayerAccessory : MonoBehaviour
     private Dictionary<string, Transform> _slots;
     private Dictionary<string, GameObject> _usedSlot = new Dictionary<string, GameObject>();
 
-    private void Awake()
+    private Dictionary<string, Transform> Slots
     {
-        _slots = new Dictionary<string, Transform> { { "Head", Transform_Head }, { "Eye", Transform_Eye} };
+        get
+        {
+            if (_slots == null)
+            {
+                _slots = new Dictionary<string, Transform> { { "Head", Transform_Head }, { "Eye", Transform_Eye } };
+            }
+            return _slots;
+        }
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        InitItem();
+        if (OtherAccessory != null)
+        {
+            InitItem();
+            OtherAccessory.InitItem();
+        }
     }
 
 
@@ -28,11 +39,11 @@ public class PlayerAccessory : MonoBehaviour
     {
         foreach (var item in ItemDataBase.Instance.CosmeticDic)
         {
-            ApplyItemVisual(item.Value).Forget();
+            SettingPrefabs(item.Value).Forget();
         }
     }
 
-    public async UniTask UseItem(CosmeticItem item)
+    public void UseItem(CosmeticItem item)
     {
         if (StoreManager.Instance.IsEquipped(item))
         {
@@ -49,29 +60,48 @@ public class PlayerAccessory : MonoBehaviour
         }
 
         ClearSlot(item);
-        await ApplyItemVisual(item);
+        ApplyItemVisual(item);
 
         if (!StoreManager.Instance.IsEquipped(item))
         {
             StoreManager.Instance.AddEquipped(item);
         }
 
-        OtherAccessory?.ApplyItemVisual(item).Forget();
+        OtherAccessory?.ApplyItemVisual(item);
     }
 
-    private async UniTask ApplyItemVisual(CosmeticItem item)
+    private async UniTask SettingPrefabs(CosmeticItem item)  // prefab 세팅용 초기화 함수
     {
-        if (StoreManager.Instance.TryGetItemPrefab(item.name, out GameObject existingItem))
+        GameObject prefab = await LoadUtil.Async.LoadPrefabAsync(item.PrefabPath);
+        GameObject newItem = Instantiate(prefab, SetSlot(item));
+        newItem.SetActive(false);
+
+        if (OtherAccessory == null)
         {
-            existingItem.SetActive(true);
-            _usedSlot[item.Slot] = existingItem;
+            StoreManager.Instance.AddHumanoidItemObj(item.name, newItem);
         }
         else
         {
-            GameObject prefab = await LoadUtil.Async.LoadPrefabAsync(item.PrefabPath);
-            GameObject newItem = Instantiate(prefab, SetSlot(item));
-            _usedSlot[item.Slot] = newItem;
-            StoreManager.Instance.AddItemPrefab(item.name, newItem);
+            StoreManager.Instance.AddItemObj(item.name, newItem);
+        }
+    }
+
+    private void ApplyItemVisual(CosmeticItem item)
+    {
+        GameObject existingItem;
+        if (OtherAccessory != null)
+        {
+            StoreManager.Instance.TryGetItemObj(item.name, out existingItem);
+        }
+        else
+        {
+            StoreManager.Instance.TryGetHumanoidItemObj(item.name, out existingItem);
+        }
+
+        if (existingItem != null)
+        {
+            existingItem.SetActive(true);
+            _usedSlot[item.Slot] = existingItem;
         }
     }
 
@@ -126,6 +156,6 @@ public class PlayerAccessory : MonoBehaviour
 
     private Transform SetSlot(CosmeticItem item)
     {
-        return _slots.TryGetValue(item.Slot, out Transform transform) ? transform : null;
+        return Slots.TryGetValue(item.Slot, out Transform transform) ? transform : null;
     }
 }

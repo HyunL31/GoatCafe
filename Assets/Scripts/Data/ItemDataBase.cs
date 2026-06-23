@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EffectType
 {
-    UpgradeHealth, SpeedUp, MiniGamePointDouble, PointDouble, BonusDayDuration
+    SpeedUp, MiniGamePointDouble, PointDouble, BonusDayDuration, MiniGameEasier, UnlockEmote
 }
 
 public enum CosmeticType

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee74bd42997e5b4e9d35fa03bfac12d, type: 3}
   m_Name: Crown
   m_EditorClassIdentifier: Assembly-CSharp::CosmeticItem
-  Price: 0
+  Price: 2000
   Name: Crown
   Iconpath: 
-  ID: 
-  Description: 
   PrefabPath: Prefabs/CostumeItem/Crown
   Slot: Head
+  type: 0
