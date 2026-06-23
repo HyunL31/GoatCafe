@@ -11,6 +11,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
     //임시 소유 코인
     public int _coins = 999999;
 
+    [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
+    [SerializeField] private int buffTooltipWidth = 500;
+    [SerializeField] private RectTransform UICanvasRect;
+    [SerializeField] private GameObject ItemDescPopup;
+    [SerializeField] public TextMeshProUGUI _itemDesctext;
+    [SerializeField] public TextMeshProUGUI _itemNametext;
+
     [Header("Prefab")]
     [SerializeField] private GameObject _storeItems;
 
@@ -139,7 +146,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     {
         _storePopup.SetActive(false);
 
-        SetCursorState(false);
+        CursorManager.Instance.LockCursor();
     }
 
     public void OpenStorePopup()
@@ -148,7 +155,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         _storePopup.SetActive(true);
 
-        SetCursorState(true);
+        CursorManager.Instance.UnlockCursor();
     }
 
     public void HandleButtonClick(ItemBase itemData, Button button)
@@ -263,18 +270,46 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
     }
 
-    //임시 마우스커서 활성화/비활성화 함수
-    public void SetCursorState(bool state)
-    {
-        Cursor.visible = state;
-
-        if (state) Cursor.lockState = CursorLockMode.None;
-        else Cursor.lockState = CursorLockMode.Locked;
-    } 
-
     //임시 팝업 UI 업데이트
     public void UpdateStorePopup()
     {
         _coinText.text = _coins.ToString();
+    }
+
+
+
+    // 아이템 설명 팝업 관련 변수 / 함수들
+
+
+
+
+    public void UpdateBuffPopupPosition()
+    {
+        RectTransform popupTransform = ItemDescPopup.GetComponent<RectTransform>();
+        Vector3 mousePos = Input.mousePosition;
+
+
+        Vector3 targetPos = mousePos;
+
+        if (targetPos.x + buffTooltipWidth > UICanvasRect.rect.width)
+        {
+            targetPos.x = mousePos.x - buffTooltipWidth;
+        }
+
+        popupTransform.position = targetPos;
+    }
+    public void SetitemDescPopup(bool isactive, ItemBase item)
+    {
+        if (isactive)
+        {
+            _itemDesctext.text = item.ItemDesc;
+            _itemNametext.text = item.Name;
+            ItemDescPopup.SetActive(isactive);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(ItemDescPopup.GetComponent<RectTransform>());
+        }
+        else
+        {
+            ItemDescPopup.SetActive(isactive);
+        }
     }
 }

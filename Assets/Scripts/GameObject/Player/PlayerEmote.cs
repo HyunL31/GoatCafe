@@ -34,15 +34,15 @@ public class PlayerEmote : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             StartDance(DanceType.Hiphop);
         }
-        else if (Input.GetKey(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             StartDance(DanceType.Samba);
         }
-        else if (Input.GetKey(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             StartDance(DanceType.Shuffle);
         }
@@ -78,7 +78,7 @@ public class PlayerEmote : MonoBehaviour
     private async UniTask PlayDanceAnimation(DanceType dance)
     {
         if (!PlayerMoving.IsAlive()) return;
-        //if (!isEmoteUnlocked) return;
+        if (!isEmoteUnlocked) return;
 
         Goat_Basic.SetActive(false);
         Goat_Humanoid.SetActive(true);

@@ -15,5 +15,6 @@ MonoBehaviour:
   Price: 3000
   Name: Bonus Day Duration
   Iconpath: dasf
+  ItemDesc: testestestestestestestest
   effectType: 3
   value: 100
