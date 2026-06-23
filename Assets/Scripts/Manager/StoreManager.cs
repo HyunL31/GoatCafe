@@ -30,6 +30,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private Dictionary<GameObject, string> _existItemsReverse = new Dictionary<GameObject, string>();  // 치장 아이템 프리팹 역방향 딕셔너리
     private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
+
+    public static event System.Action<PermanentItem> OnItemPurchased;
     public void AddItemObj(string name, GameObject prefab)
     {
         if(!_existItems.ContainsKey(name))
@@ -151,6 +153,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void HandleButtonClick(ItemBase itemData, Button button)
     {
+        Debug.Log($"{itemData.Name}, {button.name}");
         if (!purchasedItems.Contains(itemData)) 
         {
             if (!itemData.Buy())
@@ -177,6 +180,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.MiniGamePointDouble:
                     Debug.Log("MiniGamePointDouble 구매됨");
+                    MiniGameManager.Instance.SetMiniGameEasier(true);
                     break;
                 case EffectType.BonusDayDuration:
                     Debug.Log("BonusDayDuration 구매됨");
@@ -188,8 +192,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.MiniGameEasier:
                     Debug.Log("MiniGameEasier 구매됨");
-                    
+                    MiniGameManager.Instance.SetMiniGameScoreDouble(true);
                     break;
+                case EffectType.UnlockEmote:
+                    Debug.Log("UnlockEmote 구매됨");
+                    OnItemPurchased.Invoke(permanentData);
+                    break;
+
             }
         }
 
