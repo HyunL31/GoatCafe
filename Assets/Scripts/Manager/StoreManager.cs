@@ -18,6 +18,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [SerializeField] public TextMeshProUGUI _itemDesctext;
     [SerializeField] public TextMeshProUGUI _itemNametext;
 
+    [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
+    [SerializeField] private int buffTooltipWidth = 500;
+    [SerializeField] private RectTransform UICanvasRect;
+    [SerializeField] private GameObject ItemDescPopup;
+    [SerializeField] public TextMeshProUGUI _itemDesctext;
+    [SerializeField] public TextMeshProUGUI _itemNametext;
+
     [Header("Prefab")]
     [SerializeField] private GameObject _storeItems;
 
