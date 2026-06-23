@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4770409014285501764}
   m_Layer: 0
   m_Name: Goat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,8 +208,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.47682965, y: 1.9369973, z: 0.6583309}
-  m_Center: {x: 0.0014360547, y: 0.975866, z: 0.16908167}
+  m_Size: {x: 0.47682965, y: 2.0544543, z: 0.6583309}
+  m_Center: {x: 0.0014360547, y: 0.9171376, z: 0.16908169}
 --- !u!114 &5566058580626017130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,11 +225,6 @@ MonoBehaviour:
   Transform_Head: {fileID: 1071487251253576901}
   Transform_Eye: {fileID: 1071487251253653625}
   OtherAccessory: {fileID: 4692921745255493499}
-  PlayerItem:
-  - {fileID: 11400000, guid: 8bd4ec391dde71b41a78227b7fbc86db, type: 2}
-  - {fileID: 11400000, guid: d2043b88b8d5f744a9804e1e4a60b028, type: 2}
-  - {fileID: 11400000, guid: 4298e4152d7ca1f4aa2b0ba8f284894e, type: 2}
-  PlayerMoving: {fileID: 4889506916754943408}
 --- !u!4 &1071487251253576901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 413412, guid: 9629c42775e22c042a1712c23b891b7c, type: 3}
@@ -426,11 +421,6 @@ MonoBehaviour:
   Transform_Head: {fileID: 1863424895105613350}
   Transform_Eye: {fileID: 1863424895105534618}
   OtherAccessory: {fileID: 5566058580626017130}
-  PlayerItem:
-  - {fileID: 11400000, guid: 8bd4ec391dde71b41a78227b7fbc86db, type: 2}
-  - {fileID: 11400000, guid: d2043b88b8d5f744a9804e1e4a60b028, type: 2}
-  - {fileID: 11400000, guid: 4298e4152d7ca1f4aa2b0ba8f284894e, type: 2}
-  PlayerMoving: {fileID: 4889506916754943408}
 --- !u!114 &6573084493399772164
 MonoBehaviour:
   m_ObjectHideFlags: 0

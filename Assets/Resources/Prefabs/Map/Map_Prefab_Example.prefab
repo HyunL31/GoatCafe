@@ -75,7 +75,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2201763195520967672}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Celling_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6879147300899551878}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Celling_Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1544,7 +1544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 79743088518334117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979274413039536530}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Celling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2089,6 +2089,10 @@ PrefabInstance:
       value: SM_CeilingLamp_143
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2135,6 +2139,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2343,6 +2351,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_3m3_75
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2391,20 +2403,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2519,6 +2551,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_Exaust_159
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2567,20 +2603,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2607,6 +2663,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_148
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2655,6 +2715,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2769,6 +2833,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support2
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2815,6 +2883,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2929,6 +3001,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support12
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2977,6 +3053,10 @@ PrefabInstance:
       value: -0.0000029999994
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3001,6 +3081,10 @@ PrefabInstance:
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_Cables_3m4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3051,20 +3135,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3347,6 +3451,10 @@ PrefabInstance:
       value: Blinds_SM_VenetianBlind_Close_2
       objectReference: {fileID: 0}
     - target: {fileID: 1030971956, guid: abc00000000001863489699083815464, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971956, guid: abc00000000001863489699083815464, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3395,16 +3503,32 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030971960, guid: abc00000000001863489699083815464, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971960, guid: abc00000000001863489699083815464, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971964, guid: abc00000000001863489699083815464, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030971964, guid: abc00000000001863489699083815464, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030971968, guid: abc00000000001863489699083815464, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971968, guid: abc00000000001863489699083815464, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817204235077229174, guid: abc00000000001863489699083815464, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8817204235077229174, guid: abc00000000001863489699083815464, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3749,6 +3873,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_3m3_75
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3797,20 +3925,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3837,6 +3985,10 @@ PrefabInstance:
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_Exaust_159
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3887,20 +4039,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3927,6 +4099,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support_61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3977,6 +4153,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3998,6 +4178,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -4049,6 +4233,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4163,6 +4351,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support9
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4209,6 +4401,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4569,6 +4765,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_TJoint5_224
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4615,6 +4815,10 @@ PrefabInstance:
     - target: {fileID: 1030973195, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4901,6 +5105,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_3m5
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4949,6 +5157,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4975,8 +5187,16 @@ PrefabInstance:
       value: WallsAndFloors_SM_Wall_Windows_3m_9 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2236243364994826283, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236243364994826283, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926080522081048691, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3926080522081048691, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5135,6 +5355,10 @@ PrefabInstance:
       value: SM_CeilingLamp_141
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5181,6 +5405,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5455,6 +5683,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_Exaust5
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5503,20 +5735,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5623,6 +5875,10 @@ PrefabInstance:
       value: SM_CeilingLamp_146
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5671,6 +5927,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5695,6 +5955,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_140
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5743,6 +6007,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5947,6 +6215,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5997,6 +6269,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6287,6 +6563,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
     - target: {fileID: 3072620820212197205, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072620820212197205, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6337,6 +6617,10 @@ PrefabInstance:
     - target: {fileID: 5758809675523804099, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
       propertyPath: m_Name
       value: WallsAndFloors_SM_Wall_Windows_3m_Door_11 (1)0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758809675523804099, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5758809675523804099, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6799,6 +7083,10 @@ PrefabInstance:
       value: SM_CeilingLamp_148
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6845,6 +7133,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7365,6 +7657,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support14
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7411,6 +7707,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0000019999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7615,6 +7915,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_90Turn3_194
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7663,6 +7967,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7687,6 +7995,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7735,6 +8047,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7853,6 +8169,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_Exaust3_198
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7901,20 +8221,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8381,6 +8721,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Box_16
       objectReference: {fileID: 0}
     - target: {fileID: 1030973174, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973174, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -8429,20 +8773,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973178, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973178, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973182, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973182, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973186, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973186, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973190, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973190, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 894694968777214130, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 894694968777214130, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8893,6 +9257,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_TJoint2
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -8941,6 +9309,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -8965,6 +9337,10 @@ PrefabInstance:
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_90Turn4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9015,6 +9391,10 @@ PrefabInstance:
       value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9039,6 +9419,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9087,6 +9471,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0000019999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9291,6 +9679,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_Exaust3_198
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9339,20 +9731,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9463,6 +9875,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9515,6 +9931,10 @@ PrefabInstance:
       value: Walls_SM_Wall_3x4m3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9536,6 +9956,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -9591,6 +10015,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9721,6 +10149,10 @@ PrefabInstance:
       value: SM_CeilingLamp_1410
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9769,6 +10201,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9793,6 +10229,10 @@ PrefabInstance:
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_TJoint5_224
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9841,6 +10281,10 @@ PrefabInstance:
     - target: {fileID: 1030973195, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10127,6 +10571,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_90Turn_187
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10173,6 +10621,10 @@ PrefabInstance:
     - target: {fileID: 1030973243, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10287,6 +10739,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_90Turn_60
       objectReference: {fileID: 0}
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10333,6 +10789,10 @@ PrefabInstance:
     - target: {fileID: 1030973627, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10873,6 +11333,10 @@ PrefabInstance:
       value: SM_CeilingLamp_140
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10921,6 +11385,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10946,6 +11414,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -10997,6 +11469,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11107,6 +11583,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support8
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11153,6 +11633,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0000019999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11267,8 +11751,16 @@ PrefabInstance:
       value: WallsAndFloors_SM_Wall_Windows_3m_9 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2236243364994826283, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236243364994826283, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926080522081048691, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3926080522081048691, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11337,6 +11829,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11387,6 +11883,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11501,6 +12001,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11547,6 +12051,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11751,6 +12259,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_TJoint2
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11799,6 +12311,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11823,6 +12339,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11873,6 +12393,10 @@ PrefabInstance:
       value: -0.0000019999995
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11897,6 +12421,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11947,6 +12475,10 @@ PrefabInstance:
       value: -0.000001
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11971,6 +12503,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12021,6 +12557,10 @@ PrefabInstance:
       value: -0.000001
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12045,6 +12585,10 @@ PrefabInstance:
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_90Turn2_56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12095,6 +12639,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12119,6 +12667,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12169,6 +12721,10 @@ PrefabInstance:
       value: -0.0000029999994
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12193,6 +12749,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12241,6 +12801,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0000019999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12621,6 +13185,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_90Turn4
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12669,6 +13237,10 @@ PrefabInstance:
       value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12693,6 +13265,10 @@ PrefabInstance:
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_3m3_180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12741,6 +13317,10 @@ PrefabInstance:
     - target: {fileID: 1030973219, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13125,6 +13705,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_3m2
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13171,6 +13755,10 @@ PrefabInstance:
     - target: {fileID: 1030973219, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13715,6 +14303,10 @@ PrefabInstance:
       value: SM_CeilingLamp_147
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13763,6 +14355,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13787,6 +14383,10 @@ PrefabInstance:
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_90Turn_187
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13837,6 +14437,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13861,6 +14465,10 @@ PrefabInstance:
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_Exaust4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13911,20 +14519,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13951,6 +14579,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14001,6 +14633,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14022,6 +14658,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -14075,6 +14715,10 @@ PrefabInstance:
       value: Walls_SM_Wall_3x4m3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14099,6 +14743,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_142
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14147,6 +14795,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14351,6 +15003,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support15
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14399,6 +15055,10 @@ PrefabInstance:
       value: -0.0000019999995
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14423,6 +15083,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_149
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14471,6 +15135,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14745,6 +15413,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14799,6 +15471,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15187,6 +15863,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support13
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15235,6 +15915,10 @@ PrefabInstance:
       value: -0.0000019999995
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15259,6 +15943,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15307,6 +15995,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0000019999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15417,6 +16109,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15467,6 +16163,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15581,6 +16281,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support2
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15627,6 +16331,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15827,6 +16535,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support10
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15873,6 +16585,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16249,6 +16965,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_3m4
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -16297,20 +17017,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16511,6 +17251,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_3m5
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -16559,20 +17303,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16599,6 +17363,10 @@ PrefabInstance:
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_3m4_58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16647,6 +17415,10 @@ PrefabInstance:
     - target: {fileID: 1030973219, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16895,8 +17667,16 @@ PrefabInstance:
       value: SM_MERGED_Ceiling (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4213026481274210229, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213026481274210229, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448184480847499222, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6448184480847499222, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17097,6 +17877,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_TJoint6
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -17143,6 +17927,10 @@ PrefabInstance:
     - target: {fileID: 1030973195, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17339,6 +18127,10 @@ PrefabInstance:
       value: SM_CeilingLamp_14
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -17385,6 +18177,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18113,6 +18909,10 @@ PrefabInstance:
       value: SM_CeilingLamp_147
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18161,6 +18961,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18185,6 +18989,10 @@ PrefabInstance:
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_TJoint_168
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18233,6 +19041,10 @@ PrefabInstance:
     - target: {fileID: 1030973195, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18347,6 +19159,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support5
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18395,6 +19211,10 @@ PrefabInstance:
       value: -0.000001
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18419,6 +19239,10 @@ PrefabInstance:
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_Exaust2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18469,20 +19293,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18679,6 +19523,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support12
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18725,6 +19573,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0000029999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18843,6 +19695,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support4
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18889,6 +19745,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19175,6 +20035,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19225,6 +20089,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19383,8 +20251,16 @@ PrefabInstance:
       value: SM_MERGED_Ceiling
       objectReference: {fileID: 0}
     - target: {fileID: 4213026481274210229, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213026481274210229, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448184480847499222, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6448184480847499222, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19671,6 +20547,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_90Turn3_194
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19719,6 +20599,10 @@ PrefabInstance:
       value: -0.000003
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19740,6 +20624,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -19791,6 +20679,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20155,6 +21047,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_3m6
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -20201,6 +21097,10 @@ PrefabInstance:
     - target: {fileID: 1030973219, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20757,8 +21657,16 @@ PrefabInstance:
       value: WallsAndFloors_SM_Wall_Windows_3m_9
       objectReference: {fileID: 0}
     - target: {fileID: 2236243364994826283, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236243364994826283, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926080522081048691, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3926080522081048691, guid: bac57a7e197f33846a88a72f8d5e041b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21257,6 +22165,10 @@ PrefabInstance:
       value: SM_CeilingLamp_149
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21305,6 +22217,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21326,6 +22242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -21377,6 +22297,10 @@ PrefabInstance:
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_Name
       value: Walls_SM_Wall_3x4m1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21573,6 +22497,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support8
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21619,6 +22547,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0000019999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21881,6 +22813,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_3m_165
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21929,6 +22865,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21953,6 +22893,10 @@ PrefabInstance:
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_TJoint_168
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22001,6 +22945,10 @@ PrefabInstance:
     - target: {fileID: 1030973195, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22283,6 +23231,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support10
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22331,6 +23283,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22355,6 +23311,10 @@ PrefabInstance:
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_3m2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22403,6 +23363,10 @@ PrefabInstance:
     - target: {fileID: 1030973219, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22599,6 +23563,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support6
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22647,6 +23615,10 @@ PrefabInstance:
       value: -0.000001
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22671,6 +23643,10 @@ PrefabInstance:
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_90Turn2_56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973242, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22719,6 +23695,10 @@ PrefabInstance:
     - target: {fileID: 1030973243, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973244, guid: abc00000000013071252268942070279, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22833,6 +23813,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_3m6
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22879,6 +23863,10 @@ PrefabInstance:
     - target: {fileID: 1030973219, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22993,6 +23981,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support5
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23039,6 +24031,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23157,6 +24153,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_90Turn3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23205,6 +24205,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23229,6 +24233,10 @@ PrefabInstance:
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_Cables_3m6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23279,20 +24287,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23407,6 +24435,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_TJoint6
       objectReference: {fileID: 0}
     - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973194, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23453,6 +24485,10 @@ PrefabInstance:
     - target: {fileID: 1030973195, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973196, guid: abc00000000018093415704288154001, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23567,6 +24603,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_90Turn_60
       objectReference: {fileID: 0}
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23615,6 +24655,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23639,6 +24683,10 @@ PrefabInstance:
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_Cables_3m_58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23689,20 +24737,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23993,6 +25061,10 @@ PrefabInstance:
       value: SM_CeilingLamp_142
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -24041,6 +25113,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -24065,6 +25141,10 @@ PrefabInstance:
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_Cables_90Turn2_68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24115,6 +25195,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -24139,6 +25223,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24187,6 +25275,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24915,6 +26007,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_3m2
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -24963,20 +26059,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25003,6 +26119,10 @@ PrefabInstance:
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_Exaust5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25053,20 +26173,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25093,6 +26233,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25141,6 +26285,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25213,8 +26361,16 @@ PrefabInstance:
       value: SM_MERGED_Ceiling (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4213026481274210229, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213026481274210229, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448184480847499222, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6448184480847499222, guid: 8dfad5968729fe345b66a438119e0c28, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25241,6 +26397,10 @@ PrefabInstance:
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_Exaust2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25291,20 +26451,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25328,6 +26508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1136486827287519324, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -25381,6 +26565,10 @@ PrefabInstance:
       value: Walls_SM_Wall_3x4m0
       objectReference: {fileID: 0}
     - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179145805383292689, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25405,6 +26593,10 @@ PrefabInstance:
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_Cables_90Turn2_68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25453,6 +26645,10 @@ PrefabInstance:
     - target: {fileID: 1030973627, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25825,6 +27021,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_3m5
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25873,20 +27073,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26001,6 +27221,10 @@ PrefabInstance:
       value: CeilingProps_SM_Cables_3m6
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26049,20 +27273,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26165,6 +27409,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_3m5
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26213,6 +27461,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26237,6 +27489,10 @@ PrefabInstance:
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_3m4_58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26287,6 +27543,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26311,6 +27571,10 @@ PrefabInstance:
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_Cables_90Turn3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973626, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26359,6 +27623,10 @@ PrefabInstance:
     - target: {fileID: 1030973627, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973628, guid: abc00000000004437801599285929976, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26555,6 +27823,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Pipes_Support_61
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26603,6 +27875,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26627,6 +27903,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_146
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26677,6 +27957,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26701,6 +27985,10 @@ PrefabInstance:
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_Cables_3m2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973606, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26751,20 +28039,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973610, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973614, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973618, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973622, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4025963869001894271, guid: abc00000000006971306742649501027, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26791,6 +28099,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26841,6 +28153,10 @@ PrefabInstance:
       value: -0.0000019999995
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26862,6 +28178,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 79743088518334117}
     m_Modifications:
+    - target: {fileID: 3072620820212197205, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3072620820212197205, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -26915,6 +28235,10 @@ PrefabInstance:
       value: WallsAndFloors_SM_Wall_Windows_3m_Door_11 (1)0
       objectReference: {fileID: 0}
     - target: {fileID: 5758809675523804099, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758809675523804099, guid: 34845b0e7eaa5b04db7633250bcd6f80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26939,6 +28263,10 @@ PrefabInstance:
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_Name
       value: CeilingParts_SM_AC_Exaust4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973074, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26989,20 +28317,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973078, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973082, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973086, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973090, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098279741904349274, guid: abc00000000008874560618556543033, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27029,6 +28377,10 @@ PrefabInstance:
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_Name
       value: SM_CeilingLamp_145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976217, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27077,6 +28429,10 @@ PrefabInstance:
     - target: {fileID: 1030976218, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030976219, guid: abc00000000002479619014130354975, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27191,6 +28547,10 @@ PrefabInstance:
       value: CeilingProps_SM_AC_Box_16
       objectReference: {fileID: 0}
     - target: {fileID: 1030973174, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973174, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -27239,20 +28599,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030973178, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973178, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973182, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973182, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973186, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973186, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030973190, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973190, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 894694968777214130, guid: abc00000000009156079469723316576, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 894694968777214130, guid: abc00000000009156079469723316576, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27711,6 +29091,10 @@ PrefabInstance:
       value: Blinds_SM_VenetianBlind_Open_5
       objectReference: {fileID: 0}
     - target: {fileID: 1030971972, guid: abc00000000000909979521451180989, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971972, guid: abc00000000000909979521451180989, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -27759,20 +29143,40 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030971975, guid: abc00000000000909979521451180989, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971975, guid: abc00000000000909979521451180989, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971979, guid: abc00000000000909979521451180989, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030971979, guid: abc00000000000909979521451180989, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030971983, guid: abc00000000000909979521451180989, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971983, guid: abc00000000000909979521451180989, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1030971987, guid: abc00000000000909979521451180989, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030971987, guid: abc00000000000909979521451180989, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070675108985745233, guid: abc00000000000909979521451180989, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6070675108985745233, guid: abc00000000000909979521451180989, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27799,6 +29203,10 @@ PrefabInstance:
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_Name
       value: CeilingProps_SM_AC_Pipes_Support9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973278, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27847,6 +29255,10 @@ PrefabInstance:
     - target: {fileID: 1030973279, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973280, guid: abc00000000012734892218513009194, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28047,6 +29459,10 @@ PrefabInstance:
       value: CeilingParts_SM_AC_3m3_180
       objectReference: {fileID: 0}
     - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973218, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -28093,6 +29509,10 @@ PrefabInstance:
     - target: {fileID: 1030973219, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1030973220, guid: abc00000000008439722194641347956, type: 3}
       propertyPath: m_StaticEditorFlags
