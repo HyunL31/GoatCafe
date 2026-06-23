@@ -50,6 +50,7 @@ MonoBehaviour:
   Animator_Goat: {fileID: 1863424895115095546}
   Goat_Humanoid: {fileID: 1071487251253352915}
   PlayerAttack: {fileID: 6573084493399772164}
+  Rigidbody_BasicGoat: {fileID: 3101344522634502195}
 --- !u!114 &4770409014285501764
 MonoBehaviour:
   m_ObjectHideFlags: 0

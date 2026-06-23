@@ -8,6 +8,7 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private Animator Animator_Goat;
     [SerializeField] private GameObject Goat_Humanoid;
     [SerializeField] private PlayerAttack PlayerAttack;
+    [SerializeField] private Rigidbody Rigidbody_BasicGoat;
 
     public event Action OnChangedStamina;
 
@@ -27,7 +28,7 @@ public class PlayerMoving : MonoBehaviour
 
     private void Start()
     {
-        Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
+        //Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
@@ -41,6 +42,7 @@ public class PlayerMoving : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
         {
+            Debug.Log(Stamina);
             AttackRoutine().Forget();
         }
     }
@@ -52,6 +54,7 @@ public class PlayerMoving : MonoBehaviour
             return;
         }
 
+        RotateDirection();
         MoveToward(_inputZ, _inputX);
     }
 
@@ -61,8 +64,6 @@ public class PlayerMoving : MonoBehaviour
         {
             return;
         }
-
-        RotateDirection();
 
         if (_inputZ == 0 && _inputX == 0)
         {
@@ -74,6 +75,8 @@ public class PlayerMoving : MonoBehaviour
 
         Vector3 forward = _camera.transform.forward;
         Vector3 right = _camera.transform.right;
+        forward.y = 0f;
+        right.y = 0f;
 
         Vector3 moveDirection = (forward * inputZ + right * inputX).normalized;
 
@@ -81,7 +84,7 @@ public class PlayerMoving : MonoBehaviour
         float moveSpeed = isRunning ? _runSpeed : _walkSpeed;
 
         Vector3 moveVelocity = moveDirection * moveSpeed;
-        transform.position += new Vector3(moveVelocity.x, 0, moveVelocity.z) * Time.fixedDeltaTime;
+        Rigidbody_BasicGoat.MovePosition(Rigidbody_BasicGoat.position + moveVelocity * Time.fixedDeltaTime);
 
         Animator_Goat.SetBool("Walk", !isRunning);
         Animator_Goat.SetBool("Run", isRunning);
@@ -89,8 +92,15 @@ public class PlayerMoving : MonoBehaviour
 
     private void RotateDirection()
     {
+        if (!_isAlive)
+        {
+            return;
+        }
+
         float targetRotation = _camera.transform.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(0, targetRotation, 0);
+        Quaternion nextRotation = Quaternion.Euler(0, targetRotation, 0);
+
+        Rigidbody_BasicGoat.MoveRotation(nextRotation);
     }
 
     private async UniTask AttackRoutine()
