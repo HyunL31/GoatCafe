@@ -1,14 +1,12 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerAccessory : MonoBehaviour
 {
     [SerializeField] private Transform Transform_Head;
     [SerializeField] private Transform Transform_Eye;
     [SerializeField] private PlayerAccessory OtherAccessory;
-
 
     private Dictionary<string, Transform> _slots;
     private Dictionary<string, GameObject> _usedSlot = new Dictionary<string, GameObject>();

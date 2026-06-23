@@ -26,6 +26,6 @@ public class SaveNamePopup : BaseUI
 
     private void OnClickConfirm()
     {
-        //SaveManager.Instance.LoadOrCreatePlayerData(InputField_Name.text);
+        SaveManager.Instance.LoadOrCreatePlayerData(InputField_Name.text);
     }
 }
