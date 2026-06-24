@@ -11,6 +11,36 @@ public class SaveManager : BaseMonoManager<SaveManager>
 
     public Action OnSaveClear;
 
+    private void Start()
+    {
+        GetAllSaveSlots();
+    }
+
+    public void GetAllSaveSlots()
+    {
+        SlotIndex.Clear();
+
+        string path = Application.persistentDataPath;
+
+        if (!Directory.Exists(path))
+        {
+            return;
+        }
+
+        string[] files = Directory.GetFiles(path, "GOAT*.json");
+
+        foreach(string file in files)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(file);
+
+            if (fileName.StartsWith("GOAT"))
+            {
+                string slotIndex = fileName.Substring(4);
+                SlotIndex.Add(slotIndex);
+            }
+        }
+    }
+
     // 저장
     public void SaveData()
     {
