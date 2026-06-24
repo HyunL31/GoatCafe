@@ -15,6 +15,7 @@ MonoBehaviour:
   Price: 1000
   Name: Heart
   Iconpath: 
+  ItemDesc: wefwefwefwef
   PrefabPath: Prefabs/CostumeItem/Heart
   Slot: Eye
   type: 0

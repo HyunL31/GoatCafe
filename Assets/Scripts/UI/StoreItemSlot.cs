@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class StoreItemSlot : MonoBehaviour
 {
-    private ItemBase _itemdata;
+    public ItemBase itemBaseData;
     [SerializeField] public Button _button;
     [SerializeField] public Image _itemImage;
     [SerializeField] public TextMeshProUGUI _itemNameText;
@@ -14,18 +14,18 @@ public class StoreItemSlot : MonoBehaviour
 
     public void Setup(ItemBase itemData)
     {
-        _itemdata = itemData;
-        _itemNameText.text = _itemdata.Name;
-        _itemPriceText.text = _itemdata.Price.ToString();
-       
-        // _Image.sprite = Resources.Load<Sprite>(_itemdata.Iconpath);
+        itemBaseData = itemData;
+        _itemNameText.text = itemBaseData.Name;
+        _itemPriceText.text = itemBaseData.Price.ToString();
+
+        // _Image.sprite = Resources.Load<Sprite>(itemBaseData.Iconpath);
 
         _button.onClick.AddListener(OnClickBuyBtn);
     }
 
     private void OnClickBuyBtn()
     {
-        StoreManager.Instance.HandleButtonClick(_itemdata, _button);
+        StoreManager.Instance.HandleButtonClick(itemBaseData, _button);
     }
 
 
