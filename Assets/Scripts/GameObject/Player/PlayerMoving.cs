@@ -9,6 +9,7 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private GameObject Goat_Humanoid;
     [SerializeField] private PlayerAttack PlayerAttack;
     [SerializeField] private Rigidbody Rigidbody_BasicGoat;
+    [SerializeField] private Transform Transform_HomePoint;
 
     public event Action OnChangedStamina;
 
@@ -28,11 +29,12 @@ public class PlayerMoving : MonoBehaviour
 
     private void Start()
     {
-        //Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
+        Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
         GameManager.Instance.OnUseSpeedItem += AddGoatSpeed;
+        GameManager.Instance.OnMoveHome += MoveHome;
     }
 
     private void Update()
@@ -101,6 +103,11 @@ public class PlayerMoving : MonoBehaviour
         Quaternion nextRotation = Quaternion.Euler(0, targetRotation, 0);
 
         Rigidbody_BasicGoat.MoveRotation(nextRotation);
+    }
+
+    private void MoveHome()
+    {
+        this.transform.position = Transform_HomePoint.transform.position;
     }
 
     private async UniTask AttackRoutine()

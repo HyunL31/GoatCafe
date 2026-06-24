@@ -18,7 +18,15 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnCustomersAsync().Forget();
+        GameManager.Instance.OnGameStateChanged += OnStateChanged;
+    }
+
+    private void OnStateChanged(GameState state)
+    {
+        if (state == GameState.Playing)
+        {
+            SpawnCustomersAsync().Forget();
+        }
     }
 
     private async UniTaskVoid SpawnCustomersAsync()
