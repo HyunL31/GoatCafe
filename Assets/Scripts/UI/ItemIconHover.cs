@@ -14,7 +14,7 @@ public class ItemIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         StoreManager.Instance.SetitemDescPopup(true, parentSlot.itemBaseData);
-        StoreManager.Instance.UpdateBuffPopupPosition();
+        StoreManager.Instance.UpdateDescPopupPosition();
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -24,6 +24,6 @@ public class ItemIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        StoreManager.Instance.UpdateBuffPopupPosition();
+        StoreManager.Instance.UpdateDescPopupPosition();
     }
 }
