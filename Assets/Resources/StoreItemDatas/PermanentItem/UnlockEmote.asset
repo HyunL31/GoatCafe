@@ -15,5 +15,6 @@ MonoBehaviour:
   Price: 1500
   Name: UnlockEmote
   Iconpath: asdf
+  ItemDesc: tdtdtdtdtdtdtd
   effectType: 5
   value: 0

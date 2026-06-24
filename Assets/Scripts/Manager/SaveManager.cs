@@ -92,7 +92,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
         var newPlayerData = new PlayerModel();
 
         newPlayerData.Day = 1;
-        newPlayerData.Gold = 0;
+        newPlayerData.Coin = 0;
         newPlayerData.Stamina = 100;
         newPlayerData.WalkSpeed = 3f;
         newPlayerData.RunSpeed = 5f;
