@@ -133,15 +133,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 65.5
+      value: -1.55
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -373,10 +373,6 @@ PrefabInstance:
     - target: {fileID: 4142011108806439604, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5876981093598363673, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Name
-      value: CafeRoom
       objectReference: {fileID: 0}
     - target: {fileID: 7497525334794565818, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_Name
