@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using static AddressUtil;
 
 public class MiniGameManager : BaseMonoManager<MiniGameManager>
 {
@@ -15,8 +14,6 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         score = 0;
@@ -45,7 +42,6 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         GameStart();
     }
 
-    // Update is called once per frame
     void Update()
     {
         /*
