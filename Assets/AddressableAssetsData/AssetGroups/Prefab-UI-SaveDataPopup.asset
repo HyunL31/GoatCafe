@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Prefab-UI-SaveDataPopup
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Prefab-UI-SaveDataPopup
+  m_GUID: cda4e9f18041e0f42af81116539c973e
+  m_SerializeEntries:
+  - m_GUID: 067fb3fb53833904f802fea5588c84d9
+    m_Address: Sprite/UI/SaveSlotPopup/NameSetPanelInputFieldBackground
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 123c8b895f3dee74aa9922f6b1064f7d
+    m_Address: Prefab/UI/SaveSlotPopup/SaveDataButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f42b86be421dd444aee9795cc6b2178
+    m_Address: Prefab/UI/SaveSlotPopup/ExitPopupButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 820c9c7b9c7cecf4abd2bc30ebd4b840
+    m_Address: Sprite/UI/SaveSlotPopup/NameSetPanelBackgorund
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 962e03ca1834e1c43885ab839de83c2e
+    m_Address: Prefab/UI/SaveSlotPopup/SelectPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2ef8c3a99fc86a4eaa59ff766fa8233
+    m_Address: Prefab/UI/SaveSlotPopup/NameSetPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aec7b2e203bd7854ca9e8f5b6c029b87
+    m_Address: Sprite/UI/SaveSlotPopup/SelectPanelBackground
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d704d14cb2d5f9843965f1f3125875a8
+    m_Address: Prefab/UI/SaveSlotPopup/PopupPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e87eff6ea8d585243aeab7751d1cf27d
+    m_Address: Prefab/UI/SaveSlotPopup/NewDataButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c077b59b0c4b91d4cbf6ae03b327b781, type: 2}
+    - {fileID: 11400000, guid: 7adf8c93c72ed3a4aa415b87cd1de5b5, type: 2}

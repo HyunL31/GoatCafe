@@ -1,0 +1,8 @@
+[
+  {
+    "Id": "MainMenu_01",
+    "StartButton": "게임 시작",
+    "GameOptionButton": "게임 옵션",
+    "ExitGameButton": "게임 종료"
+  }
+]
