@@ -127,30 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 567147333693321236, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Size.z
-      value: 3.362515
-      objectReference: {fileID: 0}
-    - target: {fileID: 1610008315475474534, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Size.z
-      value: 0.025505
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633146709025328267, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Size.z
-      value: 3.362515
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557266369588458980, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Size.z
-      value: 0.025505
-      objectReference: {fileID: 0}
-    - target: {fileID: 2998709494821338336, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.144698
-      objectReference: {fileID: 0}
-    - target: {fileID: 3523771811983025981, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Size.z
-      value: 3.362515
-      objectReference: {fileID: 0}
     - target: {fileID: 4142011108806439604, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.67349
@@ -191,17 +167,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4635388252227918005, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Size.z
-      value: 0.025505
-      objectReference: {fileID: 0}
-    - target: {fileID: 7085883415921422149, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_Size.z
-      value: 0.025505
-      objectReference: {fileID: 0}
     - target: {fileID: 7497525334794565818, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_Name
       value: Map_PlayGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620129775978235839, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: Float_SpawnInterval
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
