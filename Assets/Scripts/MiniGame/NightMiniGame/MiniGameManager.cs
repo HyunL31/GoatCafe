@@ -44,14 +44,14 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
 
     void Update()
     {
-        /*
-        if(Input.KeyDown(KeyCode.E) && )
+        // 트리거 조건 필요
+        if(Input.GetKeyDown(KeyCode.E))
         {
+            InputManager.Instance.ToggleMouseLock(false);
             NightMiniGamePanel.SetActive(true);
 
             GameStart();
         }
-        */
     }
 
     private void AddScore(int amount)
@@ -137,6 +137,8 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         {
             score = score * 2;
         }
+
+        InputManager.Instance.ToggleMouseLock(true);
         Debug.Log("최종 점수: " + score);
         CloseMiniGame();
     }
