@@ -39,6 +39,7 @@ public class CursorManager : BaseMonoManager<CursorManager>
 
         if (Animator_Cursor != null)
         {
+            Animator_Cursor.updateMode = AnimatorUpdateMode.UnscaledTime;
             RectTransform_Cursor = Animator_Cursor.GetComponent<RectTransform>();
         }
     }
