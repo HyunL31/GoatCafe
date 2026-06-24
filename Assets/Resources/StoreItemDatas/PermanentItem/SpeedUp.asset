@@ -15,4 +15,6 @@ MonoBehaviour:
   Price: 2000
   Name: Speed Up
   Iconpath: dtdtd
-  effectType: 1
+  ItemDesc: dtdtdtdtdtd
+  effectType: 0
+  value: 0

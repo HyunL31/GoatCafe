@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77258e9b1c8962243be3f878def1b9ce, type: 3}
   m_Name: MiniGamePointDouble
   m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
-  Price: 3000
-  Name: Mini Game Point Double
-  Iconpath: dtasdf
-  effectType: 2
+  Price: 2000
+  Name: MiniGame PointDouble
+  Iconpath: asdf
+  ItemDesc: qwqweqweqwrqweqwrqweqwrqweqwrqweqwrqwe
+  effectType: 1
+  value: 0

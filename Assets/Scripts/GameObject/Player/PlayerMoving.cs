@@ -5,33 +5,44 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
-    [SerializeField] private Rigidbody Rigidbody_Goat;
     [SerializeField] private Animator Animator_Goat;
+    [SerializeField] private GameObject Goat_Humanoid;
+    [SerializeField] private PlayerAttack PlayerAttack;
+    [SerializeField] private Rigidbody Rigidbody_BasicGoat;
+
+    public event Action OnChangedStamina;
+
+    public int Stamina { get; private set; } = 100;
 
     private float _inputZ;
     private float _inputX;
 
     private float _walkSpeed = 3f;
     private float _runSpeed = 5f;
-
     private bool _isAttack = false;
+    private bool _isAlive = true;
+
     private CancellationTokenSource _attackToken;
+    private CancellationTokenSource _dieToken;
+    private Camera _camera;
 
-    private int _stamina = 100;
+    private void Start()
+    {
+        //Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
+        _camera = Camera.main;
 
-    //private void Start()
-    //{
-    //    _stamina = GameManager.Instance.PlayerModel.Stamina;
-    //}
+        GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
+        GameManager.Instance.OnUseSpeedItem += AddGoatSpeed;
+    }
 
     private void Update()
     {
         _inputZ = Input.GetAxisRaw("Vertical");
         _inputX = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && _stamina >= 10)
+        if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
         {
-            _stamina -= 10;
+            Debug.Log(Stamina);
             AttackRoutine().Forget();
         }
     }
@@ -43,27 +54,37 @@ public class PlayerMoving : MonoBehaviour
             return;
         }
 
+        RotateDirection();
         MoveToward(_inputZ, _inputX);
     }
 
     private void MoveToward(float inputZ, float inputX)
     {
-        RotateDirection();
+        if (Goat_Humanoid.activeSelf || !_isAlive)
+        {
+            return;
+        }
 
         if (_inputZ == 0 && _inputX == 0)
         {
-            Rigidbody_Goat.linearVelocity = Vector3.zero;
             Animator_Goat.SetBool("Walk", false);
             Animator_Goat.SetBool("Run", false);
 
             return;
         }
 
+        Vector3 forward = _camera.transform.forward;
+        Vector3 right = _camera.transform.right;
+        forward.y = 0f;
+        right.y = 0f;
+
+        Vector3 moveDirection = (forward * inputZ + right * inputX).normalized;
+
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
         float moveSpeed = isRunning ? _runSpeed : _walkSpeed;
 
-        Vector3 moveDirection = new Vector3(_inputX, 0, inputZ).normalized;
-        Rigidbody_Goat.linearVelocity = moveDirection * moveSpeed;
+        Vector3 moveVelocity = moveDirection * moveSpeed;
+        Rigidbody_BasicGoat.MovePosition(Rigidbody_BasicGoat.position + moveVelocity * Time.fixedDeltaTime);
 
         Animator_Goat.SetBool("Walk", !isRunning);
         Animator_Goat.SetBool("Run", isRunning);
@@ -71,7 +92,15 @@ public class PlayerMoving : MonoBehaviour
 
     private void RotateDirection()
     {
-        
+        if (!_isAlive)
+        {
+            return;
+        }
+
+        float targetRotation = _camera.transform.eulerAngles.y;
+        Quaternion nextRotation = Quaternion.Euler(0, targetRotation, 0);
+
+        Rigidbody_BasicGoat.MoveRotation(nextRotation);
     }
 
     private async UniTask AttackRoutine()
@@ -81,11 +110,36 @@ public class PlayerMoving : MonoBehaviour
 
         _isAttack = true;
 
+        Stamina -= 10;
+        OnChangedStamina?.Invoke();
+        Debug.Log(Stamina);
+
         Animator_Goat.SetTrigger("Attack");
 
-        await UniTask.Delay(TimeSpan.FromSeconds(2.7f), cancellationToken: _attackToken.Token);
+        await UniTask.Delay(TimeSpan.FromSeconds(2.5f), cancellationToken: _attackToken.Token);
+
+        PlayerAttack.Attack();
+
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _attackToken.Token);
 
         _isAttack = false;
+
+        if (Stamina <= 0)
+        {
+            Die().Forget();
+        }
+    }
+
+    private async UniTask Die()
+    {
+        CancelDie();
+        _dieToken = new CancellationTokenSource();
+
+        _isAlive = false;
+
+        Animator_Goat.SetTrigger("Die");
+
+        await UniTask.Delay(TimeSpan.FromSeconds(2f), cancellationToken: _dieToken.Token);
     }
 
     private void CancelAttack()
@@ -98,20 +152,36 @@ public class PlayerMoving : MonoBehaviour
         }
     }
 
-    private void AddGoatStamina(int value)
+    private void CancelDie()
     {
-        _stamina += value;
+        if (_dieToken != null)
+        {
+            _dieToken.Cancel();
+            _dieToken?.Dispose();
+            _dieToken = null;
+        }
     }
 
-    private void AddGoatSpeed(int value, bool isRun)
+    public bool IsAlive()
     {
-        if (isRun)
+        return _isAlive;
+    }
+
+    private void AddGoatStamina(int value)
+    {
+        Stamina += value;
+
+        if (Stamina > 100)
         {
-            _runSpeed += value;
+            Stamina = 100;
         }
-        else
-        {
-            _walkSpeed += value;
-        }
+
+        OnChangedStamina?.Invoke();
+    }
+
+    private void AddGoatSpeed(int walkValue, int runValue)
+    {
+        _runSpeed += runValue;
+        _walkSpeed += walkValue;
     }
 }
