@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CustomerBase))]
 public class CustomerSensor : MonoBehaviour
 {
-    [SerializeField] private Transform Transform_Goat;
+    public static event Action<CustomerBase> OnStealableEnter;
+    public static event Action<CustomerBase> OnStealableExit;
 
     private CustomerBase _customer;
 
@@ -12,14 +14,22 @@ public class CustomerSensor : MonoBehaviour
         _customer = GetComponent<CustomerBase>();
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Transform_Goat == null) return;
-        _customer.TryDetectGoat(Transform_Goat);
+        if (!other.CompareTag("Player")) return;
+        if (_customer.State == CustomerState.Hit) return;
+
+        Debug.Log("훔치기 가능");
+        if (OnStealableEnter != null)
+            OnStealableEnter(_customer);
     }
 
-    public void SetGoatTransform(Transform goatTransform)
+    private void OnTriggerExit(Collider other)
     {
-        Transform_Goat = goatTransform;
+        if (!other.CompareTag("Player")) return;
+
+        Debug.Log("훔치기 불가");
+        if (OnStealableExit != null)
+            OnStealableExit(_customer);
     }
 }
