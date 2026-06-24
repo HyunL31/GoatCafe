@@ -38,7 +38,7 @@
     {
         public static class BGM
         {
-            public const string Bgm = "ThirdParty/Sound/BGM/1";
+            public const string Bgm = "Audio/BGM/BGM_1";
         }
 
         public static class SFX
