@@ -23,7 +23,7 @@ public abstract class ItemBase : ScriptableObject
     {
         StoreManager store = StoreManager.Instance;
 
-        if (store._coins >= Price)
+        if (store.Coin >= Price)
         {
             store.SpendCoins(Price);
             return true;

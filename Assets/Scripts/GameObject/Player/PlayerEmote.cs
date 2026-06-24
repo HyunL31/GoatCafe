@@ -110,6 +110,5 @@ public class PlayerEmote : MonoBehaviour
         {
             isEmoteUnlocked = true;
         }
-
     }
 }
