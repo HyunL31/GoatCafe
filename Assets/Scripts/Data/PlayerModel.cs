@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [Serializable]
 public class PlayerModel
 {
-    public int Gold;
+    public int Coin;
 
     public int Day;
     public bool IsFirstDay;
@@ -13,6 +13,6 @@ public class PlayerModel
     public float WalkSpeed;
     public float RunSpeed;
 
-    HashSet<ItemBase> PurchasedItems = new HashSet<ItemBase>();
-    HashSet<ItemBase> EquippedItems = new HashSet<ItemBase>();
+    public List<string> PurchasedItemNames = new List<string>();
+    public List<string> EquippedItemNames = new List<string>();
 }
