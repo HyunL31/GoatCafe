@@ -12,14 +12,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public int Coin { get; set; } = 9999999;
 
     [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
-    [SerializeField] private int buffTooltipWidth = 500;
-    [SerializeField] private RectTransform UICanvasRect;
-    [SerializeField] private GameObject ItemDescPopup;
-    [SerializeField] public TextMeshProUGUI _itemDesctext;
-    [SerializeField] public TextMeshProUGUI _itemNametext;
-
-    [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
-    [SerializeField] private int buffTooltipWidth = 500;
+    [SerializeField] private int DescTooltipWidth = 500;
     [SerializeField] private RectTransform UICanvasRect;
     [SerializeField] private GameObject ItemDescPopup;
     [SerializeField] public TextMeshProUGUI _itemDesctext;
@@ -49,7 +42,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     private void Start()
     {
-        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
+        // 테스트를 위해 잠시 꺼놓았습니당
+       // Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
     }
 
     public void AddItemObj(string name, GameObject prefab)
@@ -158,8 +152,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void OnClickExitBtn()
     {
         _storePopup.SetActive(false);
-
-        CursorManager.Instance.LockCursor();
+        GameManager.Instance.ResumeGame();
     }
 
     public void OpenStorePopup()
@@ -167,8 +160,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
         UpdateStorePopup();
 
         _storePopup.SetActive(true);
-
-        CursorManager.Instance.UnlockCursor();
+        GameManager.Instance.PauseGame();
     }
 
     public void HandleButtonClick(ItemBase itemData, Button button)
@@ -353,7 +345,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
 
 
-    public void UpdateBuffPopupPosition()
+    public void UpdateDescPopupPosition()
     {
         RectTransform popupTransform = ItemDescPopup.GetComponent<RectTransform>();
         Vector3 mousePos = Input.mousePosition;
@@ -361,9 +353,9 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         Vector3 targetPos = mousePos;
 
-        if (targetPos.x + buffTooltipWidth > UICanvasRect.rect.width)
+        if (targetPos.x + DescTooltipWidth > UICanvasRect.rect.width)
         {
-            targetPos.x = mousePos.x - buffTooltipWidth;
+            targetPos.x = mousePos.x - DescTooltipWidth;
         }
 
         popupTransform.position = targetPos;

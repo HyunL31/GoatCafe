@@ -1696,7 +1696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e1e200d8f0179429f9de25b865e7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSensor
-  Transform_Goat: {fileID: 0}
 --- !u!195 &3274855007503904699
 NavMeshAgent:
   m_ObjectHideFlags: 0

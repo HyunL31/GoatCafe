@@ -13,6 +13,22 @@ public class CursorManager : BaseMonoManager<CursorManager>
         CreateCursor().Forget();
     }
 
+    private void Start()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameStateChanged += HandleGameStateChanged;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameStateChanged -= HandleGameStateChanged;
+        }
+    }
+
     private async UniTaskVoid CreateCursor()
     {
         GameObject prefab = await LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.CursorUI);
@@ -34,6 +50,23 @@ public class CursorManager : BaseMonoManager<CursorManager>
 
         MoveCursor();
         CheckMouseClick();
+
+        if (Input.GetKeyDown(KeyCode.P))   // P 누르면 게임 시작 (테스트용)
+        {
+            GameManager.Instance.StartGame();
+        }
+    }
+
+    private void HandleGameStateChanged(GameState gameState)
+    {
+        if (gameState == GameState.Pause)
+        {
+            UnlockCursor();
+        }
+        else if (gameState == GameState.Playing)
+        {
+            LockCursor();
+        }
     }
 
     public void LockCursor()

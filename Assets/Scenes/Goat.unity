@@ -1603,8 +1603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7256aa011c66847b4473d1f766e47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoreManager
-  _coins: 999999
-  buffTooltipWidth: 500
+  DescTooltipWidth: 500
   UICanvasRect: {fileID: 184807755}
   ItemDescPopup: {fileID: 1932700715}
   _itemDesctext: {fileID: 448840431}
@@ -1876,6 +1875,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5242189429262902604, guid: 598b723daf7871845a6d1bbcc8c7b73d, type: 3}
+      propertyPath: Transform_Goat
+      value: 
+      objectReference: {fileID: 1470859899}
     - target: {fileID: 5359863022581005668, guid: 598b723daf7871845a6d1bbcc8c7b73d, type: 3}
       propertyPath: m_Name
       value: GoatMainEnvironment
