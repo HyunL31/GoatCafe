@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map_PlayGround
       objectReference: {fileID: 0}
-    - target: {fileID: 8620129775978235839, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: Float_SpawnInterval
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

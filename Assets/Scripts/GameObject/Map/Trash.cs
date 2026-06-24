@@ -11,6 +11,7 @@ public class Trash : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        Debug.Log("쓰레기 근처 진입");
         if (OnTrashEnter != null)
             OnTrashEnter(this);
     }
@@ -18,6 +19,7 @@ public class Trash : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        Debug.Log("쓰레기 근처 이탈");
         if (OnTrashExit != null)
             OnTrashExit(this);
     }
