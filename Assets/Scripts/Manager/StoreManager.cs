@@ -12,13 +12,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public int Coin { get; set; } = 9999999;
 
     [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
-    [SerializeField] private int buffTooltipWidth = 500;
-    [SerializeField] private RectTransform UICanvasRect;
-    [SerializeField] private GameObject ItemDescPopup;
-    [SerializeField] public TextMeshProUGUI _itemDesctext;
-    [SerializeField] public TextMeshProUGUI _itemNametext;
-
-    [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
     [SerializeField] private int DescTooltipWidth = 500;
     [SerializeField] private RectTransform UICanvasRect;
     [SerializeField] private GameObject ItemDescPopup;
@@ -49,7 +42,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     private void Start()
     {
-        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
+        // 테스트를 위해 잠시 꺼놓았습니당
+       // Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
     }
 
     public void AddItemObj(string name, GameObject prefab)
