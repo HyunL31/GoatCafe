@@ -139,7 +139,7 @@ public class DayGaugeButton : BaseButton
 
     private void SetText(string day)
     {
-        Text_Button.text = day;
+        Text_Button.text = "Day \n" + day;
     }
 
     private void SetButton(Action buttonCallback)

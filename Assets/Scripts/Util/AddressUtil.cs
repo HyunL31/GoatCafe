@@ -22,6 +22,8 @@ public static class AddressUtil
                 public const string PopupPrefab = "Prefab/UI/SaveSlotPopup/PopupPrefab";
                 public const string NewDataButton = "Prefab/UI/SaveSlotPopup/NewDataButton";
                 public const string SaveDataButton = "Prefab/UI/SaveSlotPopup/SaveDataButton";
+                public const string SelectPanel = "Prefab/UI/SaveSlotPopup/SelectPanel";
+                public const string NameSetPanel = "Prefab/UI/SaveSlotPopup/NameSetPanel";
                 public const string ExitPopupButton = "Prefab/UI/SaveSlotPopup/ExitPopupButton";
             }
 
@@ -82,6 +84,15 @@ public static class AddressUtil
                 public const string SaveButtonBlue = ButtonBlue;
                 public const string SaveButtonGreen = ButtonGreen;
                 public const string SaveButtonRed = ButtonRed;
+
+                public const string SelectPanelBackground = "Sprite/UI/SaveSlotPopup/SelectPanelBackground";
+                public const string SelectPanelYesButton = ButtonOrange;
+                public const string SelectPanelNoButton = ButtonGreen;
+
+                public const string NameSetPanelBackground = "Sprite/UI/SaveSlotPopup/NameSetPanelBackgorund";
+                public const string NameSetPanelInputFieldBackground = "Sprite/UI/SaveSlotPopup/NameSetPanelInputFieldBackground";
+                public const string NameSetPanelSelectButton = ButtonRed;
+                public const string NameSetPanelExitButton = ExitPopupButton;
 
                 public const string ExitPopupButton = "Sprite/UI/SaveSlotPopup/ExitPopupButton";
             }

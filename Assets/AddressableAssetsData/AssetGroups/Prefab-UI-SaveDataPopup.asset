@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Prefab-UI-SaveDataPopup
   m_GUID: cda4e9f18041e0f42af81116539c973e
   m_SerializeEntries:
+  - m_GUID: 067fb3fb53833904f802fea5588c84d9
+    m_Address: Sprite/UI/SaveSlotPopup/NameSetPanelInputFieldBackground
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 123c8b895f3dee74aa9922f6b1064f7d
     m_Address: Prefab/UI/SaveSlotPopup/SaveDataButton
     m_ReadOnly: 0
@@ -22,6 +27,26 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f42b86be421dd444aee9795cc6b2178
     m_Address: Prefab/UI/SaveSlotPopup/ExitPopupButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 820c9c7b9c7cecf4abd2bc30ebd4b840
+    m_Address: Sprite/UI/SaveSlotPopup/NameSetPanelBackgorund
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 962e03ca1834e1c43885ab839de83c2e
+    m_Address: Prefab/UI/SaveSlotPopup/SelectPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2ef8c3a99fc86a4eaa59ff766fa8233
+    m_Address: Prefab/UI/SaveSlotPopup/NameSetPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aec7b2e203bd7854ca9e8f5b6c029b87
+    m_Address: Sprite/UI/SaveSlotPopup/SelectPanelBackground
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

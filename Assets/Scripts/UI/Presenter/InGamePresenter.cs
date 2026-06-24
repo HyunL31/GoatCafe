@@ -87,7 +87,7 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
 
     protected override void SetUIData()
     {
-        int day = GameManager.Instance.PlayerModel.Day;
+        int day = SaveManager.Instance.CurrentPlayerModel.Day;
 
         _inGameUI.SetStaminaGaugeImage(_sprite_staminaGaugeBackground, _sprite_staminaGauge);
         _inGameUI.CreateDayGaugeButton(_prefab_dayButton, _sprite_dayButtonBackground, _sprite_dayButtonGaugeBackground, _sprite_dayButtonGauge, day, _fontAsset_font, OnClick_DayGaugeButton);

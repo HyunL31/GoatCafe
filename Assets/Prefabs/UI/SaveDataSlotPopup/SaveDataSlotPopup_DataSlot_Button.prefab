@@ -133,10 +133,10 @@ MonoBehaviour:
   Image_Background: {fileID: 3602778603188645315}
   Text_DataName: {fileID: 1447569680986638783}
   Text_DayTitle: {fileID: 396948575691637504}
-  Text_GoldTitle: {fileID: 180906212054397131}
+  Text_CoinTitle: {fileID: 180906212054397131}
   Text_StaminaTitle: {fileID: 846409687151407989}
   Text_DayData: {fileID: 1825334811619710117}
-  Text_GoldData: {fileID: 4634216709110007029}
+  Text_CoinData: {fileID: 4634216709110007029}
   Text_StaminaData: {fileID: 5118355704566612733}
 --- !u!1 &2036376496472386247
 GameObject:
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 4551444237206522866}
   - component: {fileID: 4634216709110007029}
   m_Layer: 0
-  m_Name: Text_Gold_Data
+  m_Name: Text_Coin_Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -998,7 +998,7 @@ GameObject:
   - component: {fileID: 890442724972854182}
   - component: {fileID: 180906212054397131}
   m_Layer: 0
-  m_Name: Text_Gold_Title
+  m_Name: Text_Coin_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

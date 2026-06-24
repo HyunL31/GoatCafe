@@ -10,34 +10,34 @@ public class SaveDataButton : BaseButton
     [SerializeField] private TMP_Text Text_DataName;
 
     [SerializeField] private TMP_Text Text_DayTitle;
-    [SerializeField] private TMP_Text Text_GoldTitle;
+    [SerializeField] private TMP_Text Text_CoinTitle;
     [SerializeField] private TMP_Text Text_StaminaTitle;
 
     [SerializeField] private TMP_Text Text_DayData;
-    [SerializeField] private TMP_Text Text_GoldData;
+    [SerializeField] private TMP_Text Text_CoinData;
     [SerializeField] private TMP_Text Text_StaminaData;
 
-    private Action<int> OnButtonClicked;
-    private int _index;
+    private Action<string> OnButtonClicked;
+    private string _index;
 
-    public bool SetButtonData(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string goldTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, int index, PlayerModel playerModel, Action<int> ButtonClickedCallback)
+    public bool SetButtonData(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string CoinTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, string slotname, PlayerModel playerModel, Action<string> ButtonClickedCallback)
     {
         if (ComponentCheck() == false)
         {
             return false;
         }
 
-        if (DataCheck(backgroundSprite, buttonSprite, dayTitle, goldTitle, staminaTitle, startButton, buttonFont, playerModel, ButtonClickedCallback) == false)
+        if (DataCheck(backgroundSprite, buttonSprite, dayTitle, CoinTitle, staminaTitle, startButton, buttonFont, playerModel, ButtonClickedCallback) == false)
         {
             return false;
         }
 
         SetSprite(backgroundSprite, buttonSprite);
         SetFont(buttonFont);
-        SetText(dayTitle, goldTitle, staminaTitle, startButton);
+        SetText(dayTitle, CoinTitle, staminaTitle, startButton);
 
-        SetSaveData(index, playerModel);
-        SetButton(index, ButtonClickedCallback);
+        SetSaveData(slotname, playerModel);
+        SetButton(slotname, ButtonClickedCallback);
 
         this.ActiveTrue();
         return true;
@@ -74,7 +74,7 @@ public class SaveDataButton : BaseButton
         return true;
     }
 
-    private bool DataCheck(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string goldTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, PlayerModel playerModel, Action<int> ButtonClickedCallback)
+    private bool DataCheck(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string CoinTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, PlayerModel playerModel, Action<string> ButtonClickedCallback)
     {
         bool hasData = true;
 
@@ -96,9 +96,9 @@ public class SaveDataButton : BaseButton
             hasData = false;
         }
 
-        if(goldTitle == null)
+        if(CoinTitle == null)
         {
-            this.LogWarning("받아온 goldTitle가 없습니다!!");
+            this.LogWarning("받아온 CoinTitle가 없습니다!!");
             hasData = false;
         }
 
@@ -155,32 +155,32 @@ public class SaveDataButton : BaseButton
         Text_DataName.font = buttonFont;
 
         Text_DayTitle.font = buttonFont;
-        Text_GoldTitle.font = buttonFont;
+        Text_CoinTitle.font = buttonFont;
         Text_StaminaTitle.font = buttonFont;
 
         Text_DayData.font = buttonFont;
-        Text_GoldData.font = buttonFont;
+        Text_CoinData.font = buttonFont;
         Text_StaminaData.font = buttonFont;
     }
 
-    private void SetText(string dayTitle, string goldTitle, string staminaTitle, string startButton)
+    private void SetText(string dayTitle, string CoinTitle, string staminaTitle, string startButton)
     {
         Text_DayTitle.text = dayTitle;
-        Text_GoldTitle.text = goldTitle;
+        Text_CoinTitle.text = CoinTitle;
         Text_StaminaTitle.text = staminaTitle;
 
         Text_Button.text = startButton;
     }
 
-    public void SetSaveData(int index, PlayerModel playerModel)
+    public void SetSaveData(string slotname, PlayerModel playerModel)
     {
-        Text_DataName.text = index.ToString();
+        Text_DataName.text = slotname;
         Text_DayData.text = playerModel.Day.ToString();
-        Text_GoldData.text = playerModel.Gold.ToString();
+        Text_CoinData.text = playerModel.Coin.ToString();
         Text_StaminaData.text = playerModel.Stamina.ToString();
     }
 
-    private void SetButton(int index, Action<int> buttonCallback)
+    private void SetButton(string index, Action<string> buttonCallback)
     {
         OnButtonClicked = buttonCallback;
         _index = index;
