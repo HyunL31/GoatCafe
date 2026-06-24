@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIDataManager : BaseMonoManager<UIDataManager>
 {
     public Dictionary<string, MainMenuUIData> MainMenuUIDataList {  get; private set; }
+    public Dictionary<string, InGamePopupData> InGamePopupDataList {  get; private set; }
 
     private void Start()
     {
@@ -22,11 +23,17 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
     private void LoadAllData()
     {
         LoadMainMenuUIData();
+        LoadInGamePopupData();
     }
 
     private void LoadMainMenuUIData()
     {
         MainMenuUIDataList = LoadData<MainMenuUIData>(DataUtil.UIData.MainMenuUI.File);
+    }
+
+    private void LoadInGamePopupData()
+    {
+        InGamePopupDataList = LoadData<InGamePopupData>(DataUtil.UIData.InGamePopup.File);
     }
 
     [Serializable]
@@ -37,7 +44,8 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
 
     private Dictionary<string, T> LoadData<T>(string path) where T : UIDataBase
     {
-        TextAsset textAsset = LoadUtil.Sync.LoadTextAsset(path);
+        string resourcePath = $"Json/{path}";
+        TextAsset textAsset = LoadUtil.Sync.LoadTextAsset(resourcePath);
 
         if (textAsset == null)
         {
@@ -52,7 +60,7 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
             SerializableWrapper<T> wrapper = JsonUtility.FromJson<SerializableWrapper<T>>(wrapperData);
             if (wrapper.m_data != null)
             {
-                Debug.Log($"{path}의 데이터가 {wrapper.m_data.Count}만큼 로드 되었습니다!!");
+                Debug.Log($"{resourcePath}의 데이터가 {wrapper.m_data.Count}만큼 로드 되었습니다!!");
                 Dictionary<string, T> newDictionary = new(wrapper.m_data.Count);
                 foreach (T data in wrapper.m_data)
                 {
@@ -62,7 +70,7 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
             }
             else
             {
-                this.LogError($"{path}의 데이터가 없습니다 다시 확인해주세요!!");
+                this.LogError($"{resourcePath}의 데이터가 없습니다 다시 확인해주세요!!");
                 return null;
             }
         }
