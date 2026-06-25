@@ -22,6 +22,7 @@ public enum DayPhase
 public class GameManager : BaseMonoManager<GameManager>
 {
     [SerializeField] private float _dayDuration = 300f;
+    [SerializeField] private float _nightDuration = 300f;
 
     private float _remainDayTime;
 
@@ -34,11 +35,15 @@ public class GameManager : BaseMonoManager<GameManager>
 
     public float RemainDayTime => _remainDayTime;
     public float DayDuration => _dayDuration;
+    public float NightDuration => _nightDuration;
     public float DayTimeRate => _dayDuration <= 0f ? 0f : _remainDayTime / _dayDuration;
+    public float NightTimeRate => _nightDuration <= 0f ? 0f : (_remainDayTime / _nightDuration);
 
     public event Action<GameState> OnGameStateChanged;
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
+
+    public event Action OnMoveHome;
 
     public event Action<int> OnUseStaminaItem;
     public event Action<int, int> OnUseSpeedItem;
@@ -53,7 +58,7 @@ public class GameManager : BaseMonoManager<GameManager>
         InitializeGame();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdateDayTime();
     }
@@ -86,6 +91,13 @@ public class GameManager : BaseMonoManager<GameManager>
     {
         _remainDayTime = _dayDuration;
         ChangeDayPhase(DayPhase.Day);
+        OnDayTimeChanged?.Invoke(_remainDayTime);
+    }
+
+    public void StartNight()
+    {
+        _remainDayTime = _nightDuration;
+        ChangeDayPhase(DayPhase.Night);
         OnDayTimeChanged?.Invoke(_remainDayTime);
     }
 
@@ -164,20 +176,40 @@ public class GameManager : BaseMonoManager<GameManager>
             return;
         }
 
-        if (CurrentDayPhase != DayPhase.Day)
+        if (CurrentDayPhase == DayPhase.None)
         {
             return;
         }
 
-        _remainDayTime -= Time.deltaTime;
+        _remainDayTime -= Time.fixedDeltaTime;
         _remainDayTime = Mathf.Max(_remainDayTime, 0f);
 
         OnDayTimeChanged?.Invoke(_remainDayTime);
 
         if (_remainDayTime <= 0f)
         {
-            ChangeDayPhase(DayPhase.Night);
+            if (CurrentDayPhase == DayPhase.Day)
+            {
+                StartNight();
+            }
+            else if (CurrentDayPhase == DayPhase.Night)
+            {
+                ChangeDayPhase(DayPhase.None);
+                ChangeGameState(GameState.Ready);
+
+                OnMoveHome?.Invoke();
+            }
         }
+    }
+
+    public void NextDay()
+    {
+        Time.timeScale = 1f;
+
+        ChangeGameState(GameState.Playing);
+
+        UpdateDayTime();
+        StartDay();
     }
 
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
