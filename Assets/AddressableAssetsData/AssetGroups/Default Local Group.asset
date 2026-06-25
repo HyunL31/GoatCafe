@@ -15,6 +15,22 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 800ba93b5a898a5429d531c467d05be4
   m_SerializeEntries:
+  - m_GUID: 141e1779869c79845bd243610f187f47
+    m_Address: Assets/ThirdParty/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Texts/CFXR
+      _BONK!_.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38b99d63cdad9994b89d14c10a8783ce
+    m_Address: Prefab/VFX/Firework1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c6022ac1a1cc7b438777188ae54da0e
+    m_Address: Prefab/VFX/HitC3D
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 444fc6b0b03e51f478759ff856151bff
     m_Address: Audio/SFX/UISound/Click_2
     m_ReadOnly: 0
@@ -22,6 +38,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58173d798e8420d4f8ed7f1cf6038323
     m_Address: Prefabs/CostumeItem/Santa
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58edebfc2a47aba4a887d699566eb4ad
+    m_Address: Prefab/VFX/FlammeCrisp
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,8 +66,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f51e8e68cc9b164abbf8473ed186904
+    m_Address: Prefab/VFX/Firework2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0a1803193f53814fb46f639dc12d8c2
+    m_Address: Prefab/VFX/GasLeak
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9ff587211fa7f848b8e3a459d2fc0b9
     m_Address: Audio/SFX/UISound/Click_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2f0b8902a31c8a46a1c4bb24ed9ea36
+    m_Address: Prefab/VFX/SmokePoof
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8a2033e2680d9743b3539f892cfcaf7
+    m_Address: Audio/BGM/BGM_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4f829cb7dd4b864caf8832ec5b1ee55
+    m_Address: Prefab/VFX/MagicPoof
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e05875e1c2e842843a233da3102d88b0
+    m_Address: Prefab/VFX/Firework3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
