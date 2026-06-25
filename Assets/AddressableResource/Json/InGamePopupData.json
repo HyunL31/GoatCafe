@@ -1,0 +1,8 @@
+[
+  {
+    "Id": "InGamePopup_01",
+    "TutorialButton": "도움말",
+    "GameOptionButton": "게임 옵션",
+    "ReturnMainMenuButton": "메인 메뉴로"
+  }
+]

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sprite-UI-InGameUI
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Sprite-UI-InGameUI
+  m_GUID: 468b5f008b625f04ea95dac73500b378
+  m_SerializeEntries:
+  - m_GUID: 1464388a68d60d242be43f072c96a663
+    m_Address: Sprite/UI/InGameUI/DayButtonGaugeBackground
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72106e3c531d17f49a34a633cb35a56e
+    m_Address: Sprite/UI/InGameUI/DayButtonGauge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81759a61fb12dce4fae75068ef1840f9
+    m_Address: Sprite/UI/InGameUI/DayButtonBackground
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 948b51669851b90458a7f6a7ac23c91b
+    m_Address: Sprite/UI/InGameUI/StaminaGauge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd929ce99d27abb4e8da0f40454bae86
+    m_Address: Sprite/UI/InGameUI/StaminaGaugeBackground
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: af67168eee7379942baa608522a5ff84, type: 2}
+    - {fileID: 11400000, guid: 2b59dbeb7310b1e45a5647547adb3998, type: 2}
