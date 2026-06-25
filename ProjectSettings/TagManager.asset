@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Jerk
   - Normal
+  - Save
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Floor
   - Customer
   - Player
-  - 
+  - Trash
   - 
   - 
   - 

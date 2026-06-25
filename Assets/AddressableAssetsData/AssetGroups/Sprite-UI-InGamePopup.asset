@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sprite-UI-InGamePopup
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Sprite-UI-InGamePopup
+  m_GUID: 2e52ca7ac81673c46960f056fa457f0c
+  m_SerializeEntries:
+  - m_GUID: 57451864a8c83a44eab4131a04fc8ce5
+    m_Address: Sprite/UI/InGamePopup/ReturnMainMenuButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73fc12a176eb74948b8ca84769cd2ba5
+    m_Address: Sprite/UI/InGamePopup/GameOptionButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cee8b51acafc9f4087895c5f97a29de
+    m_Address: Sprite/UI/InGamePopup/Background
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8f3b26711e278543be70e5975e5dd90
+    m_Address: Sprite/UI/InGamePopup/TutorialButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4185214cdce65244386ca1a56b8f5c9c, type: 2}
+    - {fileID: 11400000, guid: c9021d1aa6bf2e24d8f3fad1b07f50a0, type: 2}

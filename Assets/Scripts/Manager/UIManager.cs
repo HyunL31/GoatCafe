@@ -4,7 +4,11 @@ using UnityEngine;
 
 public enum UIType : byte
 {
-    MainMenuUI
+    MainMenuUI,
+    SaveSlotPopup,
+    GameOptionUI,
+    InGameUI,
+    InGamePopup
 }
 
 public enum UIRootType : byte
@@ -31,6 +35,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
     private HashSet<UIType> _activeUI = new();
     private HashSet<UIRootType> _activeCanvas = new();
 
+    private void Start()
+    {
+        OpenMainMenuUI();
+    }
 
     public T CreateUI<T>(UIType uiType) where T : BaseUI<T>
     {
@@ -104,7 +112,7 @@ public partial class UIManager : BaseMonoManager<UIManager>
         {
             return null;
         }
-        
+
         GameObject ui = Instantiate(prefab, canvas.transform);
 
 
@@ -125,7 +133,7 @@ public partial class UIManager : BaseMonoManager<UIManager>
     {
         if (_activeUI.Contains(uiType) == false)
         {
-            this.LogWarning($"{uiType}의 UI는 열려있지 않습니다!!");
+            this.LogError($"{uiType}의 UI는 열려있지 않습니다!!");
             return;
         }
 
@@ -146,7 +154,19 @@ public partial class UIManager : BaseMonoManager<UIManager>
         {
             case UIType.MainMenuUI:
                 {
-                    return AddressUtil.Prefab.UI.MainMenuUI;
+                    return AddressUtil.Prefab.UI.MainMenuUI.UIPrefab;
+                }
+            case UIType.SaveSlotPopup:
+                {
+                    return AddressUtil.Prefab.UI.SaveSlotPopup.PopupPrefab;
+                }
+            case UIType.InGameUI:
+                {
+                    return AddressUtil.Prefab.UI.InGameUI.UIPrefab;
+                }
+            case UIType.InGamePopup:
+                {
+                    return AddressUtil.Prefab.UI.InGamePopup.PopupPrefab;
                 }
             default:
                 {
@@ -164,6 +184,18 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Main;
                 }
+            case UIType.SaveSlotPopup:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.InGameUI:
+                {
+                    return UIRootType.Main;
+                }
+            case UIType.InGamePopup:
+                {
+                    return UIRootType.Popup;
+                }
             default:
                 {
                     this.LogError($"{uiType}에 알맞는 UIRootType이 없습니다!!");
@@ -179,6 +211,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
             case UIRootType.Main:
                 {
                     return MainCanvas;
+                }
+            case UIRootType.Popup:
+                {
+                    return PopupCanvas;
                 }
             default:
                 {

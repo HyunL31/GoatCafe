@@ -9,7 +9,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 {
 
     //임시 소유 코인
-    public int Coin { get; set; } = 9999999;
+    public int Coin { get; set; } = 10000;
 
     [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
     [SerializeField] private int DescTooltipWidth = 500;
@@ -170,12 +170,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
         {
             if (!itemData.Buy())
             {
-                // 돈 부족하다는 메시지 띄우기
+                NotificationManager.Instance.ShowNotification("Not Enough Coins!!!", Color.red);
                 Debug.Log("[StoreManager] Coin 부족");
                 return;
             }
             else
             {
+                NotificationManager.Instance.ShowNotification($"{itemData.Name} Purchased", Color.green);
                 AddPurchased(itemData);
             }
         }

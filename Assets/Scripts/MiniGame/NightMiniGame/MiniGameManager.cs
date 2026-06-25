@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using static AddressUtil;
 
 public class MiniGameManager : BaseMonoManager<MiniGameManager>
 {
@@ -15,8 +14,6 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         score = 0;
@@ -45,17 +42,16 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         GameStart();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*
-        if(Input.KeyDown(KeyCode.E) && )
+        // 트리거 조건 필요
+        if(Input.GetKeyDown(KeyCode.E))
         {
+            InputManager.Instance.ToggleMouseLock(false);
             NightMiniGamePanel.SetActive(true);
 
             GameStart();
         }
-        */
     }
 
     private void AddScore(int amount)
@@ -141,6 +137,8 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         {
             score = score * 2;
         }
+
+        InputManager.Instance.ToggleMouseLock(true);
         Debug.Log("최종 점수: " + score);
         CloseMiniGame();
     }
