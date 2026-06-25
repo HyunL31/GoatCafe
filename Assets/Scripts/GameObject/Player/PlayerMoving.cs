@@ -13,7 +13,7 @@ public class PlayerMoving : MonoBehaviour
 
     public event Action OnChangedStamina;
 
-    public int Stamina { get; private set; } = 100;
+    public int Stamina { get; private set; }
 
     private float _inputZ;
     private float _inputX;
@@ -29,7 +29,7 @@ public class PlayerMoving : MonoBehaviour
 
     private void Start()
     {
-        //Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
+        SaveManager.Instance.OnSetStamina += SetStamina;
         _camera = Camera.main;
 
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
@@ -119,7 +119,6 @@ public class PlayerMoving : MonoBehaviour
 
         Stamina -= 10;
         OnChangedStamina?.Invoke();
-        Debug.Log(Stamina);
 
         Animator_Goat.SetTrigger("Attack");
 
@@ -190,5 +189,10 @@ public class PlayerMoving : MonoBehaviour
     {
         _runSpeed += runValue;
         _walkSpeed += walkValue;
+    }
+
+    private void SetStamina()
+    {
+        Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
     }
 }
