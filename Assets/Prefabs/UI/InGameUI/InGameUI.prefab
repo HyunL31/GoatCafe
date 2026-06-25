@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1106306066014185479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3374924281412693816}
+  m_Layer: 0
+  m_Name: Transform_DayChangePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3374924281412693816
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106306066014185479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8224596122219076779}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 980, y: 450}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3806354665960180978
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816606722724571125}
   m_Layer: 0
-  m_Name: Day
+  m_Name: Transform_DayGaugeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +177,7 @@ RectTransform:
   m_Children:
   - {fileID: 4816606722724571125}
   - {fileID: 5169489510915133023}
+  - {fileID: 3374924281412693816}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -164,6 +200,7 @@ MonoBehaviour:
   Image_StaminaGaugeBackground: {fileID: 113317745085383163}
   Image_StaminaGauge: {fileID: 301887568218729504}
   Transform_DayGaugeButton: {fileID: 4816606722724571125}
+  Transform_DayChangePanel: {fileID: 3374924281412693816}
 --- !u!1 &8047222209968937981
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,8 +232,8 @@ RectTransform:
   - {fileID: 8293439950939801915}
   m_Father: {fileID: 8224596122219076779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.55}
+  m_AnchorMax: {x: 0.5, y: 0.55}
   m_AnchoredPosition: {x: -100, y: 0}
   m_SizeDelta: {x: 20, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
