@@ -19,11 +19,11 @@ public class InputManager : BaseMonoManager<InputManager>
 
     [Header("컴포넌트")]
     [SerializeField] private Rigidbody Rigidbody_Goat;
-    [SerializeField] private AnimationController AnimController;
+    //[SerializeField] private AnimationController AnimController;
     //[SerializeField] private Goat_GroundDetector GroundDetector;
 
     [Header("일시정지")]
-    [SerializeField] private GameObject pauseMenuUI;
+    //[SerializeField] private GameObject pauseMenuUI;
 
     public static float Horizontal { get; private set; }
     public static float Vertical { get; private set; }
@@ -70,10 +70,10 @@ public class InputManager : BaseMonoManager<InputManager>
         RotateCheckOnUpdate();
         MoveOnUpdate();
 
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
-        {
-            StartJump();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        //{
+        //    StartJump();
+        //}
 
         if (Input.GetKeyDown(KeyCode.LeftAlt) && _isGrounded)
         {
@@ -108,7 +108,7 @@ public class InputManager : BaseMonoManager<InputManager>
         this.transform.Rotate(Vector3.up * mouseX);
     }
 
-    private void ToggleMouseLock(bool isLock)
+    public void ToggleMouseLock(bool isLock)
     {
         Cursor.lockState = isLock ? CursorLockMode.Locked : CursorLockMode.None;
         _isMouseLock = isLock;
@@ -116,7 +116,7 @@ public class InputManager : BaseMonoManager<InputManager>
 
     void MoveOnUpdate()
     {
-        AnimController.SetState((Horizontal <= 0 && Vertical <= 0) ? EntityState.Idle : EntityState.Run);
+        //AnimController.SetState((Horizontal <= 0 && Vertical <= 0) ? EntityState.Idle : EntityState.Run);
 
         Vector3 move = (this.transform.right * Horizontal) + (this.transform.forward * Vertical);
 
@@ -140,14 +140,14 @@ public class InputManager : BaseMonoManager<InputManager>
 
         if (IsPaused)
         {
-            pauseMenuUI.SetActive(true);
+            //pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             ToggleMouseLock(false);
             Cursor.visible = true;
         }
         else
         {
-            pauseMenuUI.SetActive(false);
+            //pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
             ToggleMouseLock(true); 
             Cursor.visible = false;
