@@ -122,6 +122,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
                 _agent.isStopped = true;
                 if (_anim != null)  _anim.SetTrigger(HashHit);
                 GetComponent<Collider>().enabled = false;
+                VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.MagicPoof, transform.position, new Vector3(0, 0f, 0), 1.4f).Forget();
                 break;
             case CustomerState.Detected:
                 _agent.isStopped = true;
