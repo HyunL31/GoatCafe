@@ -9,6 +9,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
     public string CurrentSlotIndex { get; private set; }
     public HashSet<string> SlotIndex { get; private set; } = new HashSet<string>();
 
+    public Action OnSetStamina;
     public Action OnSaveClear;
 
     private void Start()
@@ -52,6 +53,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
     public void LoadData(string index)
     {
         CurrentPlayerModel = RequestLoadData(index);
+        OnSetStamina?.Invoke();
     }
 
     public void LoadDefaultData()
@@ -124,7 +126,6 @@ public class SaveManager : BaseMonoManager<SaveManager>
         newPlayerData.Day = 1;
         newPlayerData.Coin = 5000;
         newPlayerData.Stamina = 100;
-        Debug.Log(newPlayerData.Stamina);
         newPlayerData.WalkSpeed = 3f;
         newPlayerData.RunSpeed = 5f;
 
