@@ -125,6 +125,12 @@ public class GameManager : BaseMonoManager<GameManager>
         ChangeGameState(GameState.GameOver);
     }
 
+    public void ReadyGame()
+    {
+        Time.timeScale = 0f;
+        ChangeGameState(GameState.Ready);
+    }
+
     private void ChangeGameState(GameState gameState)
     {
         if (CurrentState == gameState)

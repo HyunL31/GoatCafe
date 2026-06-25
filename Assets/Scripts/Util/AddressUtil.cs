@@ -31,6 +31,7 @@ public static class AddressUtil
             {
                 public const string UIPrefab = "Prefab/UI/InGameUI/UIPrefab";
                 public const string DayButton = "Prefab/UI/INGameUI/DayButton";
+                public const string DayChangePanel = "Prefab/UI/DayChangePanel";
             }
 
             public static class InGamePopup
@@ -116,6 +117,11 @@ public static class AddressUtil
                 public const string DayButtonBackground = "Sprite/UI/InGameUI/DayButtonBackground";
                 public const string DayButtonGaugeBackground = "Sprite/UI/InGameUI/DayButtonGaugeBackground";
                 public const string DayButtonGauge = "Sprite/UI/InGameUI/DayButtonGauge";
+
+                public const string DayChangePanelBackground = "Sprite/UI/InGameUI/DayChangePanelBackground";
+                public const string DayChangePanelTitle = "Sprite/UI/InGameUI/DayChangePanelTitle";
+                public const string DayChangePanelEdge = "Sprite/UI/InGameUI/DayChangePanelEdge";
+                public const string DayChangePanelButton = ButtonRed;
             }
 
             public static class InGamePopup
@@ -123,7 +129,7 @@ public static class AddressUtil
                 public const string Background = "Sprite/UI/InGamePopup/Background";
                 public const string TutorialButton = "Sprite/UI/InGamePopup/TutorialButton";
                 public const string GameOptionButton = "Sprite/UI/InGamePopup/GameOptionButton";
-                public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuButton";
+                public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuBUtton";
             }
         }
     }

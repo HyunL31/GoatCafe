@@ -9,8 +9,10 @@ public class InGameUI : BaseUI<InGameUI>
     [SerializeField] private Image Image_StaminaGauge;
 
     [SerializeField] private Transform Transform_DayGaugeButton;
+    [SerializeField] private Transform Transform_DayChangePanel;
 
     private DayGaugeButton _dayGaugeButton;
+    private DayChangePanel _dayChangePanel;
 
     public void SetStaminaGaugeImage(Sprite staminaGaugeBackgroundSprite, Sprite staminaGaugeSprite)
     {
@@ -39,6 +41,24 @@ public class InGameUI : BaseUI<InGameUI>
         _dayGaugeButton = dayGaugeButton;
     }
 
+    public void CreateDayChangePanel(GameObject dayChangePanelPrefab, Sprite dayChangePanelBackgroundSprite, Sprite dayChangePanelEdgeSprite, Sprite dayChangePanelTitleSprite, Sprite dayChangePanelButtonSprite, TMP_FontAsset textFont)
+    {
+        if (_dayChangePanel != null)
+        {
+            return;
+        }
+
+        if (this.InstantiateAndGetComponent(dayChangePanelPrefab, Transform_DayChangePanel, out DayChangePanel dayChangePanel) == false)
+        {
+            return;
+        }
+
+        dayChangePanel.SetPanelData(dayChangePanelBackgroundSprite, dayChangePanelEdgeSprite, dayChangePanelTitleSprite, dayChangePanelButtonSprite, textFont);
+
+        _dayChangePanel = dayChangePanel;
+        _dayChangePanel.Close();
+    }
+
     public void SetDayGaugeButtonDayGauge(float dayTime)
     {
         if(_dayGaugeButton == null)
@@ -57,5 +77,28 @@ public class InGameUI : BaseUI<InGameUI>
         }
 
         _dayGaugeButton.ChangeDay(day);
+    }
+
+    public void OpenDayPanel(string description, string text)
+    {
+        if(_dayChangePanel == null)
+        {
+            return;
+        }
+
+        _dayChangePanel.SetText(description, text);
+        _dayChangePanel.Open(_dayChangePanel.Close);
+    }
+
+    public void OpenNightPanel(string description, string text)
+    {
+
+        if (_dayChangePanel == null)
+        {
+            return;
+        }
+
+        _dayChangePanel.SetText(description,text);
+        _dayChangePanel.Open(_dayChangePanel.Close);
     }
 }
