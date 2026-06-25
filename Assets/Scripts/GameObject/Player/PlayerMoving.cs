@@ -39,8 +39,8 @@ public class PlayerMoving : MonoBehaviour
 
     private void Update()
     {
-        _inputZ = Input.GetAxisRaw("Vertical");
-        _inputX = Input.GetAxisRaw("Horizontal");
+        _inputZ = InputManager.Vertical;
+        _inputX = InputManager.Horizontal;
 
         if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
         {
