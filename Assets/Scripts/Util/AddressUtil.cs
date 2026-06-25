@@ -48,7 +48,7 @@ public static class AddressUtil
             public const string Firework2 = "Prefab/VFX/Firework2";
             public const string Firework3 = "Prefab/VFX/Firework3";
             public const string HitC3D = "Prefab/VFX/HitC3D";
-            public const string FlammeCrisp = "Prefab/VFX/FlammeCrisp";
+            public const string FlammeCrisp = "Prefab/VFX/FlameCrisp";
             public const string GasLeak = "Prefab/VFX/GasLeak";
         }
     }
