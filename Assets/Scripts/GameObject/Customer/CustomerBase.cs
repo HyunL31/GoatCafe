@@ -58,12 +58,12 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     public CustomerType Type { get; private set; }
     public CustomerRace Race { get; private set; }
     public CustomerState State { get; private set; }
+    public bool IsExiting { get; private set; }
 
     protected NavMeshAgent _agent;
     protected List<Transform> _waypoints = new List<Transform>();
     private int _waypointIndex;
     private bool _isWaiting = false;
-    private bool _isExiting = false;
 
     private float _detectionRange;
     private float _detectionAngle;
@@ -143,7 +143,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
 
     protected virtual void Update()
     {
-        if (_isExiting)
+        if (IsExiting)
         {
             if (_anim != null) _anim.SetFloat(HashSpeed, _agent.velocity.magnitude);
             return;
@@ -162,7 +162,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         SetState(CustomerState.Idle);
         await UniTask.WaitForSeconds(UnityEngine.Random.Range(5f, 8f), cancellationToken: this.GetCancellationTokenOnDestroy());
         _isWaiting = false;
-        if (_isExiting) return;
+        if (IsExiting) return;
         if (State == CustomerState.Idle)
             SetState(CustomerState.Walking);
     }
@@ -178,7 +178,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     {
         await UniTask.WaitForSeconds(10f, cancellationToken: this.GetCancellationTokenOnDestroy());
 
-        if (_isExiting) return;
+        if (IsExiting) return;
 
         if (State == CustomerState.Walking && _isWaiting == false)
         {
@@ -189,7 +189,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     public void ExitTo(Vector3 exitPosition)
     {
         if (State == CustomerState.Hit) return;
-        _isExiting = true;
+        IsExiting = true;
         _agent.isStopped = false;
         _agent.SetDestination(exitPosition);
         WaitAndDestroyAsync().Forget();
@@ -199,7 +199,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     {
         await UniTask.NextFrame();
         await UniTask.WaitUntil(
-            () => _isExiting && !_agent.pathPending && _agent.remainingDistance <= 0.1f,
+            () => IsExiting && !_agent.pathPending && _agent.remainingDistance <= 0.1f,
             cancellationToken: this.GetCancellationTokenOnDestroy()
         );
         Destroy(gameObject);
