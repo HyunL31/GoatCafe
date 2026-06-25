@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlayerModel
 {
     public int Coin;
+    public int StolenItemCount;
 
     public int Day;
     public bool IsFirstDay;
