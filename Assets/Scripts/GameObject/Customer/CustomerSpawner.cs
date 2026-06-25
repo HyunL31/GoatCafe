@@ -39,7 +39,6 @@ public class CustomerSpawner : MonoBehaviour
         else if (phase == DayPhase.Night)
         {
             _isExitingAll = true;
-            CleanUpAllCustomers();
         }
     }
 
@@ -125,6 +124,12 @@ public class CustomerSpawner : MonoBehaviour
             Destroy(customer.gameObject);
         }
         _spawnedCustomers.Clear();
+
+        CustomerBase[] remaining = FindObjectsByType<CustomerBase>(FindObjectsSortMode.None);
+        foreach (CustomerBase customer in remaining)
+        {
+            Destroy(customer.gameObject);
+        }
     }
 
     private async UniTaskVoid ExitAsync(CustomerBase customer)
