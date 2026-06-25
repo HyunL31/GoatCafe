@@ -15,6 +15,21 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 800ba93b5a898a5429d531c467d05be4
   m_SerializeEntries:
+  - m_GUID: 0e15e1a78a2c0d046b1e2bee2b9d6268
+    m_Address: Sprite/UI/InGameUI/DayChangePanelEdge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 140fde44ec775f545a6fa9e1e89a2ff4
+    m_Address: Sprite/UI/InGamePopup/Background
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 238c3ef7b426af742a918e9a01dbc4de
+    m_Address: Prefab/UI/DayChangePanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 444fc6b0b03e51f478759ff856151bff
     m_Address: Audio/SFX/UISound/Click_2
     m_ReadOnly: 0
@@ -47,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9ff587211fa7f848b8e3a459d2fc0b9
     m_Address: Audio/SFX/UISound/Click_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6fa1462978546948a197cc0160bd185
+    m_Address: Sprite/UI/InGameUI/DayChangePanelTitle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
