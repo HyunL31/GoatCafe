@@ -957,7 +957,7 @@ Transform:
   m_GameObject: {fileID: 6666766703791676141}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9524, y: -3.864, z: 0.85516}
+  m_LocalPosition: {x: 5.9524, y: -3.896, z: 0.85516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1249,6 +1249,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrashSpawner
   Prefabs_Trash:
   - {fileID: 188626529379540898, guid: af76870b959425b40b91470db45bb059, type: 3}
+  - {fileID: 2047490833185959654, guid: 2355aa6de6d77564e84ef3676ff58ff0, type: 3}
+  - {fileID: 1909994799071231870, guid: 013b12db6eb427e4d87c404efefc0ef5, type: 3}
+  - {fileID: 9052592467882724335, guid: 3d781ad6e542b254587f39faa6b90b89, type: 3}
+  - {fileID: 9104000482699729941, guid: 1015aedbb90cd94488f33c1d197bab51, type: 3}
+  - {fileID: 4801555467563147687, guid: b43b8a276aba3004b9f393edc80466ba, type: 3}
   Transform_SpawnPoints:
   - {fileID: 6018939367271011424}
   - {fileID: 3625409254010540449}
@@ -1267,7 +1272,7 @@ MonoBehaviour:
   - {fileID: 8838291567524969924}
   - {fileID: 1993344616659408517}
   - {fileID: 365334644535069643}
-  Float_SpawnInterval: 30
+  Float_SpawnInterval: 5
   Int_MaxTrash: 5
 --- !u!1 &8980654531144663158
 GameObject:
@@ -1435,6 +1440,7 @@ MonoBehaviour:
   Float_JerkChance: 0.3
   Float_SpawnInterval: 8
   Float_ExitTime: 30
+  Float_ExitBeforeNight: 7
 --- !u!1001 &5408033198585275767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1497,6 +1503,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5441528631764071470, guid: 2753ab389ca1e044d96dbab6f245934d, type: 3}
   m_PrefabInstance: {fileID: 5408033198585275767}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1586882701838567642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6703762949116079533, guid: 2753ab389ca1e044d96dbab6f245934d, type: 3}
+  m_PrefabInstance: {fileID: 5408033198585275767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8276487274786415935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1509,6 +1520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoatRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 2225435768303594582, guid: 93c1d7622f9a41047a9c5d758f51a664, type: 3}
+      propertyPath: Transform_CafePoint
+      value: 
+      objectReference: {fileID: 1586882701838567642}
     - target: {fileID: 3414098921502776984, guid: 93c1d7622f9a41047a9c5d758f51a664, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.656509
