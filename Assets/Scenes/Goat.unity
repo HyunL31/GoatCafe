@@ -564,8 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98b0a4248ac98f4088eefce55ee39a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _dayDuration: 3
-  _nightDuration: 3
+  _dayDuration: 5
+  _nightDuration: 5
 --- !u!1 &795567895
 GameObject:
   m_ObjectHideFlags: 0
