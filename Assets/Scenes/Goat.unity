@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1838711461349006990, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4142011108806439604, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.67349
@@ -267,6 +271,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!1001 &153185711
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2535689475445076385, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_Name
+      value: Customer_Jerk_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994506712879952261, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2535689475445076385, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1225901947}
+  m_SourcePrefab: {fileID: 100100000, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
 --- !u!4 &245645009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5269831522167627709, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
@@ -509,6 +573,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+--- !u!1 &504487906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2917478107150021956, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+  m_PrefabInstance: {fileID: 1470859898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &504487910
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504487906}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &631566009 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4810696082383997465, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
@@ -1202,6 +1293,104 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
+--- !u!1 &1225901946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2535689475445076385, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+  m_PrefabInstance: {fileID: 153185711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225901947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225901946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  m_Graph: {fileID: 6176365628053388109, guid: a5aff85b6d8969b4f8f19742e29b6950, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 1408615704123670872
+  - rid: 1408615704123670873
+  - rid: 1408615704123670874
+  - rid: 1408615704123671066
+  - rid: 1408615704386863874
+  - rid: 1408615704386863875
+  m_OriginalGraph: {fileID: 0}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1408615704123670872
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 1225901946}
+    - rid: 1408615704123670873
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1674920903889472950
+          m_Value1: 15805113147743775950
+        Name: Customer
+        m_Value: {fileID: 1225901951}
+    - rid: 1408615704123670874
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14472632828343144926
+          m_Value1: 4502507272122364326
+        Name: Waypoint
+        m_Value:
+        - {fileID: 2058842023}
+        - {fileID: 1970825704}
+        - {fileID: 1552627762}
+    - rid: 1408615704123671066
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 875512737445310345
+          m_Value1: 17817380300498825881
+        Name: Target
+        m_Value: {fileID: 504487906}
+    - rid: 1408615704386863874
+      type: {class: 'BlackboardVariable`1[[JerkCustomer, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 204230746757264946
+          m_Value1: 5330567874278578068
+        Name: New Jerk Customer
+        m_Value: {fileID: 1225901954}
+    - rid: 1408615704386863875
+      type: {class: 'BlackboardVariable`1[[State, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 10779600317235841637
+          m_Value1: 14406541717083072811
+        Name: New State
+        m_Value: 1
+--- !u!95 &1225901951 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7115690049882524334, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+  m_PrefabInstance: {fileID: 153185711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225901954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3290254831915957755, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
+  m_PrefabInstance: {fileID: 153185711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225901946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7161a5fa55fafa840a913c044c68654e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JerkCustomer
 --- !u!1 &1336109130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1445248900
 Transform:
   m_ObjectHideFlags: 0
@@ -1483,7 +1672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.5
+      value: -8.4
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1536,7 +1725,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2917478107150021956, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 504487910}
   m_SourcePrefab: {fileID: 100100000, guid: d61df712a54c685468d99288a0748a3d, type: 3}
 --- !u!4 &1470859899 stripped
 Transform:
@@ -1708,6 +1900,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b88bb205bb090ce4dab6828ae67163a7, type: 3}
+--- !u!1 &1552627762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4312164022893601147, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+  m_PrefabInstance: {fileID: 22788716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1695693984 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
@@ -1873,6 +2070,16 @@ MonoBehaviour:
   stayDuration: 2
   moveDistance: 50
   maxCount: 5
+--- !u!1 &1970825704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5971181969490959087, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+  m_PrefabInstance: {fileID: 22788716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2058842023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1945714169870337720, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+  m_PrefabInstance: {fileID: 22788716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2073330254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,3 +2425,4 @@ SceneRoots:
   - {fileID: 1470859898}
   - {fileID: 1178090603}
   - {fileID: 903693769}
+  - {fileID: 153185711}
