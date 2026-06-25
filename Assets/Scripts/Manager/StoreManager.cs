@@ -151,7 +151,11 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void OnClickExitBtn()
     {
-        _storePopup.SetActive(false);
+        RectTransform popupRect = _storePopup.GetComponent<RectTransform>();
+
+        UIEffectUtil.SetScaleZero(_storePopup.GetComponent<RectTransform>(), 0.5f);
+        //UIEffectUtil.SetUISlideDown(popupRect, Vector2.zero, 0.5f);
+
         GameManager.Instance.ResumeGame();
     }
 
@@ -160,6 +164,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
         UpdateStorePopup();
 
         _storePopup.SetActive(true);
+        UIEffectUtil.SetScaleOne(_storePopup.GetComponent<RectTransform>(), 0.5f);
+        //UIEffectUtil.SetUISlideUp(_storePopup.GetComponent<RectTransform>(), 0.5f);
         GameManager.Instance.PauseGame();
     }
 

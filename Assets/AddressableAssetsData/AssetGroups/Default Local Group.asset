@@ -30,6 +30,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38b99d63cdad9994b89d14c10a8783ce
+    m_Address: Prefab/VFX/Firework1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c6022ac1a1cc7b438777188ae54da0e
+    m_Address: Prefab/VFX/HitC3D
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 444fc6b0b03e51f478759ff856151bff
     m_Address: Audio/SFX/UISound/Click_2
     m_ReadOnly: 0
@@ -60,13 +70,48 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f51e8e68cc9b164abbf8473ed186904
+    m_Address: Prefab/VFX/Firework2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a40b64bf23366dc42a892af2c6ff6140
+    m_Address: Prefab/VFX/MagicPoof
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9776c87680a0b14bbe15bd2b00d27b6
+    m_Address: Prefab/VFX/FlameCrisp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9ff587211fa7f848b8e3a459d2fc0b9
     m_Address: Audio/SFX/UISound/Click_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2f0b8902a31c8a46a1c4bb24ed9ea36
+    m_Address: Prefab/VFX/SmokePoof
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4f829cb7dd4b864caf8832ec5b1ee55
+    m_Address: Prefab/VFX/MagicPoof
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca18ec292c34a8840a49e1e3b2e264ee
+    m_Address: Prefab/VFX/GasLeak
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6fa1462978546948a197cc0160bd185
     m_Address: Sprite/UI/InGameUI/DayChangePanelTitle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e05875e1c2e842843a233da3102d88b0
+    m_Address: Prefab/VFX/Firework3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
