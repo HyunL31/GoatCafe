@@ -25,7 +25,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [SerializeField] private GameObject _storePopup;
     [SerializeField] private Button _exitButton;
     [SerializeField] private TextMeshProUGUI _coinText;
-    [SerializeField] private Transform _contentParent;
+    [SerializeField] private RectTransform _contentParent;
+    [SerializeField] private ScrollRect _scrollRect;
 
     [Header("Main Player Accessory")]
     [SerializeField] private PlayerAccessory _playerAccessory;
@@ -162,7 +163,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void OpenStorePopup()
     {
         UpdateStorePopup();
-
         _storePopup.SetActive(true);
         UIEffectUtil.SetScaleOne(_storePopup.GetComponent<RectTransform>(), 0.5f);
         //UIEffectUtil.SetUISlideUp(_storePopup.GetComponent<RectTransform>(), 0.5f);
@@ -196,6 +196,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             {
                 case EffectType.SpeedUp:
                     Debug.Log("SpeedUp 구매됨");
+                    GameManager.Instance.GoatSpeedBoostPurchased(permanentData.value);
                     break;
                 case EffectType.MiniGamePointDouble:
                     Debug.Log("MiniGamePointDouble 구매됨");

@@ -63,7 +63,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action OnMoveHome;
 
     public event Action<int> OnUseStaminaItem;
-    public event Action<int, int> OnUseSpeedItem;
+    public event Action<float> OnUseSpeedItem;
 
     protected override void Awake()
     {
@@ -296,5 +296,15 @@ public class GameManager : BaseMonoManager<GameManager>
         }
 
         return result;
+    }
+
+    public void GoatStaminaItemUsed(int value)
+    {
+        OnUseStaminaItem.Invoke(value);
+    }
+
+    public void GoatSpeedBoostPurchased(float value)
+    {
+        OnUseSpeedItem.Invoke(value);
     }
 }
