@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MiniGameManager : BaseMonoManager<MiniGameManager>
 {
@@ -13,6 +14,12 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     [SerializeField] GameObject[] PlasticTrashPrefab;
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
+    [SerializeField] private Sprite[] numberSprites;
+    [SerializeField] private Image TimerImage;
+
+    private float timer;
+    private const float timeLimit = 5f;
+    private bool isTimerRunning;
 
     void Start()
     {
@@ -39,16 +46,31 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
             NightMiniGamePanel.SetActive(false);
         }
         */
+
+        GameStart();
     }
 
     void Update()
     {
-        // 트리거 조건 필요
+        /*
         if(Input.GetKeyDown(KeyCode.E))
         {
             NightMiniGamePanel.SetActive(true);
 
             GameStart();
+        }
+        */
+
+        if (isTimerRunning)
+        {
+            timer -= Time.deltaTime;
+            UpdateTimerImage();
+
+            if (timer <= 0f)
+            {
+                isTimerRunning = false;
+                CheckResult();
+            }
         }
     }
 
@@ -61,7 +83,9 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     {
 
         isGame = true;
-
+        timer = timeLimit;
+        isTimerRunning = true;
+        UpdateTimerImage();
         score = 0;
 
         int PaperTrashCount = Random.Range(1, 6);
@@ -136,7 +160,11 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
             score = score * 2;
         }
 
-        CursorManager.Instance.UnlockCursor();
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.UnlockCursor();
+        }
+
         Debug.Log("최종 점수: " + score);
         CloseMiniGame();
     }
@@ -157,5 +185,17 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     public void SetMiniGameEasier(bool isEasier)
     {
         isMiniGameEasier = isEasier;
+    }
+
+    private void UpdateTimerImage()
+    {
+        if (TimerImage == null || numberSprites == null || numberSprites.Length < 5)
+        {
+            return;
+        }
+
+        int count = Mathf.Clamp(Mathf.CeilToInt(timer), 1, 5);
+
+        TimerImage.sprite = numberSprites[count - 1];
     }
 }
