@@ -14,7 +14,10 @@ public static class UIEffectUtil
     // 스케일을 1에서 0으로 줄이기
     public static void SetScaleZero(Transform target, float duration)
     {
-        target.DOScale(Vector3.zero, duration).SetEase(Ease.InBack);
+        target.DOScale(Vector3.zero, duration).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            target.gameObject.SetActive(false);
+        });
     }
 
     // 알파값을 0에서 1로 만들기
@@ -57,6 +60,5 @@ public static class UIEffectUtil
             rect.gameObject.SetActive(false);
             rect.anchoredPosition = originalPos;
         });
-
     }
 }

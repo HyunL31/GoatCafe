@@ -186,9 +186,9 @@ public class PlayerMoving : MonoBehaviour
         OnChangedStamina?.Invoke();
     }
 
-    private void AddGoatSpeed(int walkValue, int runValue)
+    private void AddGoatSpeed(float value)
     {
-        _runSpeed += runValue;
-        _walkSpeed += walkValue;
+        _runSpeed = _runSpeed * value;
+        _walkSpeed = _walkSpeed * value;
     }
 }
