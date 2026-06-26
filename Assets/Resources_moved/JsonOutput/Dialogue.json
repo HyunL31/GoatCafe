@@ -132,7 +132,7 @@
     "NextID": "Bad_Ending_04",
     "Speaker": "염소",
     "Content": "결과는 처참했어. 점수는 바닥이었고, 내 은신처엔 압수당한 부끄러운 기억들뿐이지.",
-    "Background": "Bad_Cafe",
+    "Background": null,
     "BGM": null
   },
   {
@@ -196,7 +196,7 @@
     "NextID": "Happy_Ending_05",
     "Speaker": "염소",
     "Content": "그래, 바로 이거야.",
-    "Background": "Animals",
+    "Background": null,
     "BGM": null
   },
   {

@@ -117,12 +117,6 @@ public class GameManager : BaseMonoManager<GameManager>
         OnDayTimeChanged?.Invoke(_remainDayTime);
     }
 
-    public void ReadyGame()
-    {
-        Time.timeScale = 0f;
-        ChangeGameState(GameState.Ready);
-    }
-
     // Pause(일시정지) 상태로 전환
     public void PauseGame()
     {
