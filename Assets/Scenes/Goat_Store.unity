@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &30387487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3350404172690381782, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+  m_PrefabInstance: {fileID: 1452879708002892350}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
 --- !u!1001 &272344907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,8 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7256aa011c66847b4473d1f766e47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoreManager
-  _coins: 999999
-  buffTooltipWidth: 500
+  DescTooltipWidth: 500
   UICanvasRect: {fileID: 2096087028}
   ItemDescPopup: {fileID: 1315686266}
   _itemDesctext: {fileID: 509491083}
@@ -353,6 +363,7 @@ MonoBehaviour:
   _exitButton: {fileID: 730301921}
   _coinText: {fileID: 1746237184}
   _contentParent: {fileID: 799493627}
+  _scrollRect: {fileID: 30387487}
   _playerAccessory: {fileID: 685261245}
 --- !u!4 &354456709
 Transform:
@@ -1033,6 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _dayDuration: 300
+  _nightDuration: 300
 --- !u!4 &2133167723
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,6 +1246,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2096087028}
     m_Modifications:
+    - target: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1383
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350404172690381782, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_MovementType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3804833903265121195, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1314,9 +1358,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4713947943268878496, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_VerticalFit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713947943268878496, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_HorizontalFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632663840953951441, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632663840953951441, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 6280585351562959116, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
       propertyPath: m_Name
       value: StorePopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423757643808026886, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_CellSize.x
+      value: 337
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
