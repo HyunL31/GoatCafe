@@ -21,7 +21,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 140fde44ec775f545a6fa9e1e89a2ff4
-    m_Address: Sprite/UI/InGamePopup/Background
+    m_Address: Sprite/UI/InGameUI/DayChangePanelBackground
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
