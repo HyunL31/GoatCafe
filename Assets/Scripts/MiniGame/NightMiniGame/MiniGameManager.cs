@@ -21,45 +21,24 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     private const float timeLimit = 5f;
     private bool isTimerRunning;
 
+    private Trash _targetTrash;
+
     void Start()
     {
         score = 0;
-        /*
-        
-        타 코드에서 아이템 사용 확인하는 로직 필요함
 
-        스코어 두배 아이템 사용 -> isScoreDouble;
-        난이도 감소 아이템 사용 -> isMiniGameEasier;
-
-        변수 이름 마음대로 바꿔도 가능
-
-
-
-
-
-        여기부터 Update()의 각주내용은 필드와 미니게임 연결 관련
-
-        isGame = false;
-
-        if (NightMiniGamePanel != null)
-        {
-            NightMiniGamePanel.SetActive(false);
-        }
-        */
-
-        GameStart();
+        Trash.OnTrashEnter += TrashEnter;
+        Trash.OnTrashExit += TrashExit;
     }
 
     void Update()
     {
-        /*
-        if(Input.GetKeyDown(KeyCode.E))
+        if(GameManager.Instance.CurrentDayPhase == DayPhase.Night && _targetTrash != null && Input.GetKeyDown(KeyCode.E))
         {
             NightMiniGamePanel.SetActive(true);
 
             GameStart();
         }
-        */
 
         if (isTimerRunning)
         {
@@ -74,6 +53,19 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         }
     }
 
+    private void TrashEnter(Trash trash)
+    {
+        _targetTrash = trash;
+    }
+
+    private void TrashExit(Trash trash)
+    {
+        if (_targetTrash == trash)
+        {
+            _targetTrash = null;
+        }
+    }
+
     private void AddScore(int amount)
     {
         score += amount;
@@ -81,7 +73,8 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
 
     public void GameStart()
     {
-
+        CursorManager.Instance.UnlockCursor();
+        GameManager.Instance.PauseGame();
         isGame = true;
         timer = timeLimit;
         isTimerRunning = true;
@@ -162,11 +155,12 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
 
         if (CursorManager.Instance != null)
         {
-            CursorManager.Instance.UnlockCursor();
+            CursorManager.Instance.LockCursor();
         }
 
         Debug.Log("최종 점수: " + score);
         CloseMiniGame();
+        GameManager.Instance.ResumeGame();
     }
 
     public void CloseMiniGame()
