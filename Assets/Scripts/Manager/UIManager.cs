@@ -8,7 +8,8 @@ public enum UIType : byte
     SaveSlotPopup,
     GameOptionUI,
     InGameUI,
-    InGamePopup
+    InGamePopup,
+    DialogueUI
 }
 
 public enum UIRootType : byte

@@ -52,10 +52,10 @@ public class CursorManager : BaseMonoManager<CursorManager>
         MoveCursor();
         CheckMouseClick();
 
-        if (Input.GetKeyDown(KeyCode.P))   // P 누르면 게임 시작 (테스트용)
-        {
-            GameManager.Instance.StartGame();
-        }
+        //if (Input.GetKeyDown(KeyCode.P))   // P 누르면 게임 시작 (테스트용)
+        //{
+        //    GameManager.Instance.StartGame();
+        //}
     }
 
     private void HandleGameStateChanged(GameState gameState)

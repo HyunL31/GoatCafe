@@ -19,26 +19,42 @@ public enum DayPhase
     Night
 }
 
+public enum EndingType
+{
+    None = 0,
+    BadEnding,
+    HappyEnding
+}
+
 public class GameManager : BaseMonoManager<GameManager>
 {
     [SerializeField] private float _dayDuration = 300f;
     [SerializeField] private float _nightDuration = 300f;
+    [SerializeField] private int _maxDayCount = 3;
+
+    [SerializeField] private int _targetCoin = 1000;
+    [SerializeField] private int _targetStolenItemCount = 6;
 
     private float _remainDayTime;
+
 
     public GameState CurrentState { get; private set; } = GameState.None;
     public DayPhase CurrentDayPhase { get; private set; } = DayPhase.None;
 
+
+    public int CurrentDay => SaveManager.Instance.CurrentPlayerModel.Day;
+    public int CurrentCoin => SaveManager.Instance.CurrentPlayerModel.Coin;
+    public int CurrentStolenItemCount => SaveManager.Instance.CurrentPlayerModel.StolenItemCount;
     public bool IsPlaying => CurrentState == GameState.Playing;
     public bool IsPaused => CurrentState == GameState.Pause;
     public bool IsGameOver => CurrentState == GameState.GameOver;
-
     public float RemainDayTime => _remainDayTime;
     public float DayDuration => _dayDuration;
     public float NightDuration => _nightDuration;
     public float DayTimeRate => _dayDuration <= 0f ? 0f : _remainDayTime / _dayDuration;
     public float NightTimeRate => _nightDuration <= 0f ? 0f : (_remainDayTime / _nightDuration);
 
+    public event Action<EndingType> OnEndingDetermined;
     public event Action<GameState> OnGameStateChanged;
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
@@ -163,6 +179,14 @@ public class GameManager : BaseMonoManager<GameManager>
         OnDayPhaseChanged?.Invoke(CurrentDayPhase);
     }
 
+    private void FinishNight()
+    {
+        ChangeDayPhase(DayPhase.None);
+        ChangeGameState(GameState.Ready);
+
+        OnMoveHome?.Invoke();
+    }
+
     private void UpdateDayTime()
     {
         if (!IsPlaying)
@@ -188,22 +212,49 @@ public class GameManager : BaseMonoManager<GameManager>
             }
             else if (CurrentDayPhase == DayPhase.Night)
             {
-                ChangeDayPhase(DayPhase.None);
-                ChangeGameState(GameState.Ready);
-
-                OnMoveHome?.Invoke();
+                FinishNight();
             }
         }
     }
 
     public void NextDay()
     {
+        if (CurrentDay >= _maxDayCount)
+        {
+            DetermineEnding();
+            EndGame();
+            return;
+        }
+
+        SaveManager.Instance.CurrentPlayerModel.Day++;
+        SaveManager.Instance.SaveData();
+
         Time.timeScale = 1f;
 
-        ChangeGameState(GameState.Playing);
-
-        UpdateDayTime();
         StartDay();
+        ChangeGameState(GameState.Playing);
+    }
+
+    public EndingType GetEndingType()
+    {
+        bool isCoinSuccess = CurrentCoin >= _targetCoin;
+        bool isStolenSuccess = CurrentStolenItemCount >= _targetStolenItemCount;
+
+        if (isCoinSuccess && isStolenSuccess)
+        {
+            return EndingType.HappyEnding;
+        }
+
+        return EndingType.BadEnding;
+    }
+
+    public void DetermineEnding()
+    {
+        EndingType endingType = GetEndingType();
+
+        Debug.Log($"엔딩 > {endingType}");
+
+        OnEndingDetermined?.Invoke(endingType);
     }
 
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
