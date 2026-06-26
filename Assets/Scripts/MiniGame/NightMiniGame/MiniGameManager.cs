@@ -14,6 +14,8 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
 
+    private Trash _targetTrash;
+
     void Start()
     {
         score = 0;
@@ -39,16 +41,31 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
             NightMiniGamePanel.SetActive(false);
         }
         */
+
+        Trash.OnTrashEnter += TrashEnter;
+        Trash.OnTrashExit += TrashExit;
     }
 
     void Update()
     {
-        // 트리거 조건 필요
-        if(Input.GetKeyDown(KeyCode.E))
+        if(GameManager.Instance.CurrentDayPhase == DayPhase.Night && _targetTrash != null && Input.GetKeyDown(KeyCode.E))
         {
             NightMiniGamePanel.SetActive(true);
 
             GameStart();
+        }
+    }
+
+    private void TrashEnter(Trash trash)
+    {
+        _targetTrash = trash;
+    }
+
+    private void TrashExit(Trash trash)
+    {
+        if (_targetTrash == trash)
+        {
+            _targetTrash = null;
         }
     }
 
