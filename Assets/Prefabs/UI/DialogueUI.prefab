@@ -436,7 +436,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC00\uB098\uB2E4\uB77C\uB9C8\uBC14\uC0AC"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb4f41df358a968438afd048bcc6ce66, type: 2}
   m_sharedMaterial: {fileID: -1112151848874810237, guid: eb4f41df358a968438afd048bcc6ce66, type: 2}
@@ -689,8 +689,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 351847302898380007}
-  - {fileID: 8577428071554094849}
   - {fileID: 7783032813075689804}
+  - {fileID: 8577428071554094849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -710,6 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafa69980c9117a48a3be4dec17a3422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
+  Image_Background: {fileID: 157607982410507241}
   Button_Dialogue: {fileID: 9197652185200955089}
   Text_Dialogue: {fileID: 7464284482834023555}
   Text_Speaker: {fileID: 8946312333281129464}

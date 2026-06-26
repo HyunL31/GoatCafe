@@ -41,6 +41,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public GameState CurrentState { get; private set; } = GameState.None;
     public DayPhase CurrentDayPhase { get; private set; } = DayPhase.None;
 
+    public string CurrentDialogueID { get; private set; }
 
     public int CurrentDay => SaveManager.Instance.CurrentPlayerModel.Day;
     public int CurrentCoin => SaveManager.Instance.CurrentPlayerModel.Coin;
@@ -67,6 +68,7 @@ public class GameManager : BaseMonoManager<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        CurrentDialogueID = "Opening_01";
     }
 
     private void Start()
@@ -261,6 +263,11 @@ public class GameManager : BaseMonoManager<GameManager>
         Debug.Log($"엔딩 > {endingType}");
 
         OnEndingDetermined?.Invoke(endingType);
+    }
+
+    public void SetCurrentID(string nextID)
+    {
+        CurrentDialogueID = nextID;
     }
 
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
