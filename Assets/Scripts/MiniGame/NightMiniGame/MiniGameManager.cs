@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MiniGameManager : BaseMonoManager<MiniGameManager>
 {
@@ -13,8 +14,12 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     [SerializeField] GameObject[] PlasticTrashPrefab;
     [SerializeField] RectTransform SpawnZone;
     [SerializeField] private Transform trashParent;
+    [SerializeField] private Sprite[] numberSprites;
+    [SerializeField] private Image TimerImage;
 
-    private Trash _targetTrash;
+    private float timer;
+    private const float timeLimit = 5f;
+    private bool isTimerRunning;
 
     void Start()
     {
@@ -42,30 +47,30 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         }
         */
 
-        Trash.OnTrashEnter += TrashEnter;
-        Trash.OnTrashExit += TrashExit;
+        GameStart();
     }
 
     void Update()
     {
-        if(GameManager.Instance.CurrentDayPhase == DayPhase.Night && _targetTrash != null && Input.GetKeyDown(KeyCode.E))
+        /*
+        if(Input.GetKeyDown(KeyCode.E))
         {
             NightMiniGamePanel.SetActive(true);
 
             GameStart();
         }
-    }
+        */
 
-    private void TrashEnter(Trash trash)
-    {
-        _targetTrash = trash;
-    }
-
-    private void TrashExit(Trash trash)
-    {
-        if (_targetTrash == trash)
+        if (isTimerRunning)
         {
-            _targetTrash = null;
+            timer -= Time.deltaTime;
+            UpdateTimerImage();
+
+            if (timer <= 0f)
+            {
+                isTimerRunning = false;
+                CheckResult();
+            }
         }
     }
 
@@ -78,7 +83,9 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     {
 
         isGame = true;
-
+        timer = timeLimit;
+        isTimerRunning = true;
+        UpdateTimerImage();
         score = 0;
 
         int PaperTrashCount = Random.Range(1, 6);
@@ -153,7 +160,11 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
             score = score * 2;
         }
 
-        CursorManager.Instance.UnlockCursor();
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.UnlockCursor();
+        }
+
         Debug.Log("최종 점수: " + score);
         CloseMiniGame();
     }
@@ -174,5 +185,17 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     public void SetMiniGameEasier(bool isEasier)
     {
         isMiniGameEasier = isEasier;
+    }
+
+    private void UpdateTimerImage()
+    {
+        if (TimerImage == null || numberSprites == null || numberSprites.Length < 5)
+        {
+            return;
+        }
+
+        int count = Mathf.Clamp(Mathf.CeilToInt(timer), 1, 5);
+
+        TimerImage.sprite = numberSprites[count - 1];
     }
 }

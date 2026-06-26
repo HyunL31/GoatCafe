@@ -65,11 +65,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c248b1836f79f044f9e2248a7cfdc13b
-    m_Address: JsonOutput/Dialogue
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6fa1462978546948a197cc0160bd185
     m_Address: Sprite/UI/InGameUI/DayChangePanelTitle
     m_ReadOnly: 0
