@@ -565,8 +565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98b0a4248ac98f4088eefce55ee39a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _dayDuration: 30
-  _nightDuration: 50
+  _dayDuration: 5
+  _nightDuration: 5
   _maxDayCount: 3
   _targetCoin: 1000
   _targetStolenItemCount: 6
@@ -2361,6 +2361,7 @@ MonoBehaviour:
   _exitButton: {fileID: 93661298}
   _coinText: {fileID: 631566009}
   _contentParent: {fileID: 1695693984}
+  _scrollRect: {fileID: 0}
   _playerAccessory: {fileID: 1470859901}
 --- !u!1 &2078820345
 GameObject:
