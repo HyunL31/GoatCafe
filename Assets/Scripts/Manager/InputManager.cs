@@ -64,6 +64,8 @@ public class InputManager : BaseMonoManager<InputManager>
         //    return;
         //}
 
+
+
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
 

@@ -61,6 +61,7 @@ public static class AddressUtil
             public const string ButtonOrange = "Sprite/UI/ButtonOrange";
             public const string ButtonBlue = "Sprite/UI/ButtonBlue";
             public const string ButtonGreen = "Sprite/UI/ButtonGreen";
+            public const string ButtonRemove = "Sprite/UI/SaveSlotPopup/SlotRemoveButton";
 
             public static class MainMenu
             {
@@ -92,6 +93,8 @@ public static class AddressUtil
                 public const string SaveButtonBlueBackground = "Sprite/UI/SaveSlotPopup/SaveButtonBlueBackground";
                 public const string SaveButtonGreenBackground = "Sprite/UI/SaveSlotPopup/SaveButtonGreenBackground";
                 public const string SaveButtonRedBackground = "Sprite/UI/SaveSlotPopup/SaveButtonRedBackground";
+
+                public const string SlotRemoveButton = ButtonRemove;
 
                 public const string SaveButtonBlue = ButtonBlue;
                 public const string SaveButtonGreen = ButtonGreen;

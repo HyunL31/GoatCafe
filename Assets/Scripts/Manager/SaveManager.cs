@@ -98,7 +98,27 @@ public class SaveManager : BaseMonoManager<SaveManager>
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(GetPath(slotIndex), json);
     }
+    public void DeleteSaveData(string slotIndex)
+    {
+        string path = GetPath(slotIndex);
 
+        if (File.Exists(path))
+        {
+            try
+            {
+                File.Delete(path);
+                Debug.Log($"[SaveManager] 세이브 파일 삭제 완료: {path}");
+            }
+            catch (IOException e)
+            {
+                Debug.LogError($"[SaveManager] 파일 삭제 중 오류 발생: {e.Message}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"[SaveManager] 삭제할 세이브 파일이 존재하지 않습니다: {path}");
+        }
+    }
     // 가져오기 요청
     public PlayerModel RequestLoadData(string slotIndex)
     {
@@ -136,5 +156,17 @@ public class SaveManager : BaseMonoManager<SaveManager>
     public bool HasSaveFile(string slotIndex)
     {
         return File.Exists(GetPath(slotIndex));
+    }
+
+    public void RemoveSlotIndex(string slotName)
+    {
+        if(SlotIndex.Contains(slotName))
+        {
+            SlotIndex.Remove(slotName);
+        }
+        else
+        {
+            Debug.Log($"[SaveManager] {slotName} 는 SlotIndex에 존재하지 않습니다.");
+        }
     }
 }
