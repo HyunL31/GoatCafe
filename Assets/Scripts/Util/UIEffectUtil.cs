@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public static class UIEffectUtil
 {
@@ -60,5 +62,24 @@ public static class UIEffectUtil
             rect.gameObject.SetActive(false);
             rect.anchoredPosition = originalPos;
         });
+    }
+
+    public static void AnimateAndDestroy(RectTransform target, float duration = 0.3f)  // SaveSlotUI 삭제 전용 (삭제 애니메이션, Destroy, Layout 강제 재계산
+    {
+        if (target == null) return;
+
+        RectTransform parentRect = target.parent as RectTransform;
+
+        target.DOScale(Vector3.zero, duration)
+            .SetEase(Ease.OutQuart)
+            .OnComplete(() =>
+            {
+                GameObject.Destroy(target.gameObject);
+
+                if (parentRect != null)
+                {
+                    LayoutRebuilder.MarkLayoutForRebuild(parentRect);
+                }
+            });
     }
 }

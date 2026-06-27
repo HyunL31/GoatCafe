@@ -382,4 +382,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
             ItemDescPopup.SetActive(isactive);
         }
     }
+
+    public void HandleItemUse(ItemBase item)
+    {
+        if(item is ConsumableItem consume)
+        {
+            consume.UseItem();
+        }
+    }
 }
