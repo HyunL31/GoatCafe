@@ -19,6 +19,7 @@ public class DialogueUI : BaseUI
     private float _typingWaitTime = 0.03f;
     private CancellationTokenSource _typingToken;
     private Dictionary<string, DialogueData> _dialogues;
+    private bool _isInitialized = false;
 
     private void Awake()
     {
@@ -28,15 +29,26 @@ public class DialogueUI : BaseUI
     private void Start()
     {
         _dialogues = GameDataManager.Instance.DialogueDataList;
+        _isInitialized = true;
+
+        GameManager.Instance.PauseGame();
+        ShowDialogue(GetCurrentID());
     }
 
     private void OnEnable()
     {
+        if (!_isInitialized)
+        {
+            return;
+        }
+
+        GameManager.Instance.PauseGame();
         ShowDialogue(GetCurrentID());
     }
 
     private void OnDisable()
     {
+        GameManager.Instance.ResumeGame();
         CancelTypingRoutine();
     }
 
@@ -54,12 +66,16 @@ public class DialogueUI : BaseUI
 
     private void ShowDialogue(string id)
     {
+        Debug.Log(_dialogues[id].Speaker);
+
         if (string.IsNullOrEmpty(_dialogues[id].Speaker))
         {
             Image_Speaker.gameObject.SetActive(false);
         }
         else
         {
+            Image_Speaker.gameObject.SetActive(true);
+
             string speaker = _dialogues[id].Speaker;
             Text_Speaker.text = speaker;
         }
@@ -75,6 +91,14 @@ public class DialogueUI : BaseUI
     private void MoveToNextDialogue(string id)
     {
         string nextID = _dialogues[id].NextID;
+
+        if (nextID == "Open")
+        {
+            // UI 닫기
+            gameObject.SetActive(false);
+            return;
+        }
+
         GameManager.Instance.SetCurrentID(nextID);
 
         ShowDialogue(GetCurrentID());
@@ -128,6 +152,12 @@ public class DialogueUI : BaseUI
     private async UniTask SetBackgroundImage(string id)
     {
         string background = _dialogues[id].Background;
+
+        if (string.IsNullOrEmpty(background))
+        {
+            return;
+        }
+
         Image_Background.sprite = await LoadUtil.Async.LoadSpriteAsync($"Image/{background}");
     }
 }

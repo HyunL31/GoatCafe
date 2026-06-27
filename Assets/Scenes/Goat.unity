@@ -1910,9 +1910,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 312658480}
     m_Modifications:
+    - target: {fileID: 157607982410507241, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 789567fe6bbf3a046a3576e0601a40e3, type: 3}
     - target: {fileID: 7464284482834023555, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464284482834023555, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 48ee998bc7476b748b85b2156a7a3c93, type: 2}
+    - target: {fileID: 7464284482834023555, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8940578875534935942, guid: 48ee998bc7476b748b85b2156a7a3c93, type: 2}
+    - target: {fileID: 7464284482834023555, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7482541465298476290, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
       propertyPath: m_Name
@@ -2000,6 +2016,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7718560317622246776, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946312333281129464, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 48ee998bc7476b748b85b2156a7a3c93, type: 2}
+    - target: {fileID: 8946312333281129464, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8940578875534935942, guid: 48ee998bc7476b748b85b2156a7a3c93, type: 2}
+    - target: {fileID: 8946312333281129464, guid: cf56d74bd12e698479cd425506fb1465, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2361,6 +2389,7 @@ MonoBehaviour:
   _exitButton: {fileID: 93661298}
   _coinText: {fileID: 631566009}
   _contentParent: {fileID: 1695693984}
+  _scrollRect: {fileID: 0}
   _playerAccessory: {fileID: 1470859901}
 --- !u!1 &2078820345
 GameObject:
