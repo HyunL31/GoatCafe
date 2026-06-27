@@ -61,6 +61,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<float> OnDayTimeChanged;
 
     public event Action OnMoveHome;
+    public Action<int> OnChangedStamina;
 
     public event Action<int> OnUseStaminaItem;
     public event Action<float> OnUseSpeedItem;
