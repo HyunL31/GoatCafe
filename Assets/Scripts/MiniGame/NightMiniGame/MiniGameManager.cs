@@ -42,7 +42,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
 
         if (isTimerRunning)
         {
-            timer -= Time.deltaTime;
+            timer -= Time.unscaledDeltaTime;
             UpdateTimerImage();
 
             if (timer <= 0f)
@@ -159,6 +159,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         }
 
         Debug.Log("최종 점수: " + score);
+        ClearTrash();
         CloseMiniGame();
         GameManager.Instance.ResumeGame();
     }
@@ -191,5 +192,13 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         int count = Mathf.Clamp(Mathf.CeilToInt(timer), 1, 5);
 
         TimerImage.sprite = numberSprites[count - 1];
+    }
+
+    private void ClearTrash()
+    {
+        for(int i = trashParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(trashParent.GetChild(i).gameObject);
+        }
     }
 }
