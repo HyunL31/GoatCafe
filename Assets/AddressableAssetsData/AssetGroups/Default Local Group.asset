@@ -45,11 +45,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3c6022ac1a1cc7b438777188ae54da0e
-    m_Address: Prefab/VFX/HitC3D
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 444fc6b0b03e51f478759ff856151bff
     m_Address: Audio/SFX/UISound/Click_2
     m_ReadOnly: 0
@@ -120,23 +115,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b2f0b8902a31c8a46a1c4bb24ed9ea36
-    m_Address: Prefab/VFX/SmokePoof
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c248b1836f79f044f9e2248a7cfdc13b
     m_Address: JsonOutput/Dialogue
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c4f829cb7dd4b864caf8832ec5b1ee55
-    m_Address: Prefab/VFX/MagicPoof
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca18ec292c34a8840a49e1e3b2e264ee
-    m_Address: Prefab/VFX/GasLeak
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
