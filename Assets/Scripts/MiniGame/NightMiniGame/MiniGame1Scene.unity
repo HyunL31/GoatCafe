@@ -383,6 +383,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &188674425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106183427477324294, guid: a7508a753834a9b469499a8477011850, type: 3}
+  m_PrefabInstance: {fileID: 8752301816012481876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &759531919
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +497,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9304aafaa2eb68041b43224d393366dc, type: 3}
   - {fileID: 21300000, guid: f54d3adb0f43d2c4c902517f1111196f, type: 3}
   - {fileID: 21300000, guid: 177aee4ae61c62740bdc84369320a946, type: 3}
-  TimerImage: {fileID: 0}
+  TimerImage: {fileID: 188674425}
 --- !u!1 &1195614564
 GameObject:
   m_ObjectHideFlags: 0
