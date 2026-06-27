@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: Transform_CafePoint
       value: 
       objectReference: {fileID: 22788717}
+    - target: {fileID: 7798452629473872233, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: Transform_PlayerMoving
+      value: 
+      objectReference: {fileID: 1968445327}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -565,8 +569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98b0a4248ac98f4088eefce55ee39a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _dayDuration: 5
-  _nightDuration: 5
+  _dayDuration: 30
+  _nightDuration: 30
   _maxDayCount: 3
   _targetCoin: 1000
   _targetStolenItemCount: 6
@@ -2335,6 +2339,11 @@ MonoBehaviour:
   stayDuration: 2
   moveDistance: 50
   maxCount: 5
+--- !u!4 &1968445327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+  m_PrefabInstance: {fileID: 1470859898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2073330254
 GameObject:
   m_ObjectHideFlags: 0

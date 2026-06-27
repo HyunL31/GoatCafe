@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public partial class UIManager
 {
@@ -7,6 +8,7 @@ public partial class UIManager
     SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
     InGamePresenter _inGamePresenter;
     InGamePopupPresenter _inGamePopupPresenter;
+    DialogueUI _dialogueUI;
 
     List<BasePresenter> _presenterList = new();
 
@@ -62,6 +64,32 @@ public partial class UIManager
 
         _inGamePopupPresenter.InitUI(CreateUI<InGamePopup>(_inGamePopupPresenter.UIType_This));
         _inGamePopupPresenter.SubscribeEvent(closeInGameUICallback);
+    }
+
+    public void OpenDialogueUI()
+    {
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(true);
+
+            if (!_activeUI.Contains(UIType.DialogueUI))
+            {
+                _activeUI.Add(UIType.DialogueUI);
+            }
+
+            return;
+        }
+
+        if (_dialogueUI == null)
+        {
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/UI/DialogueUI");
+        }
+
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(true);
+            _activeUI.Add(UIType.DialogueUI);
+        }
     }
 
     public void OpenGameOptionUI()

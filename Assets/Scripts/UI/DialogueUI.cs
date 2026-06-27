@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class DialogueUI : BaseUI
 {
+    public UIType UIType_This { get; } = UIType.DialogueUI;
+
     [SerializeField] private Image Image_Background;
     [SerializeField] private Button Button_Dialogue;
     [SerializeField] private TextMeshProUGUI Text_Dialogue;

@@ -291,6 +291,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
         UIManager.Instance.CloseUI(UIType_This);
         OnSaveDataSlotSelected?.Invoke();
 
-        UIManager.Instance.OpenInGameUI();
+        UIManager.Instance.OpenDialogueUI();
+        //UIManager.Instance.OpenInGameUI();
     }
 }
