@@ -111,6 +111,13 @@ public class CustomerSpawner : MonoBehaviour
             if (customer == null) continue;
             if (customer.State == CustomerState.Hit) continue;
             if (customer.IsExiting) continue;
+
+            JerkCustomer jerk = customer as JerkCustomer;
+            if (jerk != null)
+            {
+                jerk.StopReactingAndExit(Transform_ExitPoint.position);
+                continue;
+            }
             customer.ExitTo(Transform_ExitPoint.position);
         }
         _spawnedCustomers.Clear();
