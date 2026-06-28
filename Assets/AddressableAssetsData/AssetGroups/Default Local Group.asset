@@ -130,6 +130,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf56d74bd12e698479cd425506fb1465
+    m_Address: Prefab/UI/DialogueUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6fa1462978546948a197cc0160bd185
     m_Address: Sprite/UI/InGameUI/DayChangePanelTitle
     m_ReadOnly: 0

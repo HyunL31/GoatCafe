@@ -81,8 +81,6 @@ public class SaveManager : BaseMonoManager<SaveManager>
             LoadDefaultData();
             SaveData();
         }
-
-        GameManager.Instance.StartGame();
     }
 
 

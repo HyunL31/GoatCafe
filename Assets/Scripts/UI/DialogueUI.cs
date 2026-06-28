@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueUI : BaseUI
+public class DialogueUI : BaseUI<DialogueUI>
 {
     public UIType UIType_This { get; } = UIType.DialogueUI;
 
@@ -21,29 +21,16 @@ public class DialogueUI : BaseUI
     private float _typingWaitTime = 0.03f;
     private CancellationTokenSource _typingToken;
     private Dictionary<string, DialogueData> _dialogues;
-    private bool _isInitialized = false;
 
     private void Awake()
     {
         Button_Dialogue.onClick.AddListener(OnClickDialogue);
-    }
 
-    private void Start()
-    {
         _dialogues = GameDataManager.Instance.DialogueDataList;
-        _isInitialized = true;
-
-        GameManager.Instance.PauseGame();
-        ShowDialogue(GetCurrentID());
     }
 
     private void OnEnable()
     {
-        if (!_isInitialized)
-        {
-            return;
-        }
-
         GameManager.Instance.PauseGame();
         ShowDialogue(GetCurrentID());
     }
@@ -68,8 +55,6 @@ public class DialogueUI : BaseUI
 
     private void ShowDialogue(string id)
     {
-        Debug.Log(_dialogues[id].Speaker);
-
         if (string.IsNullOrEmpty(_dialogues[id].Speaker))
         {
             Image_Speaker.gameObject.SetActive(false);
@@ -96,8 +81,8 @@ public class DialogueUI : BaseUI
 
         if (nextID == "Open")
         {
-            // UI 닫기
-            gameObject.SetActive(false);
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.StartGame();
             return;
         }
 

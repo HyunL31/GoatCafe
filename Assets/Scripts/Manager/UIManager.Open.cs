@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public partial class UIManager
@@ -66,7 +68,7 @@ public partial class UIManager
         _inGamePopupPresenter.SubscribeEvent(closeInGameUICallback);
     }
 
-    public void OpenDialogueUI()
+    public async UniTask OpenDialogueUI()
     {
         if (_dialogueUI != null)
         {
@@ -80,15 +82,25 @@ public partial class UIManager
             return;
         }
 
-        if (_dialogueUI == null)
-        {
-            GameObject prefab = Resources.Load<GameObject>("Prefabs/UI/DialogueUI");
-        }
+        _dialogueUI = await CreateUIAsync<DialogueUI>(UIType.DialogueUI);
 
         if (_dialogueUI != null)
         {
             _dialogueUI.gameObject.SetActive(true);
             _activeUI.Add(UIType.DialogueUI);
+        }
+    }
+
+    public void CloseDialogueUI()
+    {
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(false);
+
+            if (_activeUI.Contains(UIType.DialogueUI))
+            {
+                _activeUI.Remove(UIType.DialogueUI);
+            }
         }
     }
 
