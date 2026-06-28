@@ -43,6 +43,7 @@ public class TrashSpawner : MonoBehaviour
         {
             CleanUpAllTrash();
             _isSpawning = true;
+            if (!GameManager.Instance.IsPlaying) return;
             SpawnTrashLoopAsync().Forget();
         }
         else if (phase == DayPhase.Night)
@@ -53,6 +54,7 @@ public class TrashSpawner : MonoBehaviour
 
     private async UniTaskVoid SpawnTrashLoopAsync()
     {
+        await UniTask.WaitForSeconds(3f, cancellationToken: this.GetCancellationTokenOnDestroy());
         while (_isSpawning)
         {
             await UniTask.WaitForSeconds(Float_SpawnInterval, cancellationToken: this.GetCancellationTokenOnDestroy());
