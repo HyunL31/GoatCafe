@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 public enum GameState
 {
@@ -84,6 +85,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<float> OnDayTimeChanged;
 
     public event Action OnMoveHome;
+    public Action<int> OnChangedStamina;
 
     public event Action<int> OnUseStaminaItem;
     public event Action<float> OnUseSpeedItem;
@@ -274,9 +276,11 @@ public class GameManager : BaseMonoManager<GameManager>
 
         if (isCoinSuccess && isStolenSuccess)
         {
+            CurrentDialogueID = "Happy_Ending_01";
             return EndingType.HappyEnding;
         }
 
+        CurrentDialogueID = "Bad_Ending_01";
         return EndingType.BadEnding;
     }
 
@@ -287,6 +291,7 @@ public class GameManager : BaseMonoManager<GameManager>
         Debug.Log($"엔딩 > {endingType}");
 
         OnEndingDetermined?.Invoke(endingType);
+        UIManager.Instance.OpenDialogueUI().Forget();
     }
 
     public void SetCurrentID(string nextID)

@@ -33,7 +33,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
 
     void Update()
     {
-        if(GameManager.Instance.CurrentDayPhase == DayPhase.Night && _targetTrash != null && Input.GetKeyDown(KeyCode.E))
+        if(GameManager.Instance.CurrentDayPhase == DayPhase.Night && _targetTrash != null && Input.GetKeyDown(KeyCode.E) && !NightMiniGamePanel.activeSelf)
         {
             NightMiniGamePanel.SetActive(true);
 
