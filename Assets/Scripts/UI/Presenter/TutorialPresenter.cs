@@ -19,7 +19,6 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
         _panelIndex = 0;
         _tutorialPopup.ChangePanel(_panelIndex);
         _originalPos = _tutorialPopup.RectTransform_This.anchoredPosition;
-
         SetUI().Forget();
     }
 
@@ -137,7 +136,12 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
     {
         UnSubscribeEvents();
         UIEffectUtil.SetUISlideDown(
-            _tutorialPopup.RectTransform_This, _originalPos, 0.5f,
-            () => UIManager.Instance.CloseUI(UIType.TutorialPopup));
+            _tutorialPopup.RectTransform_This, _originalPos, 0.5f, CloseUI);
+    }
+
+    private void CloseUI()
+    {
+        UIManager.Instance.CloseUI(UIType.TutorialPopup);
+        GameManager.Instance.ResumeGame();
     }
 }

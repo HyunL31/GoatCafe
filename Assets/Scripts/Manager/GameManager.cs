@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
 public enum GameState
@@ -83,6 +82,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<GameState> OnGameStateChanged;
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
+    public event Action<int> OnDayChanged;
 
     public event Action OnMoveHome;
     public Action<int> OnChangedStamina;
@@ -263,6 +263,8 @@ public class GameManager : BaseMonoManager<GameManager>
 
         SaveManager.Instance.CurrentPlayerModel.Day++;
         SaveManager.Instance.SaveData();
+
+        OnDayChanged?.Invoke(SaveManager.Instance.CurrentPlayerModel.Day);
 
         Time.timeScale = 1f;
         ChangeGameState(GameState.Playing);

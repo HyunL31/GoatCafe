@@ -10,6 +10,19 @@ public class DayGaugeButton : BaseButton
 
     private Action OnButtonClicked;
 
+    private string _day;
+    private string _dayPhase;
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnDayPhaseChanged += SetDayPhase;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnDayPhaseChanged -= SetDayPhase;
+    }
+
     public bool SetButtonData(Sprite backgroundSprite, Sprite dayGaugeBackgroundSprite, Sprite dayGaugeSprite, int day, TMP_FontAsset buttonFontAsset, Action buttonCallback)
     {
         if (ComponentCheck() == false)
@@ -32,6 +45,10 @@ public class DayGaugeButton : BaseButton
         }
 
         this.ActiveTrue();
+
+        _dayPhase = "낮";
+        SetButtonText();
+
         return true;
     }
 
@@ -139,7 +156,43 @@ public class DayGaugeButton : BaseButton
 
     private void SetText(string day)
     {
-        Text_Button.text = "Day \n" + day;
+        _day = day;
+        SetButtonText();
+    }
+    
+    private void SetDayPhase(DayPhase dayPhase)
+    {
+        switch(dayPhase)
+        {
+            case DayPhase.None:
+                {
+                    _dayPhase = "집";
+                }
+                break;
+                case DayPhase.Day:
+                {
+                    _dayPhase = "낮";
+                }
+                break;
+            case DayPhase.Night:
+                {
+                    _dayPhase = "밤";
+                }
+                break;
+            default:
+                {
+                    _dayPhase = "낮";
+                }
+                break;
+        }
+
+
+        SetButtonText();
+    }
+
+    private void SetButtonText()
+    {
+        Text_Button.text = _dayPhase + "\n" + _day;
     }
 
     private void SetButton(Action buttonCallback)

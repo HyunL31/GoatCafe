@@ -123,7 +123,6 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
         GameManager.Instance.ReadyGame();
         UIManager.Instance.CloseUI(UIType_This);
         OnReturnMainMenuClicked?.Invoke();
-
         UIManager.Instance.OpenMainMenuUI();
     }
 }
