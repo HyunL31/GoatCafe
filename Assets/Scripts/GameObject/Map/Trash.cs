@@ -4,6 +4,7 @@ using System;
 public class Trash : MonoBehaviour
 {
     [SerializeField] private GameObject GameObject_InteractionUI;
+    [SerializeField] private Vector3 Vector3_UIOffset = new Vector3(0f, 0.5f, 0f);
 
     public static event Action<Trash> OnTrashEnter;
     public static event Action<Trash> OnTrashExit;
@@ -11,8 +12,26 @@ public class Trash : MonoBehaviour
 
     private bool _isPlayerNear = false;
 
+
+    private Camera _camera;
+
+    private void Awake()
+    {
+        _camera = Camera.main;
+        if (GameObject_InteractionUI != null)
+            GameObject_InteractionUI.transform.localPosition = Vector3_UIOffset;
+    }
+
     private void Update()
     {
+        if (GameObject_InteractionUI != null && GameObject_InteractionUI.activeSelf)
+        {
+            GameObject_InteractionUI.transform.LookAt(
+                GameObject_InteractionUI.transform.position + _camera.transform.rotation * Vector3.forward,
+                _camera.transform.rotation * Vector3.up
+            );
+        }
+
         if (!_isPlayerNear) return;
         if (GameManager.Instance.CurrentDayPhase != DayPhase.Night) return;
         if (Input.GetKeyDown(KeyCode.E))
