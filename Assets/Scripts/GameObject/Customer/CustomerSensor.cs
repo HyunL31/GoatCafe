@@ -10,6 +10,7 @@ public class CustomerSensor : MonoBehaviour
     public static event Action<CustomerBase> OnStealableEnter;
     public static event Action<CustomerBase> OnStealableExit;
     public static event Action<CustomerBase> OnStealableInteract;
+    public static event Action<CustomerBase> OnCleanUpInteract;
 
     private CustomerBase _customer;
     private bool _isPlayerNear = false;
@@ -35,19 +36,29 @@ public class CustomerSensor : MonoBehaviour
         }
 
         if (!_isPlayerNear) return;
-        if (_customer.State == CustomerState.Hit) return;
+
         if (Input.GetKeyDown(KeyCode.E))
-            OnInteract();
+        {
+            if (_customer.State == CustomerState.Hit)
+            {
+                if (GameManager.Instance.CurrentDayPhase != DayPhase.Night) return;
+                OnCleanUp();
+            }
+            else
+                OnInteract();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        if (_customer.State == CustomerState.Hit) return;
+
+        if (_customer.State == CustomerState.Hit &&
+            GameManager.Instance.CurrentDayPhase != DayPhase.Night) return;
 
         _isPlayerNear = true;
         ShowUI(true);
-
+        if (_customer.State == CustomerState.Hit) return;
         if (OnStealableEnter != null)
             OnStealableEnter(_customer);
     }
@@ -67,6 +78,14 @@ public class CustomerSensor : MonoBehaviour
     {
         if (GameObject_InteractionUI == null) return;
         GameObject_InteractionUI.SetActive(show);
+    }
+
+    private void OnCleanUp()
+    {
+        ShowUI(false);
+        _isPlayerNear = false;
+        if (OnCleanUpInteract != null)
+            OnCleanUpInteract(_customer);
     }
 
     private void OnInteract()

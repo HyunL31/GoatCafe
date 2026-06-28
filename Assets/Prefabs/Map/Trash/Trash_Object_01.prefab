@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e55842c382ef442aa5bc9bae4364f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Trash
-  GameObject_InteractionUI: {fileID: 0}
+  GameObject_InteractionUI: {fileID: 8820881480017689819}
   Vector3_UIOffset: {x: 0, y: 0.5, z: 0}
 --- !u!136 &5373339046441634503
 CapsuleCollider:
