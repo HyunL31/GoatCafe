@@ -37,7 +37,11 @@ public class DialogueUI : BaseUI<DialogueUI>
 
     private void OnDisable()
     {
-        GameManager.Instance.ResumeGame();
+        if (GameManager.Instance.CurrentEndingType == EndingType.None)
+        {
+            GameManager.Instance.ResumeGame();
+        }
+
         CancelTypingRoutine();
     }
 
@@ -85,7 +89,21 @@ public class DialogueUI : BaseUI<DialogueUI>
             GameManager.Instance.StartGame();
             return;
         }
-        
+
+        if (nextID == "GameClear")
+        {
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.ClearGame();
+            return;
+        }
+
+        if (nextID == "GameOver")
+        {
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.HandleEndingDialogueFinished();
+            return;
+        }
+
         GameManager.Instance.SetCurrentID(nextID);
 
         ShowDialogue(GetCurrentID());

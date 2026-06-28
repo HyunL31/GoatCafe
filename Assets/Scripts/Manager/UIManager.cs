@@ -9,7 +9,8 @@ public enum UIType : byte
     GameOptionUI,
     InGameUI,
     InGamePopup,
-    DialogueUI
+    DialogueUI,
+    GameResultPanel
 }
 
 public enum UIRootType : byte
@@ -173,6 +174,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.DialogueUI.DialoguePrefab;
                 }
+            case UIType.GameResultPanel:
+                {
+                    return AddressUtil.Prefab.UI.GameResultPanel.PanelPrefab;
+                }
             default:
                 {
                     this.LogError($"{uiType}에 알맞는 Path가 없습니다!!");
@@ -202,6 +207,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                     return UIRootType.Popup;
                 }
             case UIType.DialogueUI:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.GameResultPanel:
                 {
                     return UIRootType.Popup;
                 }

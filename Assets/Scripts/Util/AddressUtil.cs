@@ -44,6 +44,11 @@ public static class AddressUtil
             {
                 public const string DialoguePrefab = "Prefab/UI/DialogueUI";
             }
+
+            public static class GameResultPanel
+            {
+                public const string PanelPrefab = "Prefabs/UI/GameResultPanel/GameResultPanel";
+            }
         }
         public static class VFX
         {

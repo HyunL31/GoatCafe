@@ -12,6 +12,7 @@ public partial class UIManager
     InGamePopupPresenter _inGamePopupPresenter;
     DialogueUI _dialogueUI;
 
+    private GameResultPanel _gameResultPanel;
     List<BasePresenter> _presenterList = new();
 
     public void OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
@@ -88,6 +89,29 @@ public partial class UIManager
         {
             _dialogueUI.gameObject.SetActive(true);
             _activeUI.Add(UIType.DialogueUI);
+        }
+    }
+
+    public async UniTask OpenGameResultPanel()
+    {
+        if (_gameResultPanel != null)
+        {
+            _gameResultPanel.gameObject.SetActive(true);
+
+            if (!_activeUI.Contains(UIType.GameResultPanel))
+            {
+                _activeUI.Add(UIType.GameResultPanel);
+            }
+
+            return;
+        }
+
+        _gameResultPanel = await CreateUIAsync<GameResultPanel>(UIType.GameResultPanel);
+
+        if (_gameResultPanel != null)
+        {
+            _gameResultPanel.gameObject.SetActive(true);
+            _activeUI.Add(UIType.GameResultPanel);
         }
     }
 
