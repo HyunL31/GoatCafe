@@ -8,6 +8,7 @@ public class CustomerSensor : MonoBehaviour
 
     public static event Action<CustomerBase> OnStealableEnter;
     public static event Action<CustomerBase> OnStealableExit;
+    public static event Action<CustomerBase> OnStealableInteract;
 
     private CustomerBase _customer;
     private bool _isPlayerNear = false;
@@ -61,7 +62,7 @@ public class CustomerSensor : MonoBehaviour
         _isPlayerNear = false;
 
         // 이레님(낮 미니게임) 구독해서 미니게임 실행
-        if (OnStealableEnter != null)
-            OnStealableEnter(_customer);
+        if (OnStealableInteract != null)
+            OnStealableInteract(_customer);
     }
 }
