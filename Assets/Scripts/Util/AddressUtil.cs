@@ -39,6 +39,11 @@ public static class AddressUtil
                 public const string PopupPrefab = "Prefab/UI/InGamePopup/PopupPrefab";
                 public const string MenuButton = "Prefab/UI/InGamePopup/MenuButton";
             }
+
+            public static class DialogueUI
+            {
+                public const string DialoguePrefab = "Prefab/UI/DialogueUI";
+            }
         }
         public static class VFX
         {
@@ -61,6 +66,7 @@ public static class AddressUtil
             public const string ButtonOrange = "Sprite/UI/ButtonOrange";
             public const string ButtonBlue = "Sprite/UI/ButtonBlue";
             public const string ButtonGreen = "Sprite/UI/ButtonGreen";
+            public const string ButtonRemove = "Sprite/UI/SaveSlotPopup/SlotRemoveButton";
 
             public static class MainMenu
             {
@@ -92,6 +98,8 @@ public static class AddressUtil
                 public const string SaveButtonBlueBackground = "Sprite/UI/SaveSlotPopup/SaveButtonBlueBackground";
                 public const string SaveButtonGreenBackground = "Sprite/UI/SaveSlotPopup/SaveButtonGreenBackground";
                 public const string SaveButtonRedBackground = "Sprite/UI/SaveSlotPopup/SaveButtonRedBackground";
+
+                public const string SlotRemoveButton = ButtonRemove;
 
                 public const string SaveButtonBlue = ButtonBlue;
                 public const string SaveButtonGreen = ButtonGreen;

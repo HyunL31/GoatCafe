@@ -68,14 +68,14 @@ public class SaveDataSlotPopup : BaseUI<SaveDataSlotPopup>
         }
     }
 
-    public void CreateSaveSlotButton(GameObject saveDataButtonPrefab, string slotname, PlayerModel playerModel, Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string goldTitle, string staminaTitle, string startButton, TMP_FontAsset fontAsset, Action<string> saveSlotButtonCallback)
+    public void CreateSaveSlotButton(GameObject saveDataButtonPrefab, string slotname, PlayerModel playerModel, Sprite backgroundSprite, Sprite buttonSprite, Sprite removeSprite, string dayTitle, string goldTitle, string staminaTitle, string startButton, TMP_FontAsset fontAsset, Action<string> saveSlotButtonCallback, Action<string, SaveDataButton> removeSlotButtonCallback)
     {
         if (this.InstantiateAndGetComponent(saveDataButtonPrefab, Transform_SaveDataSlot, out SaveDataButton saveDataButton) == false)
         {
             return;
         }
 
-        if (saveDataButton.SetButtonData(backgroundSprite, buttonSprite,dayTitle, goldTitle, staminaTitle, startButton, fontAsset, slotname, playerModel, saveSlotButtonCallback) == false)
+        if (saveDataButton.SetButtonData(backgroundSprite, buttonSprite, removeSprite, dayTitle, goldTitle, staminaTitle, startButton, fontAsset, slotname, playerModel, saveSlotButtonCallback, removeSlotButtonCallback) == false)
         {
             Destroy(saveDataButton.gameObject);
         }

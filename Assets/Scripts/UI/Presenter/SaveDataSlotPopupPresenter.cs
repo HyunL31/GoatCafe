@@ -34,6 +34,8 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
     private Sprite _sprite_saveButtonGreen;
     private Sprite _sprite_saveButtonRed;
 
+    private Sprite _sprite_removeButton;
+
     private Sprite _sprite_nameSetPanelBackground;
     private Sprite _sprite_nameSetPanelInputFieldBackground;
     private Sprite _sprite_nameSetPanelSelectButton;
@@ -52,6 +54,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
     private List<(string, PlayerModel)> _slotDataList = new();
 
     private string _selectSlotName;
+    private SaveDataButton _selectSlotData;
 
     public override void InitUI(SaveDataSlotPopup ui)
     {
@@ -115,6 +118,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.SaveSlotPopup.SaveButtonGreen),
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.SaveSlotPopup.SaveButtonRed),
 
+
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.SaveSlotPopup.SelectPanelBackground),
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.SaveSlotPopup.SelectPanelYesButton),
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.SaveSlotPopup.SelectPanelNoButton),
@@ -126,6 +130,10 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
 
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.SaveSlotPopup.ExitPopupButton)
             );
+
+        var sprite_slotRemoveButton = await LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.SaveSlotPopup.SlotRemoveButton);
+
+        _sprite_removeButton = sprite_slotRemoveButton;
 
         _prefab_newDataButton = prefab_newDataButton;
         _prefab_saveDataButton = prefab_saveDataButton;
@@ -195,34 +203,34 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
 
         foreach ((string slotIndex, PlayerModel playerModel) in _slotDataList)
         {
-            (Sprite buttonBackgroundSprite, Sprite buttonSprite) = GetSlotSprite(slotCount);
+            (Sprite buttonBackgroundSprite, Sprite buttonSprite, Sprite removeSprite) = GetSlotSprite(slotCount);
 
-            _saveDataSlotPopup.CreateSaveSlotButton(_prefab_saveDataButton, slotIndex, playerModel, buttonBackgroundSprite, buttonSprite, "날짜 :", "코인 :", "스테미너 :", "시작하기", _fontAsset_menuFont, OnClick_Slot);
+            _saveDataSlotPopup.CreateSaveSlotButton(_prefab_saveDataButton, slotIndex, playerModel, buttonBackgroundSprite, buttonSprite, removeSprite, "날짜 :", "코인 :", "스테미너 :", "시작하기", _fontAsset_menuFont, OnClick_Slot, OnClick_RemoveSlot);
 
             slotCount++;
         }
     }
 
-    private (Sprite, Sprite) GetSlotSprite(int slotCount)
+    private (Sprite, Sprite, Sprite) GetSlotSprite(int slotCount)
     {
         switch (slotCount % 3)
         {
             case 0:
                 {
-                    return (_sprite_saveButtonBlueBackground, _sprite_saveButtonBlue);
+                    return (_sprite_saveButtonBlueBackground, _sprite_saveButtonBlue, _sprite_removeButton);
                 }
             case 1:
                 {
-                    return (_sprite_saveButtonGreenBackground ,_sprite_saveButtonGreen);
+                    return (_sprite_saveButtonGreenBackground ,_sprite_saveButtonGreen, _sprite_removeButton);
                 }
             case 2:
                 {
-                    return (_sprite_saveButtonRedBackground, _sprite_saveButtonRed);
+                    return (_sprite_saveButtonRedBackground, _sprite_saveButtonRed, _sprite_removeButton);
                 }
             default:
                 {
                     LogError("있을 수 없는 일이 발생하였습니다?!");
-                    return (null, null);
+                    return (null, null, null);
                 }
         }
     }
@@ -241,6 +249,15 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
 
     }
 
+    private void OnClick_RemoveSlot(string slotName, SaveDataButton saveSlot)
+    {
+        PlayerModel playerModel = SaveManager.Instance.RequestLoadData(slotName);
+        _selectSlotName = slotName;
+        _selectSlotData = saveSlot;
+
+        _saveDataSlotPopup.OpenSelectSlotPanel("이 슬롯을 삭제하시겠습니까?", playerModel, "예", "아니오", OnClick_RemoveSlotYes, null);
+    }
+
     private void OnClick_ExitPopup()
     {
         UIManager.Instance.CloseUI(UIType_This);
@@ -256,11 +273,28 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
         GameStart(_selectSlotName);
     }
 
+    private void OnClick_RemoveSlotYes()
+    {
+        SaveManager.Instance.DeleteSaveData(_selectSlotName);
+
+        int slotIndex = _slotDataList.FindIndex(item => item.Item1 == _selectSlotName);
+        _slotDataList.RemoveAt(slotIndex);
+
+        SaveManager.Instance.RemoveSlotIndex(_selectSlotName);
+
+        _selectSlotData.RequestDelete();
+    }
+
     private void GameStart(string slotName)
     {
         SaveManager.Instance.LoadOrCreatePlayerData(slotName);
         UIManager.Instance.CloseUI(UIType_This);
         OnSaveDataSlotSelected?.Invoke();
+
+        if (SaveManager.Instance.RequestLoadData(slotName).Day == 1)
+        {
+            UIManager.Instance.OpenDialogueUI().Forget();
+        }
 
         UIManager.Instance.OpenInGameUI();
     }

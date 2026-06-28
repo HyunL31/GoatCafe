@@ -383,6 +383,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &188674425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106183427477324294, guid: a7508a753834a9b469499a8477011850, type: 3}
+  m_PrefabInstance: {fileID: 8752301816012481876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &759531919
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,13 +480,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniGameManager
   isGame: 0
-  isUseItem: 0
   NightMiniGamePanel: {fileID: 512437148084794211}
-  PaperTrashPrefab: {fileID: 1682002471692281522, guid: d9b69627d386c4d449eda2d10cfac7bc, type: 3}
-  PlasticTrashPrefab: {fileID: 1750735121375256814, guid: 928b5ed36cebf144ba6da1ff01e4fac3, type: 3}
+  PaperTrashPrefab:
+  - {fileID: 1682002471692281522, guid: d9b69627d386c4d449eda2d10cfac7bc, type: 3}
+  - {fileID: 1682002471692281522, guid: f663ffa0a37838d4b84264aed36e6ec5, type: 3}
+  - {fileID: 1682002471692281522, guid: 9c3d19320e4998e478c55b020eadfd5d, type: 3}
+  PlasticTrashPrefab:
+  - {fileID: 1750735121375256814, guid: 928b5ed36cebf144ba6da1ff01e4fac3, type: 3}
+  - {fileID: 1750735121375256814, guid: e0bc3e6e2ba67c144a269ea5f2881838, type: 3}
+  - {fileID: 1750735121375256814, guid: b87b505191b113c4bae9efe6ebc7e66d, type: 3}
   SpawnZone: {fileID: 2997091902657949812}
   trashParent: {fileID: 945115073513542876}
-  Button: {fileID: 0}
+  numberSprites:
+  - {fileID: 21300000, guid: c8a23522ca59adb43b7bf3fd9b3159d7, type: 3}
+  - {fileID: 21300000, guid: 3aa1d977a010c9c45aacc02f0703140d, type: 3}
+  - {fileID: 21300000, guid: 9304aafaa2eb68041b43224d393366dc, type: 3}
+  - {fileID: 21300000, guid: f54d3adb0f43d2c4c902517f1111196f, type: 3}
+  - {fileID: 21300000, guid: 177aee4ae61c62740bdc84369320a946, type: 3}
+  TimerImage: {fileID: 188674425}
 --- !u!1 &1195614564
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +763,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 759531924}
+    - target: {fileID: 3960750760833953746, guid: a7508a753834a9b469499a8477011850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckResult
+      objectReference: {fileID: 0}
     - target: {fileID: 4375501817809587842, guid: a7508a753834a9b469499a8477011850, type: 3}
       propertyPath: m_Color.a
       value: 0

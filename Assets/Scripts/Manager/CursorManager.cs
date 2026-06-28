@@ -64,7 +64,7 @@ public class CursorManager : BaseMonoManager<CursorManager>
         {
             UnlockCursor();
         }
-        else if (gameState == GameState.Playing)
+        else if (gameState == GameState.Playing || gameState == GameState.Ready || gameState == GameState.Home)
         {
             LockCursor();
         }

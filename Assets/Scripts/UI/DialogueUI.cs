@@ -6,8 +6,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueUI : BaseUI
+public class DialogueUI : BaseUI<DialogueUI>
 {
+    public UIType UIType_This { get; } = UIType.DialogueUI;
+
+    [SerializeField] private Image Image_Background;
     [SerializeField] private Button Button_Dialogue;
     [SerializeField] private TextMeshProUGUI Text_Dialogue;
     [SerializeField] private TextMeshProUGUI Text_Speaker;
@@ -15,8 +18,7 @@ public class DialogueUI : BaseUI
     [SerializeField] private Image Image_NextArrow;
 
     private bool _isTyping = false;
-    private float _typingWaitTime = 0.3f;
-    private float _autoWaitTime = 0.5f;
+    private float _typingWaitTime = 0.03f;
     private CancellationTokenSource _typingToken;
     private Dictionary<string, DialogueData> _dialogues;
 
@@ -29,11 +31,13 @@ public class DialogueUI : BaseUI
 
     private void OnEnable()
     {
-        //ShowDialogue(GetCurrentID());
+        GameManager.Instance.PauseGame();
+        ShowDialogue(GetCurrentID());
     }
 
     private void OnDisable()
     {
+        GameManager.Instance.ResumeGame();
         CancelTypingRoutine();
     }
 
@@ -45,7 +49,7 @@ public class DialogueUI : BaseUI
         }
         else
         {
-            //MoveToNextDialogue(GetCurrentID());
+            MoveToNextDialogue(GetCurrentID());
         }
     }
 
@@ -57,6 +61,8 @@ public class DialogueUI : BaseUI
         }
         else
         {
+            Image_Speaker.gameObject.SetActive(true);
+
             string speaker = _dialogues[id].Speaker;
             Text_Speaker.text = speaker;
         }
@@ -65,13 +71,24 @@ public class DialogueUI : BaseUI
         _typingToken = new CancellationTokenSource();
 
         Typing(id, _typingToken.Token).Forget();
+
+        SetBackgroundImage(id).Forget();
     }
 
     private void MoveToNextDialogue(string id)
     {
         string nextID = _dialogues[id].NextID;
 
-        //ShowDialogue(GetCurrentID());
+        if (nextID == "Open")
+        {
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.StartGame();
+            return;
+        }
+
+        GameManager.Instance.SetCurrentID(nextID);
+
+        ShowDialogue(GetCurrentID());
     }
 
     private async UniTaskVoid Typing(string id, CancellationToken token)
@@ -79,6 +96,7 @@ public class DialogueUI : BaseUI
         _isTyping = true;
 
         string content = _dialogues[id].Content;
+        Text_Dialogue.text = content;
         Text_Dialogue.maxVisibleCharacters = 0;
         Image_NextArrow.gameObject.SetActive(false);
 
@@ -113,9 +131,21 @@ public class DialogueUI : BaseUI
         }
     }
 
-    //private string GetCurrentID()
-    //{
-    //    return 
-    //}
+    private string GetCurrentID()
+    {
+        return GameManager.Instance.CurrentDialogueID;
+    }
+
+    private async UniTask SetBackgroundImage(string id)
+    {
+        string background = _dialogues[id].Background;
+
+        if (string.IsNullOrEmpty(background))
+        {
+            return;
+        }
+
+        Image_Background.sprite = await LoadUtil.Async.LoadSpriteAsync($"Image/{background}");
+    }
 }
  
