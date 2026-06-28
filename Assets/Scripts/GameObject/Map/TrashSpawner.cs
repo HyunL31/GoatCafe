@@ -4,6 +4,8 @@ using Cysharp.Threading.Tasks;
 
 public class TrashSpawner : MonoBehaviour
 {
+    public static TrashSpawner Instance { get; private set; }
+
     [SerializeField] private List<GameObject> Prefabs_Trash = new List<GameObject>();  
     [SerializeField] private List<Transform> Transform_SpawnPoints = new List<Transform>(); 
     [SerializeField] private float Float_SpawnInterval = 30f;
@@ -18,6 +20,12 @@ public class TrashSpawner : MonoBehaviour
         _availableSpawnPoints = new List<Transform>(Transform_SpawnPoints);
         GameManager.Instance.OnDayPhaseChanged += OnDayPhaseChanged;
         GameManager.Instance.OnGameStateChanged += OnStateChanged;
+    }
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void OnStateChanged(GameState state)
