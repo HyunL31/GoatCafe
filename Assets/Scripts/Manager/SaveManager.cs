@@ -143,6 +143,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
 
         newPlayerData.Day = 1;
         newPlayerData.Coin = 5000;
+        newPlayerData.StolenItemCount = 0;
         newPlayerData.Stamina = 100;
         newPlayerData.WalkSpeed = 3f;
         newPlayerData.RunSpeed = 5f;
