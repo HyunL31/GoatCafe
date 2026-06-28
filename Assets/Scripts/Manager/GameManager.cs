@@ -276,10 +276,12 @@ public class GameManager : BaseMonoManager<GameManager>
 
         if (isCoinSuccess && isStolenSuccess)
         {
+            SaveManager.Instance.CurrentPlayerModel.Ending = "Happy_Ending";
             CurrentDialogueID = "Happy_Ending_01";
             return EndingType.HappyEnding;
         }
 
+        SaveManager.Instance.CurrentPlayerModel.Ending = "Bad_Ending";
         CurrentDialogueID = "Bad_Ending_01";
         return EndingType.BadEnding;
     }
@@ -291,6 +293,7 @@ public class GameManager : BaseMonoManager<GameManager>
         Debug.Log($"엔딩 > {endingType}");
 
         OnEndingDetermined?.Invoke(endingType);
+        SaveManager.Instance.SaveData();
         UIManager.Instance.OpenDialogueUI().Forget();
     }
 
