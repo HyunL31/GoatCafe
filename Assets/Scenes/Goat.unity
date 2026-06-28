@@ -192,6 +192,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22788717}
     - target: {fileID: 7798452629473872233, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: Transfomr_PlayerMoving
+      value: 
+      objectReference: {fileID: 1968445327}
+    - target: {fileID: 7798452629473872233, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: Transform_PlayerMoving
       value: 
       objectReference: {fileID: 1968445327}
@@ -1628,6 +1632,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1863424895115095546, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2917478107150021956, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_Name
       value: Goat
@@ -1658,7 +1666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1666,7 +1674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1696,6 +1704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4889506916754943408, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: Rigidbody_Humanoid
+      value: 
+      objectReference: {fileID: 2043014563}
     - target: {fileID: 4889506916754943408, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: Rigidbody_BasicGoat
       value: 
@@ -2203,6 +2215,11 @@ MonoBehaviour:
 --- !u!4 &1968445327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+  m_PrefabInstance: {fileID: 1470859898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2043014563 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 363448604505982727, guid: d61df712a54c685468d99288a0748a3d, type: 3}
   m_PrefabInstance: {fileID: 1470859898}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2073330254

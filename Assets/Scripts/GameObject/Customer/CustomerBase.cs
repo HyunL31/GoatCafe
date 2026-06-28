@@ -58,7 +58,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     public CustomerType Type { get; private set; }
     public CustomerRace Race { get; private set; }
     public CustomerState State { get; private set; }
-    public bool IsExiting { get; private set; }
+    public bool IsExiting { get;  set; }
 
     protected NavMeshAgent _agent;
     protected List<Transform> _waypoints = new List<Transform>();
@@ -197,7 +197,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         WaitAndDestroyAsync().Forget();
     }
 
-    private async UniTaskVoid WaitAndDestroyAsync()
+    protected async UniTaskVoid WaitAndDestroyAsync()
     {
         await UniTask.NextFrame();
         await UniTask.WaitUntil(

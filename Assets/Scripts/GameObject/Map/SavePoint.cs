@@ -3,14 +3,15 @@
 public class SavePoint : MonoBehaviour
 {
     [SerializeField] private Transform Transform_CafePoint;
-    [SerializeField] private Transform Transform_PlayerMoving;
+    [SerializeField] private Transform Transfomr_PlayerMoving;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            SaveManager.Instance.CurrentPlayerModel.Coin = StoreManager.Instance.Coin;
             SaveManager.Instance.SaveData();
-            Transform_PlayerMoving.transform.position = Transform_CafePoint.position;
+            Transfomr_PlayerMoving.transform.position = Transform_CafePoint.position;
 
             GameManager.Instance.NextDay();
         }
