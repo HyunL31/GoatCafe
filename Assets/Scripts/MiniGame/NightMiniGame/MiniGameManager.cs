@@ -160,6 +160,8 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
 
         Debug.Log("최종 점수: " + score);
         ClearTrash();
+        if (_targetTrash != null)
+            TrashSpawner.Instance.RemoveTrash(_targetTrash.gameObject);
         CloseMiniGame();
         GameManager.Instance.ResumeGame();
     }

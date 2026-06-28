@@ -6887,6 +6887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSensor
   GameObject_InteractionUI: {fileID: 78227928067887784}
+  Vector3_UIOffset: {x: 0.4, y: 1, z: 0.2}
 --- !u!1 &9061569958121481142
 GameObject:
   m_ObjectHideFlags: 0
