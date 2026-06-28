@@ -10,7 +10,7 @@ public class CustomerSensor : MonoBehaviour
     public static event Action<CustomerBase> OnStealableEnter;
     public static event Action<CustomerBase> OnStealableExit;
     public static event Action<CustomerSensor> OnStealableInteract;
-    public static event Action<CustomerBase> OnCleanUpInteract;
+    public static event Action<CustomerSensor> OnCleanUpInteract;
 
     private CustomerBase _customer;
     private bool _isPlayerNear = false;
@@ -88,7 +88,7 @@ public class CustomerSensor : MonoBehaviour
         ShowUI(false);
         _isPlayerNear = false;
         if (OnCleanUpInteract != null)
-            OnCleanUpInteract(_customer);
+            OnCleanUpInteract(this);
     }
 
     private void OnInteract()
