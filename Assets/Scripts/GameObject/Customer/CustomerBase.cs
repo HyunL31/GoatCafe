@@ -138,7 +138,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     private void PlayHitReaction()
     {
         int randomIndex = UnityEngine.Random.Range(1, 6);
-        SoundManager.Instance.PlaySFX($"Audio / SFX / Customer / Hurt_{randomIndex}").Forget();
+        SoundManager.Instance.PlaySFX($"Audio/SFX/Customer/Hurt_{randomIndex}").Forget();
         VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.MagicPoof, transform.position, new Vector3(0, 0f, 0), 1.4f).Forget();
     }
 
