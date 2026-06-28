@@ -81,4 +81,14 @@ public class CameraController : MonoBehaviour
         }
         return targetPosition;
     }
+
+    public void SetCameraRotation(float angleY, float angleX = 20f)
+    {
+        _rotationY = angleY;
+        _rotationX = angleX;
+
+        Quaternion rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
+        transform.position = Transform_Goat.position + rotation * _offset;
+        transform.LookAt(Transform_Goat.position);
+    }
 }

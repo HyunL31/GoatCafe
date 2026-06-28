@@ -17,12 +17,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (_isJerk)
         {
-            // 스코어
+            StoreManager.Instance.Coin += 100;
             Debug.Log("진상 스코어");
         }
         else if (_isNormal)
         {
-            // 패널티
+            StoreManager.Instance.Coin -= 100;
             Debug.Log("노멀 패널티");
         }
     }
