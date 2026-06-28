@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 800ba93b5a898a5429d531c467d05be4
   m_SerializeEntries:
+  - m_GUID: 06f3207680add8a42b756669149663d2
+    m_Address: Audio/SFX/Customer/Shout_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a3ca4f9a66e14d4cb1f9d47d9270175
+    m_Address: Audio/SFX/Customer/Shout_7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e15e1a78a2c0d046b1e2bee2b9d6268
     m_Address: Sprite/UI/InGameUI/DayChangePanelEdge
     m_ReadOnly: 0
@@ -50,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34d8982e9529c6140a198b71e87a0a9a
+    m_Address: Audio/SFX/Customer/Hurt_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36372d25293316e4a9d9c75b92c790a0
     m_Address: Image/Past
     m_ReadOnly: 0
@@ -70,8 +85,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4685e944b863fd84d85a265243475c1b
+    m_Address: Audio/SFX/Customer/Hurt_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 532d6e7a74058a74ba7d7a6430e354aa
     m_Address: Assets/Resources_moved/Image/Title.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53641c40c739cdc45853878d671bcf5f
+    m_Address: Audio/SFX/Customer/Hurt_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,6 +140,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89573aa738330a14294c480684040bc1
+    m_Address: Audio/SFX/Customer/Shout_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89bb9ff1e5b054d42b29bfb0d39d89d0
     m_Address: Image/Happy_Cafe
     m_ReadOnly: 0
@@ -140,6 +170,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96f222e5c49f7174f8d19f4ce09ed0ec
+    m_Address: Audio/SFX/Customer/Shout_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97c11215d69f36945b915939119fa934
     m_Address: Audio/SFX/UISound/Click_1
     m_ReadOnly: 0
@@ -147,6 +182,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b2293027430a3a45ae9a612679836d7
     m_Address: Audio/SFX/Punch/Punch_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2adadfc8632caa4d8b26a3164d51ac1
+    m_Address: Audio/SFX/Customer/Hurt_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a79a3ce3f49393e439ab2890fb53115b
+    m_Address: Audio/SFX/Customer/Shout_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -162,6 +207,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8a2033e2680d9743b3539f892cfcaf7
     m_Address: Audio/BGM/BGM_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfc97a0fac6a6414c85c0b65cacef051
+    m_Address: Audio/SFX/Customer/Shout_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -207,6 +257,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e56e9a412dff3f64da668e4b2357fc8b
     m_Address: Audio/SFX/UISound/Click_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6254d1c51826554dbc6ae2691db3862
+    m_Address: Audio/SFX/Customer/Shout_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eef8560ee55b1a544b202a039ec46e40
+    m_Address: Audio/SFX/Customer/Hurt_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

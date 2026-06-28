@@ -170,6 +170,20 @@ public static class AddressUtil
             public const string Punch3 = "Audio/SFX/Punch/Punch_3";
             public const string Punch4 = "Audio/SFX/Punch/Punch_4";
             public const string Punch5 = "Audio/SFX/Punch/Punch_5";
+
+            public const string Hurt1 = "Audio/SFX/Customer/Hurt_1";
+            public const string Hurt2 = "Audio/SFX/Customer/Hurt_2";
+            public const string Hurt3 = "Audio/SFX/Customer/Hurt_3";
+            public const string Hurt4 = "Audio/SFX/Customer/Hurt_4";
+            public const string Hurt5 = "Audio/SFX/Customer/Hurt_5";
+
+            public const string Shout1 = "Audio/SFX/Customer/Shout_1";
+            public const string Shout2 = "Audio/SFX/Customer/Shout_2";
+            public const string Shout3 = "Audio/SFX/Customer/Shout_3";
+            public const string Shout4 = "Audio/SFX/Customer/Shout_4";
+            public const string Shout5 = "Audio/SFX/Customer/Shout_5";
+            public const string Shout6 = "Audio/SFX/Customer/Shout_6";
+            public const string Shout7 = "Audio/SFX/Customer/Shout_7";
         }
     }
 
