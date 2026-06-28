@@ -291,11 +291,14 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
         UIManager.Instance.CloseUI(UIType_This);
         OnSaveDataSlotSelected?.Invoke();
 
+        UIManager.Instance.OpenInGameUI();
+
         if (SaveManager.Instance.RequestLoadData(slotName).Day == 1)
         {
             UIManager.Instance.OpenDialogueUI().Forget();
+            return;
         }
 
-        UIManager.Instance.OpenInGameUI();
+        GameManager.Instance.StartGame();
     }
 }
