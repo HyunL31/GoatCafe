@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameDataManager : BaseMonoManager<GameDataManager>
 {
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         if (Instance == this)
         {
             LoadAllData();
@@ -19,6 +21,7 @@ public class GameDataManager : BaseMonoManager<GameDataManager>
 
     private void LoadAllData()
     {
+        LoadDialogueData("Dialogue");
     }
 
     [Serializable]
@@ -27,20 +30,22 @@ public class GameDataManager : BaseMonoManager<GameDataManager>
         public List<T> _data;
     }
 
+    public Dictionary<string, DialogueData> DialogueDataList { get; private set; } = new Dictionary<string, DialogueData>();
+
     private Dictionary<string, T> LoadData<T>(string path) where T : GameDataBase
     {
-        string resourcePath = $"Json/{path}";
+        string resourcePath = $"JsonOutput/{path}";
         TextAsset textAsset = LoadUtil.Sync.LoadTextAsset(resourcePath);
         if (textAsset == null)
         {
             this.LogError($"{resourcePath} 경로에 리소스가 없습니다! 다시 확인해주세요!!");
-            return null;
+            return new Dictionary<string, T>();
         }
 
         try
         {
             string jsonData = textAsset.text;
-            string wrapperData = "{\"m_data\":" + jsonData + "}";
+            string wrapperData = "{\"_data\":" + jsonData + "}";
             SerializableWrapper<T> wrapper = JsonUtility.FromJson<SerializableWrapper<T>>(wrapperData);
             if (wrapper._data != null)
             {
@@ -48,7 +53,7 @@ public class GameDataManager : BaseMonoManager<GameDataManager>
                 Dictionary<string, T> newDictionary = new(wrapper._data.Count);
                 foreach (T data in wrapper._data)
                 {
-                    newDictionary.Add(data.Id, data);
+                    newDictionary.Add(data.ID, data);
                 }
                 return newDictionary;
             }
@@ -61,7 +66,23 @@ public class GameDataManager : BaseMonoManager<GameDataManager>
         catch (Exception e)
         {
             Debug.LogException(e);
+        }
+
+        return new Dictionary<string, T>();
+    }
+
+    public void LoadDialogueData(string tableName)
+    {
+        DialogueDataList = LoadData<DialogueData>(tableName);
+    }
+
+    public DialogueData GetDialogueData(string id)
+    {
+        if (DialogueDataList == null || string.IsNullOrEmpty(id))
+        {
             return null;
         }
+
+        return DialogueDataList.TryGetValue(id, out var data) ? data : null;
     }
 }

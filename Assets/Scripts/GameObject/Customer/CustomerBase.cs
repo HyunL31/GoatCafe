@@ -58,7 +58,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
     public CustomerType Type { get; private set; }
     public CustomerRace Race { get; private set; }
     public CustomerState State { get; private set; }
-    public bool IsExiting { get; private set; }
+    public bool IsExiting { get;  set; }
 
     protected NavMeshAgent _agent;
     protected List<Transform> _waypoints = new List<Transform>();
@@ -122,6 +122,8 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
                 _agent.isStopped = true;
                 if (_anim != null)  _anim.SetTrigger(HashHit);
                 GetComponent<Collider>().enabled = false;
+
+                VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.MagicPoof, transform.position, new Vector3(0, 0f, 0), 1.4f).Forget();
                 break;
             case CustomerState.Detected:
                 _agent.isStopped = true;
@@ -195,7 +197,7 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
         WaitAndDestroyAsync().Forget();
     }
 
-    private async UniTaskVoid WaitAndDestroyAsync()
+    protected async UniTaskVoid WaitAndDestroyAsync()
     {
         await UniTask.NextFrame();
         await UniTask.WaitUntil(

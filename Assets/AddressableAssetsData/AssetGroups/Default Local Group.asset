@@ -20,8 +20,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11013b5bc19fded4dba7fc41eb27a488
+    m_Address: Image/Jerk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 140fde44ec775f545a6fa9e1e89a2ff4
-    m_Address: Sprite/UI/InGamePopup/Background
+    m_Address: Sprite/UI/InGameUI/DayChangePanelBackground
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -30,13 +35,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d7cb5b4f10181b4aa42ec8ec7213a72
+    m_Address: Image/Pitty
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36372d25293316e4a9d9c75b92c790a0
+    m_Address: Image/Past
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c6022ac1a1cc7b438777188ae54da0e
+    m_Address: Prefab/VFX/HitC3D
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 444fc6b0b03e51f478759ff856151bff
     m_Address: Audio/SFX/UISound/Click_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 532d6e7a74058a74ba7d7a6430e354aa
+    m_Address: Assets/Resources_moved/Image/Title.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58173d798e8420d4f8ed7f1cf6038323
     m_Address: Prefabs/CostumeItem/Santa
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 586a865f501a95646b2cc0e636eacbc5
+    m_Address: Image/Mess_Cafe
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,8 +80,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 789567fe6bbf3a046a3576e0601a40e3
+    m_Address: Image/Peace
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87bec7e7cf853a048a9f675efcb69629
     m_Address: Audio/SFX/UISound/Hover_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89bb9ff1e5b054d42b29bfb0d39d89d0
+    m_Address: Image/Happy_Cafe
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a9c0b9229782cd4fb89277ea1262bda
+    m_Address: Image/Award
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9480bdd52c5b56e45881f404cefc08d1
+    m_Address: Image/Goat_Title
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 955a3d63f4635f845897cb9a5c2aed46
+    m_Address: Image/Good_Cafe
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -65,8 +120,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c248b1836f79f044f9e2248a7cfdc13b
+    m_Address: JsonOutput/Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4f829cb7dd4b864caf8832ec5b1ee55
+    m_Address: Prefab/VFX/MagicPoof
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c65aabe8f5487c24698ffdf58f87e4a6
+    m_Address: Prefab/UI/TutorialPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf56d74bd12e698479cd425506fb1465
+    m_Address: Prefab/UI/DialogueUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6fa1462978546948a197cc0160bd185
     m_Address: Sprite/UI/InGameUI/DayChangePanelTitle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9a4d576e258e8f428c95f73c44ec9b5
+    m_Address: Image/Arrogant
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

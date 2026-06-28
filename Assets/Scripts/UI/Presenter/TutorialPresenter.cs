@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Video;
 
 public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, TutorialPopup>
@@ -8,6 +9,7 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
     private TutorialPopup _tutorialPopup;
 
     private VideoClip[] _videoClips;
+    private Vector2 _originalPos;
 
     private int _panelIndex;
 
@@ -16,6 +18,7 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
         _tutorialPopup = ui;
         _panelIndex = 0;
         _tutorialPopup.ChangePanel(_panelIndex);
+        _originalPos = _tutorialPopup.RectTransform_This.anchoredPosition;
 
         SetUI().Forget();
     }
@@ -32,23 +35,26 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
         LoadData();
         SetUIData();
         SubscribeEvents();
+
+        _tutorialPopup.ActiveTrue();
+        UIEffectUtil.SetUISlideUp(_tutorialPopup.RectTransform_This, 0.5f);
     }
 
     protected override async UniTask LoadAssetAsync()
     {
-        _videoClips = await UniTask.WhenAll
-            (
-            new[]
-            {
-                LoadUtil.Async.LoadVideoClipAsync(""),
-                LoadUtil.Async.LoadVideoClipAsync(""),
-                LoadUtil.Async.LoadVideoClipAsync(""),
-                LoadUtil.Async.LoadVideoClipAsync(""),
-                LoadUtil.Async.LoadVideoClipAsync(""),
-                LoadUtil.Async.LoadVideoClipAsync(""),
-                LoadUtil.Async.LoadVideoClipAsync("")
-            }
-            );
+        //_videoClips = await UniTask.WhenAll
+        //    (
+        //    new[]
+        //    {
+        //        LoadUtil.Async.LoadVideoClipAsync(""),
+        //        LoadUtil.Async.LoadVideoClipAsync(""),
+        //        LoadUtil.Async.LoadVideoClipAsync(""),
+        //        LoadUtil.Async.LoadVideoClipAsync(""),
+        //        LoadUtil.Async.LoadVideoClipAsync(""),
+        //        LoadUtil.Async.LoadVideoClipAsync(""),
+        //        LoadUtil.Async.LoadVideoClipAsync("")
+        //    }
+        //    );
     }
 
     protected override void LoadData()
@@ -85,7 +91,8 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
     private void OnClick_Background()
     {
         UnSubscribeEvents();
-        UIManager.Instance.CloseUI(UIType.TutorialPopup);
+        CloseWithAnimation();
+
     }
 
     private void OnClick_PreviousButton()
@@ -113,7 +120,7 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
     private void OnClick_ExitButton()
     {
         UnSubscribeEvents();
-        UIManager.Instance.CloseUI(UIType.TutorialPopup);
+        CloseWithAnimation();
     }
 
     private void On_HoverEntered(int index)
@@ -124,5 +131,13 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
     private void On_HoverExited(int index)
     {
         _tutorialPopup.CloseHoverPopup();
+    }
+
+    private void CloseWithAnimation()
+    {
+        UnSubscribeEvents();
+        UIEffectUtil.SetUISlideDown(
+            _tutorialPopup.RectTransform_This, _originalPos, 0.5f,
+            () => UIManager.Instance.CloseUI(UIType.TutorialPopup));
     }
 }

@@ -36,10 +36,10 @@ public class InputManager : BaseMonoManager<InputManager>
     private float _rotationX = 0f;
     private bool _isMouseLock;
 
-    void Start()
-    {
-        ToggleMouseLock(true);
-    }
+    //void Start()
+    //{
+    //    ToggleMouseLock(true);
+    //}
 
     private void OnEnable()
     {
@@ -53,19 +53,21 @@ public class InputManager : BaseMonoManager<InputManager>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    TogglePause();
+        //}
 
-        if (IsPaused)
-        {
-            ClearInputs();
-            return;
-        }
+        //if (IsPaused)
+        //{
+        //    ClearInputs();
+        //    return;
+        //}
 
-        Horizontal = Input.GetAxis("Horizontal");
-        Vertical = Input.GetAxis("Vertical");
+
+
+        Horizontal = Input.GetAxisRaw("Horizontal");
+        Vertical = Input.GetAxisRaw("Vertical");
 
         RotateCheckOnUpdate();
         MoveOnUpdate();
@@ -75,12 +77,12 @@ public class InputManager : BaseMonoManager<InputManager>
         //    StartJump();
         //}
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt) && _isGrounded)
-        {
-            ToggleMouseLock(false);
-        }
+        //if (Input.GetKeyDown(KeyCode.LeftAlt) && _isGrounded)
+        //{
+        //    ToggleMouseLock(false);
+        //}
 
-        if (Input.GetKeyUp(KeyCode.LeftAlt) && _isGrounded)
+        if (Input.GetKeyDown(KeyCode.LeftAlt) && _isGrounded)
         {
             ToggleMouseLock(true);
         }

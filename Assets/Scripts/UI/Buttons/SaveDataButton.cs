@@ -1,11 +1,16 @@
-﻿using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using System;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveDataButton : BaseButton
 {
+    [SerializeField] private Button Button_Remove;
+
     [SerializeField] private Image Image_Background;
+    [SerializeField] private Image Image_RemoveButton;
 
     [SerializeField] private TMP_Text Text_DataName;
 
@@ -18,26 +23,28 @@ public class SaveDataButton : BaseButton
     [SerializeField] private TMP_Text Text_StaminaData;
 
     private Action<string> OnButtonClicked;
+    private Action<string, SaveDataButton> OnRemoveButtonClicked;
     private string _index;
 
-    public bool SetButtonData(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string CoinTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, string slotname, PlayerModel playerModel, Action<string> ButtonClickedCallback)
+    public bool SetButtonData(Sprite backgroundSprite, Sprite buttonSprite, Sprite removeSprite, string dayTitle, string CoinTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, string slotname, PlayerModel playerModel, Action<string> ButtonClickedCallback, Action<string, SaveDataButton> RemoveButtonClickedCallback)
     {
         if (ComponentCheck() == false)
         {
             return false;
         }
 
-        if (DataCheck(backgroundSprite, buttonSprite, dayTitle, CoinTitle, staminaTitle, startButton, buttonFont, playerModel, ButtonClickedCallback) == false)
+        if (DataCheck(backgroundSprite, buttonSprite, dayTitle, CoinTitle, staminaTitle, startButton, buttonFont, playerModel, ButtonClickedCallback, RemoveButtonClickedCallback) == false)
         {
             return false;
         }
 
-        SetSprite(backgroundSprite, buttonSprite);
+        SetSprite(backgroundSprite, buttonSprite, removeSprite);
         SetFont(buttonFont);
         SetText(dayTitle, CoinTitle, staminaTitle, startButton);
 
         SetSaveData(slotname, playerModel);
         SetButton(slotname, ButtonClickedCallback);
+        SetRemoveButton(RemoveButtonClickedCallback);
 
         this.ActiveTrue();
         return true;
@@ -65,6 +72,12 @@ public class SaveDataButton : BaseButton
             hasComponent = false;
         }
 
+        if(Image_RemoveButton == null)
+        {
+            this.LogError("Image_RemoveButton 컴포넌트가 없습니다!!");
+            hasComponent = false;
+        }
+
         if (hasComponent == false)
         {
             this.ActiveFalse();
@@ -74,7 +87,7 @@ public class SaveDataButton : BaseButton
         return true;
     }
 
-    private bool DataCheck(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string CoinTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, PlayerModel playerModel, Action<string> ButtonClickedCallback)
+    private bool DataCheck(Sprite backgroundSprite, Sprite buttonSprite, string dayTitle, string CoinTitle, string staminaTitle, string startButton, TMP_FontAsset buttonFont, PlayerModel playerModel, Action<string> ButtonClickedCallback, Action<string, SaveDataButton> RemoveButtonClickedCallback)
     {
         bool hasData = true;
 
@@ -128,7 +141,13 @@ public class SaveDataButton : BaseButton
 
         if(ButtonClickedCallback == null)
         {
-            this.LogWarning("받아온 이벤트가 없습니다!!");
+            this.LogWarning("받아온 ButtonClickedCallback 이벤트가 없습니다!!");
+            hasData = false;
+        }
+
+        if ((RemoveButtonClickedCallback == null))
+        {
+            this.LogWarning("받아온 RemoveButtonClickedCallback 이벤트가 없습니다!!");
             hasData = false;
         }
 
@@ -142,10 +161,11 @@ public class SaveDataButton : BaseButton
 
     }
 
-    private void SetSprite(Sprite backgroundSprite, Sprite buttonSprite)
+    private void SetSprite(Sprite backgroundSprite, Sprite buttonSprite, Sprite removeSprite)
     {
         Image_Background.sprite = backgroundSprite;
         Image_Button.sprite = buttonSprite;
+        Image_RemoveButton.sprite = removeSprite;
     }
 
     private void SetFont(TMP_FontAsset buttonFont)
@@ -188,14 +208,39 @@ public class SaveDataButton : BaseButton
         BindButtonEvent();
     }
 
+    private void SetRemoveButton(Action<string, SaveDataButton> removeButtonCallback)
+    {
+        OnRemoveButtonClicked = removeButtonCallback;
+
+        BindRemoveButtonEvent();
+
+    }
+
     private void BindButtonEvent()
     {
         Button_This.onClick.RemoveAllListeners();
         Button_This.onClick.AddListener(InvokeButtonClicked);
     }
 
+    private void BindRemoveButtonEvent()
+    {
+        Button_Remove.onClick.RemoveAllListeners();
+        Button_Remove.onClick.AddListener(InvokeRemoveButtonClicked);
+    }
     private void InvokeButtonClicked()
     {
         OnButtonClicked?.Invoke(_index);
     }
+
+    private void InvokeRemoveButtonClicked()
+    {
+        OnRemoveButtonClicked?.Invoke(_index, this);
+    }
+
+    public void RequestDelete()
+    {
+        UIEffectUtil.AnimateAndDestroy(this.GetComponent<RectTransform>(), 0.5f);
+    }
+
+
 }

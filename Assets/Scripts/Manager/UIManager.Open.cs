@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 
 public partial class UIManager
 {
     private Dictionary<Type, BasePresenter> _presenterList = new();
+    private DialogueUI _dialogueUI;
 
     public TPresenter OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
     {
         Type type = typeof(TPresenter);
-        if(_presenterList.TryGetValue(type, out BasePresenter cachedPresenter) == false)
+        if (_presenterList.TryGetValue(type, out BasePresenter cachedPresenter) == false)
         {
             cachedPresenter = new TPresenter();
             _presenterList.Add(type, cachedPresenter);
@@ -56,4 +58,40 @@ public partial class UIManager
             tutorialPopupPresenter.InitPanelIndex(index);
         }
     }
+    public async UniTask OpenDialogueUI()
+    {
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(true);
+
+            if (!_activeUI.Contains(UIType.DialogueUI))
+            {
+                _activeUI.Add(UIType.DialogueUI);
+            }
+
+            return;
+        }
+
+        _dialogueUI = await CreateUIAsync<DialogueUI>(UIType.DialogueUI);
+
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(true);
+            _activeUI.Add(UIType.DialogueUI);
+        }
+    }
+
+    public void CloseDialogueUI()
+    {
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(false);
+
+            if (_activeUI.Contains(UIType.DialogueUI))
+            {
+                _activeUI.Remove(UIType.DialogueUI);
+            }
+        }
+    }
+
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
         if (_targetCustomer == null) return;
 
         _targetCustomer.OnHit();
+        VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.HitC3D, _targetCustomer.transform.position, new Vector3(0, 1f, 0), 0f).Forget();
 
         if (_isJerk)
         {

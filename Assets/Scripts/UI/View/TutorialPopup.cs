@@ -23,6 +23,8 @@ public class TutorialPopup : BaseUI<TutorialPopup>
     public event Action<int> OnHoverEntered;
     public event Action<int> OnHoverExited;
 
+    [field : SerializeField] public RectTransform RectTransform_This { get; private set; }
+
     private void OnEnable()
     {
         BindButtonEvents();

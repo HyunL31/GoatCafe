@@ -39,6 +39,16 @@ public static class AddressUtil
                 public const string PopupPrefab = "Prefab/UI/InGamePopup/PopupPrefab";
                 public const string MenuButton = "Prefab/UI/InGamePopup/MenuButton";
             }
+
+            public static class DialogueUI
+            {
+                public const string DialoguePrefab = "Prefab/UI/DialogueUI";
+            }
+
+            public static class TutorialPopup
+            {
+                public const string PopupPrefab = "Prefab/UI/TutorialPopup";
+            }
         }
         public static class VFX
         {
@@ -48,7 +58,7 @@ public static class AddressUtil
             public const string Firework2 = "Prefab/VFX/Firework2";
             public const string Firework3 = "Prefab/VFX/Firework3";
             public const string HitC3D = "Prefab/VFX/HitC3D";
-            public const string FlammeCrisp = "Prefab/VFX/FlammeCrisp";
+            public const string FlammeCrisp = "Prefab/VFX/FlameCrisp";
             public const string GasLeak = "Prefab/VFX/GasLeak";
         }
     }
@@ -61,6 +71,7 @@ public static class AddressUtil
             public const string ButtonOrange = "Sprite/UI/ButtonOrange";
             public const string ButtonBlue = "Sprite/UI/ButtonBlue";
             public const string ButtonGreen = "Sprite/UI/ButtonGreen";
+            public const string ButtonRemove = "Sprite/UI/SaveSlotPopup/SlotRemoveButton";
 
             public static class MainMenu
             {
@@ -92,6 +103,8 @@ public static class AddressUtil
                 public const string SaveButtonBlueBackground = "Sprite/UI/SaveSlotPopup/SaveButtonBlueBackground";
                 public const string SaveButtonGreenBackground = "Sprite/UI/SaveSlotPopup/SaveButtonGreenBackground";
                 public const string SaveButtonRedBackground = "Sprite/UI/SaveSlotPopup/SaveButtonRedBackground";
+
+                public const string SlotRemoveButton = ButtonRemove;
 
                 public const string SaveButtonBlue = ButtonBlue;
                 public const string SaveButtonGreen = ButtonGreen;
@@ -129,16 +142,11 @@ public static class AddressUtil
                 public const string Background = "Sprite/UI/InGamePopup/Background";
                 public const string TutorialButton = "Sprite/UI/InGamePopup/TutorialButton";
                 public const string GameOptionButton = "Sprite/UI/InGamePopup/GameOptionButton";
-                public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuBUtton";
+                public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuButton";
             }
 
             public static class TutorialPopup
             {
-                public const string Background = "";
-                public const string BackgroundEdge = "";
-                public const string BackgroundTitle = "";
-
-                public const string GameObjectiveImage = "";
             }
         }
     }

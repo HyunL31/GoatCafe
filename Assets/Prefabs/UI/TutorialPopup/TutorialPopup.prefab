@@ -2482,7 +2482,7 @@ MonoBehaviour:
   <PanelList>k__BackingField:
   - {fileID: 9012845609009932751}
   - {fileID: 1622437932959722341}
-  - {fileID: 1622437932959722341}
+  - {fileID: 6473959941553942298}
   - {fileID: 8001225640477206949}
   - {fileID: 301875644204443673}
   - {fileID: 8405231709189771002}
@@ -2500,6 +2500,7 @@ MonoBehaviour:
   Button_Next: {fileID: 2678683283525553605}
   Button_Previous: {fileID: 3008883281770771234}
   HoverPopup: {fileID: 8776765014135741279}
+  <RectTransform_This>k__BackingField: {fileID: 1317119956309893274}
 --- !u!1 &2451932088675616847
 GameObject:
   m_ObjectHideFlags: 0
