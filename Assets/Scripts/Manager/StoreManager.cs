@@ -10,7 +10,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 {
 
     //임시 소유 코인
-    public int Coin { get; set; } = 10000;
+    public int Coin { get; set; }
 
     [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
     [SerializeField] private int DescTooltipWidth = 500;
@@ -42,11 +42,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public static event System.Action<PermanentItem> OnItemPurchased;
     public static event Action StoreAreaEntered;
-    private void Start()
-    {
-        // 테스트를 위해 잠시 꺼놓았습니당
-       // Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
-    }
 
     public void AddItemObj(string name, GameObject prefab)
     {
@@ -163,6 +158,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void OpenStorePopup()
     {
+        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
         UpdateStorePopup();
         _storePopup.SetActive(true);
         GameManager.Instance.PauseGame();

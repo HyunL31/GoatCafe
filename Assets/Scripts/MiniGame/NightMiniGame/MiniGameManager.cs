@@ -159,6 +159,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         }
 
         Debug.Log("최종 점수: " + score);
+        StoreManager.Instance.Coin += score * 100;
         ClearTrash();
         CloseMiniGame();
         GameManager.Instance.ResumeGame();

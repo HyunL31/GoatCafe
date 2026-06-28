@@ -85,7 +85,7 @@ public class DialogueUI : BaseUI<DialogueUI>
             GameManager.Instance.StartGame();
             return;
         }
-
+        
         GameManager.Instance.SetCurrentID(nextID);
 
         ShowDialogue(GetCurrentID());
