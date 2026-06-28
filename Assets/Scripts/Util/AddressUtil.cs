@@ -158,6 +158,18 @@ public static class AddressUtil
 
             public const string Hover1 = "Audio/SFX/UISound/Hover_1";
             public const string Hover2 = "Audio/SFX/UISound/Hover_2";
+
+            public const string Footstep1 = "Audio/SFX/Footstep/Concrete_1";
+            public const string Footstep2 = "Audio/SFX/Footstep/Concrete_2";
+            public const string Footstep3 = "Audio/SFX/Footstep/Concrete_3";
+            public const string Footstep4 = "Audio/SFX/Footstep/Concrete_4";
+            public const string Footstep5 = "Audio/SFX/Footstep/Concrete_5";
+
+            public const string Punch1 = "Audio/SFX/Punch/Punch_1";
+            public const string Punch2 = "Audio/SFX/Punch/Punch_2";
+            public const string Punch3 = "Audio/SFX/Punch/Punch_3";
+            public const string Punch4 = "Audio/SFX/Punch/Punch_4";
+            public const string Punch5 = "Audio/SFX/Punch/Punch_5";
         }
     }
 

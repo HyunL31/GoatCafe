@@ -20,8 +20,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fb0b07d48cd41d488ee590e731458b2
+    m_Address: Audio/SFX/Punch/Punch_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11013b5bc19fded4dba7fc41eb27a488
     m_Address: Image/Jerk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1213f8934a6b4094da444d335baeeb34
+    m_Address: Audio/SFX/Footstep/Concrete_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -42,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36372d25293316e4a9d9c75b92c790a0
     m_Address: Image/Past
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b34575b99794c34d8dcc17908161bd2
+    m_Address: Audio/SFX/Punch/Punch_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -75,6 +90,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65c535c78f58a1a4e8fe0a05e73a38b8
+    m_Address: Audio/SFX/Footstep/Concrete_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66eff5546290a5046b4eeb682515561c
     m_Address: Prefabs/CostumeItem/Crown
     m_ReadOnly: 0
@@ -85,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86e5cdbbc8a33494f8b0eacff376467a
+    m_Address: Audio/SFX/Punch/Punch_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87bec7e7cf853a048a9f675efcb69629
     m_Address: Audio/SFX/UISound/Hover_2
     m_ReadOnly: 0
@@ -92,6 +117,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89bb9ff1e5b054d42b29bfb0d39d89d0
     m_Address: Image/Happy_Cafe
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a1a504de7a6afe41877fb0c21bc9da7
+    m_Address: Audio/SFX/Punch/Punch_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,13 +145,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b2293027430a3a45ae9a612679836d7
+    m_Address: Audio/SFX/Punch/Punch_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9ff587211fa7f848b8e3a459d2fc0b9
     m_Address: Audio/SFX/UISound/Click_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac37d098e6cf88e45bd35b06d0d673f0
+    m_Address: Audio/SFX/Footstep/Concrete_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8a2033e2680d9743b3539f892cfcaf7
+    m_Address: Audio/BGM/BGM_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c248b1836f79f044f9e2248a7cfdc13b
     m_Address: JsonOutput/Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c41ef9d7c0e29c645a3ed2cb75bd4eea
+    m_Address: Audio/SFX/Footstep/Concrete_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -132,6 +182,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf56d74bd12e698479cd425506fb1465
     m_Address: Prefab/UI/DialogueUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d369474893a58064795bc726a24e3a9e
+    m_Address: Audio/SFX/Footstep/Concrete_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

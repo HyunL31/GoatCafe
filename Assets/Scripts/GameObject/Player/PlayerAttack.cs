@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
         if (_targetCustomer == null) return;
 
         _targetCustomer.OnHit();
-        VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.HitC3D, _targetCustomer.transform.position, new Vector3(0, 1f, 0), 0f).Forget();
+        PlayHitEffect();
 
         if (_isJerk)
         {
@@ -25,6 +25,13 @@ public class PlayerAttack : MonoBehaviour
             // 패널티
             Debug.Log("노멀 패널티");
         }
+    }
+
+    private void PlayHitEffect()
+    {
+        int randomIndex = Random.Range(1, 6);
+        SoundManager.Instance.PlaySFX($"Audio/SFX/Punch/Punch_{randomIndex}").Forget();
+        VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.HitC3D, _targetCustomer.transform.position, new Vector3(0, 1f, 0), 0f).Forget();
     }
 
     private void OnTriggerEnter(Collider other)
