@@ -14,10 +14,25 @@ public class InGameUI : BaseUI<InGameUI>
     private DayGaugeButton _dayGaugeButton;
     private DayChangePanel _dayChangePanel;
 
+    private void Awake()
+    {
+        GameManager.Instance.OnChangedStamina += UpdateStaminaGauge;
+    }
+
     public void SetStaminaGaugeImage(Sprite staminaGaugeBackgroundSprite, Sprite staminaGaugeSprite)
     {
         Image_StaminaGaugeBackground.sprite = staminaGaugeBackgroundSprite;
         Image_StaminaGauge.sprite = staminaGaugeSprite;
+    }
+
+    public void UpdateStaminaGauge(int value)
+    {
+        if (Image_StaminaGauge == null)
+        {
+            return;
+        }
+
+        Image_StaminaGauge.fillAmount = Mathf.Clamp01(value / 100f);
     }
 
     public void CreateDayGaugeButton(GameObject dayGaugeButtonPrefab, Sprite backgroundSprite, Sprite dayGaugeBackgroundSprite, Sprite dayGaugeSprite, int day, TMP_FontAsset buttonFontAsset, Action buttonCallback)

@@ -11,8 +11,6 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private Rigidbody Rigidbody_BasicGoat;
     [SerializeField] private Transform Transform_HomePoint;
 
-    public event Action OnChangedStamina;
-
     public int Stamina { get; private set; }
 
     private float _inputZ;
@@ -44,7 +42,6 @@ public class PlayerMoving : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
         {
-            Debug.Log(Stamina);
             AttackRoutine().Forget();
         }
     }
@@ -118,7 +115,7 @@ public class PlayerMoving : MonoBehaviour
         _isAttack = true;
 
         Stamina -= 10;
-        OnChangedStamina?.Invoke();
+        GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
 
         Animator_Goat.SetTrigger("Attack");
 
@@ -182,7 +179,7 @@ public class PlayerMoving : MonoBehaviour
             Stamina = 100;
         }
 
-        OnChangedStamina?.Invoke();
+        GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
     }
 
     private void AddGoatSpeed(float value)

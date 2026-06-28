@@ -39,6 +39,11 @@ public static class AddressUtil
                 public const string PopupPrefab = "Prefab/UI/InGamePopup/PopupPrefab";
                 public const string MenuButton = "Prefab/UI/InGamePopup/MenuButton";
             }
+
+            public static class DialogueUI
+            {
+                public const string DialoguePrefab = "Prefab/UI/DialogueUI";
+            }
         }
         public static class VFX
         {

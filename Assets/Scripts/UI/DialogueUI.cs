@@ -6,8 +6,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueUI : BaseUI
+public class DialogueUI : BaseUI<DialogueUI>
 {
+    public UIType UIType_This { get; } = UIType.DialogueUI;
+
     [SerializeField] private Image Image_Background;
     [SerializeField] private Button Button_Dialogue;
     [SerializeField] private TextMeshProUGUI Text_Dialogue;
@@ -23,20 +25,19 @@ public class DialogueUI : BaseUI
     private void Awake()
     {
         Button_Dialogue.onClick.AddListener(OnClickDialogue);
-    }
 
-    private void Start()
-    {
         _dialogues = GameDataManager.Instance.DialogueDataList;
     }
 
     private void OnEnable()
     {
+        GameManager.Instance.PauseGame();
         ShowDialogue(GetCurrentID());
     }
 
     private void OnDisable()
     {
+        GameManager.Instance.ResumeGame();
         CancelTypingRoutine();
     }
 
@@ -60,6 +61,8 @@ public class DialogueUI : BaseUI
         }
         else
         {
+            Image_Speaker.gameObject.SetActive(true);
+
             string speaker = _dialogues[id].Speaker;
             Text_Speaker.text = speaker;
         }
@@ -75,6 +78,14 @@ public class DialogueUI : BaseUI
     private void MoveToNextDialogue(string id)
     {
         string nextID = _dialogues[id].NextID;
+
+        if (nextID == "Open")
+        {
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.StartGame();
+            return;
+        }
+
         GameManager.Instance.SetCurrentID(nextID);
 
         ShowDialogue(GetCurrentID());
@@ -128,6 +139,12 @@ public class DialogueUI : BaseUI
     private async UniTask SetBackgroundImage(string id)
     {
         string background = _dialogues[id].Background;
+
+        if (string.IsNullOrEmpty(background))
+        {
+            return;
+        }
+
         Image_Background.sprite = await LoadUtil.Async.LoadSpriteAsync($"Image/{background}");
     }
 }
