@@ -5,6 +5,7 @@ public class GameOptionPresenter : BasePresenter<GameOptionPresenter, GameOption
 {
     public override UIType UIType_This { get;  } = UIType.GameOptionUI;
 
+
     private GameOptionUI _gameOptionUI;
 
     private GameObject _prefab_menuButton;

@@ -131,6 +131,15 @@ public static class AddressUtil
                 public const string GameOptionButton = "Sprite/UI/InGamePopup/GameOptionButton";
                 public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuBUtton";
             }
+
+            public static class TutorialPopup
+            {
+                public const string Background = "";
+                public const string BackgroundEdge = "";
+                public const string BackgroundTitle = "";
+
+                public const string GameObjectiveImage = "";
+            }
         }
     }
 

@@ -33,14 +33,9 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
         SetUI().Forget();
     }
 
-    public void SubscribeEvent(Action closeInGameUICallback)
+    public void InitEvent(Action closeInGameUICallback)
     {
         OnReturnMainMenuClicked = closeInGameUICallback;
-    }
-    
-    private void UnsubscribeEvent()
-    {
-        OnReturnMainMenuClicked = null;
     }
 
     protected async override UniTaskVoid SetUI()
