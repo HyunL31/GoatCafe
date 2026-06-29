@@ -1,12 +1,22 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
 
 public partial class UIManager
 {
+    MainMenuUIPresenter _mainMenuUIPresenter;
+    SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
+    InGamePresenter _inGamePresenter;
+    InGamePopupPresenter _inGamePopupPresenter;
+    InteractionPromptPresenter _interactionPromptPresenter;
+    DialogueUI _dialogueUI;
     private Dictionary<Type, BasePresenter> _presenterList = new();
     private DialogueUI _dialogueUI;
 
+    private GameResultPanel _gameResultPanel;
+    List<BasePresenter> _presenterList = new();
     public TPresenter OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
     {
         Type type = typeof(TPresenter);
@@ -93,6 +103,49 @@ public partial class UIManager
                 _activeUI.Remove(UIType.DialogueUI);
             }
         }
+    }
+    public async UniTask OpenGameResultPanel()
+    {
+        if (_gameResultPanel != null)
+        {
+            _gameResultPanel.gameObject.SetActive(true);
+
+            if (!_activeUI.Contains(UIType.GameResultPanel))
+            {
+                _activeUI.Add(UIType.GameResultPanel);
+            }
+
+            return;
+        }
+
+        _gameResultPanel = await CreateUIAsync<GameResultPanel>(UIType.GameResultPanel);
+
+        if (_gameResultPanel != null)
+        {
+            _gameResultPanel.gameObject.SetActive(true);
+            _activeUI.Add(UIType.GameResultPanel);
+        }
+    }
+
+    public void OpenInteractionPrompt(string key, string actionText, Transform target)
+    {
+        if (_interactionPromptPresenter == null)
+        {
+            _interactionPromptPresenter = new InteractionPromptPresenter();
+        }
+
+        InteractionPromptUI interactionPromptUI = CreateUI<InteractionPromptUI>(_interactionPromptPresenter.UIType_This);
+
+        if (interactionPromptUI == null)
+        {
+            Debug.LogError("InteractionPromptUI 생성 실패");
+            return;
+        }
+
+        _activeUI.Add(_interactionPromptPresenter.UIType_This);
+
+        _interactionPromptPresenter.InitUI(interactionPromptUI);
+        _interactionPromptPresenter.SetPrompt(key, actionText, target);
     }
 
 }
