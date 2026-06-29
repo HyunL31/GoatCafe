@@ -36,8 +36,8 @@ public class ItemDataBase  // 소모템, 치장템은 아직 추가 안했음
 {
     public static ItemDataBase Instance = new ItemDataBase();
 
-    public List<PermanentItem> PermanentList = new List<PermanentItem>();
-    public List<ConsumableItem> ConsumableList = new List<ConsumableItem>();
+    public Dictionary<string, PermanentItem> PermanentList = new Dictionary<string, PermanentItem>();
+    public Dictionary<string, ConsumableItem> ConsumableList = new Dictionary<string, ConsumableItem>();
     public Dictionary<string, CosmeticItem> CosmeticDic = new Dictionary<string, CosmeticItem>();
 
     public void LoadAllItems()  
@@ -46,14 +46,14 @@ public class ItemDataBase  // 소모템, 치장템은 아직 추가 안했음
 
         foreach (PermanentItem item in loadedPermanentItems)
         {
-            PermanentList.Add(item);
+            PermanentList.Add(item.Name, item);
         }
 
         ConsumableItem[] loadedConsumableItems = Resources.LoadAll<ConsumableItem>("StoreItemDatas/ConsumableItem");
 
         foreach (ConsumableItem item in loadedConsumableItems)
         {
-            ConsumableList.Add(item);
+            ConsumableList.Add(item.Name, item);
         }
 
         CosmeticItem[] loadedCosmeticItems = Resources.LoadAll<CosmeticItem>("StoreItemDatas/CosmeticItem");
