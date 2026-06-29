@@ -40,9 +40,17 @@ public class PlayerMoving : MonoBehaviour
         _inputZ = InputManager.Vertical;
         _inputX = InputManager.Horizontal;
 
-        if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
+        if (!MiniGameManager.Instance.isGame && !DayMinigame.Instance.IsPlaying && Input.GetKeyDown(KeyCode.Space))
         {
-            AttackRoutine().Forget();
+            if (Stamina == 0)
+            {
+                SaveManager.Instance.OnSetStamina?.Invoke();
+            }
+            
+            if (Stamina >= 10 && !_isAttack)
+            {
+                AttackRoutine().Forget();
+            }
         }
     }
 
