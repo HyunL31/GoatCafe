@@ -9,6 +9,7 @@ public class PlayerAccessory : MonoBehaviour
     [SerializeField] private PlayerAccessory OtherAccessory;
 
     private Dictionary<string, Transform> _slots;
+    private Dictionary<string, CosmeticItem> _equippedItemData = new Dictionary<string, CosmeticItem>();
     private Dictionary<string, GameObject> _usedSlot = new Dictionary<string, GameObject>();
 
     private Dictionary<string, Transform> Slots
@@ -45,12 +46,7 @@ public class PlayerAccessory : MonoBehaviour
     {
         if (StoreManager.Instance.IsEquipped(item))
         {
-            if (_usedSlot.TryGetValue(item.Slot, out GameObject obj))
-            {
-                obj.SetActive(false);
-            }
-
-            _usedSlot.Remove(item.Slot);
+            RemoveItemVisual(item);
             StoreManager.Instance.RemoveEquipped(item);
 
             OtherAccessory?.RemoveItemVisual(item);
@@ -58,12 +54,9 @@ public class PlayerAccessory : MonoBehaviour
         }
 
         ClearSlot(item);
-        ApplyItemVisual(item);
 
-        if (!StoreManager.Instance.IsEquipped(item))
-        {
-            StoreManager.Instance.AddEquipped(item);
-        }
+        ApplyItemVisual(item);
+        StoreManager.Instance.AddEquipped(item);
 
         OtherAccessory?.ApplyItemVisual(item);
     }
@@ -84,7 +77,7 @@ public class PlayerAccessory : MonoBehaviour
         }
     }
 
-    private void ApplyItemVisual(CosmeticItem item)
+    public void ApplyItemVisual(CosmeticItem item)
     {
         GameObject existingItem;
         if (OtherAccessory != null)
@@ -100,6 +93,7 @@ public class PlayerAccessory : MonoBehaviour
         {
             existingItem.SetActive(true);
             _usedSlot[item.Slot] = existingItem;
+            _equippedItemData[item.Slot] = item;
         }
     }
 
@@ -111,22 +105,24 @@ public class PlayerAccessory : MonoBehaviour
         }
 
         _usedSlot.Remove(item.Slot);
+        _equippedItemData.Remove(item.Slot);
     }
 
     private void ClearSlot(CosmeticItem item)
     {
-        if (_usedSlot.TryGetValue(item.Slot, out GameObject prevItem))
+        if (_equippedItemData.TryGetValue(item.Slot, out CosmeticItem prevItemData))
         {
-            prevItem.SetActive(false);
-            string itemName = StoreManager.Instance.GetPrefabName(prevItem);
-            if(ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out CosmeticItem value))
+            if (_usedSlot.TryGetValue(item.Slot, out GameObject prevItemVisual))
             {
-                StoreManager.Instance.ChangeSlotButtonState(value, true);
-                StoreManager.Instance.RemoveEquipped(value);
+                prevItemVisual.SetActive(false);
             }
+
+            StoreManager.Instance.ChangeSlotButtonState(prevItemData, true);
+            StoreManager.Instance.RemoveEquipped(prevItemData);
         }
 
         _usedSlot.Remove(item.Slot);
+        _equippedItemData.Remove(item.Slot);
 
         OtherAccessory?.RemoveItemVisual(item);
     }
@@ -149,7 +145,9 @@ public class PlayerAccessory : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
         _usedSlot.Clear();
+        _equippedItemData.Clear();
     }
 
     private Transform SetSlot(CosmeticItem item)

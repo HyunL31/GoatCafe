@@ -20,11 +20,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5fecb45df74522045923682900248fbf
-    m_Address: Sprite/UI/MainMenu/MenuSlotTitle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fcd8a652e7dd00489c048ef857aefa3
     m_Address: Sprite/UI/MainMenu/MenuSlotBackground
     m_ReadOnly: 0
