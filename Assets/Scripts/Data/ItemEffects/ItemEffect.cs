@@ -2,5 +2,5 @@
 
 public abstract class ItemEffect : ScriptableObject
 {
-    public abstract void Use();
+    public abstract bool Use();
 }

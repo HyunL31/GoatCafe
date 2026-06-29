@@ -6,13 +6,18 @@ public class ConsumableItem : ItemBase
     public ItemEffect effect;
     public KeyCode keyCode;
 
-    public void UseItem()
+    public bool UseItem()
     {
         if (effect != null)
         {
-            effect.Use();
+            if (effect.Use()) return true;
+            else return false;
         }
-        else Debug.LogError("[ConsumableItem] effect = null");
+        else
+        {
+            Debug.LogError("[ConsumableItem] effect = null");
+            return false;
+        }
     }
 
 }

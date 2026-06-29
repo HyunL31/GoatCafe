@@ -11,6 +11,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     //임시 소유 코인
     public int Coin { get; set; }
+    [Header("Customer Spawner")]
+    [SerializeField] private CustomerSpawner _customerSpawner;
 
     [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
     [SerializeField] private int DescTooltipWidth = 500;
@@ -46,6 +48,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public static event System.Action<PermanentItem> OnItemPurchased;
     public static event Action StoreAreaEntered;
+    public static event Action<float> OnPeaceItemUsed;
 
     public void AddItemObj(string name, GameObject prefab)
     {
@@ -99,17 +102,23 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
     }
 
-    public void UseInventoryItem(ItemBase itemData)
+    public bool UseInventoryItem(ItemBase itemData)
     {
-        if (inventoryDic.ContainsKey(itemData) && itemData is ConsumableItem consumable)
+        if (itemData is ConsumableItem consumable)
         {
-            consumable.UseItem();
-            inventoryDic[itemData] -= 1;
+            if (consumable.UseItem())
+            {
+                inventoryDic[itemData] -= 1;
+                if (inventoryDic[itemData] <= 0)
+                {
+                    inventoryDic.Remove(itemData);
+                }
+
+                return true;
+            }
         }
-        if (inventoryDic[itemData] <= 0)
-        {
-            inventoryDic.Remove(itemData);
-        }
+
+        return false;
     }
 
     private void OnEnable()
@@ -336,8 +345,14 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         if (inventoryDic.ContainsKey(keySelectDic[code]))
         {
-            UseInventoryItem(curItem);
-            NotificationManager.Instance.ShowNotification($"{curItem.Name} Used", Color.green);
+            if(UseInventoryItem(curItem))
+            {
+                NotificationManager.Instance.ShowNotification($"{curItem.Name} Used", Color.green);
+            }
+            else
+            {
+                NotificationManager.Instance.ShowNotification($"You Can't Use {curItem.Name}", Color.red);
+            }
         }
         else
         {
@@ -346,6 +361,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
     }
 
 
+    public bool IsPeaceItemUsed()
+    {
+        return _customerSpawner.IsPeaceItemUsed;
+    }
 
 
 
@@ -387,12 +406,9 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
     }
 
-    public void HandleItemUse(ItemBase item)
+    public void TriggerPeaceItem(float duration)
     {
-        if(item is ConsumableItem consume)
-        {
-            consume.UseItem();
-        }
+        OnPeaceItemUsed.Invoke(duration);
     }
 
 
