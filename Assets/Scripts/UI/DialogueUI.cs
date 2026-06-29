@@ -31,6 +31,8 @@ public class DialogueUI : BaseUI<DialogueUI>
 
     private void OnEnable()
     {
+        CursorManager.Instance.UnlockCursor();
+
         GameManager.Instance.PauseGame();
         ShowDialogue(GetCurrentID());
     }

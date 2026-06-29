@@ -158,7 +158,6 @@ public class SaveDataButton : BaseButton
         }
 
         return true;
-
     }
 
     private void SetSprite(Sprite backgroundSprite, Sprite buttonSprite, Sprite removeSprite)
@@ -195,7 +194,23 @@ public class SaveDataButton : BaseButton
     public void SetSaveData(string slotname, PlayerModel playerModel)
     {
         Text_DataName.text = slotname;
-        Text_DayData.text = playerModel.Day.ToString();
+
+        if (!string.IsNullOrEmpty(playerModel.Ending))
+        {
+            if (playerModel.Ending.Contains("Happy"))
+            {
+                Text_DayData.text = "Happy Ending";
+            }
+            else if (playerModel.Ending.Contains("Bad"))
+            {
+                Text_DayData.text = "Bad Ending";
+            }
+        }
+        else
+        {
+            Text_DayData.text = playerModel.Day.ToString();
+        }
+
         Text_CoinData.text = playerModel.Coin.ToString();
         Text_StaminaData.text = playerModel.Stamina.ToString();
     }
@@ -213,7 +228,6 @@ public class SaveDataButton : BaseButton
         OnRemoveButtonClicked = removeButtonCallback;
 
         BindRemoveButtonEvent();
-
     }
 
     private void BindButtonEvent()
@@ -241,6 +255,4 @@ public class SaveDataButton : BaseButton
     {
         UIEffectUtil.AnimateAndDestroy(this.GetComponent<RectTransform>(), 0.5f);
     }
-
-
 }

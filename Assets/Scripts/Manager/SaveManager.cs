@@ -117,6 +117,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
             Debug.LogWarning($"[SaveManager] 삭제할 세이브 파일이 존재하지 않습니다: {path}");
         }
     }
+
     // 가져오기 요청
     public PlayerModel RequestLoadData(string slotIndex)
     {
@@ -147,6 +148,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
         newPlayerData.Stamina = 100;
         newPlayerData.WalkSpeed = 3f;
         newPlayerData.RunSpeed = 5f;
+        newPlayerData.Ending = "";
 
         return newPlayerData;
     }
