@@ -4,6 +4,7 @@
 public class ConsumableItem : ItemBase
 {
     public ItemEffect effect;
+    public KeyCode keyCode;
 
     public void UseItem()
     {

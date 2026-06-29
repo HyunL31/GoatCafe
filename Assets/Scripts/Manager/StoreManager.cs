@@ -34,10 +34,14 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     private HashSet<ItemBase> purchasedItems = new HashSet<ItemBase>();  // 구매한 영구적/치장 아이템 보관
     private HashSet<CosmeticItem> equippedItems = new HashSet<CosmeticItem>();  // 치장 아이템 보관
+
     private Dictionary<string, GameObject> _existItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Goat)
     private Dictionary<string, GameObject> _existHumanoidItems = new Dictionary<string, GameObject>();  // 치장아이템 오브젝트 (Humanoid)
     private Dictionary<GameObject, string> _existItemsReverse = new Dictionary<GameObject, string>();  // 치장 아이템 프리팹 역방향 딕셔너리
+
     private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
+    private Dictionary<KeyCode, ItemBase> keySelectDic = new Dictionary<KeyCode, ItemBase>();
+
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
 
     public static event System.Action<PermanentItem> OnItemPurchased;
@@ -97,8 +101,9 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void UseInventoryItem(ItemBase itemData)
     {
-        if (inventoryDic.ContainsKey(itemData))
+        if (inventoryDic.ContainsKey(itemData) && itemData is ConsumableItem consumable)
         {
+            consumable.UseItem();
             inventoryDic[itemData] -= 1;
         }
         if (inventoryDic[itemData] <= 0)
@@ -110,6 +115,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private void OnEnable()
     {
         _exitButton.onClick.AddListener(OnClickExitBtn);
+        InputManager.Instance.OnItemUseBtnPressed += HandleItemUseButtonPressed;
         ItemDataBase.Instance.LoadAllItems();
         InitStorePopup();
     }
@@ -135,6 +141,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             tempslot = slotObj.GetComponent<StoreItemSlot>();
             tempslot.Setup(item);
             StoreSlotDic.Add(item, tempslot);
+            keySelectDic.Add(item.keyCode, item);
         }
         foreach (var item in ItemDataBase.Instance.CosmeticDic)
         {
@@ -158,7 +165,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void OpenStorePopup()
     {
-        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
+        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;  // 테스트용 임시 코드인듯?? 나중에 수정하기
         UpdateStorePopup();
         _storePopup.SetActive(true);
         GameManager.Instance.PauseGame();
@@ -181,7 +188,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
             else
             {
                 NotificationManager.Instance.ShowNotification($"{itemData.Name} Purchased", Color.green);
-                AddPurchased(itemData);
+                if(!(itemData is ConsumableItem consumable))
+                {
+                    AddPurchased(itemData);
+                }
             }
         }
         UpdateStorePopup();
@@ -223,14 +233,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         if (itemData is ConsumableItem consumableData)
         {
-            if (inventoryDic.ContainsKey(consumableData))
-            {
-                inventoryDic[consumableData] += 1;
-            }
-            else
-            {
-                inventoryDic.Add(consumableData, 1);
-            }
+            AddInventory(itemData);
         }
 
         if (itemData is CosmeticItem cosmeticData)
@@ -324,32 +327,35 @@ public class StoreManager : BaseMonoManager<StoreManager>
         SaveManager.Instance.SaveData();
     }
 
-
-
-    ////// 아래는 임시로 만든 함수 or 변수 (다른곳에서 만들어지면 지울 예정)
-
-
-
-    public void SpendCoins(int amount)
+    private void HandleItemUseButtonPressed(KeyCode code)
     {
-        if (Coin >= amount)
+        if (GameManager.Instance.CurrentState != GameState.Playing) return;
+        if (!keySelectDic.ContainsKey(code)) return;
+
+        ItemBase curItem = keySelectDic[code];
+
+        if (inventoryDic.ContainsKey(keySelectDic[code]))
         {
-            Coin -= amount;
+            UseInventoryItem(curItem);
+            NotificationManager.Instance.ShowNotification($"{curItem.Name} Used", Color.green);
+        }
+        else
+        {
+            NotificationManager.Instance.ShowNotification($"You Don't Have {curItem.Name}!!!", Color.red);
         }
     }
 
-    //임시 팝업 UI 업데이트
-    public void UpdateStorePopup()
-    {
-        _coinText.text = Coin.ToString();
-    }
+
+
+
+
+
+
+
 
 
 
     // 아이템 설명 팝업 관련 변수 / 함수들
-
-
-
 
     public void UpdateDescPopupPosition()
     {
@@ -388,4 +394,24 @@ public class StoreManager : BaseMonoManager<StoreManager>
             consume.UseItem();
         }
     }
+
+
+    ////// 아래는 임시로 만든 함수 or 변수 (다른곳에서 만들어지면 지울 예정)
+
+
+    public void SpendCoins(int amount)
+    {
+        if (Coin >= amount)
+        {
+            Coin -= amount;
+        }
+    }
+
+    //임시 팝업 UI 업데이트
+    public void UpdateStorePopup()
+    {
+        _coinText.text = Coin.ToString();
+    }
+
+
 }
