@@ -16,12 +16,13 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
     [SerializeField] private float _targetHeight = 120f;
     [SerializeField] private float _closeDelay = 0.4f;
 
+    public bool IsPlaying { get; private set; }
+
     public Action OnStartDayMiniGame;
     public Action OnSuccessDayMiniGame;
     public Action OnFailDayMiniGame;
     public Action OnEndDayMiniGame;
 
-    private bool _isPlaying;
     private int _moveDirection = 1;
     private float _minY;
     private float _maxY;
@@ -59,7 +60,7 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
 
     private void Update()
     {
-        if (_isPlaying == false)
+        if (IsPlaying == false)
             return;
 
         MoveDayMiniGame();
@@ -87,7 +88,7 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
         SetRandomTargetArea();
         ResetMover();
 
-        _isPlaying = true;
+        IsPlaying = true;
         _moveDirection = 1;
 
         OnStartDayMiniGame?.Invoke();
@@ -95,7 +96,7 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
 
     public void CloseDayMiniGame()
     {
-        _isPlaying = false;
+        IsPlaying = false;
         _currentSensor = null;
 
         if (_closeCoroutine != null)
@@ -110,7 +111,7 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
 
     private void OnClickDayMiniGame()
     {
-        if (_isPlaying == false)
+        if (IsPlaying == false)
             return;
 
         CheckDayMiniGame();
@@ -145,7 +146,7 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
 
     private void CheckDayMiniGame()
     {
-        _isPlaying = false;
+        IsPlaying = false;
 
         bool isSuccess = IsSuccessDayMiniGame();
 

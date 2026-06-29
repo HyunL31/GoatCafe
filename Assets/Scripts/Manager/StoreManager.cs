@@ -429,5 +429,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
         _coinText.text = Coin.ToString();
     }
 
-
+    public bool IsActiveStore()
+    {
+        return _storePopup.activeSelf;
+    }
 }
