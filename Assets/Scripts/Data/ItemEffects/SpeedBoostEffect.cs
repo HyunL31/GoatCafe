@@ -4,8 +4,9 @@
 public class SpeedBoostEffect : ItemEffect
 {
     public float boostRate;
-    public override void Use()
+    public override bool Use()
     {
         //속도증가 함수 받으면 작성
+        return false;
     }
 }

@@ -2058,6 +2058,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &851734184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1838711461349006990, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+  m_PrefabInstance: {fileID: 22788716}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df71db618bbbd194b9994d75ba8d48f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerSpawner
 --- !u!1 &894353681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,6 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7256aa011c66847b4473d1f766e47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoreManager
+  _customerSpawner: {fileID: 851734184}
   DescTooltipWidth: 500
   UICanvasRect: {fileID: 2087435529}
   ItemDescPopup: {fileID: 1932700715}
