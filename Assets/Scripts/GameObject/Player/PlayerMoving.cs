@@ -40,7 +40,7 @@ public class PlayerMoving : MonoBehaviour
         _inputZ = InputManager.Vertical;
         _inputX = InputManager.Horizontal;
 
-        if (!MiniGameManager.Instance.isGame && !DayMinigame.Instance.IsPlaying && Input.GetKeyDown(KeyCode.Space))
+        if (!MiniGameManager.Instance.isGame && !DayMinigame.Instance.IsPlaying && !StoreManager.Instance.IsActiveStore() && Input.GetKeyDown(KeyCode.Space))
         {
             if (Stamina == 0)
             {
