@@ -7,7 +7,7 @@ public class NormalButton : BaseButton
 
     public event Action OnButtonClicked;
 
-    public bool SetButtonData(Sprite buttonSprite, string buttonText, TMP_FontAsset buttonFontAsset, Action buttonCallback)
+    public bool SetButtonData(Sprite buttonSprite = null, string buttonText = null, TMP_FontAsset buttonFontAsset = null, Action buttonCallback = null)
     {
         if (ComponentCheck() == false)
         {
