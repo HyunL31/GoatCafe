@@ -96,7 +96,7 @@ public class InputManager : BaseMonoManager<InputManager>
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameManager.Instance.CurrentState == GameState.Playing)
+            if (GameManager.Instance.CurrentState == GameState.Playing || GameManager.Instance.CurrentState == GameState.Home)
             {
                 UIManager.Instance.OpenInGamePopup(OnEscKeyDown);
             }
@@ -109,6 +109,22 @@ public class InputManager : BaseMonoManager<InputManager>
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
             OnItemUseBtnPressed?.Invoke(KeyCode.Alpha5);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (GameManager.Instance.CurrentState == GameState.Playing || GameManager.Instance.CurrentState == GameState.Home)
+            {
+                UIManager.Instance.OpenInfoPopup();
+            } 
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            if (UIManager.Instance.GetIsActiveUI(UIType.InfoPopup))
+            {
+                UIManager.Instance.CloseUI(UIType.InfoPopup);
+            }
         }
 
     }

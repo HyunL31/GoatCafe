@@ -54,6 +54,11 @@ public static class AddressUtil
             {
                 public const string PopupPrefab = "Prefab/UI/GameOptionPopup";
             }
+
+            public static class InfoPopup
+            {
+                public const string PopupPrefab = "Prefab/UI/InfoPopup";
+            }
         }
         public static class VFX
         {

@@ -38,9 +38,15 @@ public partial class UIManager : BaseMonoManager<UIManager>
     private HashSet<UIType> _activeUI = new();
     private HashSet<UIRootType> _activeCanvas = new();
 
+
     private void Start()
     {
         OpenMainMenuUI();
+    }
+
+    public bool GetIsActiveUI(UIType uiType)
+    {
+        return _activeUI.Contains(uiType);
     }
 
     public T CreateUI<T>(UIType uiType) where T : BaseUI<T>
@@ -183,6 +189,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.GameOptionPopup.PopupPrefab;
                 }
+            case UIType.InfoPopup:
+                {
+                    return AddressUtil.Prefab.UI.InfoPopup.PopupPrefab;
+                }
             default:
                 {
                     this.LogError($"{uiType}에 알맞는 Path가 없습니다!!");
@@ -220,6 +230,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                     return UIRootType.Popup;
                 }
             case UIType.GameOptionUI:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.InfoPopup:
                 {
                     return UIRootType.Popup;
                 }

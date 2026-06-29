@@ -59,6 +59,13 @@ public partial class UIManager
             tutorialPopupPresenter.InitPanelIndex(index);
         }
     }
+
+    public void OpenInfoPopup()
+    {
+        InfoPopupPresenter infoPopupPresenter = OpenUI<InfoPopupPresenter, InfoPopup>();
+    }
+
+
     public async UniTask OpenDialogueUI()
     {
         if (_dialogueUI != null)

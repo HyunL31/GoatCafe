@@ -29,12 +29,12 @@ public class InfoPopupPresenter : BasePresenter<InfoPopupPresenter, InfoPopup>
 
     private void SubscribeEvent()
     {
-        _infoPopup.OnExitButtonClicked += OnClick_ExitButton;
+        //_infoPopup.OnExitButtonClicked += OnClick_ExitButton;
     }
 
     private void UnsubscribeEvent()
     {
-        _infoPopup.OnExitButtonClicked -= OnClick_ExitButton;
+        //_infoPopup.OnExitButtonClicked -= OnClick_ExitButton;
     }
 
     protected override void LoadData()
