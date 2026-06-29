@@ -19,11 +19,14 @@ public class CustomerSpawner : MonoBehaviour
     private bool _isExitingAll = false;
     private List<CustomerBase> _spawnedCustomers = new List<CustomerBase>();
 
+    public bool IsPeaceItemUsed => _isJerkSuppressed;
+
     private void Start()
     {
         GameManager.Instance.OnGameStateChanged += OnStateChanged;
         GameManager.Instance.OnDayPhaseChanged += OnDayPhaseChanged;
         GameManager.Instance.OnDayTimeChanged += OnDayTimeChanged;
+        StoreManager.OnPeaceItemUsed += ActivateJerkSuppression;
     }
 
     private void OnDayPhaseChanged(DayPhase phase)
