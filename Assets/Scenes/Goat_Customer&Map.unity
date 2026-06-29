@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1838711461349006990, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: Float_JerkChance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4142011108806439604, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.67349
