@@ -1436,9 +1436,9 @@ MonoBehaviour:
   - {fileID: 145244443021402820}
   - {fileID: 6522466057644149597}
   - {fileID: 6301567056818964113}
-  Int_SpawnCount: 20
-  Float_JerkChance: 0.3
-  Float_SpawnInterval: 8
+  Int_SpawnCount: 50
+  Float_JerkChance: 0.4
+  Float_SpawnInterval: 3
   Float_ExitTime: 30
   Float_ExitBeforeNight: 7
 --- !u!1001 &5408033198585275767
@@ -1495,7 +1495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703762949116079533, guid: 2753ab389ca1e044d96dbab6f245934d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.269
+      value: -4.806
       objectReference: {fileID: 0}
     - target: {fileID: 6703762949116079533, guid: 2753ab389ca1e044d96dbab6f245934d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1503,7 +1503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703762949116079533, guid: 2753ab389ca1e044d96dbab6f245934d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.63
+      value: -5.541
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

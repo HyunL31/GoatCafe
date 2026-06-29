@@ -140,17 +140,17 @@ public class StoreManager : BaseMonoManager<StoreManager>
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
             tempslot = slotObj.GetComponent<StoreItemSlot>();
-            tempslot.Setup(item);
-            StoreSlotDic.Add(item, tempslot);
+            tempslot.Setup(item.Value);
+            StoreSlotDic.Add(item.Value, tempslot);
         }
         foreach (var item in ItemDataBase.Instance.ConsumableList)
         {
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
             tempslot = slotObj.GetComponent<StoreItemSlot>();
-            tempslot.Setup(item);
-            StoreSlotDic.Add(item, tempslot);
-            keySelectDic.Add(item.keyCode, item);
+            tempslot.Setup(item.Value);
+            StoreSlotDic.Add(item.Value, tempslot);
+            keySelectDic.Add(item.Value.keyCode, item.Value);
         }
         foreach (var item in ItemDataBase.Instance.CosmeticDic)
         {
@@ -429,5 +429,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
         _coinText.text = Coin.ToString();
     }
 
-
+    public bool IsActiveStore()
+    {
+        return _storePopup.activeSelf;
+    }
 }
