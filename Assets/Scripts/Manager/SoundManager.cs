@@ -16,7 +16,37 @@ public class SoundManager : BaseMonoManager<SoundManager>
         _sfxSource.volume = _sfxVolume;
         _bgmSource.volume = _bgmVolume;
     }
+    private void Start()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameStateChanged += HandleGameStateChanged;
+        }
+    }
 
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameStateChanged -= HandleGameStateChanged;
+        }
+    }
+
+    private void HandleGameStateChanged(GameState gameState)
+    {
+        if (gameState == GameState.Ready || gameState == GameState.Playing || gameState == GameState.Home)
+        {
+            if (_bgmSource != null && _bgmSource.isPlaying == false)
+            {
+                PlayBGM(AddressUtil.Sound.BGM.Bgm).Forget();
+            }
+            DisableMuffle();
+        }
+        else if (gameState == GameState.Pause)
+        {
+            EnableMuffle();
+        }
+    }
     public async UniTaskVoid PlaySFX(string address, float volumeScale = 1f)
     {
         AudioClip clip = await LoadUtil.Async.LoadGenericAsync<AudioClip>(address);

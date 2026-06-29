@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
-using Cysharp.Threading.Tasks;
+using static AddressUtil.Sound;
 
 
 public class CustomerHitEvent
@@ -123,7 +124,8 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
                 if (_anim != null)  _anim.SetTrigger(HashHit);
                 GetComponent<Collider>().enabled = false;
 
-                VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.MagicPoof, transform.position, new Vector3(0, 0f, 0), 1.4f).Forget();
+                PlayHitReaction();
+
                 break;
             case CustomerState.Detected:
                 _agent.isStopped = true;
@@ -131,6 +133,13 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
                 WaitAndReturnToWalkAsync(2f, CustomerState.Detected).Forget();
                 break;
         }
+    }
+
+    private void PlayHitReaction()
+    {
+        int randomIndex = UnityEngine.Random.Range(1, 6);
+        SoundManager.Instance.PlaySFX($"Audio/SFX/Customer/Hurt_{randomIndex}").Forget();
+        VFXManager.Instance.PlayVFX(AddressUtil.Prefab.VFX.MagicPoof, transform.position, new Vector3(0, 0f, 0), 1.4f).Forget();
     }
 
     private void MoveToNextWaypoint()
