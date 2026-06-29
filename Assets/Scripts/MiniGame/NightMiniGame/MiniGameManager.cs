@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MiniGameManager : BaseMonoManager<MiniGameManager>
@@ -22,6 +23,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     private bool isTimerRunning;
 
     private Trash _targetTrash;
+    private CustomerSensor _currentCleanUpSensor;
 
     void Start()
     {
@@ -29,6 +31,15 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
 
         Trash.OnTrashEnter += TrashEnter;
         Trash.OnTrashExit += TrashExit;
+
+        CustomerSensor.OnCleanUpInteract += CleanUpInteract;
+    }
+
+    private void OnDestroy()
+    {
+        Trash.OnTrashEnter -= TrashEnter;
+        Trash.OnTrashExit -= TrashExit;
+        CustomerSensor.OnCleanUpInteract -= CleanUpInteract;
     }
 
     void Update()
@@ -69,6 +80,16 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
     private void AddScore(int amount)
     {
         score += amount;
+    }
+
+    private void CleanUpInteract(CustomerSensor sensor)
+    {
+        if (GameManager.Instance.CurrentDayPhase != DayPhase.Night) return;
+        if (NightMiniGamePanel.activeSelf) return;
+
+        _currentCleanUpSensor = sensor;
+        NightMiniGamePanel.SetActive(true);
+        GameStart();
     }
 
     public void GameStart()
@@ -163,6 +184,10 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         ClearTrash();
         if (_targetTrash != null)
             TrashSpawner.Instance.RemoveTrash(_targetTrash.gameObject);
+
+        if (_currentCleanUpSensor != null)
+            Destroy(_currentCleanUpSensor.gameObject);
+
         CloseMiniGame();
         GameManager.Instance.ResumeGame();
     }

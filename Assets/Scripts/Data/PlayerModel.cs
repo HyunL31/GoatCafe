@@ -9,6 +9,7 @@ public class PlayerModel
 
     public int Day;
     public bool IsFirstDay;
+    public string Ending;
 
     public int Stamina;
     public float WalkSpeed;
