@@ -4,8 +4,9 @@
 public class RecoveryStaminaEffect : ItemEffect
 {
     public int recoveryAmount;
-    public override void Use()
+    public override bool Use()
     {
         GameManager.Instance.GoatStaminaItemUsed(recoveryAmount);
+        return true;
     }
 }
