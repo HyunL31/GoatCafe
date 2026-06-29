@@ -17,13 +17,17 @@ public class CustomerSpawner : MonoBehaviour
 
     private bool _isJerkSuppressed = false;
     private bool _isExitingAll = false;
+    private bool _hasSpawnedToday = false;
     private List<CustomerBase> _spawnedCustomers = new List<CustomerBase>();
+
+    public bool IsPeaceItemUsed => _isJerkSuppressed;
 
     private void Start()
     {
         GameManager.Instance.OnGameStateChanged += OnStateChanged;
         GameManager.Instance.OnDayPhaseChanged += OnDayPhaseChanged;
         GameManager.Instance.OnDayTimeChanged += OnDayTimeChanged;
+        StoreManager.OnPeaceItemUsed += ActivateJerkSuppression;
     }
 
     private void OnDayPhaseChanged(DayPhase phase)
@@ -32,6 +36,7 @@ public class CustomerSpawner : MonoBehaviour
         {
             CleanUpAllCustomers();
             _isExitingAll = false;
+            _hasSpawnedToday = false;
 
             if (GameManager.Instance.IsPlaying)
                 SpawnCustomersAsync().Forget();
@@ -44,8 +49,9 @@ public class CustomerSpawner : MonoBehaviour
 
     private void OnStateChanged(GameState state)
     {
-        if (state == GameState.Playing && GameManager.Instance.CurrentDayPhase == DayPhase.Day)
+        if (state == GameState.Playing && GameManager.Instance.CurrentDayPhase == DayPhase.Day && !_hasSpawnedToday)
         {
+            _hasSpawnedToday = true;
             SpawnCustomersAsync().Forget();
         }
     }

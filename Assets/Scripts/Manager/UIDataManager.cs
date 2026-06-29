@@ -6,6 +6,8 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
 {
     public Dictionary<string, MainMenuUIData> MainMenuUIDataList {  get; private set; }
     public Dictionary<string, InGamePopupData> InGamePopupDataList {  get; private set; }
+    public Dictionary<string, TutorialPopupData> TutorialPopupDataList {  get; private set; }
+    
 
     private void Start()
     {

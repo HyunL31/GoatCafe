@@ -35,6 +35,16 @@ public class InGameUI : BaseUI<InGameUI>
         Image_StaminaGauge.fillAmount = Mathf.Clamp01(value / 100f);
     }
 
+    public void UpdataDayGauge(int value)
+    {
+        if(_dayGaugeButton == null)
+        {
+            return;
+        }
+
+        _dayGaugeButton.ChangeDay(value);
+    }
+
     public void CreateDayGaugeButton(GameObject dayGaugeButtonPrefab, Sprite backgroundSprite, Sprite dayGaugeBackgroundSprite, Sprite dayGaugeSprite, int day, TMP_FontAsset buttonFontAsset, Action buttonCallback)
     {
         if (_dayGaugeButton != null)

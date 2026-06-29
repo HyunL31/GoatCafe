@@ -12,64 +12,63 @@ public partial class UIManager
     InGamePopupPresenter _inGamePopupPresenter;
     InteractionPromptPresenter _interactionPromptPresenter;
     DialogueUI _dialogueUI;
+    private Dictionary<Type, BasePresenter> _presenterList = new();
+    private DialogueUI _dialogueUI;
 
     private GameResultPanel _gameResultPanel;
     List<BasePresenter> _presenterList = new();
-
-    public void OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
+    public TPresenter OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
     {
+        Type type = typeof(TPresenter);
+        if (_presenterList.TryGetValue(type, out BasePresenter cachedPresenter) == false)
+        {
+            cachedPresenter = new TPresenter();
+            _presenterList.Add(type, cachedPresenter);
+        }
+
+        TPresenter presenter = cachedPresenter as TPresenter;
+        _activeUI.Add(presenter.UIType_This);
+        presenter.InitUI(CreateUI<TUI>(presenter.UIType_This));
+        return presenter;
     }
 
     public void OpenMainMenuUI()
     {
-        if (_mainMenuUIPresenter == null)
-        {
-            _mainMenuUIPresenter = new MainMenuUIPresenter();
-        }
-
-        _activeUI.Add(_mainMenuUIPresenter.UIType_This);
-
-        _mainMenuUIPresenter.InitUI(CreateUI<MainMenuUI>(_mainMenuUIPresenter.UIType_This));
+        OpenUI<MainMenuUIPresenter, MainMenuUI>();
     }
 
     public void OpenSaveSlotPopup(Action closeMainMenuCallback)
     {
-        if(_saveDataSlotPopupPresenter == null)
-        {
-            _saveDataSlotPopupPresenter = new SaveDataSlotPopupPresenter();
-        }
+        SaveDataSlotPopupPresenter saveDataSlotPopupPresenter = OpenUI<SaveDataSlotPopupPresenter, SaveDataSlotPopup>();
+        saveDataSlotPopupPresenter.InitEvent(closeMainMenuCallback);
 
-        _activeUI.Add(_saveDataSlotPopupPresenter.UIType_This);
-
-        _saveDataSlotPopupPresenter.InitUI(CreateUI<SaveDataSlotPopup>(_saveDataSlotPopupPresenter.UIType_This));
-        _saveDataSlotPopupPresenter.SetAction(closeMainMenuCallback);
     }
 
     public void OpenInGameUI()
     {
-        if(_inGamePresenter == null)
-        {
-            _inGamePresenter = new InGamePresenter();
-        }
-
-        _activeUI.Add(_inGamePresenter.UIType_This);
-
-        _inGamePresenter.InitUI(CreateUI<InGameUI>(_inGamePresenter.UIType_This));
+        OpenUI<InGamePresenter, InGameUI>();
     }
 
     public void OpenInGamePopup(Action closeInGameUICallback)
     {
-        if(_inGamePopupPresenter == null)
-        {
-            _inGamePopupPresenter = new InGamePopupPresenter();
-        }
-
-        _activeUI.Add(_inGamePopupPresenter.UIType_This);
-
-        _inGamePopupPresenter.InitUI(CreateUI<InGamePopup>(_inGamePopupPresenter.UIType_This));
-        _inGamePopupPresenter.SubscribeEvent(closeInGameUICallback);
+        InGamePopupPresenter inGamePopupPresenter = OpenUI<InGamePopupPresenter, InGamePopup>();
+        inGamePopupPresenter.InitEvent(closeInGameUICallback);
     }
 
+    public void OpenGameOptionUI()
+    {
+        OpenUI<GameOptionPopupPresenter, GameOptionPopup>();
+    }
+
+    public void OpenTutorialPopup(int index = 0)
+    {
+        TutorialPopupPresenter tutorialPopupPresenter = OpenUI<TutorialPopupPresenter, TutorialPopup>();
+
+        if (index != 0)
+        {
+            tutorialPopupPresenter.InitPanelIndex(index);
+        }
+    }
     public async UniTask OpenDialogueUI()
     {
         if (_dialogueUI != null)
@@ -92,7 +91,6 @@ public partial class UIManager
             _activeUI.Add(UIType.DialogueUI);
         }
     }
-
 
     public void CloseDialogueUI()
     {
@@ -150,12 +148,4 @@ public partial class UIManager
         _interactionPromptPresenter.SetPrompt(key, actionText, target);
     }
 
-    public void OpenGameOptionUI()
-    {
-    }
-
-    public void OpenTutorialPopup()
-    {
-
-    }
 }

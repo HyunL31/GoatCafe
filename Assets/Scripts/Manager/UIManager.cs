@@ -9,6 +9,7 @@ public enum UIType : byte
     GameOptionUI,
     InGameUI,
     InGamePopup,
+    TutorialPopup,
     DialogueUI,
     InteractionPromptUI,
     GameResultPanel
@@ -65,9 +66,6 @@ public partial class UIManager : BaseMonoManager<UIManager>
         }
 
         GameObject prefab = LoadUtil.Sync.LoadPrefab(address);
-
-        Debug.Log($"주소 : {address}");
-        Debug.Log($"프리팹 : {prefab}");
 
         if (prefab == null)
         {
@@ -174,6 +172,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.InGamePopup.PopupPrefab;
                 }
+            case UIType.TutorialPopup:
+                {
+                    return AddressUtil.Prefab.UI.TutorialPopup.PopupPrefab;
+                }
             case UIType.InteractionPromptUI:
                 {
                     return AddressUtil.Prefab.UI.InteractionPromptUI.UIPrefab;
@@ -181,6 +183,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
             case UIType.DialogueUI:
                 {
                     return AddressUtil.Prefab.UI.DialogueUI.DialoguePrefab;
+                }
+            case UIType.GameOptionUI:
+                {
+                    return AddressUtil.Prefab.UI.GameOptionPopup.PopupPrefab;
                 }
             case UIType.GameResultPanel:
                 {
@@ -214,11 +220,19 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Popup;
                 }
+            case UIType.TutorialPopup:
+                {
+                    return UIRootType.Popup;
+                }
             case UIType.InteractionPromptUI:
                 {
                     return UIRootType.Front;
                 }
             case UIType.DialogueUI:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.GameOptionUI:
                 {
                     return UIRootType.Popup;
                 }

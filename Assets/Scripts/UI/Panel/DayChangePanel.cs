@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DayChangePanel : MonoBehaviour
 {
+    [SerializeField] private RectTransform RectTransform_This;
     [SerializeField] private Image Image_Background;
     [SerializeField] private Image Image_Edge;
     [SerializeField] private Image Image_Title;
@@ -16,19 +17,22 @@ public class DayChangePanel : MonoBehaviour
     [SerializeField] private TMP_Text Text_Button;
 
     private Action OnButtonClicked;
-
+    
     public void Open(Action buttonCallback)
     {
         this.ActiveTrue();
         OnButtonClicked += buttonCallback;
         BindButtonEvent();
 
+        UIEffectUtil.SetScaleOne(RectTransform_This, 0.5f);
         GameManager.Instance.PauseGame();
     }
 
     public void Close()
     {
         OnButtonClicked = null;
+
+        UIEffectUtil.SetScaleZero(RectTransform_This, 0.5f);
         this.ActiveFalse();
 
         GameManager.Instance.ResumeGame();

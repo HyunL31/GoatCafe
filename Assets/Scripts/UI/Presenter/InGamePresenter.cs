@@ -36,7 +36,10 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
     {
         Debug.Log("[IngamePresenter] 구독");
         GameManager.Instance.OnDayTimeChanged += On_DayTimeChange;
-        GameManager.Instance.OnDayPhaseChanged += On_DayChange;
+        GameManager.Instance.OnDayPhaseChanged += On_DayPhaseChange;
+        GameManager.Instance.OnDayChanged += On_DayChange;
+
+        InputManager.Instance.OnEscKeyDown += On_UIExit;
 
         On_DayTimeChange(GameManager.Instance.RemainDayTime);
     }
@@ -45,7 +48,10 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
     {
         Debug.Log("[IngamePresenter] 구독해제");
         GameManager.Instance.OnDayTimeChanged -= On_DayTimeChange;
-        GameManager.Instance.OnDayPhaseChanged -= On_DayChange;
+        GameManager.Instance.OnDayPhaseChanged -= On_DayPhaseChange;
+        GameManager.Instance.OnDayChanged -= On_DayChange;
+
+        InputManager.Instance.OnEscKeyDown -= On_UIExit;
     }
 
     protected async override UniTaskVoid SetUI()
@@ -120,6 +126,12 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
         _inGameUI.SetDayGaugeButtonDayGauge(1f - GameManager.Instance.DayTimeRate);
     }
 
+    private void On_DayChange(int day)
+    {
+
+        _inGameUI.UpdataDayGauge(day);
+    }
+
     private void OnClick_DayGaugeButton()
     {
         UIManager.Instance.OpenInGamePopup(On_UIExit);
@@ -131,7 +143,7 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
         UIManager.Instance.CloseUI(UIType_This);
     }
 
-    private void On_DayChange(DayPhase dayPhase)
+    private void On_DayPhaseChange(DayPhase dayPhase)
     {
         switch(dayPhase)
         {
@@ -147,7 +159,6 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
                 return;
             default:
                 {
-                    this.LogError("예상치 못한 오류가 발생하였습니다!!");
                 }
                 return;
         }
