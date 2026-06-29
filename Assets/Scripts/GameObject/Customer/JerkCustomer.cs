@@ -56,10 +56,10 @@ public class JerkCustomer : CustomerBase
     public void StopReactingAndExit(Vector3 exitPosition)
     {
         if (State == CustomerState.Hit) return;
-        // Walking 상태 전환 없이 바로 IsExiting 처리
+        if (_anim != null) _anim.SetTrigger(HashExitReact);
         IsExiting = true;
         _agent.isStopped = false;
-        if (_anim != null) _anim.SetTrigger("Walk"); // Reacting 애니메이션 중단
+        if (_anim != null) _anim.SetTrigger("Walk");
         _agent.SetDestination(exitPosition);
         WaitAndDestroyAsync().Forget();
     }
@@ -67,6 +67,7 @@ public class JerkCustomer : CustomerBase
     public void StopReacting()
     {
         if (State != CustomerState.Reacting) return;
+        if (_anim != null) _anim.SetTrigger(HashExitReact);
         SetState(CustomerState.Walking);
     }
 
