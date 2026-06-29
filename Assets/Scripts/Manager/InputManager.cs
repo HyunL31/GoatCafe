@@ -25,11 +25,12 @@ public class InputManager : BaseMonoManager<InputManager>
     [Header("일시정지")]
     //[SerializeField] private GameObject pauseMenuUI;
 
+    [SerializeField] private KeyCode _interactKey = KeyCode.E;
+
     public static float Horizontal { get; private set; }
     public static float Vertical { get; private set; }
     public static bool IsPaused { get; private set; } = false;
-
-    
+    public string InteractionKeyText => _interactKey.ToString();
 
     public event Action OnInteractPressed;
     public event Action OnEscKeyDown;
@@ -73,7 +74,6 @@ public class InputManager : BaseMonoManager<InputManager>
 
         RotateCheckOnUpdate();
         MoveOnUpdate();
-
         //if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         //{
         //    StartJump();
@@ -89,7 +89,7 @@ public class InputManager : BaseMonoManager<InputManager>
             ToggleMouseLock(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) // 상호작용 키세팅
+        if (Input.GetKeyDown(_interactKey))
         {
             OnInteractPressed?.Invoke();
         }

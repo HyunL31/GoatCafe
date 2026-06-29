@@ -10,7 +10,8 @@ public enum GameState
     Playing,
     Pause,
     Home,
-    GameOver
+    GameOver,
+    GameClear
 }
 
 public enum DayPhase
@@ -39,12 +40,15 @@ public class GameManager : BaseMonoManager<GameManager>
 
     private float _remainDayTime;
     private GameState _beforeGameState;
+    private EndingType _currentEndingType = EndingType.None;
 
     public GameState CurrentState { get; private set; } = GameState.None;
     public DayPhase CurrentDayPhase { get; private set; } = DayPhase.None;
 
     public string CurrentDialogueID { get; private set; }
 
+
+    public EndingType CurrentEndingType => _currentEndingType;
     public int CurrentDay => SaveManager.Instance.CurrentPlayerModel.Day;
     public int CurrentCoin => SaveManager.Instance.CurrentPlayerModel.Coin;
     public int CurrentStolenItemCount => SaveManager.Instance.CurrentPlayerModel.StolenItemCount;
@@ -178,14 +182,20 @@ public class GameManager : BaseMonoManager<GameManager>
 
         Time.timeScale = 1f;
         ChangeGameState(GameState.GameOver);
+        UIManager.Instance.OpenGameResultPanel().Forget();
     }
-
-
 
     public void ReadyGame()
     {
         Time.timeScale = 0f;
         ChangeGameState(GameState.Ready);
+    }
+
+    public void ClearGame()
+    {
+        Time.timeScale = 1f;
+        ChangeGameState(GameState.GameClear);
+        UIManager.Instance.OpenGameResultPanel().Forget();
     }
 
     private void ChangeGameState(GameState gameState)
@@ -257,7 +267,6 @@ public class GameManager : BaseMonoManager<GameManager>
         if (CurrentDay >= _maxDayCount)
         {
             DetermineEnding();
-            EndGame();
             return;
         }
 
@@ -290,13 +299,37 @@ public class GameManager : BaseMonoManager<GameManager>
 
     public void DetermineEnding()
     {
-        EndingType endingType = GetEndingType();
+        _currentEndingType = GetEndingType();
 
-        Debug.Log($"엔딩 > {endingType}");
+        Debug.Log($"엔딩 > {_currentEndingType}");
 
-        OnEndingDetermined?.Invoke(endingType);
-        SaveManager.Instance.SaveData();
+        OnEndingDetermined?.Invoke(_currentEndingType);
         UIManager.Instance.OpenDialogueUI().Forget();
+    }
+
+    public void HandleEndingDialogueFinished()
+    {
+        if (_currentEndingType == EndingType.HappyEnding)
+        {
+            ClearGame();
+            return;
+        }
+
+        EndGame();
+    }
+
+    public void ReturnTitle()
+    {
+        Time.timeScale = 1f;
+
+        CurrentDialogueID = "Opening_01";
+
+        ChangeDayPhase(DayPhase.None);
+        ChangeGameState(GameState.Ready);
+
+        UIManager.Instance.CloseUI(UIType.InGameUI);
+
+        UIManager.Instance.OpenMainMenuUI();
     }
 
     public void SetCurrentID(string nextID)
@@ -324,7 +357,7 @@ public class GameManager : BaseMonoManager<GameManager>
     {
         int result = basePoint + miniGamePoint;
 
-        if(isPointDouble) // DoublePoint 아이템이 구매되었으면, 보너스 점수 배율 적용
+        if (isPointDouble) // DoublePoint 아이템이 구매되었으면, 보너스 점수 배율 적용
         {
             result = GameUtil.GetBonusScoreByRate(result, 2.0f);
         }
