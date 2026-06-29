@@ -1798,6 +1798,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2648803052026239814, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2917478107150021956, guid: d61df712a54c685468d99288a0748a3d, type: 3}
       propertyPath: m_Name
       value: Goat
@@ -1897,7 +1901,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1863424895105835824, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1605148572}
   m_SourcePrefab: {fileID: 100100000, guid: d61df712a54c685468d99288a0748a3d, type: 3}
 --- !u!4 &1470859899 stripped
 Transform:
@@ -1914,7 +1921,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4692921745255493499, guid: d61df712a54c685468d99288a0748a3d, type: 3}
   m_PrefabInstance: {fileID: 1470859898}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1605148571}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d746e4f0c818014d91bfd0c5d7282e7, type: 3}
@@ -2074,6 +2081,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1630352583336965362, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
   m_PrefabInstance: {fileID: 1216897121}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1605148571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1863424895105835824, guid: d61df712a54c685468d99288a0748a3d, type: 3}
+  m_PrefabInstance: {fileID: 1470859898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1605148572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605148571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d1b8581ea6665499e93be349cbd802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepPlayer
 --- !u!224 &1695693984 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3346298248540111635, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
