@@ -11,8 +11,6 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private Rigidbody Rigidbody_BasicGoat;
     [SerializeField] private Transform Transform_HomePoint;
 
-    public event Action OnChangedStamina;
-
     public int Stamina { get; private set; }
 
     private float _inputZ;
@@ -44,7 +42,6 @@ public class PlayerMoving : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
         {
-            Debug.Log(Stamina);
             AttackRoutine().Forget();
         }
     }
@@ -107,7 +104,50 @@ public class PlayerMoving : MonoBehaviour
 
     private void MoveHome()
     {
-        this.transform.position = Transform_HomePoint.transform.position;
+        MoveHomeAsync().Forget();
+    }
+
+    private async UniTaskVoid MoveHomeAsync()
+    {
+        Vector3 targetPosition = Transform_HomePoint.position;
+
+        Rigidbody_BasicGoat.isKinematic = true;
+
+        Rigidbody_BasicGoat.linearVelocity = Vector3.zero;
+        Rigidbody_BasicGoat.angularVelocity = Vector3.zero;
+
+        Rigidbody_BasicGoat.transform.position = targetPosition;
+        this.transform.position = targetPosition;
+        Rigidbody_BasicGoat.position = targetPosition;
+
+        _inputX = 0f;
+        _inputZ = 0f;
+
+        if (Goat_Humanoid != null)
+        {
+            Goat_Humanoid.transform.localPosition = Vector3.zero;
+        }
+
+        if (_camera != null)
+        {
+            var camController = _camera.GetComponent<CameraController>();
+            if (camController != null)
+            {
+                float targetAngleY = Transform_HomePoint.eulerAngles.y;
+                camController.SetCameraRotation(targetAngleY);
+            }
+        }
+
+        await UniTask.WaitForFixedUpdate();
+
+        if (Rigidbody_BasicGoat != null)
+        {
+            Rigidbody_BasicGoat.isKinematic = false;
+
+            Rigidbody_BasicGoat.linearVelocity = Vector3.zero;
+            Rigidbody_BasicGoat.angularVelocity = Vector3.zero;
+            Rigidbody_BasicGoat.position = targetPosition;
+        }
     }
 
     private async UniTask AttackRoutine()
@@ -118,7 +158,7 @@ public class PlayerMoving : MonoBehaviour
         _isAttack = true;
 
         Stamina -= 10;
-        OnChangedStamina?.Invoke();
+        GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
 
         Animator_Goat.SetTrigger("Attack");
 
@@ -146,6 +186,9 @@ public class PlayerMoving : MonoBehaviour
         Animator_Goat.SetTrigger("Die");
 
         await UniTask.Delay(TimeSpan.FromSeconds(2f), cancellationToken: _dieToken.Token);
+
+        GameManager.Instance.EndGame();
+        GameManager.Instance.DetermineEnding();
     }
 
     private void CancelAttack()
@@ -182,13 +225,13 @@ public class PlayerMoving : MonoBehaviour
             Stamina = 100;
         }
 
-        OnChangedStamina?.Invoke();
+        GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
     }
 
-    private void AddGoatSpeed(int walkValue, int runValue)
+    private void AddGoatSpeed(float value)
     {
-        _runSpeed += runValue;
-        _walkSpeed += walkValue;
+        _runSpeed = _runSpeed * value;
+        _walkSpeed = _walkSpeed * value;
     }
 
     private void SetStamina()

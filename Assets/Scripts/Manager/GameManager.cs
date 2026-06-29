@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 public enum GameState
 {
@@ -9,7 +10,9 @@ public enum GameState
     Ready,
     Playing,
     Pause,
-    GameOver
+    Home,
+    GameOver,
+    GameClear
 }
 
 public enum DayPhase
@@ -28,20 +31,25 @@ public enum EndingType
 
 public class GameManager : BaseMonoManager<GameManager>
 {
-    [SerializeField] private float _dayDuration = 300f;
-    [SerializeField] private float _nightDuration = 300f;
+    // 300f
+    [SerializeField] private float _dayDuration = 50f;
+    [SerializeField] private float _nightDuration = 50f;
     [SerializeField] private int _maxDayCount = 3;
 
     [SerializeField] private int _targetCoin = 1000;
     [SerializeField] private int _targetStolenItemCount = 6;
 
     private float _remainDayTime;
-
+    private GameState _beforeGameState;
+    private EndingType _currentEndingType = EndingType.None;
 
     public GameState CurrentState { get; private set; } = GameState.None;
     public DayPhase CurrentDayPhase { get; private set; } = DayPhase.None;
 
+    public string CurrentDialogueID { get; private set; }
 
+
+    public EndingType CurrentEndingType => _currentEndingType;
     public int CurrentDay => SaveManager.Instance.CurrentPlayerModel.Day;
     public int CurrentCoin => SaveManager.Instance.CurrentPlayerModel.Coin;
     public int CurrentStolenItemCount => SaveManager.Instance.CurrentPlayerModel.StolenItemCount;
@@ -51,7 +59,28 @@ public class GameManager : BaseMonoManager<GameManager>
     public float RemainDayTime => _remainDayTime;
     public float DayDuration => _dayDuration;
     public float NightDuration => _nightDuration;
-    public float DayTimeRate => _dayDuration <= 0f ? 0f : _remainDayTime / _dayDuration;
+    
+    public float DayTimeRate 
+    {
+        get
+        {
+            if (_remainDayTime <= 0f)
+                return 0f;
+
+            if (CurrentDayPhase == DayPhase.Day)
+            {
+                return _remainDayTime / _dayDuration;
+            }
+            else if(CurrentDayPhase == DayPhase.Night)
+            {
+                return _remainDayTime / _nightDuration;
+            }
+            else
+            {
+                return 0f;
+            }
+        }
+    }
     public float NightTimeRate => _nightDuration <= 0f ? 0f : (_remainDayTime / _nightDuration);
 
     public event Action<EndingType> OnEndingDetermined;
@@ -60,13 +89,15 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<float> OnDayTimeChanged;
 
     public event Action OnMoveHome;
+    public Action<int> OnChangedStamina;
 
     public event Action<int> OnUseStaminaItem;
-    public event Action<int, int> OnUseSpeedItem;
+    public event Action<float> OnUseSpeedItem;
 
     protected override void Awake()
     {
         base.Awake();
+        CurrentDialogueID = "Opening_01";
     }
 
     private void Start()
@@ -117,22 +148,15 @@ public class GameManager : BaseMonoManager<GameManager>
         OnDayTimeChanged?.Invoke(_remainDayTime);
     }
 
-    public void ReadyGame()
-    {
-        Time.timeScale = 0f;
-        ChangeGameState(GameState.Ready);
-    }
-
     // Pause(일시정지) 상태로 전환
     public void PauseGame()
     {
-        if (CurrentState != GameState.Playing)
+        if (CurrentState == GameState.Playing || CurrentState == GameState.Home)
         {
-            return;
+            _beforeGameState = CurrentState;
+            Time.timeScale = 0f;
+            ChangeGameState(GameState.Pause);
         }
-
-        Time.timeScale = 0f;
-        ChangeGameState(GameState.Pause);
     }
 
     // Pause > Playing 상태로 전환
@@ -144,7 +168,8 @@ public class GameManager : BaseMonoManager<GameManager>
         }
 
         Time.timeScale = 1f;
-        ChangeGameState(GameState.Playing);
+        ChangeGameState(_beforeGameState);
+        _beforeGameState = GameState.None;
     }
 
     // GameOver 상태로 전환
@@ -157,12 +182,20 @@ public class GameManager : BaseMonoManager<GameManager>
 
         Time.timeScale = 1f;
         ChangeGameState(GameState.GameOver);
+        UIManager.Instance.OpenGameResultPanel().Forget();
     }
 
     public void ReadyGame()
     {
         Time.timeScale = 0f;
         ChangeGameState(GameState.Ready);
+    }
+
+    public void ClearGame()
+    {
+        Time.timeScale = 1f;
+        ChangeGameState(GameState.GameClear);
+        UIManager.Instance.OpenGameResultPanel().Forget();
     }
 
     private void ChangeGameState(GameState gameState)
@@ -194,7 +227,7 @@ public class GameManager : BaseMonoManager<GameManager>
     private void FinishNight()
     {
         ChangeDayPhase(DayPhase.None);
-        ChangeGameState(GameState.Ready);
+        ChangeGameState(GameState.Home);
 
         OnMoveHome?.Invoke();
     }
@@ -234,7 +267,6 @@ public class GameManager : BaseMonoManager<GameManager>
         if (CurrentDay >= _maxDayCount)
         {
             DetermineEnding();
-            EndGame();
             return;
         }
 
@@ -242,9 +274,8 @@ public class GameManager : BaseMonoManager<GameManager>
         SaveManager.Instance.SaveData();
 
         Time.timeScale = 1f;
-
-        StartDay();
         ChangeGameState(GameState.Playing);
+        StartDay();
     }
 
     public EndingType GetEndingType()
@@ -254,19 +285,52 @@ public class GameManager : BaseMonoManager<GameManager>
 
         if (isCoinSuccess && isStolenSuccess)
         {
+            CurrentDialogueID = "Happy_Ending_01";
             return EndingType.HappyEnding;
         }
 
+        CurrentDialogueID = "Bad_Ending_01";
         return EndingType.BadEnding;
     }
 
     public void DetermineEnding()
     {
-        EndingType endingType = GetEndingType();
+        _currentEndingType = GetEndingType();
 
-        Debug.Log($"엔딩 > {endingType}");
+        Debug.Log($"엔딩 > {_currentEndingType}");
 
-        OnEndingDetermined?.Invoke(endingType);
+        OnEndingDetermined?.Invoke(_currentEndingType);
+        UIManager.Instance.OpenDialogueUI().Forget();
+    }
+
+    public void HandleEndingDialogueFinished()
+    {
+        if (_currentEndingType == EndingType.HappyEnding)
+        {
+            ClearGame();
+            return;
+        }
+
+        EndGame();
+    }
+
+    public void ReturnTitle()
+    {
+        Time.timeScale = 1f;
+
+        CurrentDialogueID = "Opening_01";
+
+        ChangeDayPhase(DayPhase.None);
+        ChangeGameState(GameState.Ready);
+
+        UIManager.Instance.CloseUI(UIType.InGameUI);
+
+        UIManager.Instance.OpenMainMenuUI();
+    }
+
+    public void SetCurrentID(string nextID)
+    {
+        CurrentDialogueID = nextID;
     }
 
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
@@ -295,5 +359,15 @@ public class GameManager : BaseMonoManager<GameManager>
         }
 
         return result;
+    }
+
+    public void GoatStaminaItemUsed(int value)
+    {
+        OnUseStaminaItem.Invoke(value);
+    }
+
+    public void GoatSpeedBoostPurchased(float value)
+    {
+        OnUseSpeedItem.Invoke(value);
     }
 }

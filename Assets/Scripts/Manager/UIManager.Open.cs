@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
 
 public partial class UIManager
 {
@@ -7,7 +10,9 @@ public partial class UIManager
     SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
     InGamePresenter _inGamePresenter;
     InGamePopupPresenter _inGamePopupPresenter;
+    DialogueUI _dialogueUI;
 
+    private GameResultPanel _gameResultPanel;
     List<BasePresenter> _presenterList = new();
 
     public void OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
@@ -62,6 +67,65 @@ public partial class UIManager
 
         _inGamePopupPresenter.InitUI(CreateUI<InGamePopup>(_inGamePopupPresenter.UIType_This));
         _inGamePopupPresenter.SubscribeEvent(closeInGameUICallback);
+    }
+
+    public async UniTask OpenDialogueUI()
+    {
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(true);
+
+            if (!_activeUI.Contains(UIType.DialogueUI))
+            {
+                _activeUI.Add(UIType.DialogueUI);
+            }
+
+            return;
+        }
+
+        _dialogueUI = await CreateUIAsync<DialogueUI>(UIType.DialogueUI);
+
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(true);
+            _activeUI.Add(UIType.DialogueUI);
+        }
+    }
+
+    public async UniTask OpenGameResultPanel()
+    {
+        if (_gameResultPanel != null)
+        {
+            _gameResultPanel.gameObject.SetActive(true);
+
+            if (!_activeUI.Contains(UIType.GameResultPanel))
+            {
+                _activeUI.Add(UIType.GameResultPanel);
+            }
+
+            return;
+        }
+
+        _gameResultPanel = await CreateUIAsync<GameResultPanel>(UIType.GameResultPanel);
+
+        if (_gameResultPanel != null)
+        {
+            _gameResultPanel.gameObject.SetActive(true);
+            _activeUI.Add(UIType.GameResultPanel);
+        }
+    }
+
+    public void CloseDialogueUI()
+    {
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(false);
+
+            if (_activeUI.Contains(UIType.DialogueUI))
+            {
+                _activeUI.Remove(UIType.DialogueUI);
+            }
+        }
     }
 
     public void OpenGameOptionUI()

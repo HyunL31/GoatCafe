@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -9,7 +10,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
 {
 
     //임시 소유 코인
-    public int Coin { get; set; } = 10000;
+    public int Coin { get; set; }
 
     [Header("Item Desc Tooltip")]  // UIManager로 옮기기 전 임시 구현 변수
     [SerializeField] private int DescTooltipWidth = 500;
@@ -25,7 +26,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
     [SerializeField] private GameObject _storePopup;
     [SerializeField] private Button _exitButton;
     [SerializeField] private TextMeshProUGUI _coinText;
-    [SerializeField] private Transform _contentParent;
+    [SerializeField] private RectTransform _contentParent;
+    [SerializeField] private ScrollRect _scrollRect;
 
     [Header("Main Player Accessory")]
     [SerializeField] private PlayerAccessory _playerAccessory;
@@ -39,12 +41,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
 
     public static event System.Action<PermanentItem> OnItemPurchased;
-
-    private void Start()
-    {
-        // 테스트를 위해 잠시 꺼놓았습니당
-       // Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
-    }
+    public static event Action StoreAreaEntered;
 
     public void AddItemObj(string name, GameObject prefab)
     {
@@ -152,21 +149,22 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void OnClickExitBtn()
     {
         RectTransform popupRect = _storePopup.GetComponent<RectTransform>();
-
-        UIEffectUtil.SetScaleZero(_storePopup.GetComponent<RectTransform>(), 0.5f);
+        GameManager.Instance.ResumeGame();
+        UIEffectUtil.SetScaleZero(_storePopup.GetComponent<RectTransform>(), 0.3f);
         //UIEffectUtil.SetUISlideDown(popupRect, Vector2.zero, 0.5f);
 
-        GameManager.Instance.ResumeGame();
+
     }
 
     public void OpenStorePopup()
     {
+        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;
         UpdateStorePopup();
-
         _storePopup.SetActive(true);
-        UIEffectUtil.SetScaleOne(_storePopup.GetComponent<RectTransform>(), 0.5f);
-        //UIEffectUtil.SetUISlideUp(_storePopup.GetComponent<RectTransform>(), 0.5f);
         GameManager.Instance.PauseGame();
+        UIEffectUtil.SetScaleOne(_storePopup.GetComponent<RectTransform>(), 0.3f);
+        //UIEffectUtil.SetUISlideUp(_storePopup.GetComponent<RectTransform>(), 0.5f);
+
     }
 
     public void HandleButtonClick(ItemBase itemData, Button button)
@@ -196,6 +194,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             {
                 case EffectType.SpeedUp:
                     Debug.Log("SpeedUp 구매됨");
+                    GameManager.Instance.GoatSpeedBoostPurchased(permanentData.value);
                     break;
                 case EffectType.MiniGamePointDouble:
                     Debug.Log("MiniGamePointDouble 구매됨");
@@ -379,6 +378,14 @@ public class StoreManager : BaseMonoManager<StoreManager>
         else
         {
             ItemDescPopup.SetActive(isactive);
+        }
+    }
+
+    public void HandleItemUse(ItemBase item)
+    {
+        if(item is ConsumableItem consume)
+        {
+            consume.UseItem();
         }
     }
 }

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameDataManager : BaseMonoManager<GameDataManager>
 {
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         if (Instance == this)
         {
             LoadAllData();
@@ -43,7 +45,7 @@ public class GameDataManager : BaseMonoManager<GameDataManager>
         try
         {
             string jsonData = textAsset.text;
-            string wrapperData = "{\"m_data\":" + jsonData + "}";
+            string wrapperData = "{\"_data\":" + jsonData + "}";
             SerializableWrapper<T> wrapper = JsonUtility.FromJson<SerializableWrapper<T>>(wrapperData);
             if (wrapper._data != null)
             {

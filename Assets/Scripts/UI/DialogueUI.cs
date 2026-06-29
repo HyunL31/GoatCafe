@@ -6,8 +6,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueUI : BaseUI
+public class DialogueUI : BaseUI<DialogueUI>
 {
+    public UIType UIType_This { get; } = UIType.DialogueUI;
+
+    [SerializeField] private Image Image_Background;
     [SerializeField] private Button Button_Dialogue;
     [SerializeField] private TextMeshProUGUI Text_Dialogue;
     [SerializeField] private TextMeshProUGUI Text_Speaker;
@@ -15,8 +18,7 @@ public class DialogueUI : BaseUI
     [SerializeField] private Image Image_NextArrow;
 
     private bool _isTyping = false;
-    private float _typingWaitTime = 0.3f;
-    private float _autoWaitTime = 0.5f;
+    private float _typingWaitTime = 0.03f;
     private CancellationTokenSource _typingToken;
     private Dictionary<string, DialogueData> _dialogues;
 
@@ -29,11 +31,17 @@ public class DialogueUI : BaseUI
 
     private void OnEnable()
     {
-        //ShowDialogue(GetCurrentID());
+        GameManager.Instance.PauseGame();
+        ShowDialogue(GetCurrentID());
     }
 
     private void OnDisable()
     {
+        if (GameManager.Instance.CurrentEndingType == EndingType.None)
+        {
+            GameManager.Instance.ResumeGame();
+        }
+
         CancelTypingRoutine();
     }
 
@@ -42,21 +50,29 @@ public class DialogueUI : BaseUI
         if (_isTyping)
         {
             _isTyping = false;
+            Text_Dialogue.maxVisibleCharacters = Text_Dialogue.text.Length;
+            return;
         }
-        else
-        {
-            //MoveToNextDialogue(GetCurrentID());
-        }
+
+        MoveToNextDialogue(GetCurrentID());
     }
 
     private void ShowDialogue(string id)
     {
+        DialogueData data = _dialogues[id];
+
+        Debug.Log($"ID: {id}");
+        Debug.Log($"Content: {data.Content}");
+        Debug.Log($"Content Length: {data.Content.Length}");
+
         if (string.IsNullOrEmpty(_dialogues[id].Speaker))
         {
             Image_Speaker.gameObject.SetActive(false);
         }
         else
         {
+            Image_Speaker.gameObject.SetActive(true);
+
             string speaker = _dialogues[id].Speaker;
             Text_Speaker.text = speaker;
         }
@@ -65,13 +81,38 @@ public class DialogueUI : BaseUI
         _typingToken = new CancellationTokenSource();
 
         Typing(id, _typingToken.Token).Forget();
+
+        SetBackgroundImage(id).Forget();
     }
 
     private void MoveToNextDialogue(string id)
     {
         string nextID = _dialogues[id].NextID;
 
-        //ShowDialogue(GetCurrentID());
+        if (nextID == "Open")
+        {
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.StartGame();
+            return;
+        }
+
+        if (nextID == "GameClear")
+        {
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.ClearGame();
+            return;
+        }
+
+        if (nextID == "GameOver")
+        {
+            UIManager.Instance.CloseDialogueUI();
+            GameManager.Instance.HandleEndingDialogueFinished();
+            return;
+        }
+
+        GameManager.Instance.SetCurrentID(nextID);
+
+        ShowDialogue(GetCurrentID());
     }
 
     private async UniTaskVoid Typing(string id, CancellationToken token)
@@ -79,25 +120,27 @@ public class DialogueUI : BaseUI
         _isTyping = true;
 
         string content = _dialogues[id].Content;
+
+        Text_Dialogue.text = content;
+        Text_Dialogue.ForceMeshUpdate();
+
         Text_Dialogue.maxVisibleCharacters = 0;
         Image_NextArrow.gameObject.SetActive(false);
 
-        if (_typingWaitTime > 0)
+        for (int i = 0; i < content.Length; i++)
         {
-            for (int i = 0; i < content.Length; i++)
+            if (!_isTyping)
             {
-                if (!_isTyping)
-                {
-                    break;
-                }
-
-                Text_Dialogue.maxVisibleCharacters = i;
-
-                await UniTask.Delay(TimeSpan.FromSeconds(_typingWaitTime), cancellationToken: token);
+                break;
             }
+
+            Text_Dialogue.maxVisibleCharacters = i + 1;
+
+            await UniTask.Delay(TimeSpan.FromSeconds(_typingWaitTime), ignoreTimeScale: true, cancellationToken: token);
         }
 
         Text_Dialogue.maxVisibleCharacters = content.Length;
+        Text_Dialogue.ForceMeshUpdate();
 
         _isTyping = false;
         Image_NextArrow.gameObject.SetActive(true);
@@ -113,9 +156,21 @@ public class DialogueUI : BaseUI
         }
     }
 
-    //private string GetCurrentID()
-    //{
-    //    return 
-    //}
+    private string GetCurrentID()
+    {
+        return GameManager.Instance.CurrentDialogueID;
+    }
+
+    private async UniTask SetBackgroundImage(string id)
+    {
+        string background = _dialogues[id].Background;
+
+        if (string.IsNullOrEmpty(background))
+        {
+            return;
+        }
+
+        Image_Background.sprite = await LoadUtil.Async.LoadSpriteAsync($"Image/{background}");
+    }
 }
  

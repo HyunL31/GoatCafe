@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73d790e3dc473d445be45bb616d8bc12
+    m_Address: Sprite/UI/SaveSlotPopup/SlotRemoveButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 879e4da656f144844affd88fe42a003b
     m_Address: Sprite/UI/ButtonRed
     m_ReadOnly: 0
