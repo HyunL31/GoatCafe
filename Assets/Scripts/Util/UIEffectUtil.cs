@@ -53,16 +53,16 @@ public static class UIEffectUtil
     }
 
     // UI가 아래로 이동해 화면 밖으로 이동하는 연출
-    public static void SetUISlideDown(RectTransform rect, Vector2 originalPos, float duration)
+    public static void SetUISlideDown(RectTransform rect, Vector2 originalPos, float duration, Action onComplete = null)
     {
         rect.DOKill();
         Vector2 firstPos = rect.anchoredPosition;
         Vector2 endPos = new Vector2(firstPos.x, -Screen.height);
 
-
-        rect.DOAnchorPos(endPos, duration).SetEase(Ease.OutBack).OnComplete(() => {
+        rect.DOAnchorPos(endPos, duration).SetEase(Ease.InBack).OnComplete(() => {
             rect.gameObject.SetActive(false);
             rect.anchoredPosition = originalPos;
+            onComplete?.Invoke();          // ← 애니 끝난 뒤 실행
         }).SetUpdate(true);
     }
 

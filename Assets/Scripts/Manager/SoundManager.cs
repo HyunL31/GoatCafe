@@ -103,6 +103,11 @@ public class SoundManager : BaseMonoManager<SoundManager>
         return _sfxVolume;
     }
 
+    public float GetBGMVolume()
+    {
+        return _bgmVolume;
+    }
+
     public void SetSFXVolume(float volume)
     {
         _sfxVolume = volume;

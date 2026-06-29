@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Video;
 
 public static class LoadUtil
 {
@@ -22,6 +23,12 @@ public static class LoadUtil
         {
             TMP_FontAsset fontAsset = await LoadGenericAsync<TMP_FontAsset>(address);
             return fontAsset;
+        }
+
+        public async static UniTask<VideoClip> LoadVideoClipAsync(string address)
+        {
+            VideoClip videoClip = await LoadGenericAsync<VideoClip>(address);
+            return videoClip;
         }
 
         public async static UniTask<T> LoadGenericAsync<T>(string address) where T : Object

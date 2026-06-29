@@ -44,6 +44,16 @@ public static class AddressUtil
             {
                 public const string DialoguePrefab = "Prefab/UI/DialogueUI";
             }
+
+            public static class TutorialPopup
+            {
+                public const string PopupPrefab = "Prefab/UI/TutorialPopup";
+            }
+
+            public static class GameOptionPopup
+            {
+                public const string PopupPrefab = "Prefab/UI/GameOptionPopup";
+            }
         }
         public static class VFX
         {
@@ -137,7 +147,11 @@ public static class AddressUtil
                 public const string Background = "Sprite/UI/InGamePopup/Background";
                 public const string TutorialButton = "Sprite/UI/InGamePopup/TutorialButton";
                 public const string GameOptionButton = "Sprite/UI/InGamePopup/GameOptionButton";
-                public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuBUtton";
+                public const string ReturnMainMenuButton = "Sprite/UI/InGamePopup/ReturnMainMenuButton";
+            }
+
+            public static class TutorialPopup
+            {
             }
         }
     }

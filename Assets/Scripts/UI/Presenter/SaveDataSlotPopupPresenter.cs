@@ -62,7 +62,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
         SetUI().Forget();
     }
 
-    public void SetAction(Action onSaveDataSlotSelected)
+    public void InitEvent(Action onSaveDataSlotSelected)
     {
         OnSaveDataSlotSelected = onSaveDataSlotSelected;
     }
