@@ -17,6 +17,7 @@ public class InGameUI : BaseUI<InGameUI>
     private void Awake()
     {
         GameManager.Instance.OnChangedStamina += UpdateStaminaGauge;
+        UpdateStaminaGauge(SaveManager.Instance.CurrentPlayerModel.Stamina);
     }
 
     public void SetStaminaGaugeImage(Sprite staminaGaugeBackgroundSprite, Sprite staminaGaugeSprite)

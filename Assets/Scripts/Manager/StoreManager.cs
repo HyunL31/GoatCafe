@@ -47,6 +47,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public static event Action StoreAreaEntered;
     public static event Action<float> OnPeaceItemUsed;
 
+    public int Coin => SaveManager.Instance.CurrentPlayerModel.Coin;
+
     public void AddItemObj(string name, GameObject prefab)
     {
         if (!_existItems.ContainsKey(name))
@@ -85,7 +87,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void AddEquipped(CosmeticItem itemData) => equippedItems.Add(itemData);
     public void RemoveEquipped(CosmeticItem itemData) => equippedItems.Remove(itemData);
     public void ClearEquippedData() => equippedItems.Clear();
-    public int Coin => SaveManager.Instance.CurrentPlayerModel.Coin;
 
 
     public void AddInventory(ItemBase itemData)
