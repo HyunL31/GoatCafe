@@ -127,14 +127,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1586882701838567642, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.806
+    - target: {fileID: 1838711461349006990, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: Float_JerkChance
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1586882701838567642, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.541
+    - target: {fileID: 1838711461349006990, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: Transform_Waypoints.Array.size
+      value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 1838711461349006990, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: 'Transform_Waypoints.Array.data[12]'
+      value: 
+      objectReference: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+    - target: {fileID: 1838711461349006990, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
+      propertyPath: 'Prefabs_JerkCustomers.Array.data[12]'
+      value: 
+      objectReference: {fileID: 2680176844654672350, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
     - target: {fileID: 4142011108806439604, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.67349
@@ -2452,6 +2460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7256aa011c66847b4473d1f766e47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoreManager
+  _customerSpawner: {fileID: 0}
   DescTooltipWidth: 500
   UICanvasRect: {fileID: 2087435529}
   ItemDescPopup: {fileID: 1932700715}
@@ -2657,6 +2666,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b4a3cb255d702419410f46beef4e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDataManager
+--- !u!1001 &1330032681315030154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4117630908552910120, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_Name
+      value: Customer_Normal_Elien_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.1355
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9257
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
+--- !u!1001 &6558608756945343169
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2680176844654672350, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_Name
+      value: Customer_Jerk_Elien_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.1355
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9257
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735992455961281664, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
 --- !u!1001 &8905609966074725187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2756,3 +2879,5 @@ SceneRoots:
   - {fileID: 1470859898}
   - {fileID: 1178090603}
   - {fileID: 903693769}
+  - {fileID: 6558608756945343169}
+  - {fileID: 1330032681315030154}

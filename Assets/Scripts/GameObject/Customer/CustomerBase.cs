@@ -73,6 +73,8 @@ public abstract class CustomerBase : MonoBehaviour, IHittable, IStealable
 
     protected Animator _anim;
 
+    public abstract CustomerRace GetRace();
+
     private static readonly int HashSpeed = Animator.StringToHash("Speed");
     private static readonly int HashHit = Animator.StringToHash("Hit");
     protected static readonly int HashReact = Animator.StringToHash("React");
