@@ -160,6 +160,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e571109e6e4e50448a207543d6faaf25
+    m_Address: Prefab/UI/GameOptionPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5fab232f46c76c4aa63b13d92a86e92
     m_Address: Prefabs/UI/SaveSlot
     m_ReadOnly: 0

@@ -135,8 +135,7 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
     private void CloseWithAnimation()
     {
         UnSubscribeEvents();
-        UIEffectUtil.SetUISlideDown(
-            _tutorialPopup.RectTransform_This, _originalPos, 0.5f, CloseUI);
+        UIEffectUtil.SetUISlideDown(_tutorialPopup.RectTransform_This, _originalPos, 0.5f, CloseUI);
     }
 
     private void CloseUI()

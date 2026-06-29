@@ -178,6 +178,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.DialogueUI.DialoguePrefab;
                 }
+            case UIType.GameOptionUI:
+                {
+                    return AddressUtil.Prefab.UI.GameOptionPopup.PopupPrefab;
+                }
             default:
                 {
                     this.LogError($"{uiType}에 알맞는 Path가 없습니다!!");
@@ -210,7 +214,11 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Popup;
                 }
-                case UIType.DialogueUI:
+            case UIType.DialogueUI:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.GameOptionUI:
                 {
                     return UIRootType.Popup;
                 }

@@ -47,6 +47,7 @@ public partial class UIManager
 
     public void OpenGameOptionUI()
     {
+        OpenUI<GameOptionPopupPresenter, GameOptionPopup>();
     }
 
     public void OpenTutorialPopup(int index = 0)
