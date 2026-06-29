@@ -50,15 +50,21 @@ public class DialogueUI : BaseUI<DialogueUI>
         if (_isTyping)
         {
             _isTyping = false;
+            Text_Dialogue.maxVisibleCharacters = Text_Dialogue.text.Length;
+            return;
         }
-        else
-        {
-            MoveToNextDialogue(GetCurrentID());
-        }
+
+        MoveToNextDialogue(GetCurrentID());
     }
 
     private void ShowDialogue(string id)
     {
+        DialogueData data = _dialogues[id];
+
+        Debug.Log($"ID: {id}");
+        Debug.Log($"Content: {data.Content}");
+        Debug.Log($"Content Length: {data.Content.Length}");
+
         if (string.IsNullOrEmpty(_dialogues[id].Speaker))
         {
             Image_Speaker.gameObject.SetActive(false);
@@ -114,26 +120,27 @@ public class DialogueUI : BaseUI<DialogueUI>
         _isTyping = true;
 
         string content = _dialogues[id].Content;
+
         Text_Dialogue.text = content;
+        Text_Dialogue.ForceMeshUpdate();
+
         Text_Dialogue.maxVisibleCharacters = 0;
         Image_NextArrow.gameObject.SetActive(false);
 
-        if (_typingWaitTime > 0)
+        for (int i = 0; i < content.Length; i++)
         {
-            for (int i = 0; i < content.Length; i++)
+            if (!_isTyping)
             {
-                if (!_isTyping)
-                {
-                    break;
-                }
-
-                Text_Dialogue.maxVisibleCharacters = i;
-
-                await UniTask.Delay(TimeSpan.FromSeconds(_typingWaitTime), cancellationToken: token);
+                break;
             }
+
+            Text_Dialogue.maxVisibleCharacters = i + 1;
+
+            await UniTask.Delay(TimeSpan.FromSeconds(_typingWaitTime), ignoreTimeScale: true, cancellationToken: token);
         }
 
         Text_Dialogue.maxVisibleCharacters = content.Length;
+        Text_Dialogue.ForceMeshUpdate();
 
         _isTyping = false;
         Image_NextArrow.gameObject.SetActive(true);

@@ -20,6 +20,8 @@ public class GameResultPanel : BaseUI<GameResultPanel>
     private void OnEnable()
     {
         GameManager.Instance.OnGameStateChanged += HandleGameStateChanged;
+
+        HandleGameStateChanged(GameManager.Instance.CurrentState);
     }
 
     private void OnDisable()
