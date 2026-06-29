@@ -21,3 +21,17 @@ public class InGamePopupData : UIDataBase
     public string GameOptionButton;
     public string ReturnMainMenuButton;
 }
+
+[Serializable]
+public class TutorialPopupData : UIDataBase
+{
+    public string Text;
+    public string PrefabPath;
+}
+
+[Serializable]
+public class TutorialPopupTextData : UIDataBase
+{
+    public string Title;
+    public string Description;
+}

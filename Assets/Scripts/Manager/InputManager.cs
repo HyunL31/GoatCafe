@@ -32,6 +32,7 @@ public class InputManager : BaseMonoManager<InputManager>
     
 
     public event Action OnInteractPressed;
+    public event Action OnEscKeyDown;
 
     private float _rotationX = 0f;
     private bool _isMouseLock;
@@ -90,6 +91,14 @@ public class InputManager : BaseMonoManager<InputManager>
         if (Input.GetKeyDown(KeyCode.E)) // 상호작용 키세팅
         {
             OnInteractPressed?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameManager.Instance.CurrentState == GameState.Playing)
+            {
+                UIManager.Instance.OpenInGamePopup(OnEscKeyDown);
+            }
         }
     }
 
