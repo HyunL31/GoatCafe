@@ -33,6 +33,7 @@ public class InputManager : BaseMonoManager<InputManager>
 
     public event Action OnInteractPressed;
     public event Action OnEscKeyDown;
+    public event Action<KeyCode> OnItemUseBtnPressed;
 
     private float _rotationX = 0f;
     private bool _isMouseLock;
@@ -100,6 +101,16 @@ public class InputManager : BaseMonoManager<InputManager>
                 UIManager.Instance.OpenInGamePopup(OnEscKeyDown);
             }
         }
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            OnItemUseBtnPressed?.Invoke(KeyCode.Alpha4);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            OnItemUseBtnPressed?.Invoke(KeyCode.Alpha5);
+        }
+
     }
 
     void RotateCheckOnUpdate()
