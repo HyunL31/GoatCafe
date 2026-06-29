@@ -10,13 +10,12 @@ public partial class UIManager
     SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
     InGamePresenter _inGamePresenter;
     InGamePopupPresenter _inGamePopupPresenter;
+
     InteractionPromptPresenter _interactionPromptPresenter;
-    DialogueUI _dialogueUI;
     private Dictionary<Type, BasePresenter> _presenterList = new();
     private DialogueUI _dialogueUI;
-
     private GameResultPanel _gameResultPanel;
-    List<BasePresenter> _presenterList = new();
+
     public TPresenter OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
     {
         Type type = typeof(TPresenter);

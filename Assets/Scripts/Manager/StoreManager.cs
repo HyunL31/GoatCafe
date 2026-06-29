@@ -288,8 +288,11 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         foreach (var saveData in playerModel.Inventory)
         {
-            ItemBase itemData = ItemDataBase.Instance.ConsumableList.Find(item => item.Name == saveData.ItemName);
-            if (itemData != null) inventoryDic.Add(itemData, saveData.Count);
+            ItemBase itemData = GetConsumableItemByName(saveData.ItemName);
+            if (itemData != null)
+            {
+                inventoryDic.Add(itemData, saveData.Count);
+            }
         }
 
         foreach (string itemName in playerModel.PurchasedItemNames)
@@ -301,7 +304,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
             }
 
             PermanentItem permanentData = GetPermanentItemByName(itemName);
-
             if (permanentData != null)
             {
                 purchasedItems.Add(permanentData);
@@ -320,14 +322,25 @@ public class StoreManager : BaseMonoManager<StoreManager>
         }
     }
 
+    private ConsumableItem GetConsumableItemByName(string name)
+    {
+        foreach (var pair in ItemDataBase.Instance.ConsumableList)
+        {
+            if (pair.Value != null && pair.Value.Name == name)
+            {
+                return pair.Value;
+            }
+        }
+        return null;
+    }
+
     private PermanentItem GetPermanentItemByName(string name)
     {
-        var list = ItemDataBase.Instance.PermanentList;
-        for (int i = 0; i < list.Count; i++)
+        foreach (var pair in ItemDataBase.Instance.PermanentList)
         {
-            if (list[i] != null && list[i].Name == name)
+            if (pair.Value != null && pair.Value.Name == name)
             {
-                return list[i];
+                return pair.Value;
             }
         }
         return null;
