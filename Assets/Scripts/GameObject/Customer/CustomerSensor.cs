@@ -9,11 +9,12 @@ public class CustomerSensor : MonoBehaviour
 
     public static event Action<CustomerBase> OnStealableEnter;
     public static event Action<CustomerBase> OnStealableExit;
-    public static event Action<CustomerBase> OnStealableInteract;
+    public static event Action<CustomerSensor> OnStealableInteract;
     public static event Action<CustomerBase> OnCleanUpInteract;
 
     private CustomerBase _customer;
     private bool _isPlayerNear = false;
+    private bool _isStolen = false;
 
     private Camera _camera;
 
@@ -53,6 +54,8 @@ public class CustomerSensor : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        if (_isStolen) return;
+
         if (_customer.State == CustomerState.Hit &&
             GameManager.Instance.CurrentDayPhase != DayPhase.Night) return;
 
@@ -90,11 +93,20 @@ public class CustomerSensor : MonoBehaviour
 
     private void OnInteract()
     {
+        if (_isStolen)
+        {
+            return;
+        }
+
         ShowUI(false);
         _isPlayerNear = false;
 
-        // 이레님(낮 미니게임) 구독해서 미니게임 실행
         if (OnStealableInteract != null)
-            OnStealableInteract(_customer);
+            OnStealableInteract(this);
+    }
+
+    public void SetStolen(bool isStolen)
+    {
+        _isStolen = isStolen;
     }
 }

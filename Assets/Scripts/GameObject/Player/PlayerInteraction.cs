@@ -25,7 +25,6 @@ public class PlayerInteraction : MonoBehaviour //플레이어에 붙여서 상�
 
     private void Update()
     {
-
         CheckForInteractable();
     }
 

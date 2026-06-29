@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DayMinigame : MonoBehaviour
+public class DayMinigame : BaseMonoManager<MiniGameManager>
 {
     [SerializeField] private GameObject Popup_GoatDayMiniGame;
     [SerializeField] private RectTransform Transform_BarArea;
@@ -27,13 +27,25 @@ public class DayMinigame : MonoBehaviour
     private float _maxY;
     private Coroutine _closeCoroutine;
 
-    private void Awake()
+    private CustomerSensor _currentSensor;
+
+    private void Start()
     {
         if (Button_DayMiniGame != null)
             Button_DayMiniGame.onClick.AddListener(OnClickDayMiniGame);
 
         if (Button_Close != null)
             Button_Close.onClick.AddListener(OnClickClose);
+    }
+
+    private void OnEnable()
+    {
+        CustomerSensor.OnStealableInteract += OpenDayMiniGame;
+    }
+
+    private void OnDisable()
+    {
+        CustomerSensor.OnStealableInteract -= OpenDayMiniGame;
     }
 
     private void OnDestroy()
@@ -53,8 +65,12 @@ public class DayMinigame : MonoBehaviour
         MoveDayMiniGame();
     }
 
-    public void OpenDayMiniGame()
+    public void OpenDayMiniGame(CustomerSensor customerSensor)
     {
+        CursorManager.Instance.UnlockCursor();
+        _currentSensor = customerSensor;
+        GameManager.Instance.PauseGame();
+
         if (_closeCoroutine != null)
         {
             StopCoroutine(_closeCoroutine);
@@ -80,6 +96,7 @@ public class DayMinigame : MonoBehaviour
     public void CloseDayMiniGame()
     {
         _isPlaying = false;
+        _currentSensor = null;
 
         if (_closeCoroutine != null)
         {
@@ -136,9 +153,20 @@ public class DayMinigame : MonoBehaviour
             Text_Result.text = isSuccess ? "성공" : "실패";
 
         if (isSuccess)
+        {
+            SaveManager.Instance.CurrentPlayerModel.StolenItemCount++;
+
+            if (_currentSensor != null)
+            {
+                _currentSensor.SetStolen(true);
+            }
+
             OnSuccessDayMiniGame?.Invoke();
+        }
         else
+        {
             OnFailDayMiniGame?.Invoke();
+        }
 
         OnEndDayMiniGame?.Invoke();
 
@@ -203,6 +231,8 @@ public class DayMinigame : MonoBehaviour
     private IEnumerator CloseAfterDelay()
     {
         yield return new WaitForSecondsRealtime(_closeDelay);
+        GameManager.Instance.ResumeGame();
+        CursorManager.Instance.LockCursor();
         CloseDayMiniGame();
     }
 }
