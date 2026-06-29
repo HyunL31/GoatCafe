@@ -3,9 +3,17 @@
 [CreateAssetMenu(menuName = "ItemEffect/CustomerPeace")]
 public class CustomerPeaceEffect : ItemEffect
 {
-    public int duration;
-    public override void Use()
+    public float duration;
+    public override bool Use()
     {
-        // 진상손님 안나오는 함수 받으면 작성
+        if(StoreManager.Instance.IsPeaceItemUsed())
+        {
+            return false;
+        }
+        else
+        {
+            StoreManager.Instance.TriggerPeaceItem(duration);
+            return true;
+        }
     }
 }
