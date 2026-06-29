@@ -16,7 +16,7 @@ MonoBehaviour:
   m_GUID: 419f60ee0267e564c9653ae1147051d8
   m_SerializeEntries:
   - m_GUID: baaad2691c1e5ac498a0c73099f62feb
-    m_Address: Prefab/UI/GameResultPanel/GameResultPanel
+    m_Address: Prefab/UI/GameResultPanel
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
