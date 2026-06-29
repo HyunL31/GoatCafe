@@ -166,6 +166,12 @@ public class PlayerMoving : MonoBehaviour
         _isAttack = true;
 
         Stamina -= 10;
+
+        if (SaveManager.Instance != null && SaveManager.Instance.CurrentPlayerModel != null)
+        {
+            SaveManager.Instance.CurrentPlayerModel.Stamina = Stamina;
+        }
+
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
 
         Animator_Goat.SetTrigger("Attack");
@@ -234,6 +240,7 @@ public class PlayerMoving : MonoBehaviour
         }
 
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
+        SaveManager.Instance.CurrentPlayerModel.Stamina = Stamina;
     }
 
     private void AddGoatSpeed(float value)

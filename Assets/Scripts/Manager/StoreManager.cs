@@ -8,9 +8,6 @@ using UnityEngine.UI;
 
 public class StoreManager : BaseMonoManager<StoreManager>
 {
-
-    //임시 소유 코인
-    public int Coin { get; set; }
     [Header("Customer Spawner")]
     [SerializeField] private CustomerSpawner _customerSpawner;
 
@@ -88,6 +85,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void AddEquipped(CosmeticItem itemData) => equippedItems.Add(itemData);
     public void RemoveEquipped(CosmeticItem itemData) => equippedItems.Remove(itemData);
     public void ClearEquippedData() => equippedItems.Clear();
+    public int Coin => SaveManager.Instance.CurrentPlayerModel.Coin;
 
 
     public void AddInventory(ItemBase itemData)
@@ -109,6 +107,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             if (consumable.UseItem())
             {
                 inventoryDic[itemData] -= 1;
+
                 if (inventoryDic[itemData] <= 0)
                 {
                     inventoryDic.Remove(itemData);
@@ -174,7 +173,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void OpenStorePopup()
     {
-        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;  // 테스트용 임시 코드인듯?? 나중에 수정하기
         UpdateStorePopup();
         _storePopup.SetActive(true);
         GameManager.Instance.PauseGame();
@@ -282,15 +280,34 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void LoadSaveStore()
     {
         PlayerModel playerModel = SaveManager.Instance.CurrentPlayerModel;
+        if (playerModel == null) return;
 
         purchasedItems.Clear();
         equippedItems.Clear();
+        inventoryDic.Clear();
+
+        foreach (var saveData in playerModel.Inventory)
+        {
+            ItemBase itemData = GetConsumableItemByName(saveData.ItemName);
+            if (itemData != null)
+            {
+                inventoryDic.Add(itemData, saveData.Count);
+            }
+        }
 
         foreach (string itemName in playerModel.PurchasedItemNames)
         {
             if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticData))
             {
                 purchasedItems.Add(cosmeticData);
+                continue;
+            }
+
+            PermanentItem permanentData = GetPermanentItemByName(itemName);
+            if (permanentData != null)
+            {
+                purchasedItems.Add(permanentData);
+                ApplyPermanentEffect(permanentData);
             }
         }
 
@@ -299,21 +316,56 @@ public class StoreManager : BaseMonoManager<StoreManager>
             if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
             {
                 equippedItems.Add(cosmeticItem);
-
-                if (_playerAccessory != null)
-                {
-                    _playerAccessory.UseItem(cosmeticItem);
-                }
+                _playerAccessory?.ApplyItemVisual(cosmeticItem);
+                ChangeSlotButtonState(cosmeticItem, false);
             }
         }
+    }
+
+    private ConsumableItem GetConsumableItemByName(string name)
+    {
+        foreach (var pair in ItemDataBase.Instance.ConsumableList)
+        {
+            if (pair.Value != null && pair.Value.Name == name)
+            {
+                return pair.Value;
+            }
+        }
+        return null;
+    }
+
+    private PermanentItem GetPermanentItemByName(string name)
+    {
+        foreach (var pair in ItemDataBase.Instance.PermanentList)
+        {
+            if (pair.Value != null && pair.Value.Name == name)
+            {
+                return pair.Value;
+            }
+        }
+        return null;
     }
 
     public void SaveStoreData()
     {
         PlayerModel playerModel = SaveManager.Instance.CurrentPlayerModel;
+        if (playerModel == null) return;
 
         playerModel.PurchasedItemNames.Clear();
         playerModel.EquippedItemNames.Clear();
+        playerModel.Inventory.Clear();
+
+        foreach (var pair in inventoryDic)
+        {
+            if (pair.Key != null && pair.Value > 0)
+            {
+                playerModel.Inventory.Add(new InventorySaveData
+                {
+                    ItemName = pair.Key.Name,
+                    Count = pair.Value
+                });
+            }
+        }
 
         foreach (var item in purchasedItems)
         {
@@ -330,10 +382,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 playerModel.EquippedItemNames.Add(item.Name);
             }
         }
-
-        playerModel.Coin = this.Coin;
-
-        SaveManager.Instance.SaveData();
     }
 
     private void HandleItemUseButtonPressed(KeyCode code)
@@ -366,7 +414,38 @@ public class StoreManager : BaseMonoManager<StoreManager>
         return _customerSpawner.IsPeaceItemUsed;
     }
 
+    private void ApplyPermanentEffect(PermanentItem permanentData)
+    {
+        if (permanentData == null) return;
 
+        if (StoreSlotDic.TryGetValue(permanentData, out StoreItemSlot slot))
+        {
+            Button btn = slot.GetComponentInChildren<Button>();
+            if (btn != null) btn.interactable = false;
+        }
+
+        switch (permanentData.effectType)
+        {
+            case EffectType.SpeedUp:
+                GameManager.Instance.GoatSpeedBoostPurchased(permanentData.value);
+                break;
+            case EffectType.MiniGamePointDouble:
+                MiniGameManager.Instance.SetMiniGameEasier(true);
+                break;
+            case EffectType.BonusDayDuration:
+                GameManager.Instance.BonusDayDurationItemPurchased(permanentData.value);
+                break;
+            case EffectType.PointDouble:
+                GameManager.Instance.PointDoubleItemPurchased();
+                break;
+            case EffectType.MiniGameEasier:
+                MiniGameManager.Instance.SetMiniGameScoreDouble(true);
+                break;
+            case EffectType.UnlockEmote:
+                OnItemPurchased?.Invoke(permanentData);
+                break;
+        }
+    }
 
 
 
@@ -417,9 +496,11 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void SpendCoins(int amount)
     {
-        if (Coin >= amount)
+        var model = SaveManager.Instance.CurrentPlayerModel;
+        if (model.Coin >= amount)
         {
-            Coin -= amount;
+            model.Coin -= amount;
+            UpdateStorePopup();
         }
     }
 

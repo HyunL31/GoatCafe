@@ -288,6 +288,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
     private void GameStart(string slotName)
     {
         SaveManager.Instance.LoadOrCreatePlayerData(slotName);
+        Debug.Log(SaveManager.Instance.CurrentPlayerModel.Coin);
         UIManager.Instance.CloseUI(UIType_This);
         OnSaveDataSlotSelected?.Invoke();
 
