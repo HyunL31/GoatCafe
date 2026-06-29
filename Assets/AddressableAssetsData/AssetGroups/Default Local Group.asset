@@ -91,7 +91,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 532d6e7a74058a74ba7d7a6430e354aa
-    m_Address: Assets/Resources_moved/Image/Title.png
+    m_Address: Sprite/UI/MainMenu/Background
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -252,6 +252,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3206162a4eec2643b26184edbc87966
     m_Address: Prefabs/CostumeItem/Heart
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4d7f669d8bc4f344b20d52e3dcc1f69
+    m_Address: Sprite/UI/MainMenu/Title
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
