@@ -9,7 +9,8 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
     private GameOptionPopup _gameOptionUI;
 
     private List<(int width, int height)> _resolutionList;
-    private Dictionary<(int width, int height), List<RefreshRate>> _refreshList;
+
+    private int[] _frameRate = { 30, 60, 120, 144, -1 };
 
     private int _selectedResolution;
 
@@ -34,20 +35,13 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
     protected override void LoadData()
     {
         _resolutionList = new();
-        _refreshList = new();
+        var seen = new HashSet<(int, int)>();
 
         foreach (Resolution resolution in Screen.resolutions)
         {
-            (int width, int height) resolutionKey = (resolution.width, resolution.height);
-
-            if(_refreshList.TryGetValue(resolutionKey, out List<RefreshRate> refreshRateList) == false)
-            {
-                refreshRateList = new();
-                _refreshList[resolutionKey] = refreshRateList;
-                _resolutionList.Add(resolutionKey);
-            }
-
-            refreshRateList.Add(resolution.refreshRateRatio);
+            var key = (resolution.width, resolution.height);
+            if (seen.Add(key))
+                _resolutionList.Add(key);
         }
     }
 
@@ -65,7 +59,7 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
         _gameOptionUI.SetUIBaseSetting(sfxVolume, bgmVolume, isFullScreen);
 
         SetResolutionList();
-        SetRefreshRateDropdown(_selectedResolution);
+        SetFrameRateDropdown();
     }
 
     private void SetResolutionList()
@@ -89,25 +83,21 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
         _gameOptionUI.SetResolutionDropdown(resolutionOption, _selectedResolution);
     }
 
-    private void SetRefreshRateDropdown(int resolutionIndex)
+    private void SetFrameRateDropdown()
     {
-        (int width, int height) = _resolutionList[resolutionIndex];
-        List<RefreshRate> refreshRates = _refreshList[(width, height)];
-
-        List<string> refreshRateOption = new();
+        List<string> options = new();
         int currentIndex = 0;
 
-        for(int i = 0; i < refreshRates.Count; i++)
+        for (int i = 0; i < _frameRate.Length; i++)
         {
-            refreshRateOption.Add($"{Mathf.RoundToInt((float)refreshRates[i].value)}Hz");
+            int fps = _frameRate[i];
+            options.Add(fps == -1 ? "무제한" : $"{fps} FPS");
 
-            if (refreshRates[i].value == Screen.currentResolution.refreshRateRatio.value)
-            {
+            if (fps == Application.targetFrameRate)
                 currentIndex = i;
-            }
         }
 
-        _gameOptionUI.SetRefreshRateDropdown(refreshRateOption, currentIndex);
+        _gameOptionUI.SetFrameRateDropdown(options, currentIndex);
     }
 
     private void SubscribeEvents()
@@ -118,7 +108,7 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
         _gameOptionUI.OnFullScreenToggleChanged += On_ChangeFullScreen;
 
         _gameOptionUI.OnResolutionChanged += On_ChangeResolution;
-        _gameOptionUI.OnRefreshRateChanged += On_ChangeRefreshRate;
+        _gameOptionUI.OnFrameRateChanged += On_ChangeFrameRate;
 
         _gameOptionUI.OnBackgroundButtonClicked += OnClick_Background;
         _gameOptionUI.OnExitButtonClicked += OnClick_Exit;
@@ -132,7 +122,7 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
         _gameOptionUI.OnFullScreenToggleChanged -= On_ChangeFullScreen;
 
         _gameOptionUI.OnResolutionChanged -= On_ChangeResolution;
-        _gameOptionUI.OnRefreshRateChanged -= On_ChangeRefreshRate;
+        _gameOptionUI.OnFrameRateChanged -= On_ChangeFrameRate;
 
         _gameOptionUI.OnBackgroundButtonClicked -= OnClick_Background;
         _gameOptionUI.OnExitButtonClicked -= OnClick_Exit;
@@ -156,20 +146,14 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
     private void On_ChangeResolution(int resolutionIndex)
     {
         _selectedResolution = resolutionIndex;
-        SetRefreshRateDropdown(resolutionIndex);
-        SetScreenResolution();
+        (int width, int height) = _resolutionList[resolutionIndex];
+        Screen.SetResolution(width, height, Screen.fullScreenMode);
     }
 
-    private void On_ChangeRefreshRate(int refreshRateIndex)
+    private void On_ChangeFrameRate(int index)
     {
-        SetScreenResolution(refreshRateIndex);
-    }
-
-    private void SetScreenResolution(int rateIndex = 0)
-    {
-        (int width, int height) = _resolutionList[_selectedResolution];
-        RefreshRate rate = _refreshList[(width, height)][rateIndex];
-        Screen.SetResolution(width, height, Screen.fullScreenMode, rate);
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = _frameRate[index];
     }
 
     private void OnClick_Background()

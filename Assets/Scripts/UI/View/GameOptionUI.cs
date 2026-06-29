@@ -19,7 +19,7 @@ public class GameOptionPopup : BaseUI<GameOptionPopup>
     [SerializeField] private Toggle Toggle_FullScreen;
 
     [SerializeField] private TMP_Dropdown Dropdown_Resolution;
-    [SerializeField] private TMP_Dropdown Dropdown_RefreshRate;
+    [SerializeField] private TMP_Dropdown Dropdown_FrameRate;
 
     [SerializeField] private Button Button_Background;
     [SerializeField] private Button Button_ExitUI;
@@ -32,7 +32,7 @@ public class GameOptionPopup : BaseUI<GameOptionPopup>
     public event Action<bool> OnFullScreenToggleChanged;
 
     public event Action<int> OnResolutionChanged;
-    public event Action<int> OnRefreshRateChanged;
+    public event Action<int> OnFrameRateChanged;
 
     public event Action OnBackgroundButtonClicked;
     public event Action OnExitButtonClicked;
@@ -65,7 +65,7 @@ public class GameOptionPopup : BaseUI<GameOptionPopup>
     private void BindDropdownEvent()
     {
         Dropdown_Resolution.onValueChanged.AddListener(InvokeResolutionChanged);
-        Dropdown_RefreshRate.onValueChanged.AddListener(InvokeRefreshRateChanged);
+        Dropdown_FrameRate.onValueChanged.AddListener(InvokeFrameRateChanged);
     }
 
     private void OnDisable()
@@ -96,7 +96,7 @@ public class GameOptionPopup : BaseUI<GameOptionPopup>
     private void UnBindDropdownEvent()
     {
         Dropdown_Resolution.onValueChanged.RemoveListener(InvokeResolutionChanged);
-        Dropdown_RefreshRate.onValueChanged.RemoveListener(InvokeRefreshRateChanged);
+        Dropdown_FrameRate.onValueChanged.RemoveListener(InvokeFrameRateChanged);
     }
 
     public void SetTabButtons()
@@ -129,12 +129,12 @@ public class GameOptionPopup : BaseUI<GameOptionPopup>
         Dropdown_Resolution.RefreshShownValue();
     }
 
-    public void SetRefreshRateDropdown(List<string> refreshRateList, int index)
+    public void SetFrameRateDropdown(List<string> frameRateList, int index)
     {
-        Dropdown_RefreshRate.ClearOptions();
-        Dropdown_RefreshRate.AddOptions(refreshRateList);
-        Dropdown_RefreshRate.SetValueWithoutNotify(index);
-        Dropdown_RefreshRate.RefreshShownValue();
+        Dropdown_FrameRate.ClearOptions();
+        Dropdown_FrameRate.AddOptions(frameRateList);
+        Dropdown_FrameRate.SetValueWithoutNotify(index);
+        Dropdown_FrameRate.RefreshShownValue();
     }
 
     private void SelectTabButton(int index)
@@ -206,8 +206,8 @@ public class GameOptionPopup : BaseUI<GameOptionPopup>
         OnResolutionChanged?.Invoke(index);
     }
 
-    private void InvokeRefreshRateChanged(int index)
+    private void InvokeFrameRateChanged(int index)
     {
-        OnRefreshRateChanged?.Invoke(index);
+        OnFrameRateChanged?.Invoke(index);
     }
 }

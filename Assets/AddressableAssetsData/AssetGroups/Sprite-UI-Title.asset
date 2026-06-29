@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Sprite-UI-Title
   m_GUID: 2ba2886c67c70104f8a35630cac3844b
   m_SerializeEntries:
-  - m_GUID: 6feae425e7281f44fab380caaabce735
-    m_Address: Sprite/UI/MainMenu/Title
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f93f2463f8a76e34497ae7125072b6c0
     m_Address: Sprite/UI/SaveSlotPopup/Title
     m_ReadOnly: 0
