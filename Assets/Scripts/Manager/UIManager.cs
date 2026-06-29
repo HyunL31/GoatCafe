@@ -10,7 +10,8 @@ public enum UIType : byte
     InGameUI,
     InGamePopup,
     TutorialPopup,
-    DialogueUI
+    DialogueUI,
+    InfoPopup
 }
 
 public enum UIRootType : byte
