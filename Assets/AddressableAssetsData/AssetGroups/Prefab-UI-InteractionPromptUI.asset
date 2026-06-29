@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Prefab-UI-InteractionPromptUI
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Prefab-UI-InteractionPromptUI
-  m_GUID: 3988df9acd16a8f4a9bfcb777a756ac9
+  m_GUID: 2f3585d4f90d3bb4a9a28823bfe3c409
   m_SerializeEntries:
   - m_GUID: 646163b157fd13045ab78bbb4c62f29e
     m_Address: Prefab/UI/InteractionPromptUI/InteractionPromptPrefab
@@ -24,5 +24,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: eac4599728d25544ca8516348aeae268, type: 2}
-    - {fileID: 11400000, guid: 696bd6ccdb8cb83469f0bd35f8f71178, type: 2}
+    - {fileID: 11400000, guid: 27be54288b13ce64cbfbcaeef11fe549, type: 2}
+    - {fileID: 11400000, guid: 7b411a7fb49127343bf5a9457c5a6f21, type: 2}

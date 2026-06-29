@@ -10,6 +10,7 @@ public partial class UIManager
     SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
     InGamePresenter _inGamePresenter;
     InGamePopupPresenter _inGamePopupPresenter;
+    InteractionPromptPresenter _interactionPromptPresenter;
     DialogueUI _dialogueUI;
 
     private GameResultPanel _gameResultPanel;
@@ -92,6 +93,19 @@ public partial class UIManager
         }
     }
 
+
+    public void CloseDialogueUI()
+    {
+        if (_dialogueUI != null)
+        {
+            _dialogueUI.gameObject.SetActive(false);
+
+            if (_activeUI.Contains(UIType.DialogueUI))
+            {
+                _activeUI.Remove(UIType.DialogueUI);
+            }
+        }
+    }
     public async UniTask OpenGameResultPanel()
     {
         if (_gameResultPanel != null)
@@ -115,17 +129,25 @@ public partial class UIManager
         }
     }
 
-    public void CloseDialogueUI()
+    public void OpenInteractionPrompt(string key, string actionText, Transform target)
     {
-        if (_dialogueUI != null)
+        if (_interactionPromptPresenter == null)
         {
-            _dialogueUI.gameObject.SetActive(false);
-
-            if (_activeUI.Contains(UIType.DialogueUI))
-            {
-                _activeUI.Remove(UIType.DialogueUI);
-            }
+            _interactionPromptPresenter = new InteractionPromptPresenter();
         }
+
+        InteractionPromptUI interactionPromptUI = CreateUI<InteractionPromptUI>(_interactionPromptPresenter.UIType_This);
+
+        if (interactionPromptUI == null)
+        {
+            Debug.LogError("InteractionPromptUI 생성 실패");
+            return;
+        }
+
+        _activeUI.Add(_interactionPromptPresenter.UIType_This);
+
+        _interactionPromptPresenter.InitUI(interactionPromptUI);
+        _interactionPromptPresenter.SetPrompt(key, actionText, target);
     }
 
     public void OpenGameOptionUI()

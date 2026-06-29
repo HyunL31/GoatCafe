@@ -355,7 +355,7 @@ public class GameManager : BaseMonoManager<GameManager>
     {
         int result = basePoint + miniGamePoint;
 
-        if(isPointDouble) // DoublePoint 아이템이 구매되었으면, 보너스 점수 배율 적용
+        if (isPointDouble) // DoublePoint 아이템이 구매되었으면, 보너스 점수 배율 적용
         {
             result = GameUtil.GetBonusScoreByRate(result, 2.0f);
         }

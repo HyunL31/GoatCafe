@@ -8,8 +8,8 @@ public class InteractionPromptPresenter : BasePresenter<InteractionPromptPresent
 
     private InteractionPromptUI _interactionPromptUI;
 
-    private Sprite _sprite_background;
-    private Sprite _sprite_keyBox;
+    //private Sprite _sprite_background;
+    //private Sprite _sprite_keyBox;
     private TMP_FontAsset _fontAsset_promptFont;
 
     private string _key;
@@ -25,6 +25,7 @@ public class InteractionPromptPresenter : BasePresenter<InteractionPromptPresent
 
     public void SetPrompt(string key, string actionText, Transform target)
     {
+        Debug.Log($"Prompt : {key} / {actionText}");
         _key = key;
         _actionText = actionText;
         _target = target;

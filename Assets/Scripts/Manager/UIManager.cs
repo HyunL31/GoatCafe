@@ -10,6 +10,7 @@ public enum UIType : byte
     InGameUI,
     InGamePopup,
     DialogueUI,
+    InteractionPromptUI,
     GameResultPanel
 }
 
@@ -64,6 +65,9 @@ public partial class UIManager : BaseMonoManager<UIManager>
         }
 
         GameObject prefab = LoadUtil.Sync.LoadPrefab(address);
+
+        Debug.Log($"주소 : {address}");
+        Debug.Log($"프리팹 : {prefab}");
 
         if (prefab == null)
         {
@@ -170,6 +174,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.InGamePopup.PopupPrefab;
                 }
+            case UIType.InteractionPromptUI:
+                {
+                    return AddressUtil.Prefab.UI.InteractionPromptUI.UIPrefab;
+                }
             case UIType.DialogueUI:
                 {
                     return AddressUtil.Prefab.UI.DialogueUI.DialoguePrefab;
@@ -206,6 +214,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Popup;
                 }
+            case UIType.InteractionPromptUI:
+                {
+                    return UIRootType.Front;
+                }
             case UIType.DialogueUI:
                 {
                     return UIRootType.Popup;
@@ -233,6 +245,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
             case UIRootType.Popup:
                 {
                     return PopupCanvas;
+                }
+            case UIRootType.Front:
+                {
+                    return FrontCanvas;
                 }
             default:
                 {
