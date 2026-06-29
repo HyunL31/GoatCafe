@@ -32,6 +32,7 @@ public class InputManager : BaseMonoManager<InputManager>
     
 
     public event Action OnInteractPressed;
+    public event Action OnEscKeyDown;
     public event Action<KeyCode> OnItemUseBtnPressed;
 
     private float _rotationX = 0f;
@@ -93,6 +94,13 @@ public class InputManager : BaseMonoManager<InputManager>
             OnInteractPressed?.Invoke();
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameManager.Instance.CurrentState == GameState.Playing)
+            {
+                UIManager.Instance.OpenInGamePopup(OnEscKeyDown);
+            }
+        }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
             OnItemUseBtnPressed?.Invoke(KeyCode.Alpha4);

@@ -62,7 +62,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
         SetUI().Forget();
     }
 
-    public void SetAction(Action onSaveDataSlotSelected)
+    public void InitEvent(Action onSaveDataSlotSelected)
     {
         OnSaveDataSlotSelected = onSaveDataSlotSelected;
     }
@@ -293,9 +293,17 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
 
         UIManager.Instance.OpenInGameUI();
 
-        if (SaveManager.Instance.RequestLoadData(slotName).Day == 1)
-        {
+        var saveData = SaveManager.Instance.RequestLoadData(slotName);
+
+        if (saveData.Day == 1 || !string.IsNullOrEmpty(saveData.Ending))
+        {   
+            if (!string.IsNullOrEmpty(saveData.Ending))
+            {
+                GameManager.Instance.SetCurrentID($"{saveData.Ending}_01");
+            }
+
             UIManager.Instance.OpenDialogueUI().Forget();
+
             return;
         }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
 public enum GameState
@@ -83,6 +82,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<GameState> OnGameStateChanged;
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
+    public event Action<int> OnDayChanged;
 
     public event Action OnMoveHome;
     public Action<int> OnChangedStamina;
@@ -264,6 +264,8 @@ public class GameManager : BaseMonoManager<GameManager>
         SaveManager.Instance.CurrentPlayerModel.Day++;
         SaveManager.Instance.SaveData();
 
+        OnDayChanged?.Invoke(SaveManager.Instance.CurrentPlayerModel.Day);
+
         Time.timeScale = 1f;
         ChangeGameState(GameState.Playing);
         StartDay();
@@ -276,10 +278,12 @@ public class GameManager : BaseMonoManager<GameManager>
 
         if (isCoinSuccess && isStolenSuccess)
         {
+            SaveManager.Instance.CurrentPlayerModel.Ending = "Happy_Ending";
             CurrentDialogueID = "Happy_Ending_01";
             return EndingType.HappyEnding;
         }
 
+        SaveManager.Instance.CurrentPlayerModel.Ending = "Bad_Ending";
         CurrentDialogueID = "Bad_Ending_01";
         return EndingType.BadEnding;
     }
@@ -291,6 +295,7 @@ public class GameManager : BaseMonoManager<GameManager>
         Debug.Log($"엔딩 > {endingType}");
 
         OnEndingDetermined?.Invoke(endingType);
+        SaveManager.Instance.SaveData();
         UIManager.Instance.OpenDialogueUI().Forget();
     }
 

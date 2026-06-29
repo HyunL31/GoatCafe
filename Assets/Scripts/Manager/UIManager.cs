@@ -9,6 +9,7 @@ public enum UIType : byte
     GameOptionUI,
     InGameUI,
     InGamePopup,
+    TutorialPopup,
     DialogueUI
 }
 
@@ -169,9 +170,17 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.InGamePopup.PopupPrefab;
                 }
+            case UIType.TutorialPopup:
+                {
+                    return AddressUtil.Prefab.UI.TutorialPopup.PopupPrefab;
+                }
             case UIType.DialogueUI:
                 {
                     return AddressUtil.Prefab.UI.DialogueUI.DialoguePrefab;
+                }
+            case UIType.GameOptionUI:
+                {
+                    return AddressUtil.Prefab.UI.GameOptionPopup.PopupPrefab;
                 }
             default:
                 {
@@ -201,7 +210,15 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Popup;
                 }
+            case UIType.TutorialPopup:
+                {
+                    return UIRootType.Popup;
+                }
             case UIType.DialogueUI:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.GameOptionUI:
                 {
                     return UIRootType.Popup;
                 }

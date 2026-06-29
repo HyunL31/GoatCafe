@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DayMinigame : BaseMonoManager<MiniGameManager>
+public class DayMinigame : BaseMonoManager<DayMinigame>
 {
     [SerializeField] private GameObject Popup_GoatDayMiniGame;
     [SerializeField] private RectTransform Transform_BarArea;

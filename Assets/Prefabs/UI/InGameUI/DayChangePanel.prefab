@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b791fe718e4c9468094b809da814f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayChangePanel
+  RectTransform_This: {fileID: 3642700802208638823}
   Image_Background: {fileID: 6198247241485497391}
   Image_Edge: {fileID: 7291137774205309608}
   Image_Title: {fileID: 5672619335397578032}
