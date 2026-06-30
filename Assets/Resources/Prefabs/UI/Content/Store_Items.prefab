@@ -701,5 +701,6 @@ MonoBehaviour:
   itemBaseData: {fileID: 0}
   _button: {fileID: 9036303674839280065}
   _itemImage: {fileID: 1921461864995860790}
+  _goldImage: {fileID: 8535055522153487529}
   _itemNameText: {fileID: 4025193478917111247}
   _itemPriceText: {fileID: 4969594957943190949}
