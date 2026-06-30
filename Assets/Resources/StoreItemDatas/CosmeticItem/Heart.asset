@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CosmeticItem
   Price: 1000
   Name: "\uC120\uAE00\uB77C\uC2A4"
-  Iconpath: 
+  Iconpath: StoreItemIcon/Heart
   ItemDesc: "\uBA4B\uC9C4 \uC120\uAE00\uB77C\uC2A4\uB97C \uCC29\uC6A9\uD574\uBCF4\uC138\uC694!!"
   PrefabPath: Prefabs/CostumeItem/Heart
   Slot: Eye

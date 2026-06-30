@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,13 +14,13 @@ public class StoreItemSlot : MonoBehaviour
 
 
 
-    public void Setup(ItemBase itemData)
+    public async UniTaskVoid Setup(ItemBase itemData)
     {
         itemBaseData = itemData;
         _itemNameText.text = itemBaseData.Name;
         _itemPriceText.text = itemBaseData.Price.ToString();
-
-        // _Image.sprite = Resources.Load<Sprite>(itemBaseData.Iconpath);
+        var tempSprite = await LoadUtil.Async.LoadSpriteAsync(itemBaseData.Iconpath);
+        _itemImage.sprite = tempSprite;
 
         _button.onClick.AddListener(OnClickBuyBtn);
     }
