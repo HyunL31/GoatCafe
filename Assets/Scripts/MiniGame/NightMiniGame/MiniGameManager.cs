@@ -180,7 +180,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         }
 
         Debug.Log("최종 점수: " + score);
-        SaveManager.Instance.CurrentPlayerModel.Coin += score * 100;
+        GameManager.Instance.CheckAndApplyPoint(score * 100);
         ClearTrash();
         if (_targetTrash != null)
             TrashSpawner.Instance.RemoveTrash(_targetTrash.gameObject);

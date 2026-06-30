@@ -1407,7 +1407,6 @@ MonoBehaviour:
   - {fileID: 6002518922521773391, guid: af6aec1f016bfe34c8d95b5aaee2c3a7, type: 3}
   - {fileID: 3137075386237474511, guid: 911ca1a047f9e8b43b63d36c4cba55f4, type: 3}
   - {fileID: 8254278677710093288, guid: aab9d8f813e23a6469057ef50b412c70, type: 3}
-  - {fileID: 1706191562151306950, guid: e54516752141a4146b89bf73ad2684bc, type: 3}
   Prefabs_JerkCustomers:
   - {fileID: 2535689475445076385, guid: 01cf6396336f9b1479da5110bcf2d9fe, type: 3}
   - {fileID: 2500227078014720714, guid: 092e613d53511a04285672ce6c43643d, type: 3}
@@ -1421,7 +1420,6 @@ MonoBehaviour:
   - {fileID: 4219556047323231226, guid: 61dc6c3c5b62792499ad21f56f5f73b2, type: 3}
   - {fileID: 5119577678128345548, guid: 0c8188453dfbeb741b63968b807e34b5, type: 3}
   - {fileID: 8337119937112517448, guid: 25f19f41e1ed5e145864a913f90bb607, type: 3}
-  - {fileID: 2680176844654672350, guid: 6812bc89479a9cf47befd3960b993716, type: 3}
   Transform_SpawnPoints:
   - {fileID: 5258974091902059211}
   Transform_ExitPoint: {fileID: 2602070370222842760}
@@ -1438,7 +1436,6 @@ MonoBehaviour:
   - {fileID: 145244443021402820}
   - {fileID: 6522466057644149597}
   - {fileID: 6301567056818964113}
-  - {fileID: 9220245413153352234, guid: 2965cf7d58ae1a8438b9b839bd170249, type: 3}
   Int_SpawnCount: 50
   Float_JerkChance: 1
   Float_SpawnInterval: 3

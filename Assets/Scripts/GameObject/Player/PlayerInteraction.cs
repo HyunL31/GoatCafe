@@ -83,7 +83,11 @@ public class PlayerInteraction : MonoBehaviour //플레이어에 붙여서 상�
 
         _currentPromptProvider = null;
 
-        UIManager.Instance.CloseUI(UIType.InteractionPromptUI);
+
+        if (UIManager.Instance.IsActiveUI(UIType.InteractionPromptUI))
+        {
+            UIManager.Instance.CloseUI(UIType.InteractionPromptUI);
+        }
     }
 
 }

@@ -43,11 +43,6 @@ public class DayChangePanel : MonoBehaviour
         Button_This.onClick.AddListener(InvokeButtonClicked);
     }
 
-    private void InvokeButtonClicked()
-    {
-        OnButtonClicked?.Invoke();
-    }
-
     public void SetPanelData(Sprite backgroundSprite, Sprite edgeSprite, Sprite titleSprite, Sprite buttonSprite, TMP_FontAsset panelFont)
     {
         Image_Background.sprite = backgroundSprite;
@@ -64,4 +59,10 @@ public class DayChangePanel : MonoBehaviour
         Text_Description.text = description;
         Text_Button.text = buttonText;
     }
+
+    private void InvokeButtonClicked()
+    {
+        OnButtonClicked?.Invoke();
+    }
+
 }

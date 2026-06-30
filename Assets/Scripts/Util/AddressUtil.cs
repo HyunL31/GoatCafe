@@ -1,5 +1,6 @@
 ﻿using UnityEngine.Animations;
 using UnityEngine.Rendering.UI;
+using UnityEngine.Timeline;
 
 public static class AddressUtil
 {
@@ -63,6 +64,11 @@ public static class AddressUtil
             public static class GameResultPanel
             {
                 public const string PanelPrefab = "Prefab/UI/GameResultPanel/GameResultPanel";
+            }
+
+            public static class InfoPopup
+            {
+                public const string PopupPrefab = "Prefab/UI/InfoPopup/PopupPrefab";
             }
         }
         public static class VFX
