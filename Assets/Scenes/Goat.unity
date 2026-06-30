@@ -1859,8 +1859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98b0a4248ac98f4088eefce55ee39a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _dayDuration: 3
-  _nightDuration: 3
+  _dayDuration: 30
+  _nightDuration: 30
   _maxDayCount: 3
   _targetCoin: 1000
   _targetStolenItemCount: 6
