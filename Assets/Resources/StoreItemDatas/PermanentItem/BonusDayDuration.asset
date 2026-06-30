@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BonusDayDuration
   m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
   Price: 3000
-  Name: Bonus Day Duration
+  Name: "\uB0AE \uC2DC\uAC04 \uC99D\uAC00"
   Iconpath: dasf
-  ItemDesc: testestestestestestestest
+  ItemDesc: "\uB0AE\uC774 \uC9C0\uC18D\uB418\uB294 \uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4!!"
   effectType: 3
   value: 100
