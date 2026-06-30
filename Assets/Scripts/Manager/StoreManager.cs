@@ -217,7 +217,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.MiniGamePointDouble:
                     Debug.Log("MiniGamePointDouble 구매됨");
-                    MiniGameManager.Instance.SetMiniGameEasier(true);
+                    MiniGameManager.Instance.SetMiniGameScoreDouble(true);
                     break;
                 case EffectType.BonusDayDuration:
                     Debug.Log("BonusDayDuration 구매됨");
@@ -229,7 +229,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.MiniGameEasier:
                     Debug.Log("MiniGameEasier 구매됨");
-                    MiniGameManager.Instance.SetMiniGameScoreDouble(true);
+                    MiniGameManager.Instance.SetMiniGameEasier(true);
                     break;
                 case EffectType.UnlockEmote:
                     Debug.Log("UnlockEmote 구매됨");
@@ -440,7 +440,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 GameManager.Instance.GoatSpeedBoostPurchased(permanentData.value);
                 break;
             case EffectType.MiniGamePointDouble:
-                MiniGameManager.Instance.SetMiniGameEasier(true);
+                MiniGameManager.Instance.SetMiniGameScoreDouble(true);
                 break;
             case EffectType.BonusDayDuration:
                 GameManager.Instance.BonusDayDurationItemPurchased(permanentData.value);
@@ -449,7 +449,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 GameManager.Instance.PointDoubleItemPurchased();
                 break;
             case EffectType.MiniGameEasier:
-                MiniGameManager.Instance.SetMiniGameScoreDouble(true);
+                MiniGameManager.Instance.SetMiniGameEasier(true);
                 break;
             case EffectType.UnlockEmote:
                 OnItemPurchased?.Invoke(permanentData);
