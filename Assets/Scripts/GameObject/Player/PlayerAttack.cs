@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening.Core.Easing;
+using UnityEngine;
 using UnityEngine.VFX;
 
 public class PlayerAttack : MonoBehaviour
@@ -17,12 +18,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (_isJerk)
         {
-            StoreManager.Instance.Coin += 100;
+            SaveManager.Instance.CurrentPlayerModel.Coin += 100;
             Debug.Log("진상 스코어");
         }
         else if (_isNormal)
         {
-            StoreManager.Instance.Coin -= 100;
+            SaveManager.Instance.CurrentPlayerModel.Coin -= 100;
             Debug.Log("노멀 패널티");
         }
     }

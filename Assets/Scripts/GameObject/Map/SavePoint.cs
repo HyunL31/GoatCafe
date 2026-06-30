@@ -10,7 +10,6 @@ public class SavePoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             SaveManager.Instance.CurrentPlayerModel.Coin = StoreManager.Instance.Coin;
-            SaveManager.Instance.SaveData();
             Transfomr_PlayerMoving.transform.position = Transform_CafePoint.position;
 
             GameManager.Instance.NextDay();

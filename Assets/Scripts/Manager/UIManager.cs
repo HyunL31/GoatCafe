@@ -10,7 +10,9 @@ public enum UIType : byte
     InGameUI,
     InGamePopup,
     TutorialPopup,
-    DialogueUI
+    DialogueUI,
+    InteractionPromptUI,
+    GameResultPanel
 }
 
 public enum UIRootType : byte
@@ -174,6 +176,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.TutorialPopup.PopupPrefab;
                 }
+            case UIType.InteractionPromptUI:
+                {
+                    return AddressUtil.Prefab.UI.InteractionPromptUI.UIPrefab;
+                }
             case UIType.DialogueUI:
                 {
                     return AddressUtil.Prefab.UI.DialogueUI.DialoguePrefab;
@@ -181,6 +187,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
             case UIType.GameOptionUI:
                 {
                     return AddressUtil.Prefab.UI.GameOptionPopup.PopupPrefab;
+                }
+            case UIType.GameResultPanel:
+                {
+                    return AddressUtil.Prefab.UI.GameResultPanel.PanelPrefab;
                 }
             default:
                 {
@@ -214,11 +224,19 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Popup;
                 }
+            case UIType.InteractionPromptUI:
+                {
+                    return UIRootType.Front;
+                }
             case UIType.DialogueUI:
                 {
                     return UIRootType.Popup;
                 }
             case UIType.GameOptionUI:
+                {
+                    return UIRootType.Popup;
+                }
+            case UIType.GameResultPanel:
                 {
                     return UIRootType.Popup;
                 }
@@ -241,6 +259,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
             case UIRootType.Popup:
                 {
                     return PopupCanvas;
+                }
+            case UIRootType.Front:
+                {
+                    return FrontCanvas;
                 }
             default:
                 {
