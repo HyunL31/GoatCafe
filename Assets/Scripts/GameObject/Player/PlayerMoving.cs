@@ -72,6 +72,7 @@ public class PlayerMoving : MonoBehaviour
     private void InitializeGoat()
     {
         Stamina = 100;
+        GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
 
         _walkSpeed = 3f;
         _runSpeed = 5f;

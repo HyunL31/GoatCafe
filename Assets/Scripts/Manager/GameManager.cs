@@ -87,6 +87,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
     public event Action<int> OnDayChanged;
+    public event Action OnEnding;
 
     public event Action OnMoveHome;
     public Action<int> OnChangedStamina;
@@ -332,13 +333,22 @@ public class GameManager : BaseMonoManager<GameManager>
         ChangeDayPhase(DayPhase.None);
         InitializeGame();
 
-        UIManager.Instance.CloseUI(UIType.InGameUI);
+        OnEnding?.Invoke();
         UIManager.Instance.OpenMainMenuUI();
     }
 
     public void SetCurrentID(string nextID)
     {
         CurrentDialogueID = nextID;
+    }
+
+    public void CheckAndApplyPoint(int point)
+    {
+        if(isPointDouble && point >= 0)
+        {
+            point = point * 2;
+        }
+        SaveManager.Instance.SavePlayerPoint(point);
     }
 
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
@@ -354,7 +364,7 @@ public class GameManager : BaseMonoManager<GameManager>
 
     public void BonusDayDurationItemPurchased(float bonus)  // StoreManager쪽에서 아이템 구매시 실행
     {
-        ex_dayDuration = ex_dayDuration + bonus;
+        _dayDuration = _dayDuration + bonus;
     }
 
     private int PointCalculate(int basePoint, int miniGamePoint)  // 점수계산 부분 예시로 만든겁니다

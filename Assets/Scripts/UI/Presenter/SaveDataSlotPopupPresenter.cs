@@ -237,7 +237,7 @@ public class SaveDataSlotPopupPresenter : BasePresenter<SaveDataSlotPopupPresent
 
     private void OnClick_NewSlot()
     {
-        _saveDataSlotPopup.OpenNewDataSlotPanel("슬롯을 새로 생성하시겠습니까?", null, "예", "아니오", OnClick_NewSlotYes, null);
+        _saveDataSlotPopup.OpenNewDataSlotPanel("슬롯을 새로\n생성하시겠습니까?", null, "예", "아니오", OnClick_NewSlotYes, null);
     }
 
     private void OnClick_Slot(string slotName)
