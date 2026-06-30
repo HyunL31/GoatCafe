@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 800ba93b5a898a5429d531c467d05be4
   m_SerializeEntries:
-  - m_GUID: 0122bdcb28aac0744b0576510be6b8c6
-    m_Address: Audio/SFX/Customer/Shout_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06f3207680add8a42b756669149663d2
     m_Address: Audio/SFX/Customer/Shout_6
     m_ReadOnly: 0
@@ -45,28 +40,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 120510dde017ef94f8f6231dc529207a
-    m_Address: Audio/SFX/Customer/Hurt_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1213f8934a6b4094da444d335baeeb34
     m_Address: Audio/SFX/Footstep/Concrete_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 12559ed4ec491e742bd8dfb79ad46757
-    m_Address: Audio/SFX/Customer/Hurt_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 140fde44ec775f545a6fa9e1e89a2ff4
     m_Address: Sprite/UI/InGameUI/DayChangePanelBackground
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 17ef33876e0891e4f83a26ab8339146e
-    m_Address: Audio/SFX/Customer/Hurt_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -77,11 +57,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d7cb5b4f10181b4aa42ec8ec7213a72
     m_Address: Image/Pitty
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2fc11ed1ca6fcdd45bb559c7abc1f0f3
-    m_Address: Audio/SFX/Customer/Hurt_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -105,16 +80,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 414cd07ecb07e7d4a83f24b607b9bbfb
-    m_Address: Audio/SFX/Customer/Shout_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4268d5a044530c34a916dfda643d4aa4
-    m_Address: Audio/SFX/Customer/Shout_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 444fc6b0b03e51f478759ff856151bff
     m_Address: Audio/SFX/UISound/Click_2
     m_ReadOnly: 0
@@ -122,11 +87,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4685e944b863fd84d85a265243475c1b
     m_Address: Audio/SFX/Customer/Hurt_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 499472727b78db54ba0fffab0f263f7b
-    m_Address: Audio/SFX/Customer/Shout_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -165,11 +125,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6f77baa39eb28bc4a93f269f48d1b617
-    m_Address: Audio/SFX/Customer/Shout_7
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 789567fe6bbf3a046a3576e0601a40e3
     m_Address: Image/Peace
     m_ReadOnly: 0
@@ -197,11 +152,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a1a504de7a6afe41877fb0c21bc9da7
     m_Address: Audio/SFX/Punch/Punch_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8a35aafff0639c64a8218bbc0b5cc544
-    m_Address: Audio/SFX/Customer/Shout_6
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -260,6 +210,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bce3850febbec7c45b29c4b0bf445acb
+    m_Address: Sprite/UI/MainMenu/MenuSlotTitle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfc97a0fac6a6414c85c0b65cacef051
     m_Address: Audio/SFX/Customer/Shout_3
     m_ReadOnly: 0
@@ -285,11 +240,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca04b6dd920a43348a09ba6224a96a7b
-    m_Address: Sprite/UI/MainMenu/Title
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf56d74bd12e698479cd425506fb1465
     m_Address: Prefab/UI/DialogueUI
     m_ReadOnly: 0
@@ -307,11 +257,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9a4d576e258e8f428c95f73c44ec9b5
     m_Address: Image/Arrogant
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d9fd7de4e839b7e41bf2a1390a1e1373
-    m_Address: Audio/SFX/Customer/Shout_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -337,11 +282,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6254d1c51826554dbc6ae2691db3862
     m_Address: Audio/SFX/Customer/Shout_4
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eea53051e87b86e4d88faa5a7375c87c
-    m_Address: Audio/SFX/Customer/Hurt_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

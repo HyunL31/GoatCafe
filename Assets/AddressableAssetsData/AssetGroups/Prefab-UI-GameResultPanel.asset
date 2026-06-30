@@ -10,18 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Sprite-UI-MainMenuUI
+  m_Name: Prefab-UI-GameResultPanel
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Sprite-UI-MainMenuUI
-  m_GUID: df2d0c9f89a6b0649a98a75daba83ec8
+  m_GroupName: Prefab-UI-GameResultPanel
+  m_GUID: 419f60ee0267e564c9653ae1147051d8
   m_SerializeEntries:
-  - m_GUID: 093d2c9a1243e60428365e825854086c
-    m_Address: Sprite/UI/MainMenu/MenuSlotEdge
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7fcd8a652e7dd00489c048ef857aefa3
-    m_Address: Sprite/UI/MainMenu/MenuSlotBackground
+  - m_GUID: baaad2691c1e5ac498a0c73099f62feb
+    m_Address: Prefab/UI/GameResultPanel
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -29,5 +24,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 3ef8f01b6001cc544b192ad58e62b565, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: b7bd74f58dad5984baff8e903d92343a, type: 2}
-    - {fileID: 11400000, guid: c3c446a43bde3444d9b9aff656bd682a, type: 2}
+    - {fileID: 11400000, guid: b4333040011cb3947ab0b0bb38911916, type: 2}
+    - {fileID: 11400000, guid: 35ead83338be27e48a59d28407a236ac, type: 2}

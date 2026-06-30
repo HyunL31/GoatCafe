@@ -40,6 +40,11 @@ public static class AddressUtil
                 public const string MenuButton = "Prefab/UI/InGamePopup/MenuButton";
             }
 
+            public static class InteractionPromptUI
+            {
+                public const string UIPrefab = "Prefab/UI/InteractionPromptUI/InteractionPromptPrefab";
+            }
+        
             public static class DialogueUI
             {
                 public const string DialoguePrefab = "Prefab/UI/DialogueUI";
@@ -55,9 +60,9 @@ public static class AddressUtil
                 public const string PopupPrefab = "Prefab/UI/GameOptionPopup";
             }
 
-            public static class InfoPopup
+            public static class GameResultPanel
             {
-                public const string PopupPrefab = "Prefab/UI/InfoPopup";
+                public const string PanelPrefab = "Prefab/UI/GameResultPanel/GameResultPanel";
             }
         }
         public static class VFX

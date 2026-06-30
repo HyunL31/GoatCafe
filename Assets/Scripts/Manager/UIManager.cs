@@ -11,7 +11,8 @@ public enum UIType : byte
     InGamePopup,
     TutorialPopup,
     DialogueUI,
-    InfoPopup
+    InteractionPromptUI,
+    GameResultPanel
 }
 
 public enum UIRootType : byte
@@ -38,15 +39,9 @@ public partial class UIManager : BaseMonoManager<UIManager>
     private HashSet<UIType> _activeUI = new();
     private HashSet<UIRootType> _activeCanvas = new();
 
-
     private void Start()
     {
         OpenMainMenuUI();
-    }
-
-    public bool GetIsActiveUI(UIType uiType)
-    {
-        return _activeUI.Contains(uiType);
     }
 
     public T CreateUI<T>(UIType uiType) where T : BaseUI<T>
@@ -181,6 +176,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.TutorialPopup.PopupPrefab;
                 }
+            case UIType.InteractionPromptUI:
+                {
+                    return AddressUtil.Prefab.UI.InteractionPromptUI.UIPrefab;
+                }
             case UIType.DialogueUI:
                 {
                     return AddressUtil.Prefab.UI.DialogueUI.DialoguePrefab;
@@ -189,9 +188,9 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return AddressUtil.Prefab.UI.GameOptionPopup.PopupPrefab;
                 }
-            case UIType.InfoPopup:
+            case UIType.GameResultPanel:
                 {
-                    return AddressUtil.Prefab.UI.InfoPopup.PopupPrefab;
+                    return AddressUtil.Prefab.UI.GameResultPanel.PanelPrefab;
                 }
             default:
                 {
@@ -225,6 +224,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Popup;
                 }
+            case UIType.InteractionPromptUI:
+                {
+                    return UIRootType.Front;
+                }
             case UIType.DialogueUI:
                 {
                     return UIRootType.Popup;
@@ -233,7 +236,7 @@ public partial class UIManager : BaseMonoManager<UIManager>
                 {
                     return UIRootType.Popup;
                 }
-            case UIType.InfoPopup:
+            case UIType.GameResultPanel:
                 {
                     return UIRootType.Popup;
                 }
@@ -256,6 +259,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
             case UIRootType.Popup:
                 {
                     return PopupCanvas;
+                }
+            case UIRootType.Front:
+                {
+                    return FrontCanvas;
                 }
             default:
                 {

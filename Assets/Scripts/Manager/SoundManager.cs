@@ -21,7 +21,10 @@ public class SoundManager : BaseMonoManager<SoundManager>
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnGameStateChanged += HandleGameStateChanged;
+            HandleGameStateChanged(GameManager.Instance.CurrentState);
         }
+
+ 
     }
 
     private void OnDestroy()

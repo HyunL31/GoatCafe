@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 
 [Serializable]
+public class InventorySaveData
+{
+    public string ItemName;
+    public int Count;
+}
+
+[Serializable]
 public class PlayerModel
 {
     public int Coin;
@@ -17,4 +24,5 @@ public class PlayerModel
 
     public List<string> PurchasedItemNames = new List<string>();
     public List<string> EquippedItemNames = new List<string>();
+    public List<InventorySaveData> Inventory = new List<InventorySaveData>();
 }

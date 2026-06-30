@@ -45,15 +45,29 @@ public class SaveManager : BaseMonoManager<SaveManager>
     // 저장
     public void SaveData()
     {
+        if (StoreManager.Instance != null)
+        {
+            StoreManager.Instance.SaveStoreData();
+        }
+
         RequestSaveData(CurrentSlotIndex, CurrentPlayerModel);
+
         SlotIndex.Add(CurrentSlotIndex);
+        Debug.Log("데이터 저장");
     }
 
     // 로드 게임
     public void LoadData(string index)
     {
         CurrentPlayerModel = RequestLoadData(index);
+
+        if (StoreManager.Instance != null)
+        {
+            StoreManager.Instance.LoadSaveStore();
+        }
+
         OnSetStamina?.Invoke();
+        Debug.Log("데이터 로드");
     }
 
     public void LoadDefaultData()
