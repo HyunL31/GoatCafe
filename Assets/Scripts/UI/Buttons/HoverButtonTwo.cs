@@ -15,7 +15,7 @@ public class GameOptionTabButton : MonoBehaviour, IPointerClickHandler, IPointer
     public event Action OnPointerClicked;
     public event Action OnPointerExited;
 
-    private float _exitRatio = 0.8f;
+    private float _exitRatio = 0.6f;
 
     private Vector2 _enteredVector2;
     private Vector2 _exitedVector2;

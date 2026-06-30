@@ -160,6 +160,7 @@ public class GameOptionPopupPresenter : BasePresenter<GameOptionPopupPresenter, 
     {
         UnsubscribeEvent();
         UIManager.Instance.CloseUI(UIType_This);
+        GameManager.Instance.ResumeGame();
     }
 
     private void OnClick_Exit()

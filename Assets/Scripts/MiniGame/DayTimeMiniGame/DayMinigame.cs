@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DayMinigame : BaseMonoManager<DayMinigame>
 {
@@ -11,7 +12,7 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
     [SerializeField] private RectTransform Transform_TargetArea;
     [SerializeField] private Button Button_DayMiniGame;
     [SerializeField] private Button Button_Close;
-    [SerializeField] private Text Text_Result;
+    [SerializeField] private TMP_Text Text_Result;
     [SerializeField] private float _speed = 500f;
     [SerializeField] private float _targetHeight = 120f;
     [SerializeField] private float _closeDelay = 0.4f;

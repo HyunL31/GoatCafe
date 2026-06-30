@@ -40,11 +40,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 766a138a7c494414d8d76b4159bc2ee9
-    m_Address: Sprite/UI/SaveSlotPopup/BackgroundEdge
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8158aac8e8aa2c347a6947d115826730
     m_Address: Sprite/UI/SaveSlotPopup/SaveSlotEdge
     m_ReadOnly: 0

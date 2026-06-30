@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c71de3cc8e33ee44a8332dc706391d7
+    m_Address: Sprite/UI/SaveSlotPopup/BackgroundEdge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e15e1a78a2c0d046b1e2bee2b9d6268
     m_Address: Sprite/UI/InGameUI/DayChangePanelEdge
     m_ReadOnly: 0
@@ -407,6 +412,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5fab232f46c76c4aa63b13d92a86e92
     m_Address: Prefabs/UI/SaveSlot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb5b810df75b9d24187ba5b2297d00d1
+    m_Address: Prefab/UI/InfoPopup/PopupPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

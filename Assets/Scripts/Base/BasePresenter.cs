@@ -12,9 +12,15 @@ public abstract class BasePresenter<TPresenter, TUI> : BasePresenter where TPres
 
     public abstract void InitUI(TUI ui);
 
-    protected abstract UniTaskVoid SetUI();
+    protected async virtual UniTaskVoid SetUI()
+    {
+        return;
+    }
 
-    protected abstract UniTask LoadAssetAsync();
+    protected async virtual UniTask LoadAssetAsync()
+    {
+        return;
+    }
 
     protected abstract void LoadData();
 
