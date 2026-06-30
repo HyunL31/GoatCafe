@@ -62,7 +62,12 @@ public class JerkCustomer : CustomerBase
         SoundManager.Instance.PlaySFX($"Audio/SFX/Customer/Shout_{randomIndex}").Forget();
     }
     private void DoAnimalJerk() { Debug.Log("물건 엎기"); }
-    private void DoAlienJerk() { Debug.Log("이상한 행동"); }
+    private void DoAlienJerk() 
+    {
+        Debug.Log("이상한 행동");
+        int randomIndex = Random.Range(1, 8);
+        SoundManager.Instance.PlaySFX($"Audio/SFX/Customer/Shout_{randomIndex}").Forget();
+    }
 
     public void StopReactingAndExit(Vector3 exitPosition)
     {
