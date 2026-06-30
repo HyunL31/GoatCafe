@@ -13,7 +13,7 @@ public class GameResultPanel : BaseUI<GameResultPanel>
     [SerializeField] private Color _gameClearColor = Color.blue;
     [SerializeField] private Color _gameOverColor = Color.red;
 
-    [SerializeField] private float _showDuration = 10f;
+    [SerializeField] private float _showDuration = 6f;
 
     private bool _isShowing;
 

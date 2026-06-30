@@ -304,6 +304,7 @@ public class GameManager : BaseMonoManager<GameManager>
         Debug.Log($"엔딩 > {_currentEndingType}");
 
         OnEndingDetermined?.Invoke(_currentEndingType);
+        SaveManager.Instance.SaveData();
         UIManager.Instance.OpenDialogueUI().Forget();
     }
 

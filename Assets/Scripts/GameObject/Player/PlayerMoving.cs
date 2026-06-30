@@ -201,7 +201,6 @@ public class PlayerMoving : MonoBehaviour
 
         await UniTask.Delay(TimeSpan.FromSeconds(2f), cancellationToken: _dieToken.Token);
 
-        GameManager.Instance.EndGame();
         GameManager.Instance.DetermineEnding();
     }
 

@@ -102,6 +102,7 @@ public class DialogueUI : BaseUI<DialogueUI>
         {
             UIManager.Instance.CloseDialogueUI();
             GameManager.Instance.ClearGame();
+
             return;
         }
 
@@ -109,6 +110,7 @@ public class DialogueUI : BaseUI<DialogueUI>
         {
             UIManager.Instance.CloseDialogueUI();
             GameManager.Instance.HandleEndingDialogueFinished();
+
             return;
         }
 
