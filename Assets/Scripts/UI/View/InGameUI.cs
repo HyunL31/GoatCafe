@@ -14,10 +14,15 @@ public class InGameUI : BaseUI<InGameUI>
     private DayGaugeButton _dayGaugeButton;
     private DayChangePanel _dayChangePanel;
 
-    private void Awake()
+    private void OnEnable()
     {
         GameManager.Instance.OnChangedStamina += UpdateStaminaGauge;
         UpdateStaminaGauge(SaveManager.Instance.CurrentPlayerModel.Stamina);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnChangedStamina -= UpdateStaminaGauge;
     }
 
     public void SetStaminaGaugeImage(Sprite staminaGaugeBackgroundSprite, Sprite staminaGaugeSprite)
@@ -34,16 +39,6 @@ public class InGameUI : BaseUI<InGameUI>
         }
 
         Image_StaminaGauge.fillAmount = Mathf.Clamp01(value / 100f);
-    }
-
-    public void UpdataDayGauge(int value)
-    {
-        if(_dayGaugeButton == null)
-        {
-            return;
-        }
-
-        _dayGaugeButton.ChangeDay(value);
     }
 
     public void CreateDayGaugeButton(GameObject dayGaugeButtonPrefab, Sprite backgroundSprite, Sprite dayGaugeBackgroundSprite, Sprite dayGaugeSprite, int day, TMP_FontAsset buttonFontAsset, Action buttonCallback)
@@ -87,9 +82,9 @@ public class InGameUI : BaseUI<InGameUI>
 
     public void SetDayGaugeButtonDayGauge(float dayTime)
     {
-        if(_dayGaugeButton == null)
+        if (_dayGaugeButton == null)
         {
-            return; 
+            return;
         }
 
         _dayGaugeButton.ChangeGauge(dayTime);
@@ -107,7 +102,7 @@ public class InGameUI : BaseUI<InGameUI>
 
     public void OpenDayPanel(string description, string text)
     {
-        if(_dayChangePanel == null)
+        if (_dayChangePanel == null)
         {
             return;
         }
@@ -124,7 +119,7 @@ public class InGameUI : BaseUI<InGameUI>
             return;
         }
 
-        _dayChangePanel.SetText(description,text);
+        _dayChangePanel.SetText(description, text);
         _dayChangePanel.Open(_dayChangePanel.Close);
     }
 }

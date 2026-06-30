@@ -38,10 +38,12 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
         GameManager.Instance.OnDayTimeChanged += On_DayTimeChange;
         GameManager.Instance.OnDayPhaseChanged += On_DayPhaseChange;
         GameManager.Instance.OnDayChanged += On_DayChange;
+        //GameManager.Instance.OnEnding += On_UIExit;
 
         InputManager.Instance.OnEscKeyDown += On_UIExit;
 
         On_DayTimeChange(GameManager.Instance.RemainDayTime);
+        On_DayChange(GameManager.Instance.CurrentDay);
     }
 
     private void UnSubscribeEvent()
@@ -50,6 +52,7 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
         GameManager.Instance.OnDayTimeChanged -= On_DayTimeChange;
         GameManager.Instance.OnDayPhaseChanged -= On_DayPhaseChange;
         GameManager.Instance.OnDayChanged -= On_DayChange;
+        //GameManager.Instance.OnEnding -= On_UIExit;
 
         InputManager.Instance.OnEscKeyDown -= On_UIExit;
     }
@@ -73,7 +76,7 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
             fontAsset_font) = await UniTask.WhenAll
             (
             LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.InGameUI.DayButton),
-            LoadUtil.Async.LoadPrefabAsync (AddressUtil.Prefab.UI.InGameUI.DayChangePanel),
+            LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.InGameUI.DayChangePanel),
 
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.InGameUI.StaminaGaugeBackground),
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.InGameUI.StaminaGauge),
@@ -129,7 +132,7 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
     private void On_DayChange(int day)
     {
 
-        _inGameUI.UpdataDayGauge(day);
+        _inGameUI.SetDayGaugeButtonDay(day);
     }
 
     private void OnClick_DayGaugeButton()
@@ -145,7 +148,7 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
 
     private void On_DayPhaseChange(DayPhase dayPhase)
     {
-        switch(dayPhase)
+        switch (dayPhase)
         {
             case DayPhase.Day:
                 {
