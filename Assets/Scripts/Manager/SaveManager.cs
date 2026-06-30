@@ -184,4 +184,19 @@ public class SaveManager : BaseMonoManager<SaveManager>
             Debug.Log($"[SaveManager] {slotName} 는 SlotIndex에 존재하지 않습니다.");
         }
     }
+
+    public void SavePlayerPoint(int point)
+    {
+        if (CurrentPlayerModel == null)
+        {
+            return;
+        }
+
+        CurrentPlayerModel.Coin += point;
+
+        if(CurrentPlayerModel.Coin <= 0)
+        {
+            CurrentPlayerModel.Coin = 0;
+        }
+    }
 }

@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 086ebf25444005e45866fe5a7b2d5853
+    m_Address: StoreItemIcon/PeacePotion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a3ca4f9a66e14d4cb1f9d47d9270175
     m_Address: Audio/SFX/Customer/Shout_7
     m_ReadOnly: 0
@@ -75,8 +80,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20b62d8d1dcb3744bb4d2e66f0484c50
+    m_Address: StoreItemIcon/DoublePoint
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 238c3ef7b426af742a918e9a01dbc4de
     m_Address: Prefab/UI/DayChangePanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27c048b06eaf87a469c4827122574d8a
+    m_Address: StoreItemIcon/StaminaPotion
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -97,6 +112,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36372d25293316e4a9d9c75b92c790a0
     m_Address: Image/Past
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 399f3e3170f6d664492d62e14422292e
+    m_Address: StoreItemIcon/MiniGameEasier
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -175,6 +195,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 703a7b2eaec836841ac2c529f4f2d242
+    m_Address: StoreItemIcon/Heart
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 789567fe6bbf3a046a3576e0601a40e3
     m_Address: Image/Peace
     m_ReadOnly: 0
@@ -212,6 +237,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a9c0b9229782cd4fb89277ea1262bda
     m_Address: Image/Award
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9346d053b0429934bb4f9d87e4dc7e98
+    m_Address: StoreItemIcon/SpeedUp
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -260,6 +290,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b105bd788de68a44abec2d6370df1648
+    m_Address: StoreItemIcon/Crown
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8a2033e2680d9743b3539f892cfcaf7
     m_Address: Audio/BGM/BGM_1
     m_ReadOnly: 0
@@ -290,8 +325,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5716ea91a83aed4f9d603cc03a6acf8
+    m_Address: StoreItemIcon/DayDuration
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c65aabe8f5487c24698ffdf58f87e4a6
     m_Address: Prefab/UI/TutorialPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd0d75c7e24ec184a876988bfb247019
+    m_Address: StoreItemIcon/Santa
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -320,6 +365,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e256f37d3e7f9f04bb2f0d5abaf4aca0
+    m_Address: StoreItemIcon/Emote
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3206162a4eec2643b26184edbc87966
     m_Address: Prefabs/CostumeItem/Heart
     m_ReadOnly: 0
@@ -342,6 +392,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6254d1c51826554dbc6ae2691db3862
     m_Address: Audio/SFX/Customer/Shout_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed22db6b5dac1bb4b89c32e2cf3079d9
+    m_Address: StoreItemIcon/MiniGamePointDouble
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

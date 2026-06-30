@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ConsumableItem
   Price: 2000
   Name: "\uD3C9\uD654\uC758 \uD3EC\uC158"
-  Iconpath: 
+  Iconpath: StoreItemIcon/PeacePotion
   ItemDesc: "\uC0AC\uC6A9 \uC2DC 10\uCD08 \uB3D9\uC548 \uC9C4\uC0C1\uC190\uB2D8\uC774
     \uC0C1\uC810\uC5D0 \uC624\uC9C0\uC54A\uC2B5\uB2C8\uB2E4\\n \uC0AC\uC6A9 \uD0A4
     : 4\uBC88 \uBC84\uD2BC"

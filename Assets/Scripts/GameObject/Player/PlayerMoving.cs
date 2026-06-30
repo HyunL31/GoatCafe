@@ -46,7 +46,7 @@ public class PlayerMoving : MonoBehaviour
             {
                 SaveManager.Instance.OnSetStamina?.Invoke();
             }
-            
+
             if (Stamina >= 10 && !_isAttack)
             {
                 AttackRoutine().Forget();
@@ -63,6 +63,16 @@ public class PlayerMoving : MonoBehaviour
 
         RotateDirection();
         MoveToward(_inputZ, _inputX);
+    }
+
+    private void InitializeGoat()
+    {
+        Stamina = 100;
+
+        _walkSpeed = 3f;
+        _runSpeed = 5f;
+        _isAttack = false;
+        _isAlive = true;
     }
 
     private void MoveToward(float inputZ, float inputX)
@@ -201,8 +211,8 @@ public class PlayerMoving : MonoBehaviour
 
         await UniTask.Delay(TimeSpan.FromSeconds(2f), cancellationToken: _dieToken.Token);
 
-        GameManager.Instance.EndGame();
         GameManager.Instance.DetermineEnding();
+        InitializeGoat();
     }
 
     private void CancelAttack()

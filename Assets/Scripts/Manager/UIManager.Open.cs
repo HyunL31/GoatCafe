@@ -33,6 +33,8 @@ public partial class UIManager
 
     public void OpenMainMenuUI()
     {
+        GameManager.Instance.SetCurrentID("Opening_01");
+        CursorManager.Instance.UnlockCursor();
         OpenUI<MainMenuUIPresenter, MainMenuUI>();
     }
 
@@ -110,6 +112,7 @@ public partial class UIManager
             }
         }
     }
+
     public async UniTask OpenGameResultPanel()
     {
         if (_gameResultPanel != null)

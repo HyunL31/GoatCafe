@@ -1790,6 +1790,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7423757643808026886, guid: 4194e14132c5b6b468a606ae42b1b908, type: 3}
+      propertyPath: m_CellSize.x
+      value: 330
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1855,8 +1859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98b0a4248ac98f4088eefce55ee39a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _dayDuration: 60
-  _nightDuration: 10
+  _dayDuration: 30
+  _nightDuration: 30
   _maxDayCount: 3
   _targetCoin: 1000
   _targetStolenItemCount: 6
