@@ -97,7 +97,6 @@ public class GameManager : BaseMonoManager<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        CurrentDialogueID = "Opening_01";
     }
 
     private void Start()
@@ -118,6 +117,8 @@ public class GameManager : BaseMonoManager<GameManager>
         ChangeDayPhase(DayPhase.Day);
 
         ChangeGameState(GameState.Ready);
+
+        CurrentDialogueID = "Opening_01";
     }
 
     // Playing 상태로 전환
@@ -323,13 +324,10 @@ public class GameManager : BaseMonoManager<GameManager>
     {
         Time.timeScale = 1f;
 
-        CurrentDialogueID = "Opening_01";
-
         ChangeDayPhase(DayPhase.None);
-        ChangeGameState(GameState.Ready);
+        InitializeGame();
 
         UIManager.Instance.CloseUI(UIType.InGameUI);
-
         UIManager.Instance.OpenMainMenuUI();
     }
 

@@ -54,6 +54,12 @@ public class CustomerSpawner : MonoBehaviour
             _hasSpawnedToday = true;
             SpawnCustomersAsync().Forget();
         }
+        else if (state == GameState.GameClear || state == GameState.GameOver)
+        {
+            CleanUpAllCustomers();
+            _isExitingAll = false;
+            _hasSpawnedToday = false;
+        }
     }
 
     private void OnDayTimeChanged(float reaminTime)

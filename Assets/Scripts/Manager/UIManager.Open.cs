@@ -33,6 +33,7 @@ public partial class UIManager
 
     public void OpenMainMenuUI()
     {
+        GameManager.Instance.SetCurrentID("Opening_01");
         CursorManager.Instance.UnlockCursor();
         OpenUI<MainMenuUIPresenter, MainMenuUI>();
     }
