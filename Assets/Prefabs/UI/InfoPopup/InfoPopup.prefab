@@ -146,7 +146,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6128116259800045524}
-  - component: {fileID: 4717116082787323314}
   m_Layer: 0
   m_Name: InfoPopup
   m_TagString: Untagged
@@ -176,27 +175,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4717116082787323314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2292101633685452359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea69be94b05075949807123ffb32e847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InfoPopup
-  Button_Exit: {fileID: 0}
-  Text_CoinTitle: {fileID: 2388823796698593064}
-  Text_CoinData: {fileID: 4957140891287756318}
-  Text_StolenItemCountTitle: {fileID: 8604165078781250348}
-  Text_StolenItemCountData: {fileID: 380341733701488214}
-  Text_PurchasedItemTitle: {fileID: 4078683003869592504}
-  Text_PurchasedItemData: {fileID: 3252114815169446224}
-  Text_EquippedItemTitle: {fileID: 4616122394541919413}
-  Text_EquippedItemData: {fileID: 2432623107984218233}
 --- !u!1 &2690646345452747370
 GameObject:
   m_ObjectHideFlags: 0
