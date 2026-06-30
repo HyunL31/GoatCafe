@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
   Price: 3000
   Name: "\uB0AE \uC2DC\uAC04 \uC99D\uAC00"
-  Iconpath: dasf
+  Iconpath: StoreItemIcon/DayDuration
   ItemDesc: "\uB0AE\uC774 \uC9C0\uC18D\uB418\uB294 \uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4!!"
   effectType: 3
   value: 100

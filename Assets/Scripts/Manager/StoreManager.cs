@@ -141,7 +141,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
             tempslot = slotObj.GetComponent<StoreItemSlot>();
-            tempslot.Setup(item.Value);
+            tempslot.Setup(item.Value).Forget();
             StoreSlotDic.Add(item.Value, tempslot);
         }
         foreach (var item in ItemDataBase.Instance.ConsumableList)
@@ -149,7 +149,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
             tempslot = slotObj.GetComponent<StoreItemSlot>();
-            tempslot.Setup(item.Value);
+            tempslot.Setup(item.Value).Forget();
             StoreSlotDic.Add(item.Value, tempslot);
             keySelectDic.Add(item.Value.keyCode, item.Value);
         }
@@ -158,7 +158,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             GameObject slotObj = Instantiate(_storeItems, _contentParent);
 
             tempslot = slotObj.GetComponent<StoreItemSlot>();
-            tempslot.Setup(item.Value);
+            tempslot.Setup(item.Value).Forget();
             StoreSlotDic.Add(item.Value, tempslot);
         }
     }
