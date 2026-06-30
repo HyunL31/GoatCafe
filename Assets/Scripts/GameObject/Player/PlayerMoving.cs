@@ -40,9 +40,17 @@ public class PlayerMoving : MonoBehaviour
         _inputZ = InputManager.Vertical;
         _inputX = InputManager.Horizontal;
 
-        if (Input.GetKeyDown(KeyCode.Space) && Stamina >= 10 && !_isAttack)
+        if (!MiniGameManager.Instance.isGame && !DayMinigame.Instance.IsPlaying && !StoreManager.Instance.IsActiveStore() && Input.GetKeyDown(KeyCode.Space))
         {
-            AttackRoutine().Forget();
+            if (Stamina == 0)
+            {
+                SaveManager.Instance.OnSetStamina?.Invoke();
+            }
+            
+            if (Stamina >= 10 && !_isAttack)
+            {
+                AttackRoutine().Forget();
+            }
         }
     }
 
@@ -158,6 +166,12 @@ public class PlayerMoving : MonoBehaviour
         _isAttack = true;
 
         Stamina -= 10;
+
+        if (SaveManager.Instance != null && SaveManager.Instance.CurrentPlayerModel != null)
+        {
+            SaveManager.Instance.CurrentPlayerModel.Stamina = Stamina;
+        }
+
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
 
         Animator_Goat.SetTrigger("Attack");
@@ -226,6 +240,7 @@ public class PlayerMoving : MonoBehaviour
         }
 
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
+        SaveManager.Instance.CurrentPlayerModel.Stamina = Stamina;
     }
 
     private void AddGoatSpeed(float value)
