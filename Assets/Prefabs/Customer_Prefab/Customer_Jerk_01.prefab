@@ -2625,6 +2625,7 @@ MonoBehaviour:
   Int_ScoreValue: 100
   Float_MinReactTime: 3
   Float_MaxReactTime: 10
+  CustomerRace_This: 3
 --- !u!114 &129460963415501546
 MonoBehaviour:
   m_ObjectHideFlags: 0

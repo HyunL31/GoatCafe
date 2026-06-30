@@ -6,10 +6,16 @@ public class JerkCustomer : CustomerBase
     [SerializeField] private int Int_ScoreValue = 100;
     [SerializeField] private float Float_MinReactTime = 3f;
     [SerializeField] private float Float_MaxReactTime = 10f;
+    [SerializeField] private CustomerRace CustomerRace_This = CustomerRace.Human;
 
     protected override void OnInitialized()
     {
         WaitAndStartReactingAsync().Forget();
+    }
+
+    public override CustomerRace GetRace()
+    {
+        return CustomerRace_This;
     }
 
     protected override void OnStateChanged(CustomerState newState)
