@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: UnlockEmote
   m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
   Price: 1500
-  Name: UnlockEmote
+  Name: "\uC774\uBAA8\uD2B8 \uC5F4\uB2E4"
   Iconpath: asdf
-  ItemDesc: tdtdtdtdtdtdtd
+  ItemDesc: "1/2/3 \uC22B\uC790\uBC84\uD2BC\uC744 \uB204\uB974\uBA74 \uCDA4\uC744
+    \uCDA5\uB2C8\uB2E4"
   effectType: 5
   value: 0

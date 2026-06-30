@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SpeedUp
   m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
   Price: 2000
-  Name: Speed Up
+  Name: "\uD558\uB298\uC744 \uB2EC\uB9AC\uB2E4"
   Iconpath: dtdtd
-  ItemDesc: dtdtdtdtdtd
+  ItemDesc: "\uD558\uB298\uC740 \uBABB \uB2EC\uB9AC\uACE0, \uC5FC\uC18C\uC758 \uC18D\uB3C4\uAC00
+    50\uD504\uB85C \uC99D\uAC00\uD569\uB2C8\uB2E4"
   effectType: 0
   value: 1.5
