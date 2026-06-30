@@ -296,7 +296,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fb5b810df75b9d24187ba5b2297d00d1
-    m_Address: Prefab/UI/InfoPopup
+    m_Address: Prefab/UI/InfoPopup/PopupPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

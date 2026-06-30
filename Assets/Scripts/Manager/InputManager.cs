@@ -121,7 +121,7 @@ public class InputManager : BaseMonoManager<InputManager>
 
         if (Input.GetKeyUp(KeyCode.Tab))
         {
-            if (UIManager.Instance.GetIsActiveUI(UIType.InfoPopup))
+            if (UIManager.Instance.IsActiveUI(UIType.InfoPopup))
             {
                 UIManager.Instance.CloseUI(UIType.InfoPopup);
             }
