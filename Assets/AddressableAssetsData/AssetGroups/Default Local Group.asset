@@ -260,6 +260,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bce3850febbec7c45b29c4b0bf445acb
+    m_Address: Sprite/UI/MainMenu/MenuSlotTitle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfc97a0fac6a6414c85c0b65cacef051
     m_Address: Audio/SFX/Customer/Shout_3
     m_ReadOnly: 0
@@ -282,11 +287,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c65aabe8f5487c24698ffdf58f87e4a6
     m_Address: Prefab/UI/TutorialPopup
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca04b6dd920a43348a09ba6224a96a7b
-    m_Address: Sprite/UI/MainMenu/Title
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

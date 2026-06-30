@@ -59,8 +59,17 @@ public class Trash : MonoBehaviour
 
     private void ShowUI(bool show)
     {
-        if (GameObject_InteractionUI == null) return;
-        GameObject_InteractionUI.SetActive(show);
+        //if (GameObject_InteractionUI == null) return;
+        //GameObject_InteractionUI.SetActive(show);
+
+        if (show)
+        {
+            UIManager.Instance.OpenInteractionPrompt(InputManager.Instance.InteractionKeyText, "치우기", transform);
+        }
+        else
+        {
+            UIManager.Instance.CloseUI(UIType.InteractionPromptUI);
+        }
     }
 
     public void Interact()

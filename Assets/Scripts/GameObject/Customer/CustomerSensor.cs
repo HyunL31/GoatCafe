@@ -70,8 +70,11 @@ public class CustomerSensor : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        bool wasNear = _isPlayerNear;
         _isPlayerNear = false;
-        ShowUI(false);
+
+        if (wasNear)
+            ShowUI(false);
 
         if (OnStealableExit != null)
             OnStealableExit(_customer);
@@ -79,8 +82,17 @@ public class CustomerSensor : MonoBehaviour
 
     private void ShowUI(bool show)
     {
-        if (GameObject_InteractionUI == null) return;
-        GameObject_InteractionUI.SetActive(show);
+        //if (GameObject_InteractionUI == null) return;
+        //GameObject_InteractionUI.SetActive(show);
+
+        if (show)
+        {
+            UIManager.Instance.OpenInteractionPrompt(InputManager.Instance.InteractionKeyText, _customer.State == CustomerState.Hit ? "치우기" : "훔치기", transform);
+        }
+        else
+        {
+            UIManager.Instance.CloseUI(UIType.InteractionPromptUI);
+        }
     }
 
     private void OnCleanUp()

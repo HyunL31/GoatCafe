@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,6 @@ using UnityEngine.UI;
 
 public class StoreManager : BaseMonoManager<StoreManager>
 {
-
-    //임시 소유 코인
-    public int Coin { get; set; }
     [Header("Customer Spawner")]
     [SerializeField] private CustomerSpawner _customerSpawner;
 
@@ -49,6 +47,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public static event System.Action<PermanentItem> OnItemPurchased;
     public static event Action StoreAreaEntered;
     public static event Action<float> OnPeaceItemUsed;
+
+    public int Coin => SaveManager.Instance.CurrentPlayerModel.Coin;
 
     public void AddItemObj(string name, GameObject prefab)
     {
@@ -109,6 +109,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
             if (consumable.UseItem())
             {
                 inventoryDic[itemData] -= 1;
+
                 if (inventoryDic[itemData] <= 0)
                 {
                     inventoryDic.Remove(itemData);
@@ -174,7 +175,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void OpenStorePopup()
     {
-        Coin = SaveManager.Instance.CurrentPlayerModel.Coin;  // 테스트용 임시 코드인듯?? 나중에 수정하기
         UpdateStorePopup();
         _storePopup.SetActive(true);
         GameManager.Instance.PauseGame();
@@ -190,13 +190,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
         {
             if (!itemData.Buy())
             {
-                NotificationManager.Instance.ShowNotification("Not Enough Coins!!!", Color.red);
+                NotificationManager.Instance.ShowNotification("코인이 부족합니다!!!", Color.red);
                 Debug.Log("[StoreManager] Coin 부족");
                 return;
             }
             else
             {
-                NotificationManager.Instance.ShowNotification($"{itemData.Name} Purchased", Color.green);
+                NotificationManager.Instance.ShowNotification($"{itemData.Name} 구매하였습니다", Color.green);
                 if(!(itemData is ConsumableItem consumable))
                 {
                     AddPurchased(itemData);
@@ -247,7 +247,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         if (itemData is CosmeticItem cosmeticData)
         {
-            button.transform.Find("Store_GoldIcon").gameObject.SetActive(false);
+            if (StoreSlotDic.ContainsKey(itemData))
+            {
+                StoreSlotDic[itemData]._goldImage.ActiveFalse();
+            }
+            else Debug.LogError($"[StoreManager] StoreSlotDIc에 {itemData}가 존재하지않음");
+
             if (equippedItems.Contains(cosmeticData))
             {
                 _playerAccessory.UseItem(cosmeticData);
@@ -282,15 +287,38 @@ public class StoreManager : BaseMonoManager<StoreManager>
     public void LoadSaveStore()
     {
         PlayerModel playerModel = SaveManager.Instance.CurrentPlayerModel;
+        if (playerModel == null) return;
 
         purchasedItems.Clear();
         equippedItems.Clear();
+        inventoryDic.Clear();
+
+        foreach (var saveData in playerModel.Inventory)
+        {
+            ItemBase itemData = GetConsumableItemByName(saveData.ItemName);
+            if (itemData != null)
+            {
+                inventoryDic.Add(itemData, saveData.Count);
+            }
+        }
 
         foreach (string itemName in playerModel.PurchasedItemNames)
         {
             if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticData))
             {
                 purchasedItems.Add(cosmeticData);
+                if (StoreSlotDic.ContainsKey(cosmeticData))
+                {
+                    StoreSlotDic[cosmeticData]._goldImage.ActiveFalse();
+                }
+                continue;
+            }
+
+            PermanentItem permanentData = GetPermanentItemByName(itemName);
+            if (permanentData != null)
+            {
+                purchasedItems.Add(permanentData);
+                ApplyPermanentEffect(permanentData);
             }
         }
 
@@ -298,22 +326,56 @@ public class StoreManager : BaseMonoManager<StoreManager>
         {
             if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
             {
-                equippedItems.Add(cosmeticItem);
-
-                if (_playerAccessory != null)
-                {
-                    _playerAccessory.UseItem(cosmeticItem);
-                }
+                _playerAccessory?.UseItem(cosmeticItem);
+                ChangeSlotButtonState(cosmeticItem, false);
             }
         }
+    }
+
+    private ConsumableItem GetConsumableItemByName(string name)
+    {
+        foreach (var pair in ItemDataBase.Instance.ConsumableList)
+        {
+            if (pair.Value != null && pair.Value.Name == name)
+            {
+                return pair.Value;
+            }
+        }
+        return null;
+    }
+
+    private PermanentItem GetPermanentItemByName(string name)
+    {
+        foreach (var pair in ItemDataBase.Instance.PermanentList)
+        {
+            if (pair.Value != null && pair.Value.Name == name)
+            {
+                return pair.Value;
+            }
+        }
+        return null;
     }
 
     public void SaveStoreData()
     {
         PlayerModel playerModel = SaveManager.Instance.CurrentPlayerModel;
+        if (playerModel == null) return;
 
         playerModel.PurchasedItemNames.Clear();
         playerModel.EquippedItemNames.Clear();
+        playerModel.Inventory.Clear();
+
+        foreach (var pair in inventoryDic)
+        {
+            if (pair.Key != null && pair.Value > 0)
+            {
+                playerModel.Inventory.Add(new InventorySaveData
+                {
+                    ItemName = pair.Key.Name,
+                    Count = pair.Value
+                });
+            }
+        }
 
         foreach (var item in purchasedItems)
         {
@@ -330,10 +392,6 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 playerModel.EquippedItemNames.Add(item.Name);
             }
         }
-
-        playerModel.Coin = this.Coin;
-
-        SaveManager.Instance.SaveData();
     }
 
     private void HandleItemUseButtonPressed(KeyCode code)
@@ -347,16 +405,16 @@ public class StoreManager : BaseMonoManager<StoreManager>
         {
             if(UseInventoryItem(curItem))
             {
-                NotificationManager.Instance.ShowNotification($"{curItem.Name} Used", Color.green);
+                NotificationManager.Instance.ShowNotification($"{curItem.Name}을 사용하였습니다", Color.green);
             }
             else
             {
-                NotificationManager.Instance.ShowNotification($"You Can't Use {curItem.Name}", Color.red);
+                NotificationManager.Instance.ShowNotification($"지금 {curItem.Name}을 사용할 수 없습니다!!!", Color.red);
             }
         }
         else
         {
-            NotificationManager.Instance.ShowNotification($"You Don't Have {curItem.Name}!!!", Color.red);
+            NotificationManager.Instance.ShowNotification($"{curItem.Name}이 없습니다!!!", Color.red);
         }
     }
 
@@ -366,7 +424,38 @@ public class StoreManager : BaseMonoManager<StoreManager>
         return _customerSpawner.IsPeaceItemUsed;
     }
 
+    private void ApplyPermanentEffect(PermanentItem permanentData)
+    {
+        if (permanentData == null) return;
 
+        if (StoreSlotDic.TryGetValue(permanentData, out StoreItemSlot slot))
+        {
+            Button btn = slot.GetComponentInChildren<Button>();
+            if (btn != null) btn.interactable = false;
+        }
+
+        switch (permanentData.effectType)
+        {
+            case EffectType.SpeedUp:
+                GameManager.Instance.GoatSpeedBoostPurchased(permanentData.value);
+                break;
+            case EffectType.MiniGamePointDouble:
+                MiniGameManager.Instance.SetMiniGameEasier(true);
+                break;
+            case EffectType.BonusDayDuration:
+                GameManager.Instance.BonusDayDurationItemPurchased(permanentData.value);
+                break;
+            case EffectType.PointDouble:
+                GameManager.Instance.PointDoubleItemPurchased();
+                break;
+            case EffectType.MiniGameEasier:
+                MiniGameManager.Instance.SetMiniGameScoreDouble(true);
+                break;
+            case EffectType.UnlockEmote:
+                OnItemPurchased?.Invoke(permanentData);
+                break;
+        }
+    }
 
 
 
@@ -417,9 +506,11 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
     public void SpendCoins(int amount)
     {
-        if (Coin >= amount)
+        var model = SaveManager.Instance.CurrentPlayerModel;
+        if (model.Coin >= amount)
         {
-            Coin -= amount;
+            model.Coin -= amount;
+            UpdateStorePopup();
         }
     }
 
