@@ -87,6 +87,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<DayPhase> OnDayPhaseChanged;
     public event Action<float> OnDayTimeChanged;
     public event Action<int> OnDayChanged;
+    public event Action OnEnding;
 
     public event Action OnMoveHome;
     public Action<int> OnChangedStamina;
@@ -327,7 +328,7 @@ public class GameManager : BaseMonoManager<GameManager>
         ChangeDayPhase(DayPhase.None);
         InitializeGame();
 
-        UIManager.Instance.CloseUI(UIType.InGameUI);
+        OnEnding?.Invoke();
         UIManager.Instance.OpenMainMenuUI();
     }
 
