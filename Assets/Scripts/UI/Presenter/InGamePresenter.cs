@@ -34,7 +34,6 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
 
     private void SubscribeEvent()
     {
-        Debug.Log("[IngamePresenter] 구독");
         GameManager.Instance.OnDayTimeChanged += On_DayTimeChange;
         GameManager.Instance.OnDayPhaseChanged += On_DayPhaseChange;
         GameManager.Instance.OnDayChanged += On_DayChange;
@@ -48,7 +47,6 @@ public class InGamePresenter : BasePresenter<InGamePresenter, InGameUI>
 
     private void UnSubscribeEvent()
     {
-        Debug.Log("[IngamePresenter] 구독해제");
         GameManager.Instance.OnDayTimeChanged -= On_DayTimeChange;
         GameManager.Instance.OnDayPhaseChanged -= On_DayPhaseChange;
         GameManager.Instance.OnDayChanged -= On_DayChange;

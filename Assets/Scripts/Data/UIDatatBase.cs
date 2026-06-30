@@ -9,9 +9,16 @@ public class UIDataBase
 [Serializable]
 public class MainMenuUIData : UIDataBase
 {
-    public string StartButton;
-    public string GameOptionButton;
-    public string ExitGameButton;
+    public string MainMenuButtonPath;
+
+    public string StartButtonText;
+    public string StartButtonSpritePath;
+
+    public string GameOptionButtonText;
+    public string GameOptionButtonSpritePath;
+
+    public string ExitGameButtonText;
+    public string ExitGameButtonSpritePath;
 }
 
 [Serializable]

@@ -324,11 +324,11 @@ public class GameManager : BaseMonoManager<GameManager>
     public void ReturnTitle()
     {
         Time.timeScale = 1f;
+        OnEnding?.Invoke();
 
         ChangeDayPhase(DayPhase.None);
         InitializeGame();
 
-        OnEnding?.Invoke();
         UIManager.Instance.OpenMainMenuUI();
     }
 

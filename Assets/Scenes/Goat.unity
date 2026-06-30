@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1864,17 +1864,6 @@ MonoBehaviour:
   _maxDayCount: 3
   _targetCoin: 1000
   _targetStolenItemCount: 6
---- !u!114 &684182874 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7056813561754296083, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
-  m_PrefabInstance: {fileID: 1216897121}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
 --- !u!1 &697421133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,7 +2534,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2599,8 +2588,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630352583336965362, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630352583336965362, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630352583336965362, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630352583336965362, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630352583336965362, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 619
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1987614382603827446, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2717,6 +2722,26 @@ PrefabInstance:
     - target: {fileID: 7169314424378757569, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558023506103561066, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558023506103561066, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558023506103561066, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558023506103561066, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558023506103561066, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6957438539887897780, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
@@ -2911,7 +2936,7 @@ MonoBehaviour:
   Transform_TargetArea: {fileID: 608164297}
   Button_DayMiniGame: {fileID: 452423591}
   Button_Close: {fileID: 163412006}
-  Text_Result: {fileID: 684182874}
+  Text_Result: {fileID: 0}
   _speed: 500
   _targetHeight: 120
   _closeDelay: 0.4
@@ -2987,7 +3012,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3645,7 +3670,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3926,7 +3951,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

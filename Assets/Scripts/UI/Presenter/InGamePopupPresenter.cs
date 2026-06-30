@@ -1,6 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
-using TMPro;
 using UnityEngine;
 
 public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePopup>
@@ -10,14 +9,6 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
     private InGamePopup _inGamePopup;
 
     private GameObject _prefab_menuButton;
-
-    private Sprite _sprite_background;
-
-    private Sprite _sprite_tutorialButton;
-    private Sprite _sprite_gameOptionButton;
-    private Sprite _sprite_returnMainMenuButton;
-
-    private TMP_FontAsset _fontAsset_menuFont;
 
     private string _text_tutorialButton;
     private string _text_gameOptionButton;
@@ -43,37 +34,21 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
         await LoadAssetAsync();
         LoadData();
         SetUIData();
+        SubscribeEvents();
 
         _inGamePopup.ActiveTrue();
     }
 
+    private void SubscribeEvents()
+    {
+        _inGamePopup.OnBackgroundClicked += OnClick_Background;
+    }
+
     protected async override UniTask LoadAssetAsync()
     {
-        var(prefab_menuButton,
-            sprite_background,
-            sprite_tutorialButton, sprite_gameOptionButton, sprite_returnMainMenuButton,
-            fontAsset_menuFont) = await UniTask.WhenAll
-            (
-            LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.InGamePopup.MenuButton),
-
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.InGamePopup.Background),
-
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.InGamePopup.TutorialButton),
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.InGamePopup.GameOptionButton),
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.InGamePopup.ReturnMainMenuButton),
-            
-            LoadUtil.Async.LoadFontAssetAsync(AddressUtil.Font.BaseFont)
-            );
+        GameObject prefab_menuButton = await LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.InGamePopup.MenuButton);
 
         _prefab_menuButton = prefab_menuButton;
-
-        _sprite_background = sprite_background;
-
-        _sprite_tutorialButton = sprite_tutorialButton;
-        _sprite_gameOptionButton = sprite_gameOptionButton;
-        _sprite_returnMainMenuButton = sprite_returnMainMenuButton;
-
-        _fontAsset_menuFont = fontAsset_menuFont;
     }
 
     protected override void LoadData()
@@ -93,11 +68,9 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
 
     protected override void SetUIData()
     {
-        _inGamePopup.SetBackgroundImageAndAction(_sprite_background, OnClick_Background);
-
-        _inGamePopup.SetTutorialButton(_prefab_menuButton, _sprite_tutorialButton, _text_tutorialButton, _fontAsset_menuFont, OnClick_TutorialButton);
-        _inGamePopup.SetGameOptionButton(_prefab_menuButton, _sprite_gameOptionButton, _text_gameOptionButton, _fontAsset_menuFont, OnClick_GameOptionButton);
-        _inGamePopup.SetReturnMainMenuButton(_prefab_menuButton, _sprite_returnMainMenuButton, _text_returnMainMenuButton, _fontAsset_menuFont, OnClick_ReturnMainMenuButton);
+        _inGamePopup.SetTutorialButton(_prefab_menuButton, _text_tutorialButton, OnClick_TutorialButton);
+        _inGamePopup.SetGameOptionButton(_prefab_menuButton, _text_gameOptionButton, OnClick_GameOptionButton);
+        _inGamePopup.SetReturnMainMenuButton(_prefab_menuButton, _text_returnMainMenuButton, OnClick_ReturnMainMenuButton);
     }
 
     private void OnClick_Background()

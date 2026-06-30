@@ -15,7 +15,7 @@ public static class AddressUtil
             public static class MainMenuUI
             {
                 public const string UIPrefab = "Prefab/UI/MainMenuUI/UIPrefab";
-                public const string MenuButton = "Prefab/UI/MainMenuUI/MenuButton";
+                public const string StartGameButton = "Prefab/UI/MainMenuUI/MenuButton";
             }
 
             public static class SaveSlotPopup
@@ -96,15 +96,7 @@ public static class AddressUtil
 
             public static class MainMenu
             {
-                public const string Background = "Sprite/UI/MainMenu/Background";
-
-                public const string Title = "Sprite/UI/MainMenu/Title";
-
-                public const string MenuSlotEdge = "Sprite/UI/MainMenu/MenuSlotEdge";
-                public const string MenuSlotBackground = "Sprite/UI/MainMenu/MenuSlotBackground";
-                public const string MenuSlotTitle = "Sprite/UI/MainMenu/MenuSlotTitle";
-
-                public const string StartButton = ButtonRed;
+                public const string StartGameButton = ButtonRed;
                 public const string GameOptionButton = ButtonOrange;
                 public const string ExitGameButton = ButtonBlue;
             }

@@ -6,11 +6,6 @@ using UnityEngine;
 
 public partial class UIManager
 {
-    MainMenuUIPresenter _mainMenuUIPresenter;
-    SaveDataSlotPopupPresenter _saveDataSlotPopupPresenter;
-    InGamePresenter _inGamePresenter;
-    InGamePopupPresenter _inGamePopupPresenter;
-
     InteractionPromptPresenter _interactionPromptPresenter;
     private Dictionary<Type, BasePresenter> _presenterList = new();
     private DialogueUI _dialogueUI;

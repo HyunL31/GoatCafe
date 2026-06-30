@@ -5,14 +5,6 @@ using TMPro;
 
 public class MainMenuUI : BaseUI<MainMenuUI>
 {
-    [SerializeField] private Image Image_Background;
-
-    [SerializeField] private Image Image_Title;
-
-    [SerializeField] private Image Image_MenuSlotEdge;
-    [SerializeField] private Image Image_MenuSlotBackground;
-    [SerializeField] private Image Image_MenuSlotTitle;
-
     [SerializeField] private Transform Transform_StartButton;
     [SerializeField] private Transform Transform_GameOptionButton;
     [SerializeField] private Transform Transform_ExitGameButton;
@@ -21,77 +13,84 @@ public class MainMenuUI : BaseUI<MainMenuUI>
     private NormalButton _gameOptionButton;
     private NormalButton _exitGameButton;
 
-    public void SetBackgroundImage(Sprite backgroundSprite)
+    public void SetButtonAsset(GameObject buttonPrefab, Sprite startGameButtonSprite, Sprite gameOptionButtonSprite, Sprite exitGameButtonSprite)
     {
-        Image_Background.sprite = backgroundSprite;
-    }
+        CreateButtons(buttonPrefab);
 
-    public void SetTitleImage(Sprite titleSprite)
-    {
-        Image_Title.sprite = titleSprite;
-    }
-
-    public void SetMenuSlotImage(Sprite menuSlotEdgeSprite, Sprite menuSlotBackgroundSprite, Sprite menuSlotTitleSprite = null)
-    {
-        Image_MenuSlotEdge.sprite = menuSlotEdgeSprite;
-        Image_MenuSlotBackground.sprite = menuSlotBackgroundSprite;
-
-        if (menuSlotTitleSprite == null)
+        if (_startButton != null)
         {
-            Image_MenuSlotTitle.ActiveFalse();
+            _startButton.SetButtonData(buttonSprite: startGameButtonSprite);
         }
-        else
+
+        if (_gameOptionButton != null)
         {
-            Image_MenuSlotTitle.sprite = menuSlotTitleSprite;
-            Image_MenuSlotTitle.ActiveTrue();
+            _gameOptionButton.SetButtonData(buttonSprite: gameOptionButtonSprite);
+        }
+
+        if (_exitGameButton != null)
+        {
+            _exitGameButton.SetButtonData(buttonSprite: exitGameButtonSprite);
         }
     }
-    public void SetStartButton(GameObject startButtonPrefab, Sprite startButtonSprite, string startButtonText, TMP_FontAsset startButtonFont, Action startButtonCallback)
+
+    public void SetButtonData(string startGameButtonText, string gameOptionButtonText, string exitGameButtonText)
+    {
+        if (_startButton != null)
+        {
+            _startButton.SetButtonData(buttonText: startGameButtonText);
+        }
+
+        if (_gameOptionButton != null)
+        {
+            _gameOptionButton.SetButtonData(buttonText: gameOptionButtonText);
+        }
+
+        if (_exitGameButton != null)
+        {
+            _exitGameButton.SetButtonData(buttonText: exitGameButtonText);
+        }
+    }
+
+    public void SetButtonEvent(Action startButtonEvent, Action gameOptionButtonEvent, Action exitGameButtonEvent)
     {
         if(_startButton != null)
         {
-            return;
+            _startButton.ResetButtonEvent();
+            _startButton.OnButtonClicked += startButtonEvent;
         }
 
-        NormalButton startButton = CreateButton(startButtonPrefab, Transform_StartButton, startButtonSprite, startButtonText, startButtonFont, startButtonCallback);
-        _startButton = startButton;
-    }
-
-    public void SetGameOptionButton(GameObject GameOptionButtonPrefab, Sprite GameOptionButtonSprite, string gameOptionButtonText, TMP_FontAsset gameOptionButtonFont, Action gaemOptionButtonCallback)
-    {
         if(_gameOptionButton != null)
         {
-            return;
+            _gameOptionButton.ResetButtonEvent();
+            _gameOptionButton.OnButtonClicked += gameOptionButtonEvent;
         }
 
-        NormalButton gameOptionButton = CreateButton(GameOptionButtonPrefab, Transform_GameOptionButton, GameOptionButtonSprite, gameOptionButtonText, gameOptionButtonFont, gaemOptionButtonCallback);
-        _gameOptionButton = gameOptionButton;
-    }
-
-    public void SetExitGameButton(GameObject exitGameButtonPrefab, Sprite exitGameButtonSprite, string exitGameButtonText, TMP_FontAsset exitGameButtonFont, Action exitGameButtonCallBack)
-    {
         if(_exitGameButton != null)
         {
+            _exitGameButton.ResetButtonEvent();
+            _exitGameButton.OnButtonClicked += exitGameButtonEvent;
+        }
+    }
+
+    private void CreateButtons(GameObject buttonPrefab)
+    {
+        CreateButton(ref _startButton, buttonPrefab, Transform_StartButton);
+        CreateButton(ref _gameOptionButton, buttonPrefab, Transform_GameOptionButton);
+        CreateButton(ref _exitGameButton, buttonPrefab, Transform_ExitGameButton);
+    }
+
+    private void CreateButton(ref NormalButton button, GameObject buttonPrefab, Transform buttonTransform)
+    {
+        if(button != null)
+        {
             return;
         }
 
-        NormalButton exitGameButton = CreateButton(exitGameButtonPrefab, Transform_ExitGameButton, exitGameButtonSprite, exitGameButtonText, exitGameButtonFont, exitGameButtonCallBack);
-        _exitGameButton = exitGameButton;
-    }
-
-    private NormalButton CreateButton(GameObject buttonPrefab, Transform buttonTransform, Sprite buttonSprite, string buttonText, TMP_FontAsset buttonFont, Action buttonCallback)
-    {
-        if (this.InstantiateAndGetComponent(buttonPrefab, buttonTransform, out NormalButton normalButton) == false)
+        if(this.InstantiateAndGetComponent(buttonPrefab, buttonTransform, out NormalButton normalButton) == false)
         {
-            return null;
+            return;
         }
 
-        if (normalButton.SetButtonData(buttonSprite, buttonText, buttonFont, buttonCallback) == false)
-        {
-            Destroy(normalButton.gameObject);
-            return null;
-        }
-
-        return normalButton;
+        button = normalButton;
     }
 }
