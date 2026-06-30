@@ -126,7 +126,6 @@ public class InputManager : BaseMonoManager<InputManager>
                 UIManager.Instance.CloseUI(UIType.InfoPopup);
             }
         }
-
     }
 
     void RotateCheckOnUpdate()

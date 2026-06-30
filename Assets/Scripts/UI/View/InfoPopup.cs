@@ -49,17 +49,7 @@ public class InfoPopup : BaseUI<InfoPopup>
 
         string purchasedItems = GetItemList(purchasedItemData);
 
-        if(purchasedItems == null)
-        {
-            purchasedItems = "없음";
-        }
-
         string equippedItems = GetItemList(equippedItemData);
-
-        if(equippedItems == null)
-        {
-            equippedItems = "없음";
-        }
 
         Text_PurchasedItemData.text = purchasedItems;
         Text_EquippedItemData.text = equippedItems;
@@ -67,6 +57,12 @@ public class InfoPopup : BaseUI<InfoPopup>
 
     private string GetItemList(List<string> itemData)
     {
+        if(itemData.Count == 0)
+        {
+            return "없음";
+        }
+
+
         return string.Join(", ", itemData);
     }
 

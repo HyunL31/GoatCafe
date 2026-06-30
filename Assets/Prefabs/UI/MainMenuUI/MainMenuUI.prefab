@@ -33,11 +33,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3050725255994124367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 58, y: 536.92}
-  m_SizeDelta: {x: -1014.4404, y: -536.92}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 930, y: 560}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &7340727404220983204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
   m_AspectMode: 0
-  m_AspectRatio: 1.6692898
+  m_AspectRatio: 1.6607143
 --- !u!222 &1486911739361970300
 CanvasRenderer:
   m_ObjectHideFlags: 0
