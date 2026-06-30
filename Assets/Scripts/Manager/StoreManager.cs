@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -189,13 +190,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
         {
             if (!itemData.Buy())
             {
-                NotificationManager.Instance.ShowNotification("Not Enough Coins!!!", Color.red);
+                NotificationManager.Instance.ShowNotification("코인이 부족합니다!!!", Color.red);
                 Debug.Log("[StoreManager] Coin 부족");
                 return;
             }
             else
             {
-                NotificationManager.Instance.ShowNotification($"{itemData.Name} Purchased", Color.green);
+                NotificationManager.Instance.ShowNotification($"{itemData.Name} 구매하였습니다", Color.green);
                 if(!(itemData is ConsumableItem consumable))
                 {
                     AddPurchased(itemData);
@@ -246,7 +247,12 @@ public class StoreManager : BaseMonoManager<StoreManager>
 
         if (itemData is CosmeticItem cosmeticData)
         {
-            button.transform.Find("Store_GoldIcon").gameObject.SetActive(false);
+            if (StoreSlotDic.ContainsKey(itemData))
+            {
+                StoreSlotDic[itemData]._goldImage.ActiveFalse();
+            }
+            else Debug.LogError($"[StoreManager] StoreSlotDIc에 {itemData}가 존재하지않음");
+
             if (equippedItems.Contains(cosmeticData))
             {
                 _playerAccessory.UseItem(cosmeticData);
@@ -301,6 +307,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
             if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticData))
             {
                 purchasedItems.Add(cosmeticData);
+                if (StoreSlotDic.ContainsKey(cosmeticData))
+                {
+                    StoreSlotDic[cosmeticData]._goldImage.ActiveFalse();
+                }
                 continue;
             }
 
@@ -316,8 +326,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
         {
             if (ItemDataBase.Instance.CosmeticDic.TryGetValue(itemName, out var cosmeticItem))
             {
-                equippedItems.Add(cosmeticItem);
-                _playerAccessory?.ApplyItemVisual(cosmeticItem);
+                _playerAccessory?.UseItem(cosmeticItem);
                 ChangeSlotButtonState(cosmeticItem, false);
             }
         }
@@ -396,16 +405,16 @@ public class StoreManager : BaseMonoManager<StoreManager>
         {
             if(UseInventoryItem(curItem))
             {
-                NotificationManager.Instance.ShowNotification($"{curItem.Name} Used", Color.green);
+                NotificationManager.Instance.ShowNotification($"{curItem.Name}을 사용하였습니다", Color.green);
             }
             else
             {
-                NotificationManager.Instance.ShowNotification($"You Can't Use {curItem.Name}", Color.red);
+                NotificationManager.Instance.ShowNotification($"지금 {curItem.Name}을 사용할 수 없습니다!!!", Color.red);
             }
         }
         else
         {
-            NotificationManager.Instance.ShowNotification($"You Don't Have {curItem.Name}!!!", Color.red);
+            NotificationManager.Instance.ShowNotification($"{curItem.Name}이 없습니다!!!", Color.red);
         }
     }
 

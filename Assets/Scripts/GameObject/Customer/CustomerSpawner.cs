@@ -93,7 +93,7 @@ public class CustomerSpawner : MonoBehaviour
             JerkCustomer customer = obj.GetComponent<JerkCustomer>();
             if (customer == null) return;
 
-            customer.Initialize(CustomerType.Jerk, CustomerRace.Human, 2f, 5f, 90f, Transform_Waypoints);
+            customer.Initialize(CustomerType.Jerk, customer.GetRace(), 2f, 5f, 90f, Transform_Waypoints);
             _spawnedCustomers.Add(customer);
         }
         else
@@ -103,8 +103,7 @@ public class CustomerSpawner : MonoBehaviour
             NormalCustomer customer = obj.GetComponent<NormalCustomer>();
             if (customer == null) return;
 
-            customer.Initialize(CustomerType.Normal, CustomerRace.Human, 2f, 5f, 90f, Transform_Waypoints);
-
+            customer.Initialize(CustomerType.Normal, customer.GetRace(), 2f, 5f, 90f, Transform_Waypoints);
             _spawnedCustomers.Add(customer);
             ExitAsync(customer).Forget();
         }

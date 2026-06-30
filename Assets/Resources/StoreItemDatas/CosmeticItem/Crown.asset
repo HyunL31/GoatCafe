@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Crown
   m_EditorClassIdentifier: Assembly-CSharp::CosmeticItem
   Price: 2000
-  Name: Crown
+  Name: "\uC5FC\uC18C\uC758 \uC655"
   Iconpath: 
-  ItemDesc: fefedfdfefd
+  ItemDesc: "\uC655\uC774 \uB418\uC5B4\uBCF4\uC138\uC694!!!!"
   PrefabPath: Prefabs/CostumeItem/Crown
   Slot: Head
   type: 0

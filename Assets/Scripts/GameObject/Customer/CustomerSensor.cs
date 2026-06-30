@@ -70,8 +70,11 @@ public class CustomerSensor : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        bool wasNear = _isPlayerNear;
         _isPlayerNear = false;
-        ShowUI(false);
+
+        if (wasNear)
+            ShowUI(false);
 
         if (OnStealableExit != null)
             OnStealableExit(_customer);

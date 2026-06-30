@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MiniGamePointDouble
   m_EditorClassIdentifier: Assembly-CSharp::PermanentItem
   Price: 2000
-  Name: MiniGame PointDouble
+  Name: "\uBBF8\uB2C8\uAC8C\uC784 \uC810\uC218 \uC99D\uAC00"
   Iconpath: asdf
-  ItemDesc: qwqweqweqwrqweqwrqweqwrqweqwrqweqwrqwe
+  ItemDesc: "\uBBF8\uB2C8\uAC8C\uC784\uC5D0\uC11C \uC5BB\uB294 \uC810\uC218\uAC00
+    \uB450\uBC30 \uC99D\uAC00\uD569\uB2C8\uB2E4!!"
   effectType: 1
   value: 0

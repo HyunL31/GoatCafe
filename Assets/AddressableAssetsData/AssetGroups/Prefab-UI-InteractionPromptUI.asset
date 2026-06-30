@@ -16,7 +16,7 @@ MonoBehaviour:
   m_GUID: 2f3585d4f90d3bb4a9a28823bfe3c409
   m_SerializeEntries:
   - m_GUID: 646163b157fd13045ab78bbb4c62f29e
-    m_Address: Assets/Prefabs/UI/InteractionPromptUI/InteractionPromptPrefab
+    m_Address: Prefab/UI/InteractionPromptUI/InteractionPromptPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

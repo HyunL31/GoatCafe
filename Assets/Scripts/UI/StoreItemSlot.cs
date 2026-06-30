@@ -7,6 +7,7 @@ public class StoreItemSlot : MonoBehaviour
     public ItemBase itemBaseData;
     [SerializeField] public Button _button;
     [SerializeField] public Image _itemImage;
+    [SerializeField] public Image _goldImage;
     [SerializeField] public TextMeshProUGUI _itemNameText;
     [SerializeField] public TextMeshProUGUI _itemPriceText;
 
