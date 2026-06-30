@@ -43,7 +43,19 @@ public class InfoPopupPresenter : BasePresenter<InfoPopupPresenter, InfoPopup>
 
         _coin = playerModel.Coin;
         _stolenItemCount = playerModel.StolenItemCount;
-        _purchasedItemNames = playerModel.PurchasedItemNames;
+
+        if(_purchasedItemNames == null)
+        {
+            _purchasedItemNames = new();
+        }
+
+        _purchasedItemNames.Clear();
+        
+        foreach(InventorySaveData saveData in playerModel.Inventory)
+        {
+            _purchasedItemNames.Add(saveData.ItemName);
+        }
+
         _equippedItemNames = playerModel.EquippedItemNames;
     }
 

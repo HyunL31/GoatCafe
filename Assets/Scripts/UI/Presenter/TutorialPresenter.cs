@@ -7,8 +7,6 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
     public override UIType UIType_This { get; } = UIType.TutorialPopup;
 
     private TutorialPopup _tutorialPopup;
-
-    private VideoClip[] _videoClips;
     private Vector2 _originalPos;
 
     private int _panelIndex;
@@ -71,9 +69,6 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
         _tutorialPopup.OnExitButtonClicked += OnClick_ExitButton;
         _tutorialPopup.OnPreviousButtonClicked += OnClick_PreviousButton;
         _tutorialPopup.OnNextButtonClicked += OnClick_NextButton;
-
-        _tutorialPopup.OnHoverEntered += On_HoverEntered;
-        _tutorialPopup.OnHoverExited += On_HoverExited;
     }
 
     private void UnSubscribeEvents()
@@ -82,9 +77,6 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
         _tutorialPopup.OnExitButtonClicked -= OnClick_ExitButton;
         _tutorialPopup.OnPreviousButtonClicked -= OnClick_PreviousButton;
         _tutorialPopup.OnNextButtonClicked -= OnClick_NextButton;
-
-        _tutorialPopup.OnHoverEntered -= On_HoverEntered;
-        _tutorialPopup.OnHoverExited -= On_HoverExited;
     }
 
     private void OnClick_Background()
@@ -122,16 +114,6 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
         CloseWithAnimation();
     }
 
-    private void On_HoverEntered(int index)
-    {
-        _tutorialPopup.OpenHoverPopup(_videoClips[index]);
-    }
-
-    private void On_HoverExited(int index)
-    {
-        _tutorialPopup.CloseHoverPopup();
-    }
-
     private void CloseWithAnimation()
     {
         UnSubscribeEvents();
@@ -140,7 +122,7 @@ public class TutorialPopupPresenter : BasePresenter<TutorialPopupPresenter, Tuto
 
     private void CloseUI()
     {
-        UIManager.Instance.CloseUI(UIType.TutorialPopup);
+        UIManager.Instance.CloseUI(UIType_This);
         GameManager.Instance.ResumeGame();
     }
 }

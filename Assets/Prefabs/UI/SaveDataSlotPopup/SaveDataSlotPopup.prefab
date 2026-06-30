@@ -314,8 +314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
   m_Padding:
-    m_Left: 60
-    m_Right: 60
+    m_Left: 40
+    m_Right: 40
     m_Top: 40
     m_Bottom: 40
   m_ChildAlignment: 0
@@ -470,11 +470,11 @@ RectTransform:
   - {fileID: 6915047587603641979}
   m_Father: {fileID: 2700017322659528961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.008, y: 0.018}
-  m_AnchorMax: {x: 0.992, y: 0.982}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 1}
+  m_SizeDelta: {x: -44, y: -44}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4760811292476921675
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -560,10 +560,10 @@ RectTransform:
   - {fileID: 1523516819518101376}
   m_Father: {fileID: 4209683790002991118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.008, y: 0.018}
-  m_AnchorMax: {x: 0.992, y: 0.982}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -44, y: -44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5440546974509701799
 CanvasRenderer:

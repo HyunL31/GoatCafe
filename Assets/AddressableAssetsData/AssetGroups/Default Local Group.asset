@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c71de3cc8e33ee44a8332dc706391d7
+    m_Address: Sprite/UI/SaveSlotPopup/BackgroundEdge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e15e1a78a2c0d046b1e2bee2b9d6268
     m_Address: Sprite/UI/InGameUI/DayChangePanelEdge
     m_ReadOnly: 0
