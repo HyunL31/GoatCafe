@@ -18,12 +18,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (_isJerk)
         {
-            SaveManager.Instance.CurrentPlayerModel.Coin += 100;
+            GameManager.Instance.CheckAndApplyPoint(100);
             Debug.Log("진상 스코어");
         }
         else if (_isNormal)
         {
-            SaveManager.Instance.CurrentPlayerModel.Coin -= 100;
+            GameManager.Instance.CheckAndApplyPoint(-100);
             Debug.Log("노멀 패널티");
         }
     }
