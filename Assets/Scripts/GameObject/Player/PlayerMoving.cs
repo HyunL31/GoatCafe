@@ -25,6 +25,10 @@ public class PlayerMoving : MonoBehaviour
     private CancellationTokenSource _dieToken;
     private Camera _camera;
 
+    public bool IsAttacking => _isAttack;
+
+    public event Action<bool> OnAttackStateChanged;
+
     private void Start()
     {
         SaveManager.Instance.OnSetStamina += SetStamina;
@@ -174,6 +178,7 @@ public class PlayerMoving : MonoBehaviour
         _attackToken = new CancellationTokenSource();
 
         _isAttack = true;
+        OnAttackStateChanged?.Invoke(true);
 
         Stamina -= 10;
 
@@ -193,6 +198,7 @@ public class PlayerMoving : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _attackToken.Token);
 
         _isAttack = false;
+        OnAttackStateChanged?.Invoke(false);
 
         if (Stamina <= 0)
         {

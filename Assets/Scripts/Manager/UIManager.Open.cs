@@ -42,7 +42,6 @@ public partial class UIManager
     {
         SaveDataSlotPopupPresenter saveDataSlotPopupPresenter = OpenUI<SaveDataSlotPopupPresenter, SaveDataSlotPopup>();
         saveDataSlotPopupPresenter.InitEvent(closeMainMenuCallback);
-
     }
 
     public void OpenInGameUI()
@@ -150,4 +149,13 @@ public partial class UIManager
         _interactionPromptPresenter.SetPrompt(key, actionText, target);
     }
 
+    public void CloseInteractionPrompt()
+    {
+        if (_activeUI.Contains(UIType.InteractionPromptUI) == false)
+        {
+            return;
+        }
+
+        CloseUI(UIType.InteractionPromptUI);
+    }
 }
