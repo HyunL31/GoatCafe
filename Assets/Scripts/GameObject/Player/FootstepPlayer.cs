@@ -5,7 +5,10 @@ public class FootstepPlayer : MonoBehaviour
 {
     public void PlayFootstep()
     {
-        if (GameManager.Instance.IsPlaying == false)
+        GameState state = GameManager.Instance.CurrentState;
+        bool canPlayFootstep = (state == GameState.Playing || state == GameState.Home);
+
+        if (canPlayFootstep == false)
         {
             return;
         }
