@@ -23,7 +23,7 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
     private string _text_gameOptionButton;
     private string _text_returnMainMenuButton;
 
-    private Action OnReturnMainMenuClicked;
+    public event Action OnReturnMainMenuClicked;
 
     public override void InitUI(InGamePopup ui)
     {
@@ -35,7 +35,12 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
 
     public void InitEvent(Action closeInGameUICallback)
     {
-        OnReturnMainMenuClicked = closeInGameUICallback;
+        OnReturnMainMenuClicked += closeInGameUICallback;
+    }
+
+    private void UnSubscribeEvent()
+    {
+        OnReturnMainMenuClicked = null;
     }
 
     protected async override UniTaskVoid SetUI()
@@ -120,9 +125,12 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
 
     private void OnClick_ReturnMainMenuButton()
     {
+        GameManager.Instance.OnCleanSpawn?.Invoke();
+        GameManager.Instance.OnInitializeGoat?.Invoke();
         GameManager.Instance.ReadyGame();
         UIManager.Instance.CloseUI(UIType_This);
         OnReturnMainMenuClicked?.Invoke();
+        UnSubscribeEvent();
         UIManager.Instance.OpenMainMenuUI();
     }
 }

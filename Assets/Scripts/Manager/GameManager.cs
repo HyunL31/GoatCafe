@@ -95,6 +95,9 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<int> OnUseStaminaItem;
     public event Action<float> OnUseSpeedItem;
 
+    public Action OnCleanSpawn;
+    public Action OnInitializeGoat;
+
     protected override void Awake()
     {
         base.Awake();
@@ -329,12 +332,8 @@ public class GameManager : BaseMonoManager<GameManager>
     public void ReturnTitle()
     {
         Time.timeScale = 1f;
-
-        ChangeDayPhase(DayPhase.None);
-        InitializeGame();
-
-        OnEnding?.Invoke();
-        UIManager.Instance.OpenMainMenuUI();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Goat");
+        OnInitializeGoat?.Invoke();
     }
 
     public void SetCurrentID(string nextID)
@@ -349,6 +348,11 @@ public class GameManager : BaseMonoManager<GameManager>
             point = point * 2;
         }
         SaveManager.Instance.SavePlayerPoint(point);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
