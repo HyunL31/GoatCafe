@@ -41,19 +41,27 @@ public class InfoPopupPresenter : BasePresenter<InfoPopupPresenter, InfoPopup>
     {
         PlayerModel playerModel = SaveManager.Instance.CurrentPlayerModel;
 
+
         _coin = playerModel.Coin;
         _stolenItemCount = playerModel.StolenItemCount;
 
-        if(_purchasedItemNames == null)
+        if (_purchasedItemNames == null)
         {
             _purchasedItemNames = new();
         }
 
         _purchasedItemNames.Clear();
-        
-        foreach(InventorySaveData saveData in playerModel.Inventory)
+
+        foreach (KeyValuePair<ItemBase, int> item in StoreManager.Instance.ReadOnlyInvDic)
         {
-            _purchasedItemNames.Add(saveData.ItemName);
+            string purchasedItem = item.Key.Name;
+
+            _purchasedItemNames.Add(purchasedItem + $" x{item.Value}");
+        }
+
+        foreach (ItemBase item in StoreManager.Instance.ReadOnlyPurchasedItems)
+        {
+            _purchasedItemNames.Add(item.Name);
         }
 
         _equippedItemNames = playerModel.EquippedItemNames;
