@@ -6,6 +6,7 @@ using TMPro;
 
 public class DayMinigame : BaseMonoManager<DayMinigame>
 {
+    [SerializeField] private PlayerMoving PlayerMoving;
     [SerializeField] private GameObject Popup_GoatDayMiniGame;
     [SerializeField] private RectTransform Transform_BarArea;
     [SerializeField] private RectTransform Transform_Mover;
@@ -69,6 +70,11 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
 
     public void OpenDayMiniGame(CustomerSensor customerSensor)
     {
+        if (PlayerMoving != null && PlayerMoving.IsAttacking)
+        {
+            return;
+        }
+
         CursorManager.Instance.UnlockCursor();
         _currentSensor = customerSensor;
         GameManager.Instance.PauseGame();
@@ -120,6 +126,9 @@ public class DayMinigame : BaseMonoManager<DayMinigame>
 
     private void OnClickClose()
     {
+        GameManager.Instance.ResumeGame();
+        CursorManager.Instance.LockCursor();
+
         CloseDayMiniGame();
     }
 

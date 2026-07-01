@@ -40,11 +40,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private Dictionary<GameObject, string> _existItemsReverse = new Dictionary<GameObject, string>();  // 치장 아이템 프리팹 역방향 딕셔너리
 
     private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
+    public IReadOnlyDictionary<ItemBase, int> ReadOnlyInvDic => inventoryDic;
+
     private Dictionary<KeyCode, ItemBase> keySelectDic = new Dictionary<KeyCode, ItemBase>();
 
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
 
-    public static event System.Action<PermanentItem> OnItemPurchased;
+    public static event Action<bool> EmoteItemPurchased;
     public static event Action StoreAreaEntered;
     public static event Action<float> OnPeaceItemUsed;
 
@@ -127,6 +129,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
         _exitButton.onClick.AddListener(OnClickExitBtn);
         InputManager.Instance.OnItemUseBtnPressed += HandleItemUseButtonPressed;
         ItemDataBase.Instance.LoadAllItems();
+
         InitStorePopup();
     }
 
@@ -161,6 +164,21 @@ public class StoreManager : BaseMonoManager<StoreManager>
             tempslot.Setup(item.Value).Forget();
             StoreSlotDic.Add(item.Value, tempslot);
         }
+    }
+
+    public void ResetAllStore()
+    {
+        if(StoreSlotDic != null)
+        {
+            foreach(var item in StoreSlotDic)
+            {
+                item.Value.Reset();
+            }
+        }
+
+        if (purchasedItems != null) purchasedItems.Clear();
+        if (equippedItems != null) equippedItems.Clear();
+        if (inventoryDic != null) inventoryDic.Clear();
     }
 
     public void OnClickExitBtn()
@@ -225,7 +243,7 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.PointDouble:
                     Debug.Log("PointDouble 구매됨");
-                    GameManager.Instance.PointDoubleItemPurchased();
+                    GameManager.Instance.PointDoubleItemPurchased(true);
                     break;
                 case EffectType.MiniGameEasier:
                     Debug.Log("MiniGameEasier 구매됨");
@@ -233,9 +251,8 @@ public class StoreManager : BaseMonoManager<StoreManager>
                     break;
                 case EffectType.UnlockEmote:
                     Debug.Log("UnlockEmote 구매됨");
-                    OnItemPurchased.Invoke(permanentData);
+                    EmoteItemPurchased.Invoke(true);
                     break;
-
             }
         }
 
@@ -330,6 +347,15 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 ChangeSlotButtonState(cosmeticItem, false);
             }
         }
+    }
+
+    public void InitItemEffect()
+    {
+        MiniGameManager.Instance.SetMiniGameScoreDouble(false);
+        GameManager.Instance.PointDoubleItemPurchased(false);
+        MiniGameManager.Instance.SetMiniGameEasier(false);
+        EmoteItemPurchased?.Invoke(false);
+        _playerAccessory.ClearItem();
     }
 
     private ConsumableItem GetConsumableItemByName(string name)
@@ -446,13 +472,13 @@ public class StoreManager : BaseMonoManager<StoreManager>
                 GameManager.Instance.BonusDayDurationItemPurchased(permanentData.value);
                 break;
             case EffectType.PointDouble:
-                GameManager.Instance.PointDoubleItemPurchased();
+                GameManager.Instance.PointDoubleItemPurchased(true);
                 break;
             case EffectType.MiniGameEasier:
                 MiniGameManager.Instance.SetMiniGameEasier(true);
                 break;
             case EffectType.UnlockEmote:
-                OnItemPurchased?.Invoke(permanentData);
+                EmoteItemPurchased?.Invoke(true);
                 break;
         }
     }
