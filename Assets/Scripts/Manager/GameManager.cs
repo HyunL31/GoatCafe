@@ -31,12 +31,15 @@ public enum EndingType
 public class GameManager : BaseMonoManager<GameManager>
 {
     // 300f
-    [SerializeField] private float _dayDuration = 50f;
+    [SerializeField] private float _dayDuration = 30f;
     [SerializeField] private float _nightDuration = 50f;
+    [SerializeField] private float _defaultDayDuration = 30f;
+    [SerializeField] private float _defaultNightDuration = 30f;
     [SerializeField] private int _maxDayCount = 3;
 
     [SerializeField] private int _targetCoin = 1000;
     [SerializeField] private int _targetStolenItemCount = 6;
+
 
     private float _remainDayTime;
     private GameState _beforeGameState;
@@ -361,9 +364,9 @@ public class GameManager : BaseMonoManager<GameManager>
 
     private float ex_dayDuration = 300f;  // 낮/밤 지속시간, 위에 구현되있는건 알지만 예시로 적어둔것
 
-    public void PointDoubleItemPurchased()  // StoreManager쪽에서 아이템 구매시 실행
+    public void PointDoubleItemPurchased(bool IsPurchased)  // StoreManager쪽에서 아이템 구매시 실행
     {
-        isPointDouble = true;
+        isPointDouble = IsPurchased;
     }
 
     public void BonusDayDurationItemPurchased(float bonus)  // StoreManager쪽에서 아이템 구매시 실행
@@ -391,5 +394,11 @@ public class GameManager : BaseMonoManager<GameManager>
     public void GoatSpeedBoostPurchased(float value)
     {
         OnUseSpeedItem.Invoke(value);
+    }
+
+    public void InitDuration()
+    {
+        _dayDuration = _defaultDayDuration;
+        _nightDuration = _defaultNightDuration;
     }
 }

@@ -22,7 +22,21 @@ public class StoreItemSlot : MonoBehaviour
         var tempSprite = await LoadUtil.Async.LoadSpriteAsync(itemBaseData.Iconpath);
         _itemImage.sprite = tempSprite;
 
+        _button.interactable = true;
+        _goldImage.ActiveTrue();
+
         _button.onClick.AddListener(OnClickBuyBtn);
+    }
+
+    public void Reset()
+    {
+        if (itemBaseData == null) return;
+
+        _itemNameText.text = itemBaseData.Name;
+        _itemPriceText.text = itemBaseData.Price.ToString();
+        _button.interactable = true;
+        _goldImage.ActiveTrue();
+        Debug.Log($"[StoreItemSlot] {itemBaseData.Name} - goldimage {_goldImage.gameObject.activeSelf}");
     }
 
     private void OnClickBuyBtn()

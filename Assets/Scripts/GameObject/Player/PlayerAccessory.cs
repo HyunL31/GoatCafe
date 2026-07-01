@@ -33,7 +33,7 @@ public class PlayerAccessory : MonoBehaviour
         }
     }
 
-
+    
     private void InitItem()
     {
         foreach (var item in ItemDataBase.Instance.CosmeticDic)
@@ -41,6 +41,8 @@ public class PlayerAccessory : MonoBehaviour
             SettingPrefabs(item.Value).Forget();
         }
     }
+
+
 
     public void UseItem(CosmeticItem item)
     {
@@ -127,15 +129,14 @@ public class PlayerAccessory : MonoBehaviour
         OtherAccessory?.RemoveItemVisual(item);
     }
 
-    private void ClearItem()
+    public void ClearItem()
     {
         foreach(GameObject obj in _usedSlot.Values)
         {
             obj.SetActive(false);
         }
-
-        StoreManager.Instance.ClearEquippedData();
-
+        _usedSlot.Clear();
+        _equippedItemData.Clear();
         OtherAccessory?.ClearVisualOnly();
     }
 
