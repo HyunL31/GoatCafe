@@ -28,6 +28,7 @@ public class CustomerSpawner : MonoBehaviour
         GameManager.Instance.OnDayPhaseChanged += OnDayPhaseChanged;
         GameManager.Instance.OnDayTimeChanged += OnDayTimeChanged;
         GameManager.Instance.OnCleanSpawn += CleanUpAllCustomers;
+        GameManager.Instance.OnEndingDetermined += OnEnding;
         StoreManager.OnPeaceItemUsed += ActivateJerkSuppression;
     }
 
@@ -149,6 +150,11 @@ public class CustomerSpawner : MonoBehaviour
         {
             Destroy(customer.gameObject);
         }
+    }
+
+    private void OnEnding()
+    {
+        CleanUpAllCustomers();
     }
 
     private async UniTaskVoid ExitAsync(CustomerBase customer)
