@@ -16,6 +16,7 @@ public class DayGaugeButton : BaseButton
     private void OnEnable()
     {
         GameManager.Instance.OnDayPhaseChanged += SetDayPhase;
+        SetDayPhase(GameManager.Instance.CurrentDayPhase);
     }
 
     private void OnDisable()
@@ -45,8 +46,6 @@ public class DayGaugeButton : BaseButton
         }
 
         this.ActiveTrue();
-
-        _dayPhase = "낮";
         SetButtonText();
 
         return true;

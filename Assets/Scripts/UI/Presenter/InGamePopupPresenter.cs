@@ -124,6 +124,8 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
 
     private void OnClick_ReturnMainMenuButton()
     {
+        GameManager.Instance.OnCleanSpawn?.Invoke();
+        GameManager.Instance.OnInitializeGoat?.Invoke();
         GameManager.Instance.ReadyGame();
         UIManager.Instance.CloseUI(UIType_This);
         OnReturnMainMenuClicked?.Invoke();
