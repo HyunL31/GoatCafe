@@ -31,9 +31,11 @@ public class PlayerMoving : MonoBehaviour
 
     private void Start()
     {
+        SaveManager.Instance.OnSetGoatSpeed += SetSpeed;
         SaveManager.Instance.OnSetStamina += SetStamina;
         _camera = Camera.main;
 
+        
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
         GameManager.Instance.OnUseSpeedItem += AddGoatSpeed;
         GameManager.Instance.OnMoveHome += MoveHome;
@@ -270,4 +272,11 @@ public class PlayerMoving : MonoBehaviour
     {
         Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
     }
+    
+    private void SetSpeed()
+    {
+        _walkSpeed = SaveManager.Instance.CurrentPlayerModel.WalkSpeed;
+        _runSpeed = SaveManager.Instance.CurrentPlayerModel.RunSpeed;
+    }
+
 }
