@@ -40,7 +40,7 @@ public class SaveDataButton : BaseButton
 
         SetSprite(backgroundSprite, buttonSprite, removeSprite);
         SetFont(buttonFont);
-        SetText(dayTitle, CoinTitle, staminaTitle, startButton);
+        SetText(dayTitle, CoinTitle, staminaTitle, startButton, playerModel);
 
         SetSaveData(slotname, playerModel);
         SetButton(slotname, ButtonClickedCallback);
@@ -182,9 +182,18 @@ public class SaveDataButton : BaseButton
         Text_StaminaData.font = buttonFont;
     }
 
-    private void SetText(string dayTitle, string CoinTitle, string staminaTitle, string startButton)
+    private void SetText(string dayTitle, string CoinTitle, string staminaTitle, string startButton, PlayerModel playerModel)
     {
-        Text_DayTitle.text = dayTitle;
+        if (!string.IsNullOrEmpty(playerModel.Ending))
+        {
+            Text_DayTitle.gameObject.SetActive(false);
+        }
+        else
+        {
+            Text_DayTitle.gameObject.SetActive(true);
+            Text_DayTitle.text = dayTitle;
+        }
+        
         Text_CoinTitle.text = CoinTitle;
         Text_StaminaTitle.text = staminaTitle;
 
