@@ -78,6 +78,8 @@ public class PlayerMoving : MonoBehaviour
         Stamina = 100;
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
         this.transform.position = Transform_CafePoint.transform.position;
+        Goat_Humanoid.transform.position = Vector3.zero;
+        Rigidbody_BasicGoat.transform.position = Vector3.zero;
 
         _walkSpeed = 3f;
         _runSpeed = 5f;

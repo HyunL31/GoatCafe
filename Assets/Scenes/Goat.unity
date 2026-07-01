@@ -313,15 +313,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1586882701838567642, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.554
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1586882701838567642, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.26
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 1586882701838567642, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.618
+      value: -6.338
       objectReference: {fileID: 0}
     - target: {fileID: 1775212977968266314, guid: 58b5a3aa7dac00c49804e4dd6dead1ad, type: 3}
       propertyPath: m_Layer
@@ -1865,6 +1865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _dayDuration: 50
   _nightDuration: 50
+  _defaultDayDuration: 30
+  _defaultNightDuration: 30
   _maxDayCount: 3
   _targetCoin: 1000
   _targetStolenItemCount: 6
