@@ -73,6 +73,7 @@ public class PlayerMoving : MonoBehaviour
     {
         Stamina = 100;
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
+        this.transform.position = new Vector3(0, 5f, 0);
 
         _walkSpeed = 3f;
         _runSpeed = 5f;
