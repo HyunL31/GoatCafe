@@ -30,7 +30,7 @@ public class PlayerEmote : MonoBehaviour
 
     private void OnEnable()
     {
-        StoreManager.OnItemPurchased += HandleItemPurchased;
+        StoreManager.EmoteItemPurchased += HandleItemPurchased;
     }
     private void Update()
     {
@@ -63,7 +63,7 @@ public class PlayerEmote : MonoBehaviour
 
         if (dance == DanceType.Hiphop)
         {
-            Animator_Humanoid.SetTrigger("Hiphop");   
+            Animator_Humanoid.SetTrigger("Hiphop");
         }
         else if (dance == DanceType.Samba)
         {
@@ -104,11 +104,8 @@ public class PlayerEmote : MonoBehaviour
         Goat_Humanoid.SetActive(false);
     }
 
-    private void HandleItemPurchased(PermanentItem item)
+    private void HandleItemPurchased(bool isEmoteTrue)
     {
-        if(item.effectType == EffectType.UnlockEmote)
-        {
-            isEmoteUnlocked = true;
-        }
+        isEmoteUnlocked = isEmoteTrue;
     }
 }

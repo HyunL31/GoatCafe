@@ -9,6 +9,7 @@ public class SaveManager : BaseMonoManager<SaveManager>
     public string CurrentSlotIndex { get; private set; }
     public HashSet<string> SlotIndex { get; private set; } = new HashSet<string>();
 
+    public event Action OnSetGoatSpeed;
     public Action OnSetStamina;
     public Action OnSaveClear;
 
@@ -61,18 +62,26 @@ public class SaveManager : BaseMonoManager<SaveManager>
     {
         CurrentPlayerModel = RequestLoadData(index);
 
+        OnSetStamina?.Invoke();
+        OnSetGoatSpeed?.Invoke();
+        GameManager.Instance.InitDuration();
+
         if (StoreManager.Instance != null)
         {
+            StoreManager.Instance.InitItemEffect();
             StoreManager.Instance.LoadSaveStore();
         }
 
-        OnSetStamina?.Invoke();
         Debug.Log("데이터 로드");
     }
 
     public void LoadDefaultData()
     {
         CurrentPlayerModel = GetDefaultData();
+        OnSetStamina?.Invoke();
+        OnSetGoatSpeed?.Invoke();
+        GameManager.Instance.InitDuration();
+        StoreManager.Instance.InitItemEffect();
     }
 
     // 현재 슬롯 인덱스로 시작
