@@ -95,6 +95,8 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<int> OnUseStaminaItem;
     public event Action<float> OnUseSpeedItem;
 
+    public Action OnCleanSpawn;
+
     protected override void Awake()
     {
         base.Awake();
@@ -324,11 +326,11 @@ public class GameManager : BaseMonoManager<GameManager>
     public void ReturnTitle()
     {
         Time.timeScale = 1f;
+        OnEnding?.Invoke();
 
         ChangeDayPhase(DayPhase.None);
         InitializeGame();
 
-        OnEnding?.Invoke();
         UIManager.Instance.OpenMainMenuUI();
     }
 

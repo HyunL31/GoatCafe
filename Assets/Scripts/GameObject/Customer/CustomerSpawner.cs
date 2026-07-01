@@ -27,6 +27,7 @@ public class CustomerSpawner : MonoBehaviour
         GameManager.Instance.OnGameStateChanged += OnStateChanged;
         GameManager.Instance.OnDayPhaseChanged += OnDayPhaseChanged;
         GameManager.Instance.OnDayTimeChanged += OnDayTimeChanged;
+        GameManager.Instance.OnCleanSpawn += CleanUpAllCustomers;
         StoreManager.OnPeaceItemUsed += ActivateJerkSuppression;
     }
 
