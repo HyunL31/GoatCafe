@@ -40,8 +40,10 @@ public partial class UIManager : BaseMonoManager<UIManager>
     private HashSet<UIType> _activeUI = new();
     private HashSet<UIRootType> _activeCanvas = new();
 
-    private void Start()
+    private async void Start()
     {
+        await Cysharp.Threading.Tasks.UniTask.NextFrame();
+
         OpenMainMenuUI();
     }
 
