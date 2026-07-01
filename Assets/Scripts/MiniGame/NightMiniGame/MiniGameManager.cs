@@ -189,6 +189,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
             Destroy(_currentCleanUpSensor.gameObject);
 
         CloseMiniGame();
+        isGame = false;
         GameManager.Instance.ResumeGame();
     }
 
@@ -198,6 +199,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         {
             NightMiniGamePanel.SetActive(false);
         }
+        GameManager.Instance.ResumeGame();
     }
 
     public void SetMiniGameScoreDouble(bool isDouble)

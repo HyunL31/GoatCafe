@@ -10,6 +10,7 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private PlayerAttack PlayerAttack;
     [SerializeField] private Rigidbody Rigidbody_BasicGoat;
     [SerializeField] private Transform Transform_HomePoint;
+    [SerializeField] private Transform Transform_CafePoint;
 
     public int Stamina { get; private set; }
 
@@ -25,14 +26,21 @@ public class PlayerMoving : MonoBehaviour
     private CancellationTokenSource _dieToken;
     private Camera _camera;
 
+    public bool IsAttacking => _isAttack;
+
+    public event Action<bool> OnAttackStateChanged;
+
     private void Start()
     {
+        SaveManager.Instance.OnSetGoatSpeed += SetSpeed;
         SaveManager.Instance.OnSetStamina += SetStamina;
         _camera = Camera.main;
 
+        
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
         GameManager.Instance.OnUseSpeedItem += AddGoatSpeed;
         GameManager.Instance.OnMoveHome += MoveHome;
+        GameManager.Instance.OnInitializeGoat += InitializeGoat;
     }
 
     private void Update()
@@ -69,6 +77,9 @@ public class PlayerMoving : MonoBehaviour
     {
         Stamina = 100;
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
+        this.transform.position = Transform_CafePoint.transform.position;
+        Goat_Humanoid.transform.position = Vector3.zero;
+        Rigidbody_BasicGoat.transform.position = Vector3.zero;
 
         _walkSpeed = 3f;
         _runSpeed = 5f;
@@ -175,6 +186,7 @@ public class PlayerMoving : MonoBehaviour
         _attackToken = new CancellationTokenSource();
 
         _isAttack = true;
+        OnAttackStateChanged?.Invoke(true);
 
         Stamina -= 10;
 
@@ -194,6 +206,7 @@ public class PlayerMoving : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _attackToken.Token);
 
         _isAttack = false;
+        OnAttackStateChanged?.Invoke(false);
 
         if (Stamina <= 0)
         {
@@ -264,4 +277,11 @@ public class PlayerMoving : MonoBehaviour
     {
         Stamina = SaveManager.Instance.CurrentPlayerModel.Stamina;
     }
+    
+    private void SetSpeed()
+    {
+        _walkSpeed = SaveManager.Instance.CurrentPlayerModel.WalkSpeed;
+        _runSpeed = SaveManager.Instance.CurrentPlayerModel.RunSpeed;
+    }
+
 }

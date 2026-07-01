@@ -3,6 +3,7 @@ using System;
 
 public class Trash : MonoBehaviour
 {
+    [SerializeField] private PlayerMoving PlayerMoving;
     [SerializeField] private GameObject GameObject_InteractionUI;
     [SerializeField] private Vector3 Vector3_UIOffset = new Vector3(0f, 0.5f, 0f);
 
@@ -11,35 +12,72 @@ public class Trash : MonoBehaviour
     public static event Action<Trash> OnTrashInteract;
 
     private bool _isPlayerNear = false;
-
+    private bool _isPromptVisible = false;
+    private bool _isPlayerAttacking = false;
 
     private Camera _camera;
 
-    private void Awake()
+    //private void Awake()
+    //{
+    //    _camera = Camera.main;
+    //    if (GameObject_InteractionUI != null)
+    //        GameObject_InteractionUI.transform.localPosition = Vector3_UIOffset;
+    //}
+
+    private void OnEnable()
     {
-        _camera = Camera.main;
-        if (GameObject_InteractionUI != null)
-            GameObject_InteractionUI.transform.localPosition = Vector3_UIOffset;
+        if (PlayerMoving != null)
+        {
+            PlayerMoving.OnAttackStateChanged += HandleAttackStateChanged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (PlayerMoving != null)
+        {
+            PlayerMoving.OnAttackStateChanged -= HandleAttackStateChanged;
+        }
     }
 
     private void Update()
     {
-        if (GameObject_InteractionUI != null && GameObject_InteractionUI.activeSelf)
+        if (!GameManager.Instance.IsPlaying)
         {
-            GameObject_InteractionUI.transform.LookAt(
-                GameObject_InteractionUI.transform.position + _camera.transform.rotation * Vector3.forward,
-                _camera.transform.rotation * Vector3.up
-            );
+            ShowUI(false);
+            return;
         }
 
-        if (!_isPlayerNear) return;
-        if (GameManager.Instance.CurrentDayPhase != DayPhase.Night) return;
+        if (!_isPlayerNear)
+        {
+            return;
+        }
+
+        if (_isPlayerAttacking)
+        {
+            return;
+        }
+
+        if (GameManager.Instance.CurrentDayPhase != DayPhase.Night)
+        {
+            ShowUI(false);
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
+        {
             Interact();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (PlayerMoving != null && PlayerMoving.IsAttacking)
+        {
+            ShowUI(false);
+            return;
+        }
+
         if (!other.CompareTag("Player")) return;
         if (GameManager.Instance.CurrentDayPhase != DayPhase.Night) return;
         _isPlayerNear = true;
@@ -59,8 +97,12 @@ public class Trash : MonoBehaviour
 
     private void ShowUI(bool show)
     {
-        //if (GameObject_InteractionUI == null) return;
-        //GameObject_InteractionUI.SetActive(show);
+        if (_isPromptVisible == show)
+        {
+            return;
+        }
+
+        _isPromptVisible = show;
 
         if (show)
         {
@@ -78,5 +120,35 @@ public class Trash : MonoBehaviour
         _isPlayerNear = false;
         if (OnTrashInteract != null)
             OnTrashInteract(this);
+    }
+
+    private void HandleAttackStateChanged(bool isAttacking)
+    {
+        _isPlayerAttacking = isAttacking;
+
+        if (_isPlayerAttacking)
+        {
+            ShowUI(false);
+        }
+        else
+        {
+            RefreshPrompt();
+        }
+    }
+
+    private void RefreshPrompt()
+    {
+        if (!_isPlayerNear)
+        {
+            return;
+        }
+
+        if (GameManager.Instance.CurrentDayPhase != DayPhase.Night)
+        {
+            ShowUI(false);
+            return;
+        }
+
+        ShowUI(true);
     }
 }

@@ -82,9 +82,9 @@ public class InGameUI : BaseUI<InGameUI>
 
     public void SetDayGaugeButtonDayGauge(float dayTime)
     {
-        if(_dayGaugeButton == null)
+        if (_dayGaugeButton == null)
         {
-            return; 
+            return;
         }
 
         _dayGaugeButton.ChangeGauge(dayTime);
@@ -102,7 +102,7 @@ public class InGameUI : BaseUI<InGameUI>
 
     public void OpenDayPanel(string description, string text)
     {
-        if(_dayChangePanel == null)
+        if (_dayChangePanel == null)
         {
             return;
         }
@@ -119,7 +119,7 @@ public class InGameUI : BaseUI<InGameUI>
             return;
         }
 
-        _dayChangePanel.SetText(description,text);
+        _dayChangePanel.SetText(description, text);
         _dayChangePanel.Open(_dayChangePanel.Close);
     }
 }

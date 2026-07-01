@@ -1,13 +1,13 @@
 ﻿using System;
 
 [Serializable]
-public class UIDataBase
+public class UIModelBase
 {
     public string Id;
 }
 
 [Serializable]
-public class MainMenuUIData : UIDataBase
+public class MainMenuUIModel : UIModelBase
 {
     public string MainMenuButtonPath;
 
@@ -22,7 +22,7 @@ public class MainMenuUIData : UIDataBase
 }
 
 [Serializable]
-public class InGamePopupData : UIDataBase
+public class InGamePopupData : UIModelBase
 {
     public string TutorialButton;
     public string GameOptionButton;
@@ -30,14 +30,14 @@ public class InGamePopupData : UIDataBase
 }
 
 [Serializable]
-public class TutorialPopupData : UIDataBase
+public class TutorialPopupData : UIModelBase
 {
     public string Text;
     public string PrefabPath;
 }
 
 [Serializable]
-public class TutorialPopupTextData : UIDataBase
+public class TutorialPopupTextData : UIModelBase
 {
     public string Title;
     public string Description;

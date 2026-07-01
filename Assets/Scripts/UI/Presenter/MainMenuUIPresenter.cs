@@ -68,7 +68,7 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIData, MainMenuUIPrese
 
     private void OnClick_ExitGame()
     {
-
+        GameManager.Instance.QuitGame();
     }
 
     private void On_UIExit()

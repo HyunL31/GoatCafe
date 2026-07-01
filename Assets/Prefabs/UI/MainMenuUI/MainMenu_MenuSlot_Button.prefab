@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7196310601912100751}
   - component: {fileID: 8688255411351855210}
+  - component: {fileID: 7674401052320804971}
   m_Layer: 0
   m_Name: MainMenu_MenuSlot_Button
   m_TagString: Untagged
@@ -53,6 +54,18 @@ MonoBehaviour:
   Image_Button: {fileID: 1471976476123562979}
   Text_Button: {fileID: 323692462751379267}
   IsText: 1
+--- !u!114 &7674401052320804971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423544702350771797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7008b5bb206cb4a99eb2c06efb2c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseSoundButton
 --- !u!1 &3981778412284813926
 GameObject:
   m_ObjectHideFlags: 0

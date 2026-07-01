@@ -31,12 +31,15 @@ public enum EndingType
 public class GameManager : BaseMonoManager<GameManager>
 {
     // 300f
-    [SerializeField] private float _dayDuration = 50f;
+    [SerializeField] private float _dayDuration = 30f;
     [SerializeField] private float _nightDuration = 50f;
+    [SerializeField] private float _defaultDayDuration = 30f;
+    [SerializeField] private float _defaultNightDuration = 30f;
     [SerializeField] private int _maxDayCount = 3;
 
     [SerializeField] private int _targetCoin = 1000;
     [SerializeField] private int _targetStolenItemCount = 6;
+
 
     private float _remainDayTime;
     private GameState _beforeGameState;
@@ -94,6 +97,9 @@ public class GameManager : BaseMonoManager<GameManager>
 
     public event Action<int> OnUseStaminaItem;
     public event Action<float> OnUseSpeedItem;
+
+    public Action OnCleanSpawn;
+    public Action OnInitializeGoat;
 
     protected override void Awake()
     {
@@ -191,6 +197,7 @@ public class GameManager : BaseMonoManager<GameManager>
     {
         Time.timeScale = 0f;
         ChangeGameState(GameState.Ready);
+        ChangeDayPhase(DayPhase.Day);
     }
 
     public void ClearGame()
@@ -208,6 +215,11 @@ public class GameManager : BaseMonoManager<GameManager>
         }
 
         CurrentState = gameState;
+
+        if (CurrentState != GameState.Playing)
+        {
+            UIManager.Instance.CloseInteractionPrompt();
+        }
 
         Debug.Log($"게임 상태 변경됨 > {CurrentState}");
         OnGameStateChanged?.Invoke(CurrentState);
@@ -324,12 +336,8 @@ public class GameManager : BaseMonoManager<GameManager>
     public void ReturnTitle()
     {
         Time.timeScale = 1f;
-        OnEnding?.Invoke();
-
-        ChangeDayPhase(DayPhase.None);
-        InitializeGame();
-
-        UIManager.Instance.OpenMainMenuUI();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Goat");
+        OnInitializeGoat?.Invoke();
     }
 
     public void SetCurrentID(string nextID)
@@ -346,15 +354,20 @@ public class GameManager : BaseMonoManager<GameManager>
         SaveManager.Instance.SavePlayerPoint(point);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
 
     private bool isPointDouble = false;   // true일때 보너스 점수 계산을 2배로
 
     private float ex_dayDuration = 300f;  // 낮/밤 지속시간, 위에 구현되있는건 알지만 예시로 적어둔것
 
-    public void PointDoubleItemPurchased()  // StoreManager쪽에서 아이템 구매시 실행
+    public void PointDoubleItemPurchased(bool IsPurchased)  // StoreManager쪽에서 아이템 구매시 실행
     {
-        isPointDouble = true;
+        isPointDouble = IsPurchased;
     }
 
     public void BonusDayDurationItemPurchased(float bonus)  // StoreManager쪽에서 아이템 구매시 실행
@@ -382,5 +395,11 @@ public class GameManager : BaseMonoManager<GameManager>
     public void GoatSpeedBoostPurchased(float value)
     {
         OnUseSpeedItem.Invoke(value);
+    }
+
+    public void InitDuration()
+    {
+        _dayDuration = _defaultDayDuration;
+        _nightDuration = _defaultNightDuration;
     }
 }
