@@ -10,13 +10,6 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI
 
     private GameObject _prefab_menuButton;
 
-    private Sprite _sprite_background;
-    private Sprite _sprite_title;
-
-    private Sprite _sprite_menuSlotEdge;
-    private Sprite _sprite_menuSlotBackground;
-    private Sprite _sprite_menuSlotTitle;
-
     private Sprite _sprite_startButton;
     private Sprite _sprite_gameOptionButton;
     private Sprite _sprite_exitGameButton;
@@ -45,17 +38,9 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI
 
     protected async override UniTask LoadAssetAsync()
     {
-        var (prefab_menuButton, sprite_background, sprite_title, sprite_menuSlotEdge, sprite_menuSlotBackground, sprite_menuSlotTitle, sprite_startButton, sprite_gameOptionButton, spriteExitGameButton, fontAsset_menuFont) = await UniTask.WhenAll
+        var (prefab_menuButton, sprite_startButton, sprite_gameOptionButton, spriteExitGameButton, fontAsset_menuFont) = await UniTask.WhenAll
             (
             LoadUtil.Async.LoadPrefabAsync(AddressUtil.Prefab.UI.MainMenuUI.MenuButton),
-
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.MainMenu.Background),
-
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.MainMenu.Title),
-
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.MainMenu.MenuSlotEdge),
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.MainMenu.MenuSlotBackground),
-            LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.MainMenu.MenuSlotTitle),
 
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.MainMenu.StartButton),
             LoadUtil.Async.LoadSpriteAsync(AddressUtil.Sprite.UI.MainMenu.GameOptionButton),
@@ -65,14 +50,6 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI
             );
 
         _prefab_menuButton = prefab_menuButton;
-
-        _sprite_background = sprite_background;
-
-        _sprite_title = sprite_title;
-
-        _sprite_menuSlotEdge = sprite_menuSlotEdge;
-        _sprite_menuSlotBackground = sprite_menuSlotBackground;
-        _sprite_menuSlotTitle = sprite_menuSlotTitle;
 
         _sprite_startButton = sprite_startButton;
         _sprite_gameOptionButton = sprite_gameOptionButton;
@@ -99,17 +76,9 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIPresenter, MainMenuUI
 
     protected override void SetUIData()
     {
-        _mainMenuUI.SetBackgroundImage(_sprite_background);
-
-        _mainMenuUI.SetTitleImage(_sprite_title);
-
-        _mainMenuUI.SetMenuSlotImage(_sprite_menuSlotEdge, _sprite_menuSlotBackground, _sprite_menuSlotTitle);
-
         _mainMenuUI.SetStartButton(_prefab_menuButton, _sprite_startButton, _text_startButton, _fontAsset_menuFont, OnClick_StartGame);
         _mainMenuUI.SetGameOptionButton(_prefab_menuButton, _sprite_gameOptionButton, _text_gameOptionButton, _fontAsset_menuFont, OnClick_GameOption);
         _mainMenuUI.SetExitGameButton(_prefab_menuButton, _sprite_exitGameButton, _text_exitButton, _fontAsset_menuFont, OnClick_ExitGame);
-
-        _mainMenuUI.ActiveTrue();
     }
 
     private void OnClick_StartGame()

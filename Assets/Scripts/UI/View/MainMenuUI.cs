@@ -1,18 +1,9 @@
 ﻿using UnityEngine;
 using System;
-using UnityEngine.UI;
 using TMPro;
 
 public class MainMenuUI : BaseUI<MainMenuUI>
 {
-    [SerializeField] private Image Image_Background;
-
-    [SerializeField] private Image Image_Title;
-
-    [SerializeField] private Image Image_MenuSlotEdge;
-    [SerializeField] private Image Image_MenuSlotBackground;
-    [SerializeField] private Image Image_MenuSlotTitle;
-
     [SerializeField] private Transform Transform_StartButton;
     [SerializeField] private Transform Transform_GameOptionButton;
     [SerializeField] private Transform Transform_ExitGameButton;
@@ -21,31 +12,6 @@ public class MainMenuUI : BaseUI<MainMenuUI>
     private NormalButton _gameOptionButton;
     private NormalButton _exitGameButton;
 
-    public void SetBackgroundImage(Sprite backgroundSprite)
-    {
-        Image_Background.sprite = backgroundSprite;
-    }
-
-    public void SetTitleImage(Sprite titleSprite)
-    {
-        Image_Title.sprite = titleSprite;
-    }
-
-    public void SetMenuSlotImage(Sprite menuSlotEdgeSprite, Sprite menuSlotBackgroundSprite, Sprite menuSlotTitleSprite = null)
-    {
-        Image_MenuSlotEdge.sprite = menuSlotEdgeSprite;
-        Image_MenuSlotBackground.sprite = menuSlotBackgroundSprite;
-
-        if (menuSlotTitleSprite == null)
-        {
-            Image_MenuSlotTitle.ActiveFalse();
-        }
-        else
-        {
-            Image_MenuSlotTitle.sprite = menuSlotTitleSprite;
-            Image_MenuSlotTitle.ActiveTrue();
-        }
-    }
     public void SetStartButton(GameObject startButtonPrefab, Sprite startButtonSprite, string startButtonText, TMP_FontAsset startButtonFont, Action startButtonCallback)
     {
         if(_startButton != null)

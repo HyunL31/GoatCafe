@@ -459,11 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b484b4d7398ec9d4aa2f4e015598a486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainUI
-  Image_Background: {fileID: 2008113473714342497}
-  Image_Title: {fileID: 5531661152767494841}
-  Image_MenuSlotEdge: {fileID: 938556508680620387}
-  Image_MenuSlotBackground: {fileID: 8395948792894253208}
-  Image_MenuSlotTitle: {fileID: 3786347542834703965}
   Transform_StartButton: {fileID: 4374706002801501475}
   Transform_GameOptionButton: {fileID: 4374706002801501475}
   Transform_ExitGameButton: {fileID: 4374706002801501475}
@@ -609,7 +604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bce3850febbec7c45b29c4b0bf445acb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
