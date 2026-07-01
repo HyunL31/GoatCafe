@@ -89,11 +89,13 @@ public class SaveManager : BaseMonoManager<SaveManager>
         if (HasSaveFile(index))
         {
             LoadData(index);
+            Debug.Log($"{CurrentPlayerModel.Day}, {CurrentPlayerModel.Coin}, {CurrentPlayerModel.Stamina}");
         }
         else
         {
             LoadDefaultData();
             SaveData();
+            Debug.Log($"{CurrentPlayerModel.Day}, {CurrentPlayerModel.Coin}, {CurrentPlayerModel.Stamina}");
         }
     }
 

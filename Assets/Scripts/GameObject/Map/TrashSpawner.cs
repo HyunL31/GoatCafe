@@ -18,6 +18,7 @@ public class TrashSpawner : MonoBehaviour
     private void Start()
     {
         _availableSpawnPoints = new List<Transform>(Transform_SpawnPoints);
+        GameManager.Instance.OnCleanSpawn += CleanUpAllTrash;
         GameManager.Instance.OnDayPhaseChanged += OnDayPhaseChanged;
         GameManager.Instance.OnGameStateChanged += OnStateChanged;
     }

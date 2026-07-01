@@ -1859,22 +1859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98b0a4248ac98f4088eefce55ee39a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _dayDuration: 30
-  _nightDuration: 30
+  _dayDuration: 50
+  _nightDuration: 50
   _maxDayCount: 3
   _targetCoin: 1000
   _targetStolenItemCount: 6
---- !u!114 &684182874 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7056813561754296083, guid: d76cf1bc0dbeef54594f9d8b56e3d85f, type: 3}
-  m_PrefabInstance: {fileID: 1216897121}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
 --- !u!1 &697421133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,7 +2900,7 @@ MonoBehaviour:
   Transform_TargetArea: {fileID: 608164297}
   Button_DayMiniGame: {fileID: 452423591}
   Button_Close: {fileID: 163412006}
-  Text_Result: {fileID: 684182874}
+  Text_Result: {fileID: 0}
   _speed: 500
   _targetHeight: 120
   _closeDelay: 0.4
@@ -3233,10 +3222,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2917478107150021956, guid: d61df712a54c685468d99288a0748a3d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1968445330}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61df712a54c685468d99288a0748a3d, type: 3}
 --- !u!4 &1470859899 stripped
 Transform:
@@ -3259,11 +3245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d746e4f0c818014d91bfd0c5d7282e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAccessory
---- !u!1 &1505854081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2917478107150021956, guid: d61df712a54c685468d99288a0748a3d, type: 3}
-  m_PrefabInstance: {fileID: 1470859898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1508808944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3728,22 +3709,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3758681325311261949, guid: d61df712a54c685468d99288a0748a3d, type: 3}
   m_PrefabInstance: {fileID: 1470859898}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1968445330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505854081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1611479f3ac297e4ebb816c7f8cc6950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
-  interactRange: 3
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 10485760
 --- !u!54 &2043014563 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 363448604505982727, guid: d61df712a54c685468d99288a0748a3d, type: 3}
