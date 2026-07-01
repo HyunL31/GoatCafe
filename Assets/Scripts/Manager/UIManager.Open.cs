@@ -53,6 +53,7 @@ public partial class UIManager
     {
         InGamePopupPresenter inGamePopupPresenter = OpenUI<InGamePopupPresenter, InGamePopup>();
         inGamePopupPresenter.InitEvent(closeInGameUICallback);
+
     }
 
     public void OpenGameOptionUI()

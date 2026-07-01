@@ -41,7 +41,10 @@ public class CustomerSpawner : MonoBehaviour
             _hasSpawnedToday = false;
 
             if (GameManager.Instance.IsPlaying)
+            {
+                _hasSpawnedToday = true;
                 SpawnCustomersAsync().Forget();
+            }
         }
         else if (phase == DayPhase.Night)
         {
