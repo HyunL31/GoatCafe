@@ -126,10 +126,10 @@ public class InGamePopupPresenter : BasePresenter<InGamePopupPresenter, InGamePo
     {
         GameManager.Instance.OnCleanSpawn?.Invoke();
         GameManager.Instance.OnInitializeGoat?.Invoke();
-        GameManager.Instance.ReadyGame();
         UIManager.Instance.CloseUI(UIType_This);
         OnReturnMainMenuClicked?.Invoke();
         UnSubscribeEvent();
+        GameManager.Instance.ReadyGame();
         UIManager.Instance.OpenMainMenuUI();
         StoreManager.Instance.ResetAllStore();
     }
