@@ -80,16 +80,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3207aaad7b78fdb42a9f86d2ddaf0c65
-    m_Address: Audio/SFX/UISound/Hover_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3234e7fef244d404c93a89daa22dfed2
-    m_Address: Audio/SFX/UISound/Click_4
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34d8982e9529c6140a198b71e87a0a9a
     m_Address: Audio/SFX/Customer/Hurt_2
     m_ReadOnly: 0
@@ -150,11 +140,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 644a193e0e6aed8439b1cd1a8984884c
-    m_Address: Audio/SFX/UISound/Click_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65c535c78f58a1a4e8fe0a05e73a38b8
     m_Address: Audio/SFX/Footstep/Concrete_4
     m_ReadOnly: 0
@@ -182,11 +167,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87bec7e7cf853a048a9f675efcb69629
     m_Address: Audio/SFX/UISound/Hover_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 885a5a35b0f81de4f85098e1864dd2ad
-    m_Address: Audio/SFX/UISound/Click_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -237,16 +217,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b2293027430a3a45ae9a612679836d7
     m_Address: Audio/SFX/Punch/Punch_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9e9d293b1a0a6104a8c5ee4ca0ad982a
-    m_Address: Audio/SFX/UISound/Hover_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9eb5696d380db884bbe058d38cda1d52
-    m_Address: Audio/SFX/UISound/Click_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
