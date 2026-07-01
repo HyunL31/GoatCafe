@@ -353,6 +353,11 @@ public class GameManager : BaseMonoManager<GameManager>
         SaveManager.Instance.SavePlayerPoint(point);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     // ======== StoreManager 연락부분 (마음에 안드시거나 event로 하고싶으시면 바꾸셔도됩니다) ========
 
     private bool isPointDouble = false;   // true일때 보너스 점수 계산을 2배로
