@@ -40,6 +40,10 @@ public class StoreManager : BaseMonoManager<StoreManager>
     private Dictionary<GameObject, string> _existItemsReverse = new Dictionary<GameObject, string>();  // 치장 아이템 프리팹 역방향 딕셔너리
 
     private Dictionary<ItemBase, int> inventoryDic = new Dictionary<ItemBase, int>();
+
+    public IReadOnlyDictionary<ItemBase, int> ReadOnlyInvDic => inventoryDic;
+    public IReadOnlyCollection<ItemBase> ReadOnlyPurchasedItems => purchasedItems;
+
     private Dictionary<KeyCode, ItemBase> keySelectDic = new Dictionary<KeyCode, ItemBase>();
 
     private Dictionary<ItemBase, StoreItemSlot> StoreSlotDic = new Dictionary<ItemBase, StoreItemSlot>();
