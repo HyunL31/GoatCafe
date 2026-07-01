@@ -197,6 +197,7 @@ public class GameManager : BaseMonoManager<GameManager>
     {
         Time.timeScale = 0f;
         ChangeGameState(GameState.Ready);
+        ChangeDayPhase(DayPhase.Day);
     }
 
     public void ClearGame()
