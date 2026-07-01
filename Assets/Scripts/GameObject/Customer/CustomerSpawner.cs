@@ -152,7 +152,7 @@ public class CustomerSpawner : MonoBehaviour
         }
     }
 
-    private void OnEnding()
+    private void OnEnding(EndingType endingType)
     {
         CleanUpAllCustomers();
     }
