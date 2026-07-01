@@ -10,6 +10,7 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private PlayerAttack PlayerAttack;
     [SerializeField] private Rigidbody Rigidbody_BasicGoat;
     [SerializeField] private Transform Transform_HomePoint;
+    [SerializeField] private Transform Transform_CafePoint;
 
     public int Stamina { get; private set; }
 
@@ -37,6 +38,7 @@ public class PlayerMoving : MonoBehaviour
         GameManager.Instance.OnUseStaminaItem += AddGoatStamina;
         GameManager.Instance.OnUseSpeedItem += AddGoatSpeed;
         GameManager.Instance.OnMoveHome += MoveHome;
+        GameManager.Instance.OnInitializeGoat += InitializeGoat;
     }
 
     private void Update()
@@ -73,6 +75,7 @@ public class PlayerMoving : MonoBehaviour
     {
         Stamina = 100;
         GameManager.Instance.OnChangedStamina?.Invoke(Stamina);
+        this.transform.position = Transform_CafePoint.transform.position;
 
         _walkSpeed = 3f;
         _runSpeed = 5f;
