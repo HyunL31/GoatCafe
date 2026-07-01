@@ -34,7 +34,7 @@ public class BaseSoundButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
         }
     }
 
-    private void PlayClickSound()
+    public void PlayClickSound()
     {
         int randomIndex = Random.Range(1, 5);
         string randomKey = $"Audio/SFX/UISound/Click_{randomIndex}";
