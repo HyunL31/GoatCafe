@@ -211,6 +211,11 @@ public class GameManager : BaseMonoManager<GameManager>
 
         CurrentState = gameState;
 
+        if (CurrentState != GameState.Playing)
+        {
+            UIManager.Instance.CloseInteractionPrompt();
+        }
+
         Debug.Log($"게임 상태 변경됨 > {CurrentState}");
         OnGameStateChanged?.Invoke(CurrentState);
     }

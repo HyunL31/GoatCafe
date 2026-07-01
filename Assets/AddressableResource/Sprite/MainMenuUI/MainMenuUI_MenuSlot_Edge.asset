@@ -14,7 +14,7 @@ Sprite:
     width: 672
     height: 756
   m_Offset: {x: 0, y: 0}
-  m_Border: {x: 0, y: 0, z: 0, w: 0}
+  m_Border: {x: 12, y: 12, z: 12, w: 12}
   m_PixelsToUnits: 100
   m_Pivot: {x: 0.5, y: 0.5}
   m_Extrude: 1
