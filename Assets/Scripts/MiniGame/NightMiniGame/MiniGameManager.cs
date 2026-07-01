@@ -198,6 +198,7 @@ public class MiniGameManager : BaseMonoManager<MiniGameManager>
         {
             NightMiniGamePanel.SetActive(false);
         }
+        GameManager.Instance.ResumeGame();
     }
 
     public void SetMiniGameScoreDouble(bool isDouble)
