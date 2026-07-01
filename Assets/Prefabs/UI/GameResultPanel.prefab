@@ -51,8 +51,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameResultPanel
   Text_Result: {fileID: 5100153692374841298}
+  _gameClearText: GAME CLEAR
+  _gameOverText: GAME OVER
   _gameClearColor: {r: 0, g: 0, b: 1, a: 1}
   _gameOverColor: {r: 1, g: 0, b: 0, a: 1}
+  _showDuration: 5
 --- !u!1 &6882980563129124596
 GameObject:
   m_ObjectHideFlags: 0
