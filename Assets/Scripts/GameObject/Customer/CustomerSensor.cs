@@ -35,6 +35,8 @@ public class CustomerSensor : MonoBehaviour
         {
             PlayerMoving.OnAttackStateChanged += HandleAttackStateChanged;
         }
+
+        GameManager.Instance.OnDayPhaseChanged += HandleDayPhaseChanged;
     }
 
     private void OnDisable()
@@ -42,6 +44,11 @@ public class CustomerSensor : MonoBehaviour
         if (PlayerMoving != null)
         {
             PlayerMoving.OnAttackStateChanged -= HandleAttackStateChanged;
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnDayPhaseChanged -= HandleDayPhaseChanged;
         }
     }
 
@@ -144,6 +151,11 @@ public class CustomerSensor : MonoBehaviour
 
     private void OnCleanUp()
     {
+        if (_isPlayerAttacking)
+        {
+            return;
+        }
+
         ShowUI(false);
         _isPlayerNear = false;
         if (OnCleanUpInteract != null)
@@ -157,9 +169,13 @@ public class CustomerSensor : MonoBehaviour
             return;
         }
 
+        if (_isPlayerAttacking)
+        {
+            return;
+        }
+
         ShowUI(false);
         _isPlayerNear = false;
-
         if (OnStealableInteract != null)
             OnStealableInteract(this);
     }
@@ -203,5 +219,10 @@ public class CustomerSensor : MonoBehaviour
         }
 
         ShowUI(true);
+    }
+
+    private void HandleDayPhaseChanged(DayPhase dayPhase)
+    {
+        RefreshPrompt();
     }
 }
