@@ -331,12 +331,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public void ReturnTitle()
     {
         Time.timeScale = 1f;
-        OnEnding?.Invoke();
-
-        ChangeDayPhase(DayPhase.None);
-        InitializeGame();
-
-        UIManager.Instance.OpenMainMenuUI();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Goat");
     }
 
     public void SetCurrentID(string nextID)
