@@ -96,6 +96,7 @@ public class GameManager : BaseMonoManager<GameManager>
     public event Action<float> OnUseSpeedItem;
 
     public Action OnCleanSpawn;
+    public Action OnInitializeGoat;
 
     protected override void Awake()
     {
@@ -332,6 +333,7 @@ public class GameManager : BaseMonoManager<GameManager>
     {
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Goat");
+        OnInitializeGoat?.Invoke();
     }
 
     public void SetCurrentID(string nextID)
