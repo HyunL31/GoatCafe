@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System;
-using UnityEngine.UI;
-using TMPro;
 
-public class MainMenuUI : BaseUI<MainMenuUI>
+public class MainMenuUIView : BaseUI<MainMenuUIView>
 {
     [SerializeField] private Transform Transform_StartButton;
     [SerializeField] private Transform Transform_GameOptionButton;
@@ -13,63 +11,45 @@ public class MainMenuUI : BaseUI<MainMenuUI>
     private NormalButton _gameOptionButton;
     private NormalButton _exitGameButton;
 
-    public void SetButtonAsset(GameObject buttonPrefab, Sprite startGameButtonSprite, Sprite gameOptionButtonSprite, Sprite exitGameButtonSprite)
+    public bool SetButtonAsset(GameObject buttonPrefab, Sprite startGameButtonSprite, Sprite gameOptionButtonSprite, Sprite exitGameButtonSprite)
     {
         CreateButtons(buttonPrefab);
 
-        if (_startButton != null)
+        bool isButtonCreate = true;
+        int nullButtonCount = 0;
+
+        if (_startButton == null)
         {
-            _startButton.SetButtonData(buttonSprite: startGameButtonSprite);
+            this.LogError("StartButton이 생성되지 않았습니다!!");
+            isButtonCreate = false;
+            nullButtonCount++;
         }
 
-        if (_gameOptionButton != null)
+        if (_gameOptionButton == null)
         {
-            _gameOptionButton.SetButtonData(buttonSprite: gameOptionButtonSprite);
+            this.LogError("GameOptionButton이 생성되지 않았습니다!!");
+            isButtonCreate = false;
+            nullButtonCount++;
         }
 
-        if (_exitGameButton != null)
+        if (_exitGameButton == null)
         {
-            _exitGameButton.SetButtonData(buttonSprite: exitGameButtonSprite);
-        }
-    }
-
-    public void SetButtonData(string startGameButtonText, string gameOptionButtonText, string exitGameButtonText)
-    {
-        if (_startButton != null)
-        {
-            _startButton.SetButtonData(buttonText: startGameButtonText);
+            this.LogError("ExitGameButton이 생성되지 않았습니다!!");
+            isButtonCreate = false;
+            nullButtonCount++;
         }
 
-        if (_gameOptionButton != null)
+        if (isButtonCreate == false)
         {
-            _gameOptionButton.SetButtonData(buttonText: gameOptionButtonText);
+            this.LogError($"총 {nullButtonCount}개의 버튼이 생성에 실패했습니다!!");
+            return false;
         }
 
-        if (_exitGameButton != null)
-        {
-            _exitGameButton.SetButtonData(buttonText: exitGameButtonText);
-        }
-    }
+        _startButton.SetButtonData(buttonSprite: startGameButtonSprite);
+        _gameOptionButton.SetButtonData(buttonSprite: gameOptionButtonSprite);
+        _exitGameButton.SetButtonData(buttonSprite: exitGameButtonSprite);
 
-    public void SetButtonEvent(Action startButtonEvent, Action gameOptionButtonEvent, Action exitGameButtonEvent)
-    {
-        if(_startButton != null)
-        {
-            _startButton.ResetButtonEvent();
-            _startButton.OnButtonClicked += startButtonEvent;
-        }
-
-        if(_gameOptionButton != null)
-        {
-            _gameOptionButton.ResetButtonEvent();
-            _gameOptionButton.OnButtonClicked += gameOptionButtonEvent;
-        }
-
-        if(_exitGameButton != null)
-        {
-            _exitGameButton.ResetButtonEvent();
-            _exitGameButton.OnButtonClicked += exitGameButtonEvent;
-        }
+        return true;
     }
 
     private void CreateButtons(GameObject buttonPrefab)
@@ -81,16 +61,41 @@ public class MainMenuUI : BaseUI<MainMenuUI>
 
     private void CreateButton(ref NormalButton button, GameObject buttonPrefab, Transform buttonTransform)
     {
-        if(button != null)
+        if (button != null)
         {
+            this.Log("이미 버튼이 생성되어 있는 상태입니다!!");
             return;
         }
 
-        if(this.InstantiateAndGetComponent(buttonPrefab, buttonTransform, out NormalButton normalButton) == false)
+        NormalButton normalButton = this.InstantiateAndGetComponent<NormalButton>(buttonPrefab, buttonTransform);   
+        
+        if(normalButton == null)
         {
+            this.LogError("버튼 생성에 실패했습니다!!");
             return;
         }
 
         button = normalButton;
+    }
+
+    public void SetButtonData(string startGameButtonText, string gameOptionButtonText, string exitGameButtonText)
+    {
+        _startButton.SetButtonData(buttonText: startGameButtonText);
+        _gameOptionButton.SetButtonData(buttonText: gameOptionButtonText);
+        _exitGameButton.SetButtonData(buttonText: exitGameButtonText);
+    }
+
+    public void SubscribeButtonEvent(Action startButtonEvent, Action gameOptionButtonEvent, Action exitGameButtonEvent)
+    {
+        _startButton.OnButtonClicked += startButtonEvent;
+        _gameOptionButton.OnButtonClicked += gameOptionButtonEvent;
+        _exitGameButton.OnButtonClicked += exitGameButtonEvent;
+    }
+
+    public void UnsubscribeButtonEvent()
+    {
+        _startButton.ResetButtonEvent();
+        _gameOptionButton.ResetButtonEvent();
+        _exitGameButton.ResetButtonEvent();
     }
 }

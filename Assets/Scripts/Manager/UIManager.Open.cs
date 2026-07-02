@@ -1,7 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public partial class UIManager
@@ -11,7 +10,7 @@ public partial class UIManager
     private DialogueUI _dialogueUI;
     private GameResultPanel _gameResultPanel;
 
-    public TPresenter OpenUI<TPresenter, TUI>() where TPresenter : BasePresenter<TPresenter, TUI>, new() where TUI : BaseUI<TUI>
+    public TPresenter OpenUI<TModel, TPresenter, TView>() where TModel : UIDataModel where TPresenter : BasePresenter<TModel, TPresenter, TView>, new() where TView : BaseUI<TView>
     {
         Type type = typeof(TPresenter);
         if (_presenterList.TryGetValue(type, out BasePresenter cachedPresenter) == false)
@@ -30,18 +29,18 @@ public partial class UIManager
     {
         GameManager.Instance.SetCurrentID("Opening_01");
         CursorManager.Instance.UnlockCursor();
-        OpenUI<MainMenuUIPresenter, MainMenuUI>();
+        OpenUI<MainMenuUIModel, MainMenuUIPresenter, MainMenuUIView>();
     }
 
     public void OpenSaveSlotPopup(Action closeMainMenuCallback)
     {
-        SaveDataSlotPopupPresenter saveDataSlotPopupPresenter = OpenUI<SaveDataSlotPopupPresenter, SaveDataSlotPopup>();
+        SaveDataSlotPopupPresenter saveDataSlotPopupPresenter = OpenUI<SvaeDataSlotPopupModel, SaveDataSlotPopupPresenter, SaveDataSlotPopupView>();
         saveDataSlotPopupPresenter.InitEvent(closeMainMenuCallback);
     }
 
     public void OpenInGameUI()
     {
-        OpenUI<InGamePresenter, InGameUI>();
+        OpenUI<InGameUIModel, InGamePresenter, InGameView>();
     }
 
     public void OpenInGamePopup(Action closeInGameUICallback)

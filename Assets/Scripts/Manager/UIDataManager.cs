@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class UIDataManager : BaseMonoManager<UIDataManager>
 {
-    public Dictionary<string, MainMenuUIData> MainMenuUIDataList {  get; private set; }
-    public Dictionary<string, InGamePopupData> InGamePopupDataList {  get; private set; }
-    public Dictionary<string, TutorialPopupData> TutorialPopupDataList {  get; private set; }
+    public Dictionary<string, MainMenuUIModel> MainMenuUIDataList {  get; private set; }
+    public Dictionary<string, InGamePopupModel> InGamePopupDataList {  get; private set; }
+    public Dictionary<string, TutorialPopupModel> TutorialPopupDataList {  get; private set; }
     
 
     private void Start()
@@ -30,12 +30,12 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
 
     private void LoadMainMenuUIData()
     {
-        MainMenuUIDataList = LoadData<MainMenuUIData>(DataUtil.UIData.MainMenuUI.File);
+        MainMenuUIDataList = LoadData<MainMenuUIModel>(DataUtil.UIData.MainMenuUI.File);
     }
 
     private void LoadInGamePopupData()
     {
-        InGamePopupDataList = LoadData<InGamePopupData>(DataUtil.UIData.InGamePopup.File);
+        InGamePopupDataList = LoadData<InGamePopupModel>(DataUtil.UIData.InGamePopup.File);
     }
 
     [Serializable]
@@ -44,7 +44,7 @@ public class UIDataManager : BaseMonoManager<UIDataManager>
         public List<T> m_data;
     }
 
-    private Dictionary<string, T> LoadData<T>(string path) where T : UIDataBase
+    private Dictionary<string, T> LoadData<T>(string path) where T : UIDataModel
     {
         string resourcePath = $"Json/{path}";
         TextAsset textAsset = LoadUtil.Sync.LoadTextAsset(resourcePath);

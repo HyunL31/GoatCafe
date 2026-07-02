@@ -6,21 +6,26 @@ public class BasePresenter
 
 }
 
-public abstract class BasePresenter<TUIModel, TPresenter, TUIView> : BasePresenter where TUIModel : UIDataBase where TPresenter : BasePresenter<TUIModel, TPresenter, TUIView> where TUIView : BaseUI<TUIView>
+public abstract class BasePresenter<TUIModel, TPresenter, TUIView> : BasePresenter where TUIModel : UIDataModel where TPresenter : BasePresenter<TUIModel, TPresenter, TUIView> where TUIView : BaseUI<TUIView>
 {
     public abstract UIType UIType_This { get; }
 
-    public abstract void InitUI(TUIModel uiModel, TUIView ui);
+    protected TUIModel Model { get; private set; }
+
+    protected TUIView View { get; private set; }
+
+    public virtual void InitUI(TUIModel model, TUIView view)
+    {
+        Model = model;
+        View = view;
+        SetUI().Forget();
+    }
 
     protected abstract UniTaskVoid SetUI();
 
-    protected abstract UniTask LoadAssetAsync();
+    protected abstract UniTask LoadAndSetAssetAsync();
 
     protected abstract void LoadUIData();
-
-    protected abstract void SubscribeEvents();
-
-    protected abstract void UnsubscribeEvents();
 
     protected void Log(string text)
     {

@@ -1,59 +1,45 @@
 ﻿using Cysharp.Threading.Tasks;
-using UnityEngine;
 
-public class MainMenuUIPresenter : BasePresenter<MainMenuUIData, MainMenuUIPresenter, MainMenuUI>
+public class MainMenuUIPresenter : BasePresenter<MainMenuUIModel, MainMenuUIPresenter, MainMenuUIView>
 {
     public override UIType UIType_This { get; } = UIType.MainMenuUI;
-
-    private MainMenuUI _mainMenuUI;
-    private MainMenuUIData _mainMenuData;
-
-    public override void InitUI(MainMenuUIData mainMenuUIdata, MainMenuUI mainMenuUI)
-    {
-        _mainMenuUI = mainMenuUI;
-        _mainMenuData = mainMenuUIdata;
-
-        SetUI().Forget();
-    }
+    private bool _isSetButton;
 
     protected async override UniTaskVoid SetUI()
     {
+        await LoadAndSetAssetAsync();
         LoadUIData();
-        await LoadAssetAsync();
-        SubscribeEvents();
-        _mainMenuUI.ActiveTrue();
+        SetButtonEvent();
+        View.ActiveTrue();
     }
 
-    protected override async UniTask LoadAssetAsync()
+    protected override async UniTask LoadAndSetAssetAsync()
     {
         var (prefab_menuButtons, sprite_startButtonSprite, sprite_gameOptionButtonSprite, sprite_exitButtonSprite) = await UniTask.WhenAll
             (
-            LoadUtil.Async.LoadPrefabAsync(_mainMenuData.MainMenuButtonPath),
-            LoadUtil.Async.LoadSpriteAsync(_mainMenuData.StartButtonSpritePath),
-            LoadUtil.Async.LoadSpriteAsync(_mainMenuData.GameOptionButtonSpritePath),
-            LoadUtil.Async.LoadSpriteAsync(_mainMenuData.ExitGameButtonSpritePath)
+            LoadUtil.Async.LoadPrefabAsync(Model.MainMenuButtonPrefabPath),
+            LoadUtil.Async.LoadSpriteAsync(Model.StartButtonSpritePath),
+            LoadUtil.Async.LoadSpriteAsync(Model.GameOptionButtonSpritePath),
+            LoadUtil.Async.LoadSpriteAsync(Model.ExitGameButtonSpritePath)
             );
 
-        _mainMenuUI.SetUIAsset(prefab_menuButtons, sprite_startButtonSprite, sprite_gameOptionButtonSprite, sprite_exitButtonSprite);
+        bool isSetButton = View.SetButtonAsset(prefab_menuButtons, sprite_startButtonSprite, sprite_gameOptionButtonSprite, sprite_exitButtonSprite);
+
+        _isSetButton = isSetButton;
     }
 
     protected override void LoadUIData()
     {
-        string startButtonText = _mainMenuData.StartButtonText;
-        string gameOptionButtonText = _mainMenuData.GameOptionButtonText;
-        string exitGameButtonText = _mainMenuData.ExitGameButtonText;
+        string startButtonText = Model.StartButtonText;
+        string gameOptionButtonText = Model.GameOptionButtonText;
+        string exitGameButtonText = Model.ExitGameButtonText;
 
-        _mainMenuUI.SetUIData(startButtonText, gameOptionButtonText, exitGameButtonText);
+        View.SetButtonData(startButtonText, gameOptionButtonText, exitGameButtonText);
     }
 
-    protected override void SubscribeEvents()
+    private void SetButtonEvent()
     {
-
-    }
-
-    protected override void UnsubscribeEvents()
-    {
-
+        View.SubscribeButtonEvent(OnClick_StartGame, OnClick_GameOption, OnClick_ExitGame);
     }
 
     private void OnClick_StartGame()
@@ -73,7 +59,7 @@ public class MainMenuUIPresenter : BasePresenter<MainMenuUIData, MainMenuUIPrese
 
     private void On_UIExit()
     {
-        UnsubscribeEvents();
+        View.UnsubscribeButtonEvent();
         UIManager.Instance.CloseUI(UIType_This);
     }
 }
